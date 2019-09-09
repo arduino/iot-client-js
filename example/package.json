@@ -1,0 +1,16 @@
+{
+  "name": "iot-api-example",
+  "version": "1.0.0",
+  "description": "none given",
+  "main": "main.js",
+  "dependencies": {
+    "request": "2.x",
+    "request-promise": "4.x"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
