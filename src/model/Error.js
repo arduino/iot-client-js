@@ -61,7 +61,7 @@ class Error {
                 obj['meta'] = ApiClient.convertToType(data['meta'], {'String': Object});
             }
             if (data.hasOwnProperty('status')) {
-                obj['status'] = ApiClient.convertToType(data['status'], 'String');
+                obj['status'] = ApiClient.convertToType(data['status'], 'Number');
             }
         }
         return obj;
@@ -95,8 +95,8 @@ Error.prototype['id'] = undefined;
 Error.prototype['meta'] = undefined;
 
 /**
- * the HTTP status code applicable to this problem, expressed as a string value.
- * @member {String} status
+ * the HTTP status code applicable to this problem
+ * @member {Number} status
  */
 Error.prototype['status'] = undefined;
 
