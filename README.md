@@ -1,4 +1,4 @@
-# Arduino iot-api Javscript client
+# Arduino iot-api Javascript client
 
 ## Installation
 
