@@ -337,13 +337,6 @@ class ApiClient {
         return ApiClient.convertToType(data, returnType);
     }
 
-   /**
-    * Callback function to receive the result of the operation.
-    * @callback module:ApiClient~callApiCallback
-    * @param {String} error Error message, if any.
-    * @param data The data returned by the service call.
-    * @param {String} response The complete HTTP response.
-    */
 
    /**
     * Invokes the REST service using the supplied settings and parameters.
@@ -360,12 +353,11 @@ class ApiClient {
     * @param {(String|Array|ObjectFunction)} returnType The required type to return; can be a string for simple types or the
     * constructor for a complex type.
     * @param {String} apiBasePath base path defined in the operation/path level to override the default one 
-    * @param {module:ApiClient~callApiCallback} callback The callback function.
-    * @returns {Object} The SuperAgent request object.
+    * @returns {Promise} A {@link https://www.promisejs.org/|Promise} object.
     */
     callApi(path, httpMethod, pathParams,
         queryParams, headerParams, formParams, bodyParam, authNames, contentTypes, accepts,
-        returnType, apiBasePath, callback) {
+        returnType, apiBasePath) {
 
         var url = this.buildUrl(path, pathParams, apiBasePath);
         var request = superagent(httpMethod, url);
@@ -448,25 +440,32 @@ class ApiClient {
             }
         }
 
-        request.end((error, response) => {
-            if (callback) {
-                var data = null;
-                if (!error) {
+        return new Promise((resolve, reject) => {
+            request.end((error, response) => {
+                if (error) {
+                    var err = {};
+                    err.status = response.status;
+                    err.statusText = response.statusText;
+                    err.body = response.body;
+                    err.response = response;
+                    err.error = error;
+
+                    reject(err);
+                } else {
                     try {
-                        data = this.deserialize(response, returnType);
+                        var data = this.deserialize(response, returnType);
                         if (this.enableCookies && typeof window === 'undefined'){
                             this.agent._saveCookies(response);
                         }
+
+                        resolve({data, response});
                     } catch (err) {
-                        error = err;
+                        reject(err);
                     }
                 }
-
-                callback(error, data, response);
-            }
+            });
         });
 
-        return request;
     }
 
     /**
