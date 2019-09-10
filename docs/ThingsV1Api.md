@@ -38,13 +38,12 @@ let createThingsV1Payload = new IotApi.CreateThingsV1Payload(); // CreateThingsV
 let opts = {
   'force': false // Boolean | If true, detach device from the other thing, and attach to this thing
 };
-apiInstance.thingsV1Create(createThingsV1Payload, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.thingsV1Create(createThingsV1Payload, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -89,13 +88,12 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new IotApi.ThingsV1Api();
 let id = "id_example"; // String | The id of the thing
 let thingSketch = new IotApi.ThingSketch(); // ThingSketch | ThingSketchPayload describes a sketch of a thing
-apiInstance.thingsV1CreateSketch(id, thingSketch, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.thingsV1CreateSketch(id, thingSketch).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -142,13 +140,12 @@ let id = "id_example"; // String | The id of the thing
 let opts = {
   'force': false // Boolean | If true, hard delete the thing
 };
-apiInstance.thingsV1Delete(id, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.thingsV1Delete(id, opts).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -190,13 +187,12 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new IotApi.ThingsV1Api();
 let id = "id_example"; // String | The id of the thing
-apiInstance.thingsV1DeleteSketch(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.thingsV1DeleteSketch(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -242,13 +238,12 @@ let id = "id_example"; // String | The id of the thing
 let opts = {
   'showDeleted': false // Boolean | If true, shows the soft deleted thing
 };
-apiInstance.thingsV1Layout(id, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.thingsV1Layout(id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -296,13 +291,12 @@ let opts = {
   'deviceId': "deviceId_example", // String | The id of the device you want to filter
   'showDeleted': false // Boolean | If true, shows the soft deleted things
 };
-apiInstance.thingsV1List(opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.thingsV1List(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -350,13 +344,12 @@ let id = "id_example"; // String | The id of the thing
 let opts = {
   'showDeleted': false // Boolean | If true, shows the soft deleted thing
 };
-apiInstance.thingsV1Show(id, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.thingsV1Show(id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -404,13 +397,12 @@ let thing = new IotApi.Thing(); // Thing | ThingPayload describes a thing
 let opts = {
   'force': false // Boolean | If true, detach device from the other thing, and attach to this thing
 };
-apiInstance.thingsV1Update(id, thing, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.thingsV1Update(id, thing, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -456,13 +448,12 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new IotApi.ThingsV1Api();
 let id = "id_example"; // String | The id of the thing
 let sketchId = "sketchId_example"; // String | The id of the sketch
-apiInstance.thingsV1UpdateSketch(id, sketchId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.thingsV1UpdateSketch(id, sketchId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

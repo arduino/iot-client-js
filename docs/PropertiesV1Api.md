@@ -33,13 +33,12 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new IotApi.PropertiesV1Api();
 let id = "id_example"; // String | The id of the thing
 let property = new IotApi.Property(); // Property | PropertyPayload describes a property of a thing. No field is mandatory
-apiInstance.propertiesV1Create(id, property, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.propertiesV1Create(id, property).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -87,13 +86,12 @@ let pid = "pid_example"; // String | The id of the property
 let opts = {
   'force': false // Boolean | If true, hard delete the property
 };
-apiInstance.propertiesV1Delete(id, pid, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.propertiesV1Delete(id, pid, opts).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -141,13 +139,12 @@ let id = "id_example"; // String | The id of the thing
 let opts = {
   'showDeleted': false // Boolean | If true, shows the soft deleted properties
 };
-apiInstance.propertiesV1List(id, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.propertiesV1List(id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -193,13 +190,12 @@ let apiInstance = new IotApi.PropertiesV1Api();
 let id = "id_example"; // String | The id of the thing
 let pid = "pid_example"; // String | The id of the property
 let propertyValue = new IotApi.PropertyValue(); // PropertyValue | PropertyValuePayload describes a property value
-apiInstance.propertiesV1Publish(id, pid, propertyValue, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.propertiesV1Publish(id, pid, propertyValue).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -248,13 +244,12 @@ let pid = "pid_example"; // String | The id of the property
 let opts = {
   'showDeleted': false // Boolean | If true, shows the soft deleted properties
 };
-apiInstance.propertiesV1Show(id, pid, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.propertiesV1Show(id, pid, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -301,13 +296,12 @@ let apiInstance = new IotApi.PropertiesV1Api();
 let id = "id_example"; // String | The id of the thing
 let pid = "pid_example"; // String | The id of the property
 let property = new IotApi.Property(); // Property | PropertyPayload describes a property of a thing. No field is mandatory
-apiInstance.propertiesV1Update(id, pid, property, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.propertiesV1Update(id, pid, property).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

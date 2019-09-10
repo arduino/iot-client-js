@@ -28,13 +28,12 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new IotApi.SeriesV1Api();
 let batchQueryRequestsMediaV1 = new IotApi.BatchQueryRequestsMediaV1(); // BatchQueryRequestsMediaV1 | 
-apiInstance.seriesV1BatchQuery(batchQueryRequestsMediaV1, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.seriesV1BatchQuery(batchQueryRequestsMediaV1).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -77,13 +76,12 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new IotApi.SeriesV1Api();
 let batchQueryRawRequestsMediaV1 = new IotApi.BatchQueryRawRequestsMediaV1(); // BatchQueryRawRequestsMediaV1 | 
-apiInstance.seriesV1BatchQueryRaw(batchQueryRawRequestsMediaV1, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.seriesV1BatchQueryRaw(batchQueryRawRequestsMediaV1).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

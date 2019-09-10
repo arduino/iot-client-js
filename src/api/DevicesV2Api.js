@@ -40,22 +40,14 @@ export default class DevicesV2Api {
     }
 
 
-    /**
-     * Callback function to receive the result of the devicesV2Create operation.
-     * @callback module:api/DevicesV2Api~devicesV2CreateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ArduinoDevicev2} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * create devices_v2
      * Creates a new device associated to the user.
      * @param {module:model/CreateDevicesV2Payload} createDevicesV2Payload DeviceV2 describes a device.
-     * @param {module:api/DevicesV2Api~devicesV2CreateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ArduinoDevicev2}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2} and HTTP response
      */
-    devicesV2Create(createDevicesV2Payload, callback) {
+    devicesV2CreateWithHttpInfo(createDevicesV2Payload) {
       let postBody = createDevicesV2Payload;
       // verify the required parameter 'createDevicesV2Payload' is set
       if (createDevicesV2Payload === undefined || createDevicesV2Payload === null) {
@@ -78,25 +70,31 @@ export default class DevicesV2Api {
       return this.apiClient.callApi(
         '/v2/devices', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the devicesV2Delete operation.
-     * @callback module:api/DevicesV2Api~devicesV2DeleteCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * create devices_v2
+     * Creates a new device associated to the user.
+     * @param {module:model/CreateDevicesV2Payload} createDevicesV2Payload DeviceV2 describes a device.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2}
      */
+    devicesV2Create(createDevicesV2Payload) {
+      return this.devicesV2CreateWithHttpInfo(createDevicesV2Payload)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * delete devices_v2
      * Removes a device associated to the user
      * @param {String} id The id of the device
-     * @param {module:api/DevicesV2Api~devicesV2DeleteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    devicesV2Delete(id, callback) {
+    devicesV2DeleteWithHttpInfo(id) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -120,17 +118,23 @@ export default class DevicesV2Api {
       return this.apiClient.callApi(
         '/v2/devices/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the devicesV2GetProperties operation.
-     * @callback module:api/DevicesV2Api~devicesV2GetPropertiesCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ArduinoDevicev2properties} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * delete devices_v2
+     * Removes a device associated to the user
+     * @param {String} id The id of the device
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    devicesV2Delete(id) {
+      return this.devicesV2DeleteWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * getProperties devices_v2
@@ -138,10 +142,9 @@ export default class DevicesV2Api {
      * @param {String} id The id of the device
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
-     * @param {module:api/DevicesV2Api~devicesV2GetPropertiesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ArduinoDevicev2properties}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2properties} and HTTP response
      */
-    devicesV2GetProperties(id, opts, callback) {
+    devicesV2GetPropertiesWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
@@ -167,27 +170,34 @@ export default class DevicesV2Api {
       return this.apiClient.callApi(
         '/v2/devices/{id}/properties', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the devicesV2List operation.
-     * @callback module:api/DevicesV2Api~devicesV2ListCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/ArduinoDevicev2>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * getProperties devices_v2
+     * GET device properties
+     * @param {String} id The id of the device
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2properties}
      */
+    devicesV2GetProperties(id, opts) {
+      return this.devicesV2GetPropertiesWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * list devices_v2
      * Returns the list of devices associated to the user
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.acrossUserIds If true, returns all the devices (default to false)
-     * @param {module:api/DevicesV2Api~devicesV2ListCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/ArduinoDevicev2>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoDevicev2>} and HTTP response
      */
-    devicesV2List(opts, callback) {
+    devicesV2ListWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
 
@@ -208,26 +218,32 @@ export default class DevicesV2Api {
       return this.apiClient.callApi(
         '/v2/devices', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the devicesV2Show operation.
-     * @callback module:api/DevicesV2Api~devicesV2ShowCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ArduinoDevicev2} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * list devices_v2
+     * Returns the list of devices associated to the user
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.acrossUserIds If true, returns all the devices (default to false)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoDevicev2>}
      */
+    devicesV2List(opts) {
+      return this.devicesV2ListWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * show devices_v2
      * Returns the device requested by the user
      * @param {String} id The id of the device
-     * @param {module:api/DevicesV2Api~devicesV2ShowCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ArduinoDevicev2}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2} and HTTP response
      */
-    devicesV2Show(id, callback) {
+    devicesV2ShowWithHttpInfo(id) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -251,17 +267,23 @@ export default class DevicesV2Api {
       return this.apiClient.callApi(
         '/v2/devices/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the devicesV2Timeseries operation.
-     * @callback module:api/DevicesV2Api~devicesV2TimeseriesCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ArduinoDevicev2propertyvalues} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * show devices_v2
+     * Returns the device requested by the user
+     * @param {String} id The id of the device
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2}
      */
+    devicesV2Show(id) {
+      return this.devicesV2ShowWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * timeseries devices_v2
@@ -271,10 +293,9 @@ export default class DevicesV2Api {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit The number of properties to select
      * @param {String} opts.start The time at which to start selecting properties
-     * @param {module:api/DevicesV2Api~devicesV2TimeseriesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ArduinoDevicev2propertyvalues}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2propertyvalues} and HTTP response
      */
-    devicesV2Timeseries(id, pid, opts, callback) {
+    devicesV2TimeseriesWithHttpInfo(id, pid, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
@@ -306,27 +327,36 @@ export default class DevicesV2Api {
       return this.apiClient.callApi(
         '/v2/devices/{id}/properties/{pid}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the devicesV2Update operation.
-     * @callback module:api/DevicesV2Api~devicesV2UpdateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ArduinoDevicev2} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * timeseries devices_v2
+     * GET device properties values in a range of time
+     * @param {String} id The id of the device
+     * @param {String} pid The id of the property
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit The number of properties to select
+     * @param {String} opts.start The time at which to start selecting properties
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2propertyvalues}
      */
+    devicesV2Timeseries(id, pid, opts) {
+      return this.devicesV2TimeseriesWithHttpInfo(id, pid, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * update devices_v2
      * Updates a device associated to the user
      * @param {String} id The id of the device
      * @param {module:model/Devicev2} devicev2 DeviceV2 describes a device.
-     * @param {module:api/DevicesV2Api~devicesV2UpdateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ArduinoDevicev2}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2} and HTTP response
      */
-    devicesV2Update(id, devicev2, callback) {
+    devicesV2UpdateWithHttpInfo(id, devicev2) {
       let postBody = devicev2;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -354,26 +384,33 @@ export default class DevicesV2Api {
       return this.apiClient.callApi(
         '/v2/devices/{id}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the devicesV2UpdateProperties operation.
-     * @callback module:api/DevicesV2Api~devicesV2UpdatePropertiesCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * update devices_v2
+     * Updates a device associated to the user
+     * @param {String} id The id of the device
+     * @param {module:model/Devicev2} devicev2 DeviceV2 describes a device.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2}
      */
+    devicesV2Update(id, devicev2) {
+      return this.devicesV2UpdateWithHttpInfo(id, devicev2)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * updateProperties devices_v2
      * Update device properties last values
      * @param {String} id The id of the device
      * @param {module:model/PropertiesValues} propertiesValues 
-     * @param {module:api/DevicesV2Api~devicesV2UpdatePropertiesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    devicesV2UpdateProperties(id, propertiesValues, callback) {
+    devicesV2UpdatePropertiesWithHttpInfo(id, propertiesValues) {
       let postBody = propertiesValues;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -401,8 +438,22 @@ export default class DevicesV2Api {
       return this.apiClient.callApi(
         '/v2/devices/{id}/properties', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * updateProperties devices_v2
+     * Update device properties last values
+     * @param {String} id The id of the device
+     * @param {module:model/PropertiesValues} propertiesValues 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    devicesV2UpdateProperties(id, propertiesValues) {
+      return this.devicesV2UpdatePropertiesWithHttpInfo(id, propertiesValues)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 
