@@ -39,13 +39,6 @@ export default class ThingsV1Api {
     }
 
 
-    /**
-     * Callback function to receive the result of the thingsV1Create operation.
-     * @callback module:api/ThingsV1Api~thingsV1CreateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ArduinoThing} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * create things_v1
@@ -53,10 +46,9 @@ export default class ThingsV1Api {
      * @param {module:model/CreateThingsV1Payload} createThingsV1Payload ThingPayload describes a thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing (default to false)
-     * @param {module:api/ThingsV1Api~thingsV1CreateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ArduinoThing}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
-    thingsV1Create(createThingsV1Payload, opts, callback) {
+    thingsV1CreateWithHttpInfo(createThingsV1Payload, opts) {
       opts = opts || {};
       let postBody = createThingsV1Payload;
       // verify the required parameter 'createThingsV1Payload' is set
@@ -81,27 +73,34 @@ export default class ThingsV1Api {
       return this.apiClient.callApi(
         '/v1/things', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the thingsV1CreateSketch operation.
-     * @callback module:api/ThingsV1Api~thingsV1CreateSketchCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ArduinoThing} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * create things_v1
+     * Creates a new thing associated to the user
+     * @param {module:model/CreateThingsV1Payload} createThingsV1Payload ThingPayload describes a thing
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing (default to false)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
+    thingsV1Create(createThingsV1Payload, opts) {
+      return this.thingsV1CreateWithHttpInfo(createThingsV1Payload, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * createSketch things_v1
      * Creates a new sketch thing associated to the thing
      * @param {String} id The id of the thing
      * @param {module:model/ThingSketch} thingSketch ThingSketchPayload describes a sketch of a thing
-     * @param {module:api/ThingsV1Api~thingsV1CreateSketchCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ArduinoThing}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
-    thingsV1CreateSketch(id, thingSketch, callback) {
+    thingsV1CreateSketchWithHttpInfo(id, thingSketch) {
       let postBody = thingSketch;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -129,17 +128,24 @@ export default class ThingsV1Api {
       return this.apiClient.callApi(
         '/v1/things/{id}/sketch', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the thingsV1Delete operation.
-     * @callback module:api/ThingsV1Api~thingsV1DeleteCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * createSketch things_v1
+     * Creates a new sketch thing associated to the thing
+     * @param {String} id The id of the thing
+     * @param {module:model/ThingSketch} thingSketch ThingSketchPayload describes a sketch of a thing
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
+    thingsV1CreateSketch(id, thingSketch) {
+      return this.thingsV1CreateSketchWithHttpInfo(id, thingSketch)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * delete things_v1
@@ -147,9 +153,9 @@ export default class ThingsV1Api {
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, hard delete the thing (default to false)
-     * @param {module:api/ThingsV1Api~thingsV1DeleteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    thingsV1Delete(id, opts, callback) {
+    thingsV1DeleteWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
@@ -175,25 +181,32 @@ export default class ThingsV1Api {
       return this.apiClient.callApi(
         '/v1/things/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the thingsV1DeleteSketch operation.
-     * @callback module:api/ThingsV1Api~thingsV1DeleteSketchCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ArduinoThing} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * delete things_v1
+     * Removes a thing associated to the user
+     * @param {String} id The id of the thing
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.force If true, hard delete the thing (default to false)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    thingsV1Delete(id, opts) {
+      return this.thingsV1DeleteWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * deleteSketch things_v1
      * @param {String} id The id of the thing
-     * @param {module:api/ThingsV1Api~thingsV1DeleteSketchCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ArduinoThing}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
-    thingsV1DeleteSketch(id, callback) {
+    thingsV1DeleteSketchWithHttpInfo(id) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -217,17 +230,22 @@ export default class ThingsV1Api {
       return this.apiClient.callApi(
         '/v1/things/{id}/sketch', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the thingsV1Layout operation.
-     * @callback module:api/ThingsV1Api~thingsV1LayoutCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ArduinoThinglayout} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * deleteSketch things_v1
+     * @param {String} id The id of the thing
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
+    thingsV1DeleteSketch(id) {
+      return this.thingsV1DeleteSketchWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * layout things_v1
@@ -235,10 +253,9 @@ export default class ThingsV1Api {
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.showDeleted If true, shows the soft deleted thing (default to false)
-     * @param {module:api/ThingsV1Api~thingsV1LayoutCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ArduinoThinglayout}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThinglayout} and HTTP response
      */
-    thingsV1Layout(id, opts, callback) {
+    thingsV1LayoutWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
@@ -264,17 +281,25 @@ export default class ThingsV1Api {
       return this.apiClient.callApi(
         '/v1/things/{id}/layout', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the thingsV1List operation.
-     * @callback module:api/ThingsV1Api~thingsV1ListCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/ArduinoThing>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * layout things_v1
+     * Returns the thing requested by the user, without last values data
+     * @param {String} id The id of the thing
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted thing (default to false)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThinglayout}
      */
+    thingsV1Layout(id, opts) {
+      return this.thingsV1LayoutWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * list things_v1
@@ -283,10 +308,9 @@ export default class ThingsV1Api {
      * @param {Boolean} opts.acrossUserIds If true, returns all the things (default to false)
      * @param {String} opts.deviceId The id of the device you want to filter
      * @param {Boolean} opts.showDeleted If true, shows the soft deleted things (default to false)
-     * @param {module:api/ThingsV1Api~thingsV1ListCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/ArduinoThing>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoThing>} and HTTP response
      */
-    thingsV1List(opts, callback) {
+    thingsV1ListWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
 
@@ -309,17 +333,26 @@ export default class ThingsV1Api {
       return this.apiClient.callApi(
         '/v1/things', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the thingsV1Show operation.
-     * @callback module:api/ThingsV1Api~thingsV1ShowCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ArduinoThing} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * list things_v1
+     * Returns the list of things associated to the user
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.acrossUserIds If true, returns all the things (default to false)
+     * @param {String} opts.deviceId The id of the device you want to filter
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted things (default to false)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoThing>}
      */
+    thingsV1List(opts) {
+      return this.thingsV1ListWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * show things_v1
@@ -327,10 +360,9 @@ export default class ThingsV1Api {
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.showDeleted If true, shows the soft deleted thing (default to false)
-     * @param {module:api/ThingsV1Api~thingsV1ShowCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ArduinoThing}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
-    thingsV1Show(id, opts, callback) {
+    thingsV1ShowWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
@@ -356,17 +388,25 @@ export default class ThingsV1Api {
       return this.apiClient.callApi(
         '/v1/things/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the thingsV1Update operation.
-     * @callback module:api/ThingsV1Api~thingsV1UpdateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ArduinoThing} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * show things_v1
+     * Returns the thing requested by the user
+     * @param {String} id The id of the thing
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted thing (default to false)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
+    thingsV1Show(id, opts) {
+      return this.thingsV1ShowWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * update things_v1
@@ -375,10 +415,9 @@ export default class ThingsV1Api {
      * @param {module:model/Thing} thing ThingPayload describes a thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing (default to false)
-     * @param {module:api/ThingsV1Api~thingsV1UpdateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ArduinoThing}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
-    thingsV1Update(id, thing, opts, callback) {
+    thingsV1UpdateWithHttpInfo(id, thing, opts) {
       opts = opts || {};
       let postBody = thing;
       // verify the required parameter 'id' is set
@@ -408,27 +447,35 @@ export default class ThingsV1Api {
       return this.apiClient.callApi(
         '/v1/things/{id}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the thingsV1UpdateSketch operation.
-     * @callback module:api/ThingsV1Api~thingsV1UpdateSketchCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ArduinoThing} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * update things_v1
+     * Updates a thing associated to the user
+     * @param {String} id The id of the thing
+     * @param {module:model/Thing} thing ThingPayload describes a thing
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing (default to false)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
+    thingsV1Update(id, thing, opts) {
+      return this.thingsV1UpdateWithHttpInfo(id, thing, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * updateSketch things_v1
      * Update an existing thing sketch
      * @param {String} id The id of the thing
      * @param {String} sketchId The id of the sketch
-     * @param {module:api/ThingsV1Api~thingsV1UpdateSketchCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ArduinoThing}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
-    thingsV1UpdateSketch(id, sketchId, callback) {
+    thingsV1UpdateSketchWithHttpInfo(id, sketchId) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -457,8 +504,22 @@ export default class ThingsV1Api {
       return this.apiClient.callApi(
         '/v1/things/{id}/sketch/{sketchId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * updateSketch things_v1
+     * Update an existing thing sketch
+     * @param {String} id The id of the thing
+     * @param {String} sketchId The id of the sketch
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
+     */
+    thingsV1UpdateSketch(id, sketchId) {
+      return this.thingsV1UpdateSketchWithHttpInfo(id, sketchId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

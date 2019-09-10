@@ -38,22 +38,14 @@ export default class SeriesV1Api {
     }
 
 
-    /**
-     * Callback function to receive the result of the seriesV1BatchQuery operation.
-     * @callback module:api/SeriesV1Api~seriesV1BatchQueryCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ArduinoSeriesBatch} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * batch_query series_v1
      * Returns the batch of time-series data
      * @param {module:model/BatchQueryRequestsMediaV1} batchQueryRequestsMediaV1 
-     * @param {module:api/SeriesV1Api~seriesV1BatchQueryCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ArduinoSeriesBatch}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoSeriesBatch} and HTTP response
      */
-    seriesV1BatchQuery(batchQueryRequestsMediaV1, callback) {
+    seriesV1BatchQueryWithHttpInfo(batchQueryRequestsMediaV1) {
       let postBody = batchQueryRequestsMediaV1;
       // verify the required parameter 'batchQueryRequestsMediaV1' is set
       if (batchQueryRequestsMediaV1 === undefined || batchQueryRequestsMediaV1 === null) {
@@ -76,26 +68,31 @@ export default class SeriesV1Api {
       return this.apiClient.callApi(
         '/v1/series/batch_query', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the seriesV1BatchQueryRaw operation.
-     * @callback module:api/SeriesV1Api~seriesV1BatchQueryRawCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ArduinoSeriesRawBatch} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * batch_query series_v1
+     * Returns the batch of time-series data
+     * @param {module:model/BatchQueryRequestsMediaV1} batchQueryRequestsMediaV1 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoSeriesBatch}
      */
+    seriesV1BatchQuery(batchQueryRequestsMediaV1) {
+      return this.seriesV1BatchQueryWithHttpInfo(batchQueryRequestsMediaV1)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * batch_query_raw series_v1
      * Returns the batch of time-series data raw
      * @param {module:model/BatchQueryRawRequestsMediaV1} batchQueryRawRequestsMediaV1 
-     * @param {module:api/SeriesV1Api~seriesV1BatchQueryRawCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ArduinoSeriesRawBatch}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoSeriesRawBatch} and HTTP response
      */
-    seriesV1BatchQueryRaw(batchQueryRawRequestsMediaV1, callback) {
+    seriesV1BatchQueryRawWithHttpInfo(batchQueryRawRequestsMediaV1) {
       let postBody = batchQueryRawRequestsMediaV1;
       // verify the required parameter 'batchQueryRawRequestsMediaV1' is set
       if (batchQueryRawRequestsMediaV1 === undefined || batchQueryRawRequestsMediaV1 === null) {
@@ -118,8 +115,21 @@ export default class SeriesV1Api {
       return this.apiClient.callApi(
         '/v1/series/batch_query_raw', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * batch_query_raw series_v1
+     * Returns the batch of time-series data raw
+     * @param {module:model/BatchQueryRawRequestsMediaV1} batchQueryRawRequestsMediaV1 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoSeriesRawBatch}
+     */
+    seriesV1BatchQueryRaw(batchQueryRawRequestsMediaV1) {
+      return this.seriesV1BatchQueryRawWithHttpInfo(batchQueryRawRequestsMediaV1)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

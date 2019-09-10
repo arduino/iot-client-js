@@ -37,23 +37,15 @@ export default class PropertiesV1Api {
     }
 
 
-    /**
-     * Callback function to receive the result of the propertiesV1Create operation.
-     * @callback module:api/PropertiesV1Api~propertiesV1CreateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ArduinoProperty} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * create properties_v1
      * Creates a new property associated to a thing
      * @param {String} id The id of the thing
      * @param {module:model/Property} property PropertyPayload describes a property of a thing. No field is mandatory
-     * @param {module:api/PropertiesV1Api~propertiesV1CreateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ArduinoProperty}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoProperty} and HTTP response
      */
-    propertiesV1Create(id, property, callback) {
+    propertiesV1CreateWithHttpInfo(id, property) {
       let postBody = property;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -81,17 +73,24 @@ export default class PropertiesV1Api {
       return this.apiClient.callApi(
         '/v1/things/{id}/properties', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the propertiesV1Delete operation.
-     * @callback module:api/PropertiesV1Api~propertiesV1DeleteCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * create properties_v1
+     * Creates a new property associated to a thing
+     * @param {String} id The id of the thing
+     * @param {module:model/Property} property PropertyPayload describes a property of a thing. No field is mandatory
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoProperty}
      */
+    propertiesV1Create(id, property) {
+      return this.propertiesV1CreateWithHttpInfo(id, property)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * delete properties_v1
@@ -100,9 +99,9 @@ export default class PropertiesV1Api {
      * @param {String} pid The id of the property
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, hard delete the property (default to false)
-     * @param {module:api/PropertiesV1Api~propertiesV1DeleteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    propertiesV1Delete(id, pid, opts, callback) {
+    propertiesV1DeleteWithHttpInfo(id, pid, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
@@ -133,17 +132,26 @@ export default class PropertiesV1Api {
       return this.apiClient.callApi(
         '/v1/things/{id}/properties/{pid}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the propertiesV1List operation.
-     * @callback module:api/PropertiesV1Api~propertiesV1ListCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/ArduinoProperty>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * delete properties_v1
+     * Removes a property associated to a thing
+     * @param {String} id The id of the thing
+     * @param {String} pid The id of the property
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.force If true, hard delete the property (default to false)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    propertiesV1Delete(id, pid, opts) {
+      return this.propertiesV1DeleteWithHttpInfo(id, pid, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * list properties_v1
@@ -151,10 +159,9 @@ export default class PropertiesV1Api {
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
-     * @param {module:api/PropertiesV1Api~propertiesV1ListCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/ArduinoProperty>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoProperty>} and HTTP response
      */
-    propertiesV1List(id, opts, callback) {
+    propertiesV1ListWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
@@ -180,17 +187,25 @@ export default class PropertiesV1Api {
       return this.apiClient.callApi(
         '/v1/things/{id}/properties', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the propertiesV1Publish operation.
-     * @callback module:api/PropertiesV1Api~propertiesV1PublishCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * list properties_v1
+     * Returns the list of properties associated to the thing
+     * @param {String} id The id of the thing
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoProperty>}
      */
+    propertiesV1List(id, opts) {
+      return this.propertiesV1ListWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * publish properties_v1
@@ -198,9 +213,9 @@ export default class PropertiesV1Api {
      * @param {String} id The id of the thing
      * @param {String} pid The id of the property
      * @param {module:model/PropertyValue} propertyValue PropertyValuePayload describes a property value
-     * @param {module:api/PropertiesV1Api~propertiesV1PublishCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    propertiesV1Publish(id, pid, propertyValue, callback) {
+    propertiesV1PublishWithHttpInfo(id, pid, propertyValue) {
       let postBody = propertyValue;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -233,17 +248,25 @@ export default class PropertiesV1Api {
       return this.apiClient.callApi(
         '/v1/things/{id}/properties/{pid}/publish', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the propertiesV1Show operation.
-     * @callback module:api/PropertiesV1Api~propertiesV1ShowCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ArduinoProperty} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * publish properties_v1
+     * Publish a property value to MQTT
+     * @param {String} id The id of the thing
+     * @param {String} pid The id of the property
+     * @param {module:model/PropertyValue} propertyValue PropertyValuePayload describes a property value
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    propertiesV1Publish(id, pid, propertyValue) {
+      return this.propertiesV1PublishWithHttpInfo(id, pid, propertyValue)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * show properties_v1
@@ -252,10 +275,9 @@ export default class PropertiesV1Api {
      * @param {String} pid The id of the property
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
-     * @param {module:api/PropertiesV1Api~propertiesV1ShowCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ArduinoProperty}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoProperty} and HTTP response
      */
-    propertiesV1Show(id, pid, opts, callback) {
+    propertiesV1ShowWithHttpInfo(id, pid, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
@@ -286,17 +308,26 @@ export default class PropertiesV1Api {
       return this.apiClient.callApi(
         '/v1/things/{id}/properties/{pid}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the propertiesV1Update operation.
-     * @callback module:api/PropertiesV1Api~propertiesV1UpdateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ArduinoProperty} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * show properties_v1
+     * Returns the property requested by the user
+     * @param {String} id The id of the thing
+     * @param {String} pid The id of the property
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoProperty}
      */
+    propertiesV1Show(id, pid, opts) {
+      return this.propertiesV1ShowWithHttpInfo(id, pid, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * update properties_v1
@@ -304,10 +335,9 @@ export default class PropertiesV1Api {
      * @param {String} id The id of the thing
      * @param {String} pid The id of the property
      * @param {module:model/Property} property PropertyPayload describes a property of a thing. No field is mandatory
-     * @param {module:api/PropertiesV1Api~propertiesV1UpdateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ArduinoProperty}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoProperty} and HTTP response
      */
-    propertiesV1Update(id, pid, property, callback) {
+    propertiesV1UpdateWithHttpInfo(id, pid, property) {
       let postBody = property;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -340,8 +370,23 @@ export default class PropertiesV1Api {
       return this.apiClient.callApi(
         '/v1/things/{id}/properties/{pid}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * update properties_v1
+     * Updates a property associated to a thing
+     * @param {String} id The id of the thing
+     * @param {String} pid The id of the property
+     * @param {module:model/Property} property PropertyPayload describes a property of a thing. No field is mandatory
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoProperty}
+     */
+    propertiesV1Update(id, pid, property) {
+      return this.propertiesV1UpdateWithHttpInfo(id, pid, property)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

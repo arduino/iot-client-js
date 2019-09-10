@@ -34,13 +34,12 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new IotApi.DevicesV2Api();
 let createDevicesV2Payload = new IotApi.CreateDevicesV2Payload(); // CreateDevicesV2Payload | DeviceV2 describes a device.
-apiInstance.devicesV2Create(createDevicesV2Payload, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.devicesV2Create(createDevicesV2Payload).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -83,13 +82,12 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new IotApi.DevicesV2Api();
 let id = "id_example"; // String | The id of the device
-apiInstance.devicesV2Delete(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.devicesV2Delete(id).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -135,13 +133,12 @@ let id = "id_example"; // String | The id of the device
 let opts = {
   'showDeleted': false // Boolean | If true, shows the soft deleted properties
 };
-apiInstance.devicesV2GetProperties(id, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.devicesV2GetProperties(id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -187,13 +184,12 @@ let apiInstance = new IotApi.DevicesV2Api();
 let opts = {
   'acrossUserIds': false // Boolean | If true, returns all the devices
 };
-apiInstance.devicesV2List(opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.devicesV2List(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -236,13 +232,12 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new IotApi.DevicesV2Api();
 let id = "id_example"; // String | The id of the device
-apiInstance.devicesV2Show(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.devicesV2Show(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -290,13 +285,12 @@ let opts = {
   'limit': 56, // Number | The number of properties to select
   'start': "start_example" // String | The time at which to start selecting properties
 };
-apiInstance.devicesV2Timeseries(id, pid, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.devicesV2Timeseries(id, pid, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -343,13 +337,12 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new IotApi.DevicesV2Api();
 let id = "id_example"; // String | The id of the device
 let devicev2 = new IotApi.Devicev2(); // Devicev2 | DeviceV2 describes a device.
-apiInstance.devicesV2Update(id, devicev2, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.devicesV2Update(id, devicev2).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -394,13 +387,12 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new IotApi.DevicesV2Api();
 let id = "id_example"; // String | The id of the device
 let propertiesValues = new IotApi.PropertiesValues(); // PropertiesValues | 
-apiInstance.devicesV2UpdateProperties(id, propertiesValues, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.devicesV2UpdateProperties(id, propertiesValues).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
