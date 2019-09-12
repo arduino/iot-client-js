@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**propertiesV1Create**](PropertiesV1Api.md#propertiesV1Create) | **PUT** /v1/things/{id}/properties | create properties_v1
 [**propertiesV1Delete**](PropertiesV1Api.md#propertiesV1Delete) | **DELETE** /v1/things/{id}/properties/{pid} | delete properties_v1
 [**propertiesV1List**](PropertiesV1Api.md#propertiesV1List) | **GET** /v1/things/{id}/properties | list properties_v1
-[**propertiesV1Publish**](PropertiesV1Api.md#propertiesV1Publish) | **PUT** /v1/things/{id}/properties/{pid}/publish | publish properties_v1
+[**propertiesV1Send**](PropertiesV1Api.md#propertiesV1Send) | **PUT** /v1/things/{id}/properties/{pid}/send | send properties_v1
 [**propertiesV1Show**](PropertiesV1Api.md#propertiesV1Show) | **GET** /v1/things/{id}/properties/{pid} | show properties_v1
 [**propertiesV1Update**](PropertiesV1Api.md#propertiesV1Update) | **POST** /v1/things/{id}/properties/{pid} | update properties_v1
 
@@ -169,13 +169,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/vnd.arduino.property+json; type=collection, application/vnd.goa.error+json
 
 
-## propertiesV1Publish
+## propertiesV1Send
 
-> propertiesV1Publish(id, pid, propertyValue)
+> propertiesV1Send(id, pid, propertyStringValue)
 
-publish properties_v1
+send properties_v1
 
-Publish a property value to MQTT
+Publish a property value to MQTT, as string
 
 ### Example
 
@@ -189,8 +189,8 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new IotApi.PropertiesV1Api();
 let id = "id_example"; // String | The id of the thing
 let pid = "pid_example"; // String | The id of the property
-let propertyValue = new IotApi.PropertyValue(); // PropertyValue | PropertyValuePayload describes a property value
-apiInstance.propertiesV1Publish(id, pid, propertyValue).then(() => {
+let propertyStringValue = new IotApi.PropertyStringValue(); // PropertyStringValue | PropertyStringValuePayload describes a property value
+apiInstance.propertiesV1Send(id, pid, propertyStringValue).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the thing | 
  **pid** | **String**| The id of the property | 
- **propertyValue** | [**PropertyValue**](PropertyValue.md)| PropertyValuePayload describes a property value | 
+ **propertyStringValue** | [**PropertyStringValue**](PropertyStringValue.md)| PropertyStringValuePayload describes a property value | 
 
 ### Return type
 

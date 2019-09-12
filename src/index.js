@@ -33,7 +33,6 @@ import BatchQueryRawRequestsMediaV1 from './model/BatchQueryRawRequestsMediaV1';
 import BatchQueryRawResponseSeriesMediaV1 from './model/BatchQueryRawResponseSeriesMediaV1';
 import BatchQueryRequestMediaV1 from './model/BatchQueryRequestMediaV1';
 import BatchQueryRequestsMediaV1 from './model/BatchQueryRequestsMediaV1';
-import BatchQueryResponseSeriesMediaV1 from './model/BatchQueryResponseSeriesMediaV1';
 import CreateDevicesV2Payload from './model/CreateDevicesV2Payload';
 import CreateThingsV1Payload from './model/CreateThingsV1Payload';
 import Devicev2 from './model/Devicev2';
@@ -41,7 +40,7 @@ import Error from './model/Error';
 import PropertiesValue from './model/PropertiesValue';
 import PropertiesValues from './model/PropertiesValues';
 import Property from './model/Property';
-import PropertyValue from './model/PropertyValue';
+import PropertyStringValue from './model/PropertyStringValue';
 import Thing from './model/Thing';
 import ThingSketch from './model/ThingSketch';
 import DevicesV2Api from './api/DevicesV2Api';
@@ -209,12 +208,6 @@ export {
     BatchQueryRequestsMediaV1,
 
     /**
-     * The BatchQueryResponseSeriesMediaV1 model constructor.
-     * @property {module:model/BatchQueryResponseSeriesMediaV1}
-     */
-    BatchQueryResponseSeriesMediaV1,
-
-    /**
      * The CreateDevicesV2Payload model constructor.
      * @property {module:model/CreateDevicesV2Payload}
      */
@@ -257,10 +250,10 @@ export {
     Property,
 
     /**
-     * The PropertyValue model constructor.
-     * @property {module:model/PropertyValue}
+     * The PropertyStringValue model constructor.
+     * @property {module:model/PropertyStringValue}
      */
-    PropertyValue,
+    PropertyStringValue,
 
     /**
      * The Thing model constructor.

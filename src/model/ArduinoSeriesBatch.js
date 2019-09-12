@@ -24,11 +24,12 @@ class ArduinoSeriesBatch {
      * Constructs a new <code>ArduinoSeriesBatch</code>.
      * ArduinoSeriesBatch media type (default view)
      * @alias module:model/ArduinoSeriesBatch
+     * @param respVersion {Number} Response version
      * @param responses {Array.<module:model/ArduinoSeriesResponse>} Responses of the request
      */
-    constructor(responses) { 
+    constructor(respVersion, responses) { 
         
-        ArduinoSeriesBatch.initialize(this, responses);
+        ArduinoSeriesBatch.initialize(this, respVersion, responses);
     }
 
     /**
@@ -36,7 +37,8 @@ class ArduinoSeriesBatch {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, responses) { 
+    static initialize(obj, respVersion, responses) { 
+        obj['resp_version'] = respVersion;
         obj['responses'] = responses;
     }
 
@@ -51,6 +53,9 @@ class ArduinoSeriesBatch {
         if (data) {
             obj = obj || new ArduinoSeriesBatch();
 
+            if (data.hasOwnProperty('resp_version')) {
+                obj['resp_version'] = ApiClient.convertToType(data['resp_version'], 'Number');
+            }
             if (data.hasOwnProperty('responses')) {
                 obj['responses'] = ApiClient.convertToType(data['responses'], [ArduinoSeriesResponse]);
             }
@@ -60,6 +65,12 @@ class ArduinoSeriesBatch {
 
 
 }
+
+/**
+ * Response version
+ * @member {Number} resp_version
+ */
+ArduinoSeriesBatch.prototype['resp_version'] = undefined;
 
 /**
  * Responses of the request
