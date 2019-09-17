@@ -5,7 +5,17 @@
 For the time being and untile we publish a package on Npm, install it via:
 
 ```shell
-npm install bcmi-labs/clients-iot-api --save
+git clone git@github.com:bcmi-labs/iot-api-client-js.git
+cd iot-api-client-js
+npm install
+npm run build
+npm link
+```
+
+Then, go to your project folder and 
+
+```shell
+npm link iot_api
 ```
 
 ### For browser
@@ -51,15 +61,12 @@ var client = IotApi.ApiClient.instance;
 var oauth2 = client.authentications['oauth2'];
 oauth2.accessToken = "YOUR ACCESS TOKEN";
 
-var api = new IotApi.DevicesV2Api(client)
-var callback = function (error, data, response) {
-    if (error) {
-        console.error(response.error);
-    } else {
-        console.log(data);
-    }
-};
-api.devicesV2List(null, callback);
+var api = new IotApi.DevicesV2Api(client);
+api.devicesV2List(null).then(devices => {
+  console.log(devices);
+}, error => {
+  console.error(error);
+});
 ```
 
 For a working example, see [the example folder](./example) in this repo.

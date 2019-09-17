@@ -16,7 +16,7 @@ import ApiClient from "../ApiClient";
 import ArduinoProperty from '../model/ArduinoProperty';
 import Error from '../model/Error';
 import Property from '../model/Property';
-import PropertyValue from '../model/PropertyValue';
+import PropertyStringValue from '../model/PropertyStringValue';
 
 /**
 * PropertiesV1 service.
@@ -208,26 +208,26 @@ export default class PropertiesV1Api {
 
 
     /**
-     * publish properties_v1
-     * Publish a property value to MQTT
+     * send properties_v1
+     * Publish a property value to MQTT, as string
      * @param {String} id The id of the thing
      * @param {String} pid The id of the property
-     * @param {module:model/PropertyValue} propertyValue PropertyValuePayload describes a property value
+     * @param {module:model/PropertyStringValue} propertyStringValue PropertyStringValuePayload describes a property value
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    propertiesV1PublishWithHttpInfo(id, pid, propertyValue) {
-      let postBody = propertyValue;
+    propertiesV1SendWithHttpInfo(id, pid, propertyStringValue) {
+      let postBody = propertyStringValue;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling propertiesV1Publish");
+        throw new Error("Missing the required parameter 'id' when calling propertiesV1Send");
       }
       // verify the required parameter 'pid' is set
       if (pid === undefined || pid === null) {
-        throw new Error("Missing the required parameter 'pid' when calling propertiesV1Publish");
+        throw new Error("Missing the required parameter 'pid' when calling propertiesV1Send");
       }
-      // verify the required parameter 'propertyValue' is set
-      if (propertyValue === undefined || propertyValue === null) {
-        throw new Error("Missing the required parameter 'propertyValue' when calling propertiesV1Publish");
+      // verify the required parameter 'propertyStringValue' is set
+      if (propertyStringValue === undefined || propertyStringValue === null) {
+        throw new Error("Missing the required parameter 'propertyStringValue' when calling propertiesV1Send");
       }
 
       let pathParams = {
@@ -246,22 +246,22 @@ export default class PropertiesV1Api {
       let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/v1/things/{id}/properties/{pid}/publish', 'PUT',
+        '/v1/things/{id}/properties/{pid}/send', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * publish properties_v1
-     * Publish a property value to MQTT
+     * send properties_v1
+     * Publish a property value to MQTT, as string
      * @param {String} id The id of the thing
      * @param {String} pid The id of the property
-     * @param {module:model/PropertyValue} propertyValue PropertyValuePayload describes a property value
+     * @param {module:model/PropertyStringValue} propertyStringValue PropertyStringValuePayload describes a property value
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    propertiesV1Publish(id, pid, propertyValue) {
-      return this.propertiesV1PublishWithHttpInfo(id, pid, propertyValue)
+    propertiesV1Send(id, pid, propertyStringValue) {
+      return this.propertiesV1SendWithHttpInfo(id, pid, propertyStringValue)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
