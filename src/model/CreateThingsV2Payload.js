@@ -25,7 +25,7 @@
     if (!root.IotApi) {
       root.IotApi = {};
     }
-    root.IotApi.CreateDevicesV2Payload = factory(root.IotApi.ApiClient);
+    root.IotApi.CreateThingsV2Payload = factory(root.IotApi.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -33,78 +33,78 @@
 
 
   /**
-   * The CreateDevicesV2Payload model module.
-   * @module model/CreateDevicesV2Payload
+   * The CreateThingsV2Payload model module.
+   * @module model/CreateThingsV2Payload
    * @version 0.0.1
    */
 
   /**
-   * Constructs a new <code>CreateDevicesV2Payload</code>.
-   * DeviceV2 describes a device.
-   * @alias module:model/CreateDevicesV2Payload
+   * Constructs a new <code>CreateThingsV2Payload</code>.
+   * ThingPayload describes a thing
+   * @alias module:model/CreateThingsV2Payload
    * @class
-   * @param type {String} The type of the device
+   * @param name {String} The friendly name of the thing
    */
-  var exports = function(type) {
+  var exports = function(name) {
     var _this = this;
 
-    _this['type'] = type;
+    _this['name'] = name;
   };
 
   /**
-   * Constructs a <code>CreateDevicesV2Payload</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>CreateThingsV2Payload</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/CreateDevicesV2Payload} obj Optional instance to populate.
-   * @return {module:model/CreateDevicesV2Payload} The populated <code>CreateDevicesV2Payload</code> instance.
+   * @param {module:model/CreateThingsV2Payload} obj Optional instance to populate.
+   * @return {module:model/CreateThingsV2Payload} The populated <code>CreateThingsV2Payload</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
+      if (data.hasOwnProperty('device_id')) {
+        obj['device_id'] = ApiClient.convertToType(data['device_id'], 'String');
+      }
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
-      if (data.hasOwnProperty('serial')) {
-        obj['serial'] = ApiClient.convertToType(data['serial'], 'String');
+      if (data.hasOwnProperty('webhook_active')) {
+        obj['webhook_active'] = ApiClient.convertToType(data['webhook_active'], 'Boolean');
       }
-      if (data.hasOwnProperty('type')) {
-        obj['type'] = ApiClient.convertToType(data['type'], 'String');
-      }
-      if (data.hasOwnProperty('user_id')) {
-        obj['user_id'] = ApiClient.convertToType(data['user_id'], 'String');
+      if (data.hasOwnProperty('webhook_uri')) {
+        obj['webhook_uri'] = ApiClient.convertToType(data['webhook_uri'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * The UUID of the device
+   * The arn of the associated device
+   * @member {String} device_id
+   */
+  exports.prototype['device_id'] = undefined;
+  /**
+   * The id of the thing
    * @member {String} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * The friendly name of the device
+   * The friendly name of the thing
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
   /**
-   * The serial uuid of the device
-   * @member {String} serial
+   * Webhook uri
+   * @member {Boolean} webhook_active
    */
-  exports.prototype['serial'] = undefined;
+  exports.prototype['webhook_active'] = undefined;
   /**
-   * The type of the device
-   * @member {String} type
+   * Webhook uri
+   * @member {String} webhook_uri
    */
-  exports.prototype['type'] = undefined;
-  /**
-   * The user_id associated to the device. If absent it will be inferred from the authentication header
-   * @member {String} user_id
-   */
-  exports.prototype['user_id'] = undefined;
+  exports.prototype['webhook_uri'] = undefined;
 
 
 

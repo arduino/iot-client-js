@@ -26,23 +26,24 @@ Creates a new device associated to the user.
 ### Example
 
 ```javascript
-import IotApi from 'iot_api';
-let defaultClient = IotApi.ApiClient.instance;
+var IotApi = require('iot_api');
+var defaultClient = IotApi.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+var oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new IotApi.DevicesV2Api();
-let createDevicesV2Payload = new IotApi.CreateDevicesV2Payload(); // CreateDevicesV2Payload | DeviceV2 describes a device.
-apiInstance.devicesV2Create(createDevicesV2Payload).then((data) => {
+var apiInstance = new IotApi.DevicesV2Api();
+var createDevicesV2Payload = new IotApi.CreateDevicesV2Payload(); // CreateDevicesV2Payload | DeviceV2 describes a device.
+apiInstance.devicesV2Create(createDevicesV2Payload).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
@@ -74,23 +75,24 @@ Removes a device associated to the user
 ### Example
 
 ```javascript
-import IotApi from 'iot_api';
-let defaultClient = IotApi.ApiClient.instance;
+var IotApi = require('iot_api');
+var defaultClient = IotApi.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+var oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new IotApi.DevicesV2Api();
-let id = "id_example"; // String | The id of the device
-apiInstance.devicesV2Delete(id).then(() => {
+var apiInstance = new IotApi.DevicesV2Api();
+var id = "id_example"; // String | The id of the device
+apiInstance.devicesV2Delete(id).then(function() {
   console.log('API called successfully.');
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
@@ -122,26 +124,27 @@ GET device properties
 ### Example
 
 ```javascript
-import IotApi from 'iot_api';
-let defaultClient = IotApi.ApiClient.instance;
+var IotApi = require('iot_api');
+var defaultClient = IotApi.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+var oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new IotApi.DevicesV2Api();
-let id = "id_example"; // String | The id of the device
-let opts = {
+var apiInstance = new IotApi.DevicesV2Api();
+var id = "id_example"; // String | The id of the device
+var opts = {
   'showDeleted': false // Boolean | If true, shows the soft deleted properties
 };
-apiInstance.devicesV2GetProperties(id, opts).then((data) => {
+apiInstance.devicesV2GetProperties(id, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
@@ -174,25 +177,26 @@ Returns the list of devices associated to the user
 ### Example
 
 ```javascript
-import IotApi from 'iot_api';
-let defaultClient = IotApi.ApiClient.instance;
+var IotApi = require('iot_api');
+var defaultClient = IotApi.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+var oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new IotApi.DevicesV2Api();
-let opts = {
+var apiInstance = new IotApi.DevicesV2Api();
+var opts = {
   'acrossUserIds': false // Boolean | If true, returns all the devices
 };
-apiInstance.devicesV2List(opts).then((data) => {
+apiInstance.devicesV2List(opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
@@ -224,23 +228,24 @@ Returns the device requested by the user
 ### Example
 
 ```javascript
-import IotApi from 'iot_api';
-let defaultClient = IotApi.ApiClient.instance;
+var IotApi = require('iot_api');
+var defaultClient = IotApi.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+var oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new IotApi.DevicesV2Api();
-let id = "id_example"; // String | The id of the device
-apiInstance.devicesV2Show(id).then((data) => {
+var apiInstance = new IotApi.DevicesV2Api();
+var id = "id_example"; // String | The id of the device
+apiInstance.devicesV2Show(id).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
@@ -272,28 +277,29 @@ GET device properties values in a range of time
 ### Example
 
 ```javascript
-import IotApi from 'iot_api';
-let defaultClient = IotApi.ApiClient.instance;
+var IotApi = require('iot_api');
+var defaultClient = IotApi.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+var oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new IotApi.DevicesV2Api();
-let id = "id_example"; // String | The id of the device
-let pid = "pid_example"; // String | The id of the property
-let opts = {
+var apiInstance = new IotApi.DevicesV2Api();
+var id = "id_example"; // String | The id of the device
+var pid = "pid_example"; // String | The id of the property
+var opts = {
   'limit': 56, // Number | The number of properties to select
   'start': "start_example" // String | The time at which to start selecting properties
 };
-apiInstance.devicesV2Timeseries(id, pid, opts).then((data) => {
+apiInstance.devicesV2Timeseries(id, pid, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
@@ -328,24 +334,25 @@ Updates a device associated to the user
 ### Example
 
 ```javascript
-import IotApi from 'iot_api';
-let defaultClient = IotApi.ApiClient.instance;
+var IotApi = require('iot_api');
+var defaultClient = IotApi.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+var oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new IotApi.DevicesV2Api();
-let id = "id_example"; // String | The id of the device
-let devicev2 = new IotApi.Devicev2(); // Devicev2 | DeviceV2 describes a device.
-apiInstance.devicesV2Update(id, devicev2).then((data) => {
+var apiInstance = new IotApi.DevicesV2Api();
+var id = "id_example"; // String | The id of the device
+var devicev2 = new IotApi.Devicev2(); // Devicev2 | DeviceV2 describes a device.
+apiInstance.devicesV2Update(id, devicev2).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
@@ -378,24 +385,25 @@ Update device properties last values
 ### Example
 
 ```javascript
-import IotApi from 'iot_api';
-let defaultClient = IotApi.ApiClient.instance;
+var IotApi = require('iot_api');
+var defaultClient = IotApi.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+var oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new IotApi.DevicesV2Api();
-let id = "id_example"; // String | The id of the device
-let propertiesValues = new IotApi.PropertiesValues(); // PropertiesValues | 
-apiInstance.devicesV2UpdateProperties(id, propertiesValues).then(() => {
+var apiInstance = new IotApi.DevicesV2Api();
+var id = "id_example"; // String | The id of the device
+var propertiesValues = new IotApi.PropertiesValues(); // PropertiesValues | 
+apiInstance.devicesV2UpdateProperties(id, propertiesValues).then(function() {
   console.log('API called successfully.');
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
