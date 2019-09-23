@@ -24,29 +24,32 @@ import ArduinoDevicev2propertyvaluesLastEvaluatedKey from './model/ArduinoDevice
 import ArduinoProperty from './model/ArduinoProperty';
 import ArduinoSeriesBatch from './model/ArduinoSeriesBatch';
 import ArduinoSeriesRawBatch from './model/ArduinoSeriesRawBatch';
+import ArduinoSeriesRawBatchLastvalue from './model/ArduinoSeriesRawBatchLastvalue';
+import ArduinoSeriesRawLastValueResponse from './model/ArduinoSeriesRawLastValueResponse';
 import ArduinoSeriesRawResponse from './model/ArduinoSeriesRawResponse';
 import ArduinoSeriesResponse from './model/ArduinoSeriesResponse';
 import ArduinoThing from './model/ArduinoThing';
-import ArduinoThinglayout from './model/ArduinoThinglayout';
+import BatchLastValueRequestsMediaV1 from './model/BatchLastValueRequestsMediaV1';
+import BatchQueryRawLastValueRequestMediaV1 from './model/BatchQueryRawLastValueRequestMediaV1';
 import BatchQueryRawRequestMediaV1 from './model/BatchQueryRawRequestMediaV1';
 import BatchQueryRawRequestsMediaV1 from './model/BatchQueryRawRequestsMediaV1';
 import BatchQueryRawResponseSeriesMediaV1 from './model/BatchQueryRawResponseSeriesMediaV1';
 import BatchQueryRequestMediaV1 from './model/BatchQueryRequestMediaV1';
 import BatchQueryRequestsMediaV1 from './model/BatchQueryRequestsMediaV1';
 import CreateDevicesV2Payload from './model/CreateDevicesV2Payload';
-import CreateThingsV1Payload from './model/CreateThingsV1Payload';
+import CreateThingsV2Payload from './model/CreateThingsV2Payload';
 import Devicev2 from './model/Devicev2';
 import Error from './model/Error';
 import PropertiesValue from './model/PropertiesValue';
 import PropertiesValues from './model/PropertiesValues';
 import Property from './model/Property';
-import PropertyStringValue from './model/PropertyStringValue';
+import PropertyValue from './model/PropertyValue';
 import Thing from './model/Thing';
 import ThingSketch from './model/ThingSketch';
 import DevicesV2Api from './api/DevicesV2Api';
-import PropertiesV1Api from './api/PropertiesV1Api';
-import SeriesV1Api from './api/SeriesV1Api';
-import ThingsV1Api from './api/ThingsV1Api';
+import PropertiesV2Api from './api/PropertiesV2Api';
+import SeriesV2Api from './api/SeriesV2Api';
+import ThingsV2Api from './api/ThingsV2Api';
 
 
 /**
@@ -154,6 +157,18 @@ export {
     ArduinoSeriesRawBatch,
 
     /**
+     * The ArduinoSeriesRawBatchLastvalue model constructor.
+     * @property {module:model/ArduinoSeriesRawBatchLastvalue}
+     */
+    ArduinoSeriesRawBatchLastvalue,
+
+    /**
+     * The ArduinoSeriesRawLastValueResponse model constructor.
+     * @property {module:model/ArduinoSeriesRawLastValueResponse}
+     */
+    ArduinoSeriesRawLastValueResponse,
+
+    /**
      * The ArduinoSeriesRawResponse model constructor.
      * @property {module:model/ArduinoSeriesRawResponse}
      */
@@ -172,10 +187,16 @@ export {
     ArduinoThing,
 
     /**
-     * The ArduinoThinglayout model constructor.
-     * @property {module:model/ArduinoThinglayout}
+     * The BatchLastValueRequestsMediaV1 model constructor.
+     * @property {module:model/BatchLastValueRequestsMediaV1}
      */
-    ArduinoThinglayout,
+    BatchLastValueRequestsMediaV1,
+
+    /**
+     * The BatchQueryRawLastValueRequestMediaV1 model constructor.
+     * @property {module:model/BatchQueryRawLastValueRequestMediaV1}
+     */
+    BatchQueryRawLastValueRequestMediaV1,
 
     /**
      * The BatchQueryRawRequestMediaV1 model constructor.
@@ -214,10 +235,10 @@ export {
     CreateDevicesV2Payload,
 
     /**
-     * The CreateThingsV1Payload model constructor.
-     * @property {module:model/CreateThingsV1Payload}
+     * The CreateThingsV2Payload model constructor.
+     * @property {module:model/CreateThingsV2Payload}
      */
-    CreateThingsV1Payload,
+    CreateThingsV2Payload,
 
     /**
      * The Devicev2 model constructor.
@@ -250,10 +271,10 @@ export {
     Property,
 
     /**
-     * The PropertyStringValue model constructor.
-     * @property {module:model/PropertyStringValue}
+     * The PropertyValue model constructor.
+     * @property {module:model/PropertyValue}
      */
-    PropertyStringValue,
+    PropertyValue,
 
     /**
      * The Thing model constructor.
@@ -274,20 +295,20 @@ export {
     DevicesV2Api,
 
     /**
-    * The PropertiesV1Api service constructor.
-    * @property {module:api/PropertiesV1Api}
+    * The PropertiesV2Api service constructor.
+    * @property {module:api/PropertiesV2Api}
     */
-    PropertiesV1Api,
+    PropertiesV2Api,
 
     /**
-    * The SeriesV1Api service constructor.
-    * @property {module:api/SeriesV1Api}
+    * The SeriesV2Api service constructor.
+    * @property {module:api/SeriesV2Api}
     */
-    SeriesV1Api,
+    SeriesV2Api,
 
     /**
-    * The ThingsV1Api service constructor.
-    * @property {module:api/ThingsV1Api}
+    * The ThingsV2Api service constructor.
+    * @property {module:api/ThingsV2Api}
     */
-    ThingsV1Api
+    ThingsV2Api
 };
