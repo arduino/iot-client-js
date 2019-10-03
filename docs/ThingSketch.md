@@ -1,4 +1,4 @@
-# IotApi.ThingSketch
+# ArduinoIotClient.ThingSketch
 
 ## Properties
 

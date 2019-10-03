@@ -1,4 +1,4 @@
-# IotApi.Error
+# ArduinoIotClient.Error
 
 ## Properties
 

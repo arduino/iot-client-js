@@ -24,7 +24,7 @@ import Error from '../model/Error';
 /**
 * SeriesV2 service.
 * @module api/SeriesV2Api
-* @version 0.0.1
+* @version 1.0.0-beta1
 */
 export default class SeriesV2Api {
 

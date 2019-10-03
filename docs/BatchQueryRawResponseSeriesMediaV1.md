@@ -1,4 +1,4 @@
-# IotApi.BatchQueryRawResponseSeriesMediaV1
+# ArduinoIotClient.BatchQueryRawResponseSeriesMediaV1
 
 ## Properties
 

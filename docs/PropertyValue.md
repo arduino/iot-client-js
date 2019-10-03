@@ -1,4 +1,4 @@
-# IotApi.PropertyValue
+# ArduinoIotClient.PropertyValue
 
 ## Properties
 

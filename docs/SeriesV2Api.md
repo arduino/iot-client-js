@@ -1,4 +1,4 @@
-# IotApi.SeriesV2Api
+# ArduinoIotClient.SeriesV2Api
 
 All URIs are relative to *http://api2.arduino.cc/iot*
 
@@ -21,14 +21,14 @@ Returns the batch of time-series data
 ### Example
 
 ```javascript
-import IotApi from 'iot_api';
-let defaultClient = IotApi.ApiClient.instance;
+import ArduinoIotClient from 'arduino-iot-client';
+let defaultClient = ArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new IotApi.SeriesV2Api();
-let batchQueryRequestsMediaV1 = new IotApi.BatchQueryRequestsMediaV1(); // BatchQueryRequestsMediaV1 | 
+let apiInstance = new ArduinoIotClient.SeriesV2Api();
+let batchQueryRequestsMediaV1 = new ArduinoIotClient.BatchQueryRequestsMediaV1(); // BatchQueryRequestsMediaV1 | 
 apiInstance.seriesV2BatchQuery(batchQueryRequestsMediaV1).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -69,14 +69,14 @@ Returns the batch of time-series data raw
 ### Example
 
 ```javascript
-import IotApi from 'iot_api';
-let defaultClient = IotApi.ApiClient.instance;
+import ArduinoIotClient from 'arduino-iot-client';
+let defaultClient = ArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new IotApi.SeriesV2Api();
-let batchQueryRawRequestsMediaV1 = new IotApi.BatchQueryRawRequestsMediaV1(); // BatchQueryRawRequestsMediaV1 | 
+let apiInstance = new ArduinoIotClient.SeriesV2Api();
+let batchQueryRawRequestsMediaV1 = new ArduinoIotClient.BatchQueryRawRequestsMediaV1(); // BatchQueryRawRequestsMediaV1 | 
 apiInstance.seriesV2BatchQueryRaw(batchQueryRawRequestsMediaV1).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -117,14 +117,14 @@ Returns the batch of time-series data raw
 ### Example
 
 ```javascript
-import IotApi from 'iot_api';
-let defaultClient = IotApi.ApiClient.instance;
+import ArduinoIotClient from 'arduino-iot-client';
+let defaultClient = ArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new IotApi.SeriesV2Api();
-let batchLastValueRequestsMediaV1 = new IotApi.BatchLastValueRequestsMediaV1(); // BatchLastValueRequestsMediaV1 | 
+let apiInstance = new ArduinoIotClient.SeriesV2Api();
+let batchLastValueRequestsMediaV1 = new ArduinoIotClient.BatchLastValueRequestsMediaV1(); // BatchLastValueRequestsMediaV1 | 
 apiInstance.seriesV2BatchQueryRawLastValue(batchLastValueRequestsMediaV1).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
