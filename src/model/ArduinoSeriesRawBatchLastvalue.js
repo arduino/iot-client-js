@@ -17,7 +17,7 @@ import ArduinoSeriesRawLastValueResponse from './ArduinoSeriesRawLastValueRespon
 /**
  * The ArduinoSeriesRawBatchLastvalue model module.
  * @module model/ArduinoSeriesRawBatchLastvalue
- * @version 0.0.1
+ * @version 1.0.0-beta1
  */
 class ArduinoSeriesRawBatchLastvalue {
     /**

@@ -1,4 +1,4 @@
-# IotApi.ArduinoDevicev2propertyvaluesLastEvaluatedKey
+# ArduinoIotClient.ArduinoDevicev2propertyvaluesLastEvaluatedKey
 
 ## Properties
 

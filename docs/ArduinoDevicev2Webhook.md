@@ -1,4 +1,4 @@
-# IotApi.ArduinoDevicev2Webhook
+# ArduinoIotClient.ArduinoDevicev2Webhook
 
 ## Properties
 

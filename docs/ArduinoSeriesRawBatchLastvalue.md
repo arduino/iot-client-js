@@ -1,4 +1,4 @@
-# IotApi.ArduinoSeriesRawBatchLastvalue
+# ArduinoIotClient.ArduinoSeriesRawBatchLastvalue
 
 ## Properties
 

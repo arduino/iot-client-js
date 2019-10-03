@@ -1,4 +1,4 @@
-# IotApi.Devicev2
+# ArduinoIotClient.Devicev2
 
 ## Properties
 

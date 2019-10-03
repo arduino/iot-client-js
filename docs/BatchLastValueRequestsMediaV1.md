@@ -1,4 +1,4 @@
-# IotApi.BatchLastValueRequestsMediaV1
+# ArduinoIotClient.BatchLastValueRequestsMediaV1
 
 ## Properties
 

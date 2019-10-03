@@ -1,4 +1,4 @@
-# IotApi.ArduinoDevicev2propertyvalueValueStatistics
+# ArduinoIotClient.ArduinoDevicev2propertyvalueValueStatistics
 
 ## Properties
 
