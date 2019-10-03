@@ -86,9 +86,9 @@ var options = {
     json: true,
     form: {
         grant_type: 'client_credentials',
-        client_id: 'yr9Tb0P4qFOI3cziKizqUFZTrUvaeL47',
-        client_secret: 'D-P2atuyJEZpB64_vymSQQYr1MPMuZhhK0e1U3jgPGVLRBSMH5jhKaivyRybu_4I',
-        audience: 'https://api.arduino.cc'
+        client_id: 'YOUR_CLIENT_ID',
+        client_secret: 'YOUR_CLIENT_SECRET',
+        audience: 'https://api2.arduino.cc/iot'
     }
 };
 
