@@ -32,9 +32,9 @@ class ApiClient {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default http://api-dev.arduino.cc/iot
+         * @default http://api2.arduino.cc/iot
          */
-        this.basePath = 'http://api-dev.arduino.cc/iot'.replace(/\/+$/, '');
+        this.basePath = 'http://api2.arduino.cc/iot'.replace(/\/+$/, '');
 
         /**
          * The authentication methods to be included for all API calls.
@@ -552,7 +552,7 @@ class ApiClient {
     hostSettings() {
         return [
             {
-              'url': "http://api-dev.arduino.cc/iot",
+              'url': "http://api2.arduino.cc/iot",
               'description': "No description provided",
             }
       ];
