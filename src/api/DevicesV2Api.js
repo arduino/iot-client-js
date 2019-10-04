@@ -24,7 +24,7 @@ import PropertiesValues from '../model/PropertiesValues';
 /**
 * DevicesV2 service.
 * @module api/DevicesV2Api
-* @version 1.0.0-beta1
+* @version 1.0.0-beta2
 */
 export default class DevicesV2Api {
 

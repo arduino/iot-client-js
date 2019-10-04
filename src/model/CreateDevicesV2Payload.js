@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateDevicesV2Payload model module.
  * @module model/CreateDevicesV2Payload
- * @version 1.0.0-beta1
+ * @version 1.0.0-beta2
  */
 class CreateDevicesV2Payload {
     /**
