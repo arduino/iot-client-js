@@ -58,9 +58,9 @@ import ThingsV2Api from './api/ThingsV2Api';
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
 * <pre>
-* var ArduinoIotClient = require('index'); // See note below*.
-* var xxxSvc = new ArduinoIotClient.XxxApi(); // Allocate the API class we're going to use.
-* var yyyModel = new ArduinoIotClient.Yyy(); // Construct a model instance.
+* var @ArduinoArduinoIotClient = require('index'); // See note below*.
+* var xxxSvc = new @ArduinoArduinoIotClient.XxxApi(); // Allocate the API class we're going to use.
+* var yyyModel = new @ArduinoArduinoIotClient.Yyy(); // Construct a model instance.
 * yyyModel.someProperty = 'someValue';
 * ...
 * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
@@ -72,8 +72,8 @@ import ThingsV2Api from './api/ThingsV2Api';
 * <p>
 * A non-AMD browser application (discouraged) might do something like this:
 * <pre>
-* var xxxSvc = new ArduinoIotClient.XxxApi(); // Allocate the API class we're going to use.
-* var yyy = new ArduinoIotClient.Yyy(); // Construct a model instance.
+* var xxxSvc = new @ArduinoArduinoIotClient.XxxApi(); // Allocate the API class we're going to use.
+* var yyy = new @ArduinoArduinoIotClient.Yyy(); // Construct a model instance.
 * yyyModel.someProperty = 'someValue';
 * ...
 * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.

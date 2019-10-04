@@ -1,4 +1,4 @@
-# ArduinoIotClient.ArduinoDevicev2
+# @ArduinoArduinoIotClient.ArduinoDevicev2
 
 ## Properties
 

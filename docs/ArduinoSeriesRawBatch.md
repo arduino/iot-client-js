@@ -1,4 +1,4 @@
-# ArduinoIotClient.ArduinoSeriesRawBatch
+# @ArduinoArduinoIotClient.ArduinoSeriesRawBatch
 
 ## Properties
 

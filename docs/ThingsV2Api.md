@@ -1,4 +1,4 @@
-# ArduinoIotClient.ThingsV2Api
+# @ArduinoArduinoIotClient.ThingsV2Api
 
 All URIs are relative to *http://api2.arduino.cc/iot*
 
@@ -26,14 +26,14 @@ Creates a new thing associated to the user
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.ThingsV2Api();
-let createThingsV2Payload = new ArduinoIotClient.CreateThingsV2Payload(); // CreateThingsV2Payload | ThingPayload describes a thing
+let apiInstance = new @ArduinoArduinoIotClient.ThingsV2Api();
+let createThingsV2Payload = new @ArduinoArduinoIotClient.CreateThingsV2Payload(); // CreateThingsV2Payload | ThingPayload describes a thing
 let opts = {
   'force': false // Boolean | If true, detach device from the other thing, and attach to this thing
 };
@@ -78,15 +78,15 @@ Creates a new sketch thing associated to the thing
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.ThingsV2Api();
+let apiInstance = new @ArduinoArduinoIotClient.ThingsV2Api();
 let id = "id_example"; // String | The id of the thing
-let thingSketch = new ArduinoIotClient.ThingSketch(); // ThingSketch | ThingSketchPayload describes a sketch of a thing
+let thingSketch = new @ArduinoArduinoIotClient.ThingSketch(); // ThingSketch | ThingSketchPayload describes a sketch of a thing
 apiInstance.thingsV2CreateSketch(id, thingSketch).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -128,13 +128,13 @@ Removes a thing associated to the user
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.ThingsV2Api();
+let apiInstance = new @ArduinoArduinoIotClient.ThingsV2Api();
 let id = "id_example"; // String | The id of the thing
 let opts = {
   'force': false // Boolean | If true, hard delete the thing
@@ -178,13 +178,13 @@ deleteSketch things_v2
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.ThingsV2Api();
+let apiInstance = new @ArduinoArduinoIotClient.ThingsV2Api();
 let id = "id_example"; // String | The id of the thing
 apiInstance.thingsV2DeleteSketch(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -226,13 +226,13 @@ Returns the list of things associated to the user
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.ThingsV2Api();
+let apiInstance = new @ArduinoArduinoIotClient.ThingsV2Api();
 let opts = {
   'acrossUserIds': false, // Boolean | If true, returns all the things
   'deviceId': "deviceId_example", // String | The id of the device you want to filter
@@ -280,13 +280,13 @@ Returns the thing requested by the user
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.ThingsV2Api();
+let apiInstance = new @ArduinoArduinoIotClient.ThingsV2Api();
 let id = "id_example"; // String | The id of the thing
 let opts = {
   'showDeleted': false // Boolean | If true, shows the soft deleted thing
@@ -332,15 +332,15 @@ Updates a thing associated to the user
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.ThingsV2Api();
+let apiInstance = new @ArduinoArduinoIotClient.ThingsV2Api();
 let id = "id_example"; // String | The id of the thing
-let thing = new ArduinoIotClient.Thing(); // Thing | ThingPayload describes a thing
+let thing = new @ArduinoArduinoIotClient.Thing(); // Thing | ThingPayload describes a thing
 let opts = {
   'force': false // Boolean | If true, detach device from the other thing, and attach to this thing
 };
@@ -386,13 +386,13 @@ Update an existing thing sketch
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.ThingsV2Api();
+let apiInstance = new @ArduinoArduinoIotClient.ThingsV2Api();
 let id = "id_example"; // String | The id of the thing
 let sketchId = "sketchId_example"; // String | The id of the sketch
 apiInstance.thingsV2UpdateSketch(id, sketchId).then((data) => {

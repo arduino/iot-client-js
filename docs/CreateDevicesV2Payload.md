@@ -1,4 +1,4 @@
-# ArduinoIotClient.CreateDevicesV2Payload
+# @ArduinoArduinoIotClient.CreateDevicesV2Payload
 
 ## Properties
 
