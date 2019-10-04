@@ -1,4 +1,4 @@
-# ArduinoIotClient.ArduinoSeriesResponse
+# @ArduinoArduinoIotClient.ArduinoSeriesResponse
 
 ## Properties
 

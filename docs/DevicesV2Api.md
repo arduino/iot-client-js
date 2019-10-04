@@ -1,4 +1,4 @@
-# ArduinoIotClient.DevicesV2Api
+# @ArduinoArduinoIotClient.DevicesV2Api
 
 All URIs are relative to *http://api2.arduino.cc/iot*
 
@@ -26,14 +26,14 @@ Creates a new device associated to the user.
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.DevicesV2Api();
-let createDevicesV2Payload = new ArduinoIotClient.CreateDevicesV2Payload(); // CreateDevicesV2Payload | DeviceV2 describes a device.
+let apiInstance = new @ArduinoArduinoIotClient.DevicesV2Api();
+let createDevicesV2Payload = new @ArduinoArduinoIotClient.CreateDevicesV2Payload(); // CreateDevicesV2Payload | DeviceV2 describes a device.
 apiInstance.devicesV2Create(createDevicesV2Payload).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -74,13 +74,13 @@ Removes a device associated to the user
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.DevicesV2Api();
+let apiInstance = new @ArduinoArduinoIotClient.DevicesV2Api();
 let id = "id_example"; // String | The id of the device
 apiInstance.devicesV2Delete(id).then(() => {
   console.log('API called successfully.');
@@ -122,13 +122,13 @@ GET device properties
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.DevicesV2Api();
+let apiInstance = new @ArduinoArduinoIotClient.DevicesV2Api();
 let id = "id_example"; // String | The id of the device
 let opts = {
   'showDeleted': false // Boolean | If true, shows the soft deleted properties
@@ -174,13 +174,13 @@ Returns the list of devices associated to the user
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.DevicesV2Api();
+let apiInstance = new @ArduinoArduinoIotClient.DevicesV2Api();
 let opts = {
   'acrossUserIds': false // Boolean | If true, returns all the devices
 };
@@ -224,13 +224,13 @@ Returns the device requested by the user
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.DevicesV2Api();
+let apiInstance = new @ArduinoArduinoIotClient.DevicesV2Api();
 let id = "id_example"; // String | The id of the device
 apiInstance.devicesV2Show(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -272,13 +272,13 @@ GET device properties values in a range of time
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.DevicesV2Api();
+let apiInstance = new @ArduinoArduinoIotClient.DevicesV2Api();
 let id = "id_example"; // String | The id of the device
 let pid = "pid_example"; // String | The id of the property
 let opts = {
@@ -328,15 +328,15 @@ Updates a device associated to the user
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.DevicesV2Api();
+let apiInstance = new @ArduinoArduinoIotClient.DevicesV2Api();
 let id = "id_example"; // String | The id of the device
-let devicev2 = new ArduinoIotClient.Devicev2(); // Devicev2 | DeviceV2 describes a device.
+let devicev2 = new @ArduinoArduinoIotClient.Devicev2(); // Devicev2 | DeviceV2 describes a device.
 apiInstance.devicesV2Update(id, devicev2).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -378,15 +378,15 @@ Update device properties last values
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.DevicesV2Api();
+let apiInstance = new @ArduinoArduinoIotClient.DevicesV2Api();
 let id = "id_example"; // String | The id of the device
-let propertiesValues = new ArduinoIotClient.PropertiesValues(); // PropertiesValues | 
+let propertiesValues = new @ArduinoArduinoIotClient.PropertiesValues(); // PropertiesValues | 
 apiInstance.devicesV2UpdateProperties(id, propertiesValues).then(() => {
   console.log('API called successfully.');
 }, (error) => {

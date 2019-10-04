@@ -1,4 +1,4 @@
-# ArduinoIotClient.ArduinoSeriesRawBatchLastvalue
+# @ArduinoArduinoIotClient.ArduinoSeriesRawBatchLastvalue
 
 ## Properties
 

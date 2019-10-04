@@ -1,4 +1,4 @@
-# ArduinoIotClient.ArduinoSeriesBatch
+# @ArduinoArduinoIotClient.ArduinoSeriesBatch
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# ArduinoIotClient.Thing
+# @ArduinoArduinoIotClient.Thing
 
 ## Properties
 

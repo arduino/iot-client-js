@@ -1,4 +1,4 @@
-# ArduinoIotClient.PropertiesV2Api
+# @ArduinoArduinoIotClient.PropertiesV2Api
 
 All URIs are relative to *http://api2.arduino.cc/iot*
 
@@ -24,15 +24,15 @@ Creates a new property associated to a thing
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.PropertiesV2Api();
+let apiInstance = new @ArduinoArduinoIotClient.PropertiesV2Api();
 let id = "id_example"; // String | The id of the thing
-let property = new ArduinoIotClient.Property(); // Property | PropertyPayload describes a property of a thing. No field is mandatory
+let property = new @ArduinoArduinoIotClient.Property(); // Property | PropertyPayload describes a property of a thing. No field is mandatory
 apiInstance.propertiesV2Create(id, property).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -74,13 +74,13 @@ Removes a property associated to a thing
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.PropertiesV2Api();
+let apiInstance = new @ArduinoArduinoIotClient.PropertiesV2Api();
 let id = "id_example"; // String | The id of the thing
 let pid = "pid_example"; // String | The id of the property
 let opts = {
@@ -128,13 +128,13 @@ Returns the list of properties associated to the thing
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.PropertiesV2Api();
+let apiInstance = new @ArduinoArduinoIotClient.PropertiesV2Api();
 let id = "id_example"; // String | The id of the thing
 let opts = {
   'showDeleted': false // Boolean | If true, shows the soft deleted properties
@@ -180,16 +180,16 @@ Publish a property value to MQTT
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.PropertiesV2Api();
+let apiInstance = new @ArduinoArduinoIotClient.PropertiesV2Api();
 let id = "id_example"; // String | The id of the thing
 let pid = "pid_example"; // String | The id of the property
-let propertyValue = new ArduinoIotClient.PropertyValue(); // PropertyValue | PropertyValuePayload describes a property value
+let propertyValue = new @ArduinoArduinoIotClient.PropertyValue(); // PropertyValue | PropertyValuePayload describes a property value
 apiInstance.propertiesV2Publish(id, pid, propertyValue).then(() => {
   console.log('API called successfully.');
 }, (error) => {
@@ -232,13 +232,13 @@ Returns the property requested by the user
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.PropertiesV2Api();
+let apiInstance = new @ArduinoArduinoIotClient.PropertiesV2Api();
 let id = "id_example"; // String | The id of the thing
 let pid = "pid_example"; // String | The id of the property
 let opts = {
@@ -286,16 +286,16 @@ Updates a property associated to a thing
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+import @ArduinoArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = @ArduinoArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new ArduinoIotClient.PropertiesV2Api();
+let apiInstance = new @ArduinoArduinoIotClient.PropertiesV2Api();
 let id = "id_example"; // String | The id of the thing
 let pid = "pid_example"; // String | The id of the property
-let property = new ArduinoIotClient.Property(); // Property | PropertyPayload describes a property of a thing. No field is mandatory
+let property = new @ArduinoArduinoIotClient.Property(); // Property | PropertyPayload describes a property of a thing. No field is mandatory
 apiInstance.propertiesV2Update(id, pid, property).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {

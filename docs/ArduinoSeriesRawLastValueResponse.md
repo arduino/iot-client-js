@@ -1,4 +1,4 @@
-# ArduinoIotClient.ArduinoSeriesRawLastValueResponse
+# @ArduinoArduinoIotClient.ArduinoSeriesRawLastValueResponse
 
 ## Properties
 

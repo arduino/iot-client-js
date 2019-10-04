@@ -1,4 +1,4 @@
-# ArduinoIotClient.Error
+# @ArduinoArduinoIotClient.Error
 
 ## Properties
 

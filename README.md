@@ -2,21 +2,10 @@
 
 ## Installation
 
-For the time being and untile we publish a package on Npm, install it via:
-
 ```shell
-git clone git@github.com:bcmi-labs/iot-api-client-js.git
-cd iot-api-client-js
-npm install
-npm run build
-npm link
+npm i @arduino/arduino-iot-client
 ```
 
-Then, go to your project folder and 
-
-```shell
-npm link iot_api
-```
 
 ### For browser
 
@@ -54,17 +43,16 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```javascript
 
-var IotApi = require('iot_api');
-
-var client = IotApi.ApiClient.instance;
+import ArduinoIotClient from 'arduino-iot-client';
+let defaultClient = ArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
-var oauth2 = client.authentications['oauth2'];
-oauth2.accessToken = "YOUR ACCESS TOKEN";
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var api = new IotApi.DevicesV2Api(client);
-api.devicesV2List(null).then(devices => {
-  console.log(devices);
-}, error => {
+let apiInstance = new ArduinoIotClient.DevicesV2Api();
+apiInstance.devicesV2List().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
   console.error(error);
 });
 ```
