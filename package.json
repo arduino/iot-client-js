@@ -1,5 +1,5 @@
 {
-  "name": "arduino-iot-client",
+  "name": "@arduino/arduino-iot-client",
   "version": "1.0.0-beta1",
   "description": "Collection_of_all_public_API_endpoints_",
   "license": "GPLv3",
