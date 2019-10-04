@@ -21,7 +21,7 @@ Returns the batch of time-series data
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
+import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
@@ -69,7 +69,7 @@ Returns the batch of time-series data raw
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
+import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
@@ -117,7 +117,7 @@ Returns the batch of time-series data raw
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
+import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];

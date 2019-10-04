@@ -26,7 +26,7 @@ Creates a new thing associated to the user
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
+import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
@@ -78,7 +78,7 @@ Creates a new sketch thing associated to the thing
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
+import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
@@ -128,7 +128,7 @@ Removes a thing associated to the user
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
+import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
@@ -178,7 +178,7 @@ deleteSketch things_v2
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
+import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
@@ -226,7 +226,7 @@ Returns the list of things associated to the user
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
+import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
@@ -280,7 +280,7 @@ Returns the thing requested by the user
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
+import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
@@ -332,7 +332,7 @@ Updates a thing associated to the user
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
+import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
@@ -386,7 +386,7 @@ Update an existing thing sketch
 ### Example
 
 ```javascript
-import ArduinoIotClient from 'arduino-iot-client';
+import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
