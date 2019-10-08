@@ -43,21 +43,21 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```javascript
 
-import ArduinoIotClient from 'arduino-iot-client';
-let defaultClient = ArduinoIotClient.ApiClient.instance;
+var ArduinoIotClient = require('@arduino/arduino-iot-client');
+var client = ArduinoIotClient.ApiClient.instance;
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new ArduinoIotClient.DevicesV2Api();
-apiInstance.devicesV2List().then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
+var oauth2 = client.authentications['oauth2'];
+oauth2.accessToken = await getToken();
+    
+var api = new ArduinoIotClient.DevicesV2Api(client)    
+api.devicesV2List().then(devices => {
+    console.log(devices);
+}, error => {
+    console.log(error)
 });
 ```
 
-For a working example, see [the example folder](./example) in this repo.
+For a working example, see [the example folder](https://github.com/arduino/iot-client-js/tree/master/example) in this repo.
 
 ## Authentication
 
