@@ -22,7 +22,7 @@ import ThingSketch from '../model/ThingSketch';
 /**
 * ThingsV2 service.
 * @module api/ThingsV2Api
-* @version 1.0.0-beta2
+* @version 1.0.0-beta3
 */
 export default class ThingsV2Api {
 

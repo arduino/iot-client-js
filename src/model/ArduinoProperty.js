@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoProperty model module.
  * @module model/ArduinoProperty
- * @version 1.0.0-beta2
+ * @version 1.0.0-beta3
  */
 class ArduinoProperty {
     /**
