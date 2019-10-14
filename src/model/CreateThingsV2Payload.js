@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateThingsV2Payload model module.
  * @module model/CreateThingsV2Payload
- * @version 1.0.0-beta3
+ * @version 1.0.0
  */
 class CreateThingsV2Payload {
     /**

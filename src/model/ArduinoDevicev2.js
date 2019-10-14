@@ -17,7 +17,7 @@ import ArduinoDevicev2Webhook from './ArduinoDevicev2Webhook';
 /**
  * The ArduinoDevicev2 model module.
  * @module model/ArduinoDevicev2
- * @version 1.0.0-beta3
+ * @version 1.0.0
  */
 class ArduinoDevicev2 {
     /**
