@@ -17,7 +17,7 @@ import querystring from "querystring";
 
 /**
 * @module ApiClient
-* @version 1.0.0
+* @version 1.0.1
 */
 
 /**
@@ -444,11 +444,13 @@ class ApiClient {
             request.end((error, response) => {
                 if (error) {
                     var err = {};
-                    err.status = response.status;
-                    err.statusText = response.statusText;
-                    err.body = response.body;
-                    err.response = response;
-                    err.error = error;
+                    if (response) {
+                        err.status = response.status;
+                        err.statusText = response.statusText;
+                        err.body = response.body;
+                        err.response = response;
+                        err.error = error;
+                    }                    
 
                     reject(err);
                 } else {
