@@ -14,6 +14,8 @@
 
 import ApiClient from './ApiClient';
 import ArduinoDevicev2 from './model/ArduinoDevicev2';
+import ArduinoDevicev2EventProperties from './model/ArduinoDevicev2EventProperties';
+import ArduinoDevicev2SimpleProperties from './model/ArduinoDevicev2SimpleProperties';
 import ArduinoDevicev2Webhook from './model/ArduinoDevicev2Webhook';
 import ArduinoDevicev2properties from './model/ArduinoDevicev2properties';
 import ArduinoDevicev2propertyvalue from './model/ArduinoDevicev2propertyvalue';
@@ -46,6 +48,7 @@ import Property from './model/Property';
 import PropertyValue from './model/PropertyValue';
 import Thing from './model/Thing';
 import ThingSketch from './model/ThingSketch';
+import UpdateSketch from './model/UpdateSketch';
 import DevicesV2Api from './api/DevicesV2Api';
 import PropertiesV2Api from './api/PropertiesV2Api';
 import SeriesV2Api from './api/SeriesV2Api';
@@ -95,6 +98,18 @@ export {
      * @property {module:model/ArduinoDevicev2}
      */
     ArduinoDevicev2,
+
+    /**
+     * The ArduinoDevicev2EventProperties model constructor.
+     * @property {module:model/ArduinoDevicev2EventProperties}
+     */
+    ArduinoDevicev2EventProperties,
+
+    /**
+     * The ArduinoDevicev2SimpleProperties model constructor.
+     * @property {module:model/ArduinoDevicev2SimpleProperties}
+     */
+    ArduinoDevicev2SimpleProperties,
 
     /**
      * The ArduinoDevicev2Webhook model constructor.
@@ -287,6 +302,12 @@ export {
      * @property {module:model/ThingSketch}
      */
     ThingSketch,
+
+    /**
+     * The UpdateSketch model constructor.
+     * @property {module:model/UpdateSketch}
+     */
+    UpdateSketch,
 
     /**
     * The DevicesV2Api service constructor.

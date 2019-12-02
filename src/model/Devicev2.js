@@ -48,6 +48,9 @@ class Devicev2 {
         if (data) {
             obj = obj || new Devicev2();
 
+            if (data.hasOwnProperty('fqbn')) {
+                obj['fqbn'] = ApiClient.convertToType(data['fqbn'], 'String');
+            }
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
@@ -71,6 +74,12 @@ class Devicev2 {
 }
 
 /**
+ * The fully qualified board name
+ * @member {String} fqbn
+ */
+Devicev2.prototype['fqbn'] = undefined;
+
+/**
  * The UUID of the device
  * @member {String} id
  */
@@ -90,7 +99,7 @@ Devicev2.prototype['serial'] = undefined;
 
 /**
  * The type of the device
- * @member {String} type
+ * @member {module:model/Devicev2.TypeEnum} type
  */
 Devicev2.prototype['type'] = undefined;
 
@@ -102,6 +111,69 @@ Devicev2.prototype['user_id'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>type</code> property.
+ * @enum {String}
+ * @readonly
+ */
+Devicev2['TypeEnum'] = {
+
+    /**
+     * value: "mkrwifi1010"
+     * @const
+     */
+    "mkrwifi1010": "mkrwifi1010",
+
+    /**
+     * value: "mkr1000"
+     * @const
+     */
+    "mkr1000": "mkr1000",
+
+    /**
+     * value: "nano_33_iot"
+     * @const
+     */
+    "nano_33_iot": "nano_33_iot",
+
+    /**
+     * value: "mkrgsm1400"
+     * @const
+     */
+    "mkrgsm1400": "mkrgsm1400",
+
+    /**
+     * value: "mkrwan1310"
+     * @const
+     */
+    "mkrwan1310": "mkrwan1310",
+
+    /**
+     * value: "mkrwan1300"
+     * @const
+     */
+    "mkrwan1300": "mkrwan1300",
+
+    /**
+     * value: "mkrnb1500"
+     * @const
+     */
+    "mkrnb1500": "mkrnb1500",
+
+    /**
+     * value: "lora-device"
+     * @const
+     */
+    "lora-device": "lora-device",
+
+    /**
+     * value: "login_and_secretkey_wifi"
+     * @const
+     */
+    "login_and_secretkey_wifi": "login_and_secretkey_wifi"
+};
 
 
 

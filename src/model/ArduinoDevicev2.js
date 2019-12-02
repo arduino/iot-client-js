@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ArduinoDevicev2SimpleProperties from './ArduinoDevicev2SimpleProperties';
 import ArduinoDevicev2Webhook from './ArduinoDevicev2Webhook';
 
 /**
@@ -64,6 +65,12 @@ class ArduinoDevicev2 {
             if (data.hasOwnProperty('created_at')) {
                 obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
             }
+            if (data.hasOwnProperty('events')) {
+                obj['events'] = ApiClient.convertToType(data['events'], [ArduinoDevicev2SimpleProperties]);
+            }
+            if (data.hasOwnProperty('fqbn')) {
+                obj['fqbn'] = ApiClient.convertToType(data['fqbn'], 'String');
+            }
             if (data.hasOwnProperty('href')) {
                 obj['href'] = ApiClient.convertToType(data['href'], 'String');
             }
@@ -100,6 +107,18 @@ class ArduinoDevicev2 {
  * @member {Date} created_at
  */
 ArduinoDevicev2.prototype['created_at'] = undefined;
+
+/**
+ * ArduinoDevicev2SimplePropertiesCollection is the media type for an array of ArduinoDevicev2SimpleProperties (default view)
+ * @member {Array.<module:model/ArduinoDevicev2SimpleProperties>} events
+ */
+ArduinoDevicev2.prototype['events'] = undefined;
+
+/**
+ * The fully qualified board name
+ * @member {String} fqbn
+ */
+ArduinoDevicev2.prototype['fqbn'] = undefined;
 
 /**
  * The api reference of this device
