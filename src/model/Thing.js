@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Thing model module.
  * @module model/Thing
- * @version 1.0.1
+ * @version 1.1.0
  */
 class Thing {
     /**

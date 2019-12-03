@@ -16,14 +16,14 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateDevicesV2Payload model module.
  * @module model/CreateDevicesV2Payload
- * @version 1.0.1
+ * @version 1.1.0
  */
 class CreateDevicesV2Payload {
     /**
      * Constructs a new <code>CreateDevicesV2Payload</code>.
      * DeviceV2 describes a device.
      * @alias module:model/CreateDevicesV2Payload
-     * @param type {String} The type of the device
+     * @param type {module:model/CreateDevicesV2Payload.TypeEnum} The type of the device
      */
     constructor(type) { 
         
@@ -50,6 +50,9 @@ class CreateDevicesV2Payload {
         if (data) {
             obj = obj || new CreateDevicesV2Payload();
 
+            if (data.hasOwnProperty('fqbn')) {
+                obj['fqbn'] = ApiClient.convertToType(data['fqbn'], 'String');
+            }
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
@@ -73,6 +76,12 @@ class CreateDevicesV2Payload {
 }
 
 /**
+ * The fully qualified board name
+ * @member {String} fqbn
+ */
+CreateDevicesV2Payload.prototype['fqbn'] = undefined;
+
+/**
  * The UUID of the device
  * @member {String} id
  */
@@ -92,7 +101,7 @@ CreateDevicesV2Payload.prototype['serial'] = undefined;
 
 /**
  * The type of the device
- * @member {String} type
+ * @member {module:model/CreateDevicesV2Payload.TypeEnum} type
  */
 CreateDevicesV2Payload.prototype['type'] = undefined;
 
@@ -104,6 +113,69 @@ CreateDevicesV2Payload.prototype['user_id'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>type</code> property.
+ * @enum {String}
+ * @readonly
+ */
+CreateDevicesV2Payload['TypeEnum'] = {
+
+    /**
+     * value: "mkrwifi1010"
+     * @const
+     */
+    "mkrwifi1010": "mkrwifi1010",
+
+    /**
+     * value: "mkr1000"
+     * @const
+     */
+    "mkr1000": "mkr1000",
+
+    /**
+     * value: "nano_33_iot"
+     * @const
+     */
+    "nano_33_iot": "nano_33_iot",
+
+    /**
+     * value: "mkrgsm1400"
+     * @const
+     */
+    "mkrgsm1400": "mkrgsm1400",
+
+    /**
+     * value: "mkrwan1310"
+     * @const
+     */
+    "mkrwan1310": "mkrwan1310",
+
+    /**
+     * value: "mkrwan1300"
+     * @const
+     */
+    "mkrwan1300": "mkrwan1300",
+
+    /**
+     * value: "mkrnb1500"
+     * @const
+     */
+    "mkrnb1500": "mkrnb1500",
+
+    /**
+     * value: "lora-device"
+     * @const
+     */
+    "lora-device": "lora-device",
+
+    /**
+     * value: "login_and_secretkey_wifi"
+     * @const
+     */
+    "login_and_secretkey_wifi": "login_and_secretkey_wifi"
+};
 
 
 

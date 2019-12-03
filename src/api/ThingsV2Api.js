@@ -18,11 +18,12 @@ import CreateThingsV2Payload from '../model/CreateThingsV2Payload';
 import Error from '../model/Error';
 import Thing from '../model/Thing';
 import ThingSketch from '../model/ThingSketch';
+import UpdateSketch from '../model/UpdateSketch';
 
 /**
 * ThingsV2 service.
 * @module api/ThingsV2Api
-* @version 1.0.1
+* @version 1.1.0
 */
 export default class ThingsV2Api {
 
@@ -44,7 +45,7 @@ export default class ThingsV2Api {
      * Creates a new thing associated to the user
      * @param {module:model/CreateThingsV2Payload} createThingsV2Payload ThingPayload describes a thing
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing (default to false)
+     * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
     thingsV2CreateWithHttpInfo(createThingsV2Payload, opts) {
@@ -67,7 +68,7 @@ export default class ThingsV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json'];
-      let accepts = ['application/vnd.arduino.thing+json', 'application/vnd.goa.error+json'];
+      let accepts = ['application/json'];
       let returnType = ArduinoThing;
       return this.apiClient.callApi(
         '/v2/things', 'PUT',
@@ -81,7 +82,7 @@ export default class ThingsV2Api {
      * Creates a new thing associated to the user
      * @param {module:model/CreateThingsV2Payload} createThingsV2Payload ThingPayload describes a thing
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing (default to false)
+     * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
     thingsV2Create(createThingsV2Payload, opts) {
@@ -122,7 +123,7 @@ export default class ThingsV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json'];
-      let accepts = ['application/vnd.arduino.thing+json', 'application/vnd.goa.error+json'];
+      let accepts = ['application/json'];
       let returnType = ArduinoThing;
       return this.apiClient.callApi(
         '/v2/things/{id}/sketch', 'PUT',
@@ -151,7 +152,7 @@ export default class ThingsV2Api {
      * Removes a thing associated to the user
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.force If true, hard delete the thing (default to false)
+     * @param {Boolean} opts.force If true, hard delete the thing
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     thingsV2DeleteWithHttpInfo(id, opts) {
@@ -189,7 +190,7 @@ export default class ThingsV2Api {
      * Removes a thing associated to the user
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.force If true, hard delete the thing (default to false)
+     * @param {Boolean} opts.force If true, hard delete the thing
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
     thingsV2Delete(id, opts) {
@@ -224,7 +225,7 @@ export default class ThingsV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/vnd.arduino.thing+json'];
+      let accepts = ['application/json'];
       let returnType = ArduinoThing;
       return this.apiClient.callApi(
         '/v2/things/{id}/sketch', 'DELETE',
@@ -250,9 +251,11 @@ export default class ThingsV2Api {
      * list things_v2
      * Returns the list of things associated to the user
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.acrossUserIds If true, returns all the things (default to false)
+     * @param {Boolean} opts.acrossUserIds If true, returns all the things
      * @param {String} opts.deviceId The id of the device you want to filter
-     * @param {Boolean} opts.showDeleted If true, shows the soft deleted things (default to false)
+     * @param {Array.<String>} opts.ids Filter only the desired things
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted things
+     * @param {Boolean} opts.showProperties If true, returns things with their properties, and last values
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoThing>} and HTTP response
      */
     thingsV2ListWithHttpInfo(opts) {
@@ -264,7 +267,9 @@ export default class ThingsV2Api {
       let queryParams = {
         'across_user_ids': opts['acrossUserIds'],
         'device_id': opts['deviceId'],
-        'show_deleted': opts['showDeleted']
+        'ids': this.apiClient.buildCollectionParam(opts['ids'], 'multi'),
+        'show_deleted': opts['showDeleted'],
+        'show_properties': opts['showProperties']
       };
       let headerParams = {
       };
@@ -273,7 +278,7 @@ export default class ThingsV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/vnd.arduino.thing+json; type=collection'];
+      let accepts = ['application/json'];
       let returnType = [ArduinoThing];
       return this.apiClient.callApi(
         '/v2/things', 'GET',
@@ -286,9 +291,11 @@ export default class ThingsV2Api {
      * list things_v2
      * Returns the list of things associated to the user
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.acrossUserIds If true, returns all the things (default to false)
+     * @param {Boolean} opts.acrossUserIds If true, returns all the things
      * @param {String} opts.deviceId The id of the device you want to filter
-     * @param {Boolean} opts.showDeleted If true, shows the soft deleted things (default to false)
+     * @param {Array.<String>} opts.ids Filter only the desired things
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted things
+     * @param {Boolean} opts.showProperties If true, returns things with their properties, and last values
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoThing>}
      */
     thingsV2List(opts) {
@@ -304,7 +311,7 @@ export default class ThingsV2Api {
      * Returns the thing requested by the user
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.showDeleted If true, shows the soft deleted thing (default to false)
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted thing
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
     thingsV2ShowWithHttpInfo(id, opts) {
@@ -328,7 +335,7 @@ export default class ThingsV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/vnd.arduino.thing+json', 'application/vnd.goa.error+json'];
+      let accepts = ['application/json'];
       let returnType = ArduinoThing;
       return this.apiClient.callApi(
         '/v2/things/{id}', 'GET',
@@ -342,7 +349,7 @@ export default class ThingsV2Api {
      * Returns the thing requested by the user
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.showDeleted If true, shows the soft deleted thing (default to false)
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted thing
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
     thingsV2Show(id, opts) {
@@ -359,7 +366,7 @@ export default class ThingsV2Api {
      * @param {String} id The id of the thing
      * @param {module:model/Thing} thing ThingPayload describes a thing
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing (default to false)
+     * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
     thingsV2UpdateWithHttpInfo(id, thing, opts) {
@@ -387,7 +394,7 @@ export default class ThingsV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json'];
-      let accepts = ['application/vnd.arduino.thing+json', 'application/vnd.goa.error+json'];
+      let accepts = ['application/json'];
       let returnType = ArduinoThing;
       return this.apiClient.callApi(
         '/v2/things/{id}', 'POST',
@@ -402,7 +409,7 @@ export default class ThingsV2Api {
      * @param {String} id The id of the thing
      * @param {module:model/Thing} thing ThingPayload describes a thing
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing (default to false)
+     * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
     thingsV2Update(id, thing, opts) {
@@ -418,10 +425,13 @@ export default class ThingsV2Api {
      * Update an existing thing sketch
      * @param {String} id The id of the thing
      * @param {String} sketchId The id of the sketch
+     * @param {Object} opts Optional parameters
+     * @param {module:model/UpdateSketch} opts.updateSketch 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
-    thingsV2UpdateSketchWithHttpInfo(id, sketchId) {
-      let postBody = null;
+    thingsV2UpdateSketchWithHttpInfo(id, sketchId, opts) {
+      opts = opts || {};
+      let postBody = opts['updateSketch'];
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling thingsV2UpdateSketch");
@@ -443,8 +453,8 @@ export default class ThingsV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = [];
-      let accepts = ['application/vnd.arduino.thing+json', 'application/vnd.goa.error+json'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
       let returnType = ArduinoThing;
       return this.apiClient.callApi(
         '/v2/things/{id}/sketch/{sketchId}', 'PUT',
@@ -458,10 +468,12 @@ export default class ThingsV2Api {
      * Update an existing thing sketch
      * @param {String} id The id of the thing
      * @param {String} sketchId The id of the sketch
+     * @param {Object} opts Optional parameters
+     * @param {module:model/UpdateSketch} opts.updateSketch 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
-    thingsV2UpdateSketch(id, sketchId) {
-      return this.thingsV2UpdateSketchWithHttpInfo(id, sketchId)
+    thingsV2UpdateSketch(id, sketchId, opts) {
+      return this.thingsV2UpdateSketchWithHttpInfo(id, sketchId, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

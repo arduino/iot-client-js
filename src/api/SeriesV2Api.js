@@ -24,7 +24,7 @@ import Error from '../model/Error';
 /**
 * SeriesV2 service.
 * @module api/SeriesV2Api
-* @version 1.0.1
+* @version 1.1.0
 */
 export default class SeriesV2Api {
 
@@ -65,7 +65,7 @@ export default class SeriesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json'];
-      let accepts = ['application/vnd.arduino.series.batch+json', 'application/vnd.goa.error+json'];
+      let accepts = ['application/json'];
       let returnType = ArduinoSeriesBatch;
       return this.apiClient.callApi(
         '/v2/series/batch_query', 'POST',
@@ -112,7 +112,7 @@ export default class SeriesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json'];
-      let accepts = ['application/vnd.arduino.series.raw.batch+json', 'application/vnd.goa.error+json'];
+      let accepts = ['application/json'];
       let returnType = ArduinoSeriesRawBatch;
       return this.apiClient.callApi(
         '/v2/series/batch_query_raw', 'POST',
@@ -159,7 +159,7 @@ export default class SeriesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json'];
-      let accepts = ['application/vnd.arduino.series.raw.batch.lastvalue+json', 'application/vnd.goa.error+json'];
+      let accepts = ['application/json'];
       let returnType = ArduinoSeriesRawBatchLastvalue;
       return this.apiClient.callApi(
         '/v2/series/batch_query_raw/lastvalue', 'POST',

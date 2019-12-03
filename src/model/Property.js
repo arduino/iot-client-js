@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Property model module.
  * @module model/Property
- * @version 1.0.1
+ * @version 1.1.0
  */
 class Property {
     /**
@@ -622,10 +622,10 @@ Property['TypeEnum'] = {
     "HOME_COLORED_LIGHT": "HOME_COLORED_LIGHT",
 
     /**
-     * value: "HOME_DIMMERED_LIGHT"
+     * value: "HOME_DIMMED_LIGHT"
      * @const
      */
-    "HOME_DIMMERED_LIGHT": "HOME_DIMMERED_LIGHT",
+    "HOME_DIMMED_LIGHT": "HOME_DIMMED_LIGHT",
 
     /**
      * value: "HOME_LIGHT"
@@ -658,10 +658,28 @@ Property['TypeEnum'] = {
     "HOME_TEMPERATURE": "HOME_TEMPERATURE",
 
     /**
+     * value: "HOME_TEMPERATURE_C"
+     * @const
+     */
+    "HOME_TEMPERATURE_C": "HOME_TEMPERATURE_C",
+
+    /**
+     * value: "HOME_TEMPERATURE_F"
+     * @const
+     */
+    "HOME_TEMPERATURE_F": "HOME_TEMPERATURE_F",
+
+    /**
      * value: "HOME_SWITCH"
      * @const
      */
-    "HOME_SWITCH": "HOME_SWITCH"
+    "HOME_SWITCH": "HOME_SWITCH",
+
+    /**
+     * value: "HOME_TELEVISION"
+     * @const
+     */
+    "HOME_TELEVISION": "HOME_TELEVISION"
 };
 
 

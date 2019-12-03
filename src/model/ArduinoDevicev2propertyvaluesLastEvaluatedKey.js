@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoDevicev2propertyvaluesLastEvaluatedKey model module.
  * @module model/ArduinoDevicev2propertyvaluesLastEvaluatedKey
- * @version 1.0.1
+ * @version 1.1.0
  */
 class ArduinoDevicev2propertyvaluesLastEvaluatedKey {
     /**

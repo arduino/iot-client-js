@@ -14,6 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import ArduinoDevicev2 from '../model/ArduinoDevicev2';
+import ArduinoDevicev2EventProperties from '../model/ArduinoDevicev2EventProperties';
 import ArduinoDevicev2properties from '../model/ArduinoDevicev2properties';
 import ArduinoDevicev2propertyvalues from '../model/ArduinoDevicev2propertyvalues';
 import CreateDevicesV2Payload from '../model/CreateDevicesV2Payload';
@@ -24,7 +25,7 @@ import PropertiesValues from '../model/PropertiesValues';
 /**
 * DevicesV2 service.
 * @module api/DevicesV2Api
-* @version 1.0.1
+* @version 1.1.0
 */
 export default class DevicesV2Api {
 
@@ -65,7 +66,7 @@ export default class DevicesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json'];
-      let accepts = ['application/vnd.arduino.devicev2+json', 'application/vnd.goa.error+json'];
+      let accepts = ['application/json'];
       let returnType = ArduinoDevicev2;
       return this.apiClient.callApi(
         '/v2/devices', 'PUT',
@@ -137,11 +138,68 @@ export default class DevicesV2Api {
 
 
     /**
+     * getEvents devices_v2
+     * GET device events
+     * @param {String} id The id of the device
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit The number of events to select
+     * @param {String} opts.start The time at which to start selecting events
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2EventProperties} and HTTP response
+     */
+    devicesV2GetEventsWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling devicesV2GetEvents");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'start': opts['start']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oauth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ArduinoDevicev2EventProperties;
+      return this.apiClient.callApi(
+        '/v2/devices/{id}/events', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * getEvents devices_v2
+     * GET device events
+     * @param {String} id The id of the device
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit The number of events to select
+     * @param {String} opts.start The time at which to start selecting events
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2EventProperties}
+     */
+    devicesV2GetEvents(id, opts) {
+      return this.devicesV2GetEventsWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * getProperties devices_v2
      * GET device properties
      * @param {String} id The id of the device
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2properties} and HTTP response
      */
     devicesV2GetPropertiesWithHttpInfo(id, opts) {
@@ -165,7 +223,7 @@ export default class DevicesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/vnd.arduino.devicev2properties+json'];
+      let accepts = ['application/json'];
       let returnType = ArduinoDevicev2properties;
       return this.apiClient.callApi(
         '/v2/devices/{id}/properties', 'GET',
@@ -179,7 +237,7 @@ export default class DevicesV2Api {
      * GET device properties
      * @param {String} id The id of the device
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2properties}
      */
     devicesV2GetProperties(id, opts) {
@@ -194,7 +252,7 @@ export default class DevicesV2Api {
      * list devices_v2
      * Returns the list of devices associated to the user
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.acrossUserIds If true, returns all the devices (default to false)
+     * @param {Boolean} opts.acrossUserIds If true, returns all the devices
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoDevicev2>} and HTTP response
      */
     devicesV2ListWithHttpInfo(opts) {
@@ -213,7 +271,7 @@ export default class DevicesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/vnd.arduino.devicev2+json; type=collection'];
+      let accepts = ['application/json'];
       let returnType = [ArduinoDevicev2];
       return this.apiClient.callApi(
         '/v2/devices', 'GET',
@@ -226,7 +284,7 @@ export default class DevicesV2Api {
      * list devices_v2
      * Returns the list of devices associated to the user
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.acrossUserIds If true, returns all the devices (default to false)
+     * @param {Boolean} opts.acrossUserIds If true, returns all the devices
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoDevicev2>}
      */
     devicesV2List(opts) {
@@ -262,7 +320,7 @@ export default class DevicesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/vnd.arduino.devicev2+json'];
+      let accepts = ['application/json'];
       let returnType = ArduinoDevicev2;
       return this.apiClient.callApi(
         '/v2/devices/{id}', 'GET',
@@ -322,7 +380,7 @@ export default class DevicesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/vnd.arduino.devicev2propertyvalues+json'];
+      let accepts = ['application/json'];
       let returnType = ArduinoDevicev2propertyvalues;
       return this.apiClient.callApi(
         '/v2/devices/{id}/properties/{pid}', 'GET',
@@ -379,7 +437,7 @@ export default class DevicesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json'];
-      let accepts = ['application/vnd.arduino.devicev2+json', 'application/vnd.goa.error+json'];
+      let accepts = ['application/json'];
       let returnType = ArduinoDevicev2;
       return this.apiClient.callApi(
         '/v2/devices/{id}', 'POST',
