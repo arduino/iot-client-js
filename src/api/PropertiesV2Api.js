@@ -21,7 +21,7 @@ import PropertyValue from '../model/PropertyValue';
 /**
 * PropertiesV2 service.
 * @module api/PropertiesV2Api
-* @version 1.0.1
+* @version 1.1.0
 */
 export default class PropertiesV2Api {
 
@@ -68,7 +68,7 @@ export default class PropertiesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json'];
-      let accepts = ['application/vnd.arduino.property+json', 'application/vnd.goa.error+json'];
+      let accepts = ['application/json'];
       let returnType = ArduinoProperty;
       return this.apiClient.callApi(
         '/v2/things/{id}/properties', 'PUT',
@@ -98,7 +98,7 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {String} pid The id of the property
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.force If true, hard delete the property (default to false)
+     * @param {Boolean} opts.force If true, hard delete the property
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     propertiesV2DeleteWithHttpInfo(id, pid, opts) {
@@ -127,7 +127,7 @@ export default class PropertiesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/vnd.goa.error+json', 'text/plain'];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/v2/things/{id}/properties/{pid}', 'DELETE',
@@ -142,7 +142,7 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {String} pid The id of the property
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.force If true, hard delete the property (default to false)
+     * @param {Boolean} opts.force If true, hard delete the property
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
     propertiesV2Delete(id, pid, opts) {
@@ -158,7 +158,7 @@ export default class PropertiesV2Api {
      * Returns the list of properties associated to the thing
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoProperty>} and HTTP response
      */
     propertiesV2ListWithHttpInfo(id, opts) {
@@ -182,7 +182,7 @@ export default class PropertiesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/vnd.arduino.property+json; type=collection', 'application/vnd.goa.error+json'];
+      let accepts = ['application/json'];
       let returnType = [ArduinoProperty];
       return this.apiClient.callApi(
         '/v2/things/{id}/properties', 'GET',
@@ -196,7 +196,7 @@ export default class PropertiesV2Api {
      * Returns the list of properties associated to the thing
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoProperty>}
      */
     propertiesV2List(id, opts) {
@@ -243,7 +243,7 @@ export default class PropertiesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json'];
-      let accepts = ['application/vnd.goa.error+json', 'text/plain'];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/v2/things/{id}/properties/{pid}/publish', 'PUT',
@@ -274,7 +274,7 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {String} pid The id of the property
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoProperty} and HTTP response
      */
     propertiesV2ShowWithHttpInfo(id, pid, opts) {
@@ -303,7 +303,7 @@ export default class PropertiesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/vnd.arduino.property+json', 'application/vnd.goa.error+json'];
+      let accepts = ['application/json'];
       let returnType = ArduinoProperty;
       return this.apiClient.callApi(
         '/v2/things/{id}/properties/{pid}', 'GET',
@@ -318,7 +318,7 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {String} pid The id of the property
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoProperty}
      */
     propertiesV2Show(id, pid, opts) {
@@ -365,7 +365,7 @@ export default class PropertiesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json'];
-      let accepts = ['application/vnd.arduino.property+json', 'application/vnd.goa.error+json'];
+      let accepts = ['application/json'];
       let returnType = ArduinoProperty;
       return this.apiClient.callApi(
         '/v2/things/{id}/properties/{pid}', 'POST',

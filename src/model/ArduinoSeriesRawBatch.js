@@ -17,7 +17,7 @@ import ArduinoSeriesRawResponse from './ArduinoSeriesRawResponse';
 /**
  * The ArduinoSeriesRawBatch model module.
  * @module model/ArduinoSeriesRawBatch
- * @version 1.0.1
+ * @version 1.1.0
  */
 class ArduinoSeriesRawBatch {
     /**
