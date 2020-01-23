@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BatchQueryRawLastValueRequestMediaV1 model module.
  * @module model/BatchQueryRawLastValueRequestMediaV1
- * @version 1.1.0
+ * @version 1.2.0
  */
 class BatchQueryRawLastValueRequestMediaV1 {
     /**

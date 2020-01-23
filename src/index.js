@@ -84,7 +84,7 @@ import ThingsV2Api from './api/ThingsV2Api';
 * </pre>
 * </p>
 * @module index
-* @version 1.1.0
+* @version 1.2.0
 */
 export {
     /**
