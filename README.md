@@ -69,7 +69,7 @@ var rp = require('request-promise');
 
 var options = {
     method: 'POST',
-    url: 'https://login.arduino.cc/oauth/token',
+    url: 'https://api2.arduino.cc/iot/v1/clients/token',
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
     json: true,
     form: {
