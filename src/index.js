@@ -1,6 +1,6 @@
 /**
- * Iot API
- * Collection of all public API endpoints.
+ * Arduino IoT Cloud API
+ *  Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
  *
  * The version of the OpenAPI document: 2.0
  * 
@@ -13,8 +13,11 @@
 
 
 import ApiClient from './ApiClient';
+import ArduinoCompressedv2 from './model/ArduinoCompressedv2';
 import ArduinoDevicev2 from './model/ArduinoDevicev2';
+import ArduinoDevicev2Cert from './model/ArduinoDevicev2Cert';
 import ArduinoDevicev2EventProperties from './model/ArduinoDevicev2EventProperties';
+import ArduinoDevicev2Pass from './model/ArduinoDevicev2Pass';
 import ArduinoDevicev2SimpleProperties from './model/ArduinoDevicev2SimpleProperties';
 import ArduinoDevicev2Webhook from './model/ArduinoDevicev2Webhook';
 import ArduinoDevicev2properties from './model/ArduinoDevicev2properties';
@@ -38,9 +41,13 @@ import BatchQueryRawRequestsMediaV1 from './model/BatchQueryRawRequestsMediaV1';
 import BatchQueryRawResponseSeriesMediaV1 from './model/BatchQueryRawResponseSeriesMediaV1';
 import BatchQueryRequestMediaV1 from './model/BatchQueryRequestMediaV1';
 import BatchQueryRequestsMediaV1 from './model/BatchQueryRequestsMediaV1';
+import CheckDevicesV2PassPayload from './model/CheckDevicesV2PassPayload';
+import CreateDevicesV2CertsPayload from './model/CreateDevicesV2CertsPayload';
 import CreateDevicesV2Payload from './model/CreateDevicesV2Payload';
 import CreateThingsV2Payload from './model/CreateThingsV2Payload';
 import Devicev2 from './model/Devicev2';
+import Devicev2Cert from './model/Devicev2Cert';
+import Devicev2Pass from './model/Devicev2Pass';
 import Error from './model/Error';
 import PropertiesValue from './model/PropertiesValue';
 import PropertiesValues from './model/PropertiesValues';
@@ -50,13 +57,15 @@ import Thing from './model/Thing';
 import ThingSketch from './model/ThingSketch';
 import UpdateSketch from './model/UpdateSketch';
 import DevicesV2Api from './api/DevicesV2Api';
+import DevicesV2CertsApi from './api/DevicesV2CertsApi';
+import DevicesV2PassApi from './api/DevicesV2PassApi';
 import PropertiesV2Api from './api/PropertiesV2Api';
 import SeriesV2Api from './api/SeriesV2Api';
 import ThingsV2Api from './api/ThingsV2Api';
 
 
 /**
-* Collection_of_all_public_API_endpoints_.<br>
+* Provides_a_set_of_endpoints_to_manage_Arduino_IoT_Cloud_Devices_Things_Properties_and_Timeseries__This_API_can_be_called_just_with_any_HTTP_Client_or_using_one_of_these_clients__Javascript_NPM_package_https__www_npmjs_com_package_arduino_arduino_iot_client__Python_PYPI_Package_https__pypi_org_project_arduino_iot_client___Golang_Module_https__github_com_arduino_iot_client_go.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -84,7 +93,7 @@ import ThingsV2Api from './api/ThingsV2Api';
 * </pre>
 * </p>
 * @module index
-* @version 1.2.0
+* @version 1.2.1
 */
 export {
     /**
@@ -94,16 +103,34 @@ export {
     ApiClient,
 
     /**
+     * The ArduinoCompressedv2 model constructor.
+     * @property {module:model/ArduinoCompressedv2}
+     */
+    ArduinoCompressedv2,
+
+    /**
      * The ArduinoDevicev2 model constructor.
      * @property {module:model/ArduinoDevicev2}
      */
     ArduinoDevicev2,
 
     /**
+     * The ArduinoDevicev2Cert model constructor.
+     * @property {module:model/ArduinoDevicev2Cert}
+     */
+    ArduinoDevicev2Cert,
+
+    /**
      * The ArduinoDevicev2EventProperties model constructor.
      * @property {module:model/ArduinoDevicev2EventProperties}
      */
     ArduinoDevicev2EventProperties,
+
+    /**
+     * The ArduinoDevicev2Pass model constructor.
+     * @property {module:model/ArduinoDevicev2Pass}
+     */
+    ArduinoDevicev2Pass,
 
     /**
      * The ArduinoDevicev2SimpleProperties model constructor.
@@ -244,6 +271,18 @@ export {
     BatchQueryRequestsMediaV1,
 
     /**
+     * The CheckDevicesV2PassPayload model constructor.
+     * @property {module:model/CheckDevicesV2PassPayload}
+     */
+    CheckDevicesV2PassPayload,
+
+    /**
+     * The CreateDevicesV2CertsPayload model constructor.
+     * @property {module:model/CreateDevicesV2CertsPayload}
+     */
+    CreateDevicesV2CertsPayload,
+
+    /**
      * The CreateDevicesV2Payload model constructor.
      * @property {module:model/CreateDevicesV2Payload}
      */
@@ -260,6 +299,18 @@ export {
      * @property {module:model/Devicev2}
      */
     Devicev2,
+
+    /**
+     * The Devicev2Cert model constructor.
+     * @property {module:model/Devicev2Cert}
+     */
+    Devicev2Cert,
+
+    /**
+     * The Devicev2Pass model constructor.
+     * @property {module:model/Devicev2Pass}
+     */
+    Devicev2Pass,
 
     /**
      * The Error model constructor.
@@ -314,6 +365,18 @@ export {
     * @property {module:api/DevicesV2Api}
     */
     DevicesV2Api,
+
+    /**
+    * The DevicesV2CertsApi service constructor.
+    * @property {module:api/DevicesV2CertsApi}
+    */
+    DevicesV2CertsApi,
+
+    /**
+    * The DevicesV2PassApi service constructor.
+    * @property {module:api/DevicesV2PassApi}
+    */
+    DevicesV2PassApi,
 
     /**
     * The PropertiesV2Api service constructor.

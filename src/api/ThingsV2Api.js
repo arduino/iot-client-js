@@ -1,6 +1,6 @@
 /**
- * Iot API
- * Collection of all public API endpoints.
+ * Arduino IoT Cloud API
+ *  Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
  *
  * The version of the OpenAPI document: 2.0
  * 
@@ -23,7 +23,7 @@ import UpdateSketch from '../model/UpdateSketch';
 /**
 * ThingsV2 service.
 * @module api/ThingsV2Api
-* @version 1.2.0
+* @version 1.2.1
 */
 export default class ThingsV2Api {
 
@@ -176,7 +176,7 @@ export default class ThingsV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/v2/things/{id}', 'DELETE',

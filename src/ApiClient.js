@@ -1,6 +1,6 @@
 /**
- * Iot API
- * Collection of all public API endpoints.
+ * Arduino IoT Cloud API
+ *  Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
  *
  * The version of the OpenAPI document: 2.0
  * 
@@ -17,7 +17,7 @@ import querystring from "querystring";
 
 /**
 * @module ApiClient
-* @version 1.2.0
+* @version 1.2.1
 */
 
 /**
@@ -32,9 +32,9 @@ class ApiClient {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default http://api2.arduino.cc/iot
+         * @default https://api2.arduino.cc/iot
          */
-        this.basePath = 'http://api2.arduino.cc/iot'.replace(/\/+$/, '');
+        this.basePath = 'https://api2.arduino.cc/iot'.replace(/\/+$/, '');
 
         /**
          * The authentication methods to be included for all API calls.
@@ -397,8 +397,6 @@ class ApiClient {
             if(contentType != 'multipart/form-data') {
                 request.type(contentType);
             }
-        } else if (!request.header['Content-Type']) {
-            request.type('application/json');
         }
 
         if (contentType === 'application/x-www-form-urlencoded') {
@@ -416,6 +414,9 @@ class ApiClient {
                 }
             }
         } else if (bodyParam !== null && bodyParam !== undefined) {
+            if (!request.header['Content-Type']) {
+                request.type('application/json');
+            }
             request.send(bodyParam);
         }
 
@@ -554,7 +555,7 @@ class ApiClient {
     hostSettings() {
         return [
             {
-              'url': "http://api2.arduino.cc/iot",
+              'url': "https://api2.arduino.cc/iot",
               'description': "No description provided",
             }
       ];
