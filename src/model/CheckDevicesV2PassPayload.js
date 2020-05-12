@@ -14,19 +14,19 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The BatchQueryRawResponseSeriesMediaV1 model module.
- * @module model/BatchQueryRawResponseSeriesMediaV1
+ * The CheckDevicesV2PassPayload model module.
+ * @module model/CheckDevicesV2PassPayload
  * @version 1.2.1
  */
-class BatchQueryRawResponseSeriesMediaV1 {
+class CheckDevicesV2PassPayload {
     /**
-     * Constructs a new <code>BatchQueryRawResponseSeriesMediaV1</code>.
-     * @alias module:model/BatchQueryRawResponseSeriesMediaV1
-     * @param metric {String} Metric name
+     * Constructs a new <code>CheckDevicesV2PassPayload</code>.
+     * @alias module:model/CheckDevicesV2PassPayload
+     * @param password {String} The password for the device
      */
-    constructor(metric) { 
+    constructor(password) { 
         
-        BatchQueryRawResponseSeriesMediaV1.initialize(this, metric);
+        CheckDevicesV2PassPayload.initialize(this, password);
     }
 
     /**
@@ -34,23 +34,23 @@ class BatchQueryRawResponseSeriesMediaV1 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, metric) { 
-        obj['metric'] = metric;
+    static initialize(obj, password) { 
+        obj['password'] = password;
     }
 
     /**
-     * Constructs a <code>BatchQueryRawResponseSeriesMediaV1</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>CheckDevicesV2PassPayload</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/BatchQueryRawResponseSeriesMediaV1} obj Optional instance to populate.
-     * @return {module:model/BatchQueryRawResponseSeriesMediaV1} The populated <code>BatchQueryRawResponseSeriesMediaV1</code> instance.
+     * @param {module:model/CheckDevicesV2PassPayload} obj Optional instance to populate.
+     * @return {module:model/CheckDevicesV2PassPayload} The populated <code>CheckDevicesV2PassPayload</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new BatchQueryRawResponseSeriesMediaV1();
+            obj = obj || new CheckDevicesV2PassPayload();
 
-            if (data.hasOwnProperty('metric')) {
-                obj['metric'] = ApiClient.convertToType(data['metric'], 'String');
+            if (data.hasOwnProperty('password')) {
+                obj['password'] = ApiClient.convertToType(data['password'], 'String');
             }
         }
         return obj;
@@ -60,15 +60,15 @@ class BatchQueryRawResponseSeriesMediaV1 {
 }
 
 /**
- * Metric name
- * @member {String} metric
+ * The password for the device
+ * @member {String} password
  */
-BatchQueryRawResponseSeriesMediaV1.prototype['metric'] = undefined;
+CheckDevicesV2PassPayload.prototype['password'] = undefined;
 
 
 
 
 
 
-export default BatchQueryRawResponseSeriesMediaV1;
+export default CheckDevicesV2PassPayload;
 

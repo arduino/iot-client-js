@@ -1,6 +1,6 @@
 /**
- * Iot API
- * Collection of all public API endpoints.
+ * Arduino IoT Cloud API
+ *  Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
  *
  * The version of the OpenAPI document: 2.0
  * 
@@ -12,11 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
+import AnyType from './AnyType';
 
 /**
  * The ArduinoProperty model module.
  * @module model/ArduinoProperty
- * @version 1.2.0
+ * @version 1.2.1
  */
 class ArduinoProperty {
     /**
@@ -75,7 +76,7 @@ class ArduinoProperty {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
             if (data.hasOwnProperty('last_value')) {
-                obj['last_value'] = ApiClient.convertToType(data['last_value'], Object);
+                obj['last_value'] = ApiClient.convertToType(data['last_value'], AnyType);
             }
             if (data.hasOwnProperty('max_value')) {
                 obj['max_value'] = ApiClient.convertToType(data['max_value'], 'Number');
@@ -91,6 +92,9 @@ class ArduinoProperty {
             }
             if (data.hasOwnProperty('persist')) {
                 obj['persist'] = ApiClient.convertToType(data['persist'], 'Boolean');
+            }
+            if (data.hasOwnProperty('tag')) {
+                obj['tag'] = ApiClient.convertToType(data['tag'], 'Number');
             }
             if (data.hasOwnProperty('thing_id')) {
                 obj['thing_id'] = ApiClient.convertToType(data['thing_id'], 'String');
@@ -146,7 +150,7 @@ ArduinoProperty.prototype['id'] = undefined;
 
 /**
  * Last value of this property
- * @member {Object} last_value
+ * @member {module:model/AnyType} last_value
  */
 ArduinoProperty.prototype['last_value'] = undefined;
 
@@ -179,6 +183,12 @@ ArduinoProperty.prototype['permission'] = undefined;
  * @member {Boolean} persist
  */
 ArduinoProperty.prototype['persist'] = undefined;
+
+/**
+ * The integer id of the property
+ * @member {Number} tag
+ */
+ArduinoProperty.prototype['tag'] = undefined;
 
 /**
  * The id of the thing

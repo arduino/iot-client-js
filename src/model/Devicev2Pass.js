@@ -14,19 +14,18 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The BatchQueryRawResponseSeriesMediaV1 model module.
- * @module model/BatchQueryRawResponseSeriesMediaV1
+ * The Devicev2Pass model module.
+ * @module model/Devicev2Pass
  * @version 1.2.1
  */
-class BatchQueryRawResponseSeriesMediaV1 {
+class Devicev2Pass {
     /**
-     * Constructs a new <code>BatchQueryRawResponseSeriesMediaV1</code>.
-     * @alias module:model/BatchQueryRawResponseSeriesMediaV1
-     * @param metric {String} Metric name
+     * Constructs a new <code>Devicev2Pass</code>.
+     * @alias module:model/Devicev2Pass
      */
-    constructor(metric) { 
+    constructor() { 
         
-        BatchQueryRawResponseSeriesMediaV1.initialize(this, metric);
+        Devicev2Pass.initialize(this);
     }
 
     /**
@@ -34,23 +33,22 @@ class BatchQueryRawResponseSeriesMediaV1 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, metric) { 
-        obj['metric'] = metric;
+    static initialize(obj) { 
     }
 
     /**
-     * Constructs a <code>BatchQueryRawResponseSeriesMediaV1</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>Devicev2Pass</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/BatchQueryRawResponseSeriesMediaV1} obj Optional instance to populate.
-     * @return {module:model/BatchQueryRawResponseSeriesMediaV1} The populated <code>BatchQueryRawResponseSeriesMediaV1</code> instance.
+     * @param {module:model/Devicev2Pass} obj Optional instance to populate.
+     * @return {module:model/Devicev2Pass} The populated <code>Devicev2Pass</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new BatchQueryRawResponseSeriesMediaV1();
+            obj = obj || new Devicev2Pass();
 
-            if (data.hasOwnProperty('metric')) {
-                obj['metric'] = ApiClient.convertToType(data['metric'], 'String');
+            if (data.hasOwnProperty('password')) {
+                obj['password'] = ApiClient.convertToType(data['password'], 'String');
             }
         }
         return obj;
@@ -60,15 +58,15 @@ class BatchQueryRawResponseSeriesMediaV1 {
 }
 
 /**
- * Metric name
- * @member {String} metric
+ * The password for the device
+ * @member {String} password
  */
-BatchQueryRawResponseSeriesMediaV1.prototype['metric'] = undefined;
+Devicev2Pass.prototype['password'] = undefined;
 
 
 
 
 
 
-export default BatchQueryRawResponseSeriesMediaV1;
+export default Devicev2Pass;
 

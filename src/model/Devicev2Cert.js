@@ -12,23 +12,20 @@
  */
 
 import ApiClient from '../ApiClient';
-import AnyType from './AnyType';
 
 /**
- * The PropertyValue model module.
- * @module model/PropertyValue
+ * The Devicev2Cert model module.
+ * @module model/Devicev2Cert
  * @version 1.2.1
  */
-class PropertyValue {
+class Devicev2Cert {
     /**
-     * Constructs a new <code>PropertyValue</code>.
-     * PropertyValuePayload describes a property value
-     * @alias module:model/PropertyValue
-     * @param value {module:model/AnyType} The property value
+     * Constructs a new <code>Devicev2Cert</code>.
+     * @alias module:model/Devicev2Cert
      */
-    constructor(value) { 
+    constructor() { 
         
-        PropertyValue.initialize(this, value);
+        Devicev2Cert.initialize(this);
     }
 
     /**
@@ -36,26 +33,28 @@ class PropertyValue {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, value) { 
-        obj['value'] = value;
+    static initialize(obj) { 
     }
 
     /**
-     * Constructs a <code>PropertyValue</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>Devicev2Cert</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/PropertyValue} obj Optional instance to populate.
-     * @return {module:model/PropertyValue} The populated <code>PropertyValue</code> instance.
+     * @param {module:model/Devicev2Cert} obj Optional instance to populate.
+     * @return {module:model/Devicev2Cert} The populated <code>Devicev2Cert</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new PropertyValue();
+            obj = obj || new Devicev2Cert();
 
-            if (data.hasOwnProperty('device_id')) {
-                obj['device_id'] = ApiClient.convertToType(data['device_id'], 'String');
+            if (data.hasOwnProperty('ca')) {
+                obj['ca'] = ApiClient.convertToType(data['ca'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
-                obj['value'] = ApiClient.convertToType(data['value'], AnyType);
+            if (data.hasOwnProperty('csr')) {
+                obj['csr'] = ApiClient.convertToType(data['csr'], 'String');
+            }
+            if (data.hasOwnProperty('enabled')) {
+                obj['enabled'] = ApiClient.convertToType(data['enabled'], 'Boolean');
             }
         }
         return obj;
@@ -65,21 +64,27 @@ class PropertyValue {
 }
 
 /**
- * The device who send the property
- * @member {String} device_id
+ * The Certification Authority you want to use
+ * @member {String} ca
  */
-PropertyValue.prototype['device_id'] = undefined;
+Devicev2Cert.prototype['ca'] = undefined;
 
 /**
- * The property value
- * @member {module:model/AnyType} value
+ * The certificate request in pem format
+ * @member {String} csr
  */
-PropertyValue.prototype['value'] = undefined;
+Devicev2Cert.prototype['csr'] = undefined;
+
+/**
+ * Whether the certificate is enabled
+ * @member {Boolean} enabled
+ */
+Devicev2Cert.prototype['enabled'] = undefined;
 
 
 
 
 
 
-export default PropertyValue;
+export default Devicev2Cert;
 

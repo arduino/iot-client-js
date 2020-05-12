@@ -1,6 +1,6 @@
 /**
- * Iot API
- * Collection of all public API endpoints.
+ * Arduino IoT Cloud API
+ *  Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
  *
  * The version of the OpenAPI document: 2.0
  * 
@@ -12,11 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
+import AnyType from './AnyType';
 
 /**
  * The PropertiesValue model module.
  * @module model/PropertiesValue
- * @version 1.2.0
+ * @version 1.2.1
  */
 class PropertiesValue {
     /**
@@ -24,7 +25,7 @@ class PropertiesValue {
      * @alias module:model/PropertiesValue
      * @param name {String} The name of the property
      * @param type {module:model/PropertiesValue.TypeEnum} The type of the property
-     * @param value {Object} The last value of the property
+     * @param value {module:model/AnyType} The last value of the property
      */
     constructor(name, type, value) { 
         
@@ -60,7 +61,7 @@ class PropertiesValue {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
             if (data.hasOwnProperty('value')) {
-                obj['value'] = ApiClient.convertToType(data['value'], Object);
+                obj['value'] = ApiClient.convertToType(data['value'], AnyType);
             }
         }
         return obj;
@@ -84,7 +85,7 @@ PropertiesValue.prototype['type'] = 'infer';
 
 /**
  * The last value of the property
- * @member {Object} value
+ * @member {module:model/AnyType} value
  */
 PropertiesValue.prototype['value'] = undefined;
 
