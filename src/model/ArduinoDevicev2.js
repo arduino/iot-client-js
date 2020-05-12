@@ -1,6 +1,6 @@
 /**
- * Iot API
- * Collection of all public API endpoints.
+ * Arduino IoT Cloud API
+ *  Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
  *
  * The version of the OpenAPI document: 2.0
  * 
@@ -18,7 +18,7 @@ import ArduinoDevicev2Webhook from './ArduinoDevicev2Webhook';
 /**
  * The ArduinoDevicev2 model module.
  * @module model/ArduinoDevicev2
- * @version 1.2.0
+ * @version 1.3.0
  */
 class ArduinoDevicev2 {
     /**
@@ -77,6 +77,9 @@ class ArduinoDevicev2 {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            if (data.hasOwnProperty('last_activity_at')) {
+                obj['last_activity_at'] = ApiClient.convertToType(data['last_activity_at'], 'Date');
+            }
             if (data.hasOwnProperty('metadata')) {
                 obj['metadata'] = ApiClient.convertToType(data['metadata'], {'String': Object});
             }
@@ -131,6 +134,12 @@ ArduinoDevicev2.prototype['href'] = undefined;
  * @member {String} id
  */
 ArduinoDevicev2.prototype['id'] = undefined;
+
+/**
+ * Last activity date
+ * @member {Date} last_activity_at
+ */
+ArduinoDevicev2.prototype['last_activity_at'] = undefined;
 
 /**
  * The metadata of the device
