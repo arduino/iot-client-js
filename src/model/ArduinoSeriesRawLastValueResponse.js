@@ -1,6 +1,6 @@
 /**
- * Iot API
- * Collection of all public API endpoints.
+ * Arduino IoT Cloud API
+ *  Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
  *
  * The version of the OpenAPI document: 2.0
  * 
@@ -12,11 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
+import AnyType from './AnyType';
 
 /**
  * The ArduinoSeriesRawLastValueResponse model module.
  * @module model/ArduinoSeriesRawLastValueResponse
- * @version 1.2.0
+ * @version 1.3.0
  */
 class ArduinoSeriesRawLastValueResponse {
     /**
@@ -27,7 +28,7 @@ class ArduinoSeriesRawLastValueResponse {
      * @param propertyId {String} Property id
      * @param thingId {String} Thing id
      * @param times {Array.<Date>} Timestamp in RFC3339
-     * @param values {Array.<Object>} Values can be in Float, String, Bool, Object
+     * @param values {Array.<module:model/AnyType>} Values can be in Float, String, Bool, Object
      */
     constructor(countValues, propertyId, thingId, times, values) { 
         
@@ -71,7 +72,7 @@ class ArduinoSeriesRawLastValueResponse {
                 obj['times'] = ApiClient.convertToType(data['times'], ['Date']);
             }
             if (data.hasOwnProperty('values')) {
-                obj['values'] = ApiClient.convertToType(data['values'], [Object]);
+                obj['values'] = ApiClient.convertToType(data['values'], [AnyType]);
             }
         }
         return obj;
@@ -106,7 +107,7 @@ ArduinoSeriesRawLastValueResponse.prototype['times'] = undefined;
 
 /**
  * Values can be in Float, String, Bool, Object
- * @member {Array.<Object>} values
+ * @member {Array.<module:model/AnyType>} values
  */
 ArduinoSeriesRawLastValueResponse.prototype['values'] = undefined;
 

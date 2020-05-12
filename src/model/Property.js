@@ -1,6 +1,6 @@
 /**
- * Iot API
- * Collection of all public API endpoints.
+ * Arduino IoT Cloud API
+ *  Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
  *
  * The version of the OpenAPI document: 2.0
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Property model module.
  * @module model/Property
- * @version 1.2.0
+ * @version 1.3.0
  */
 class Property {
     /**
@@ -71,6 +71,9 @@ class Property {
             if (data.hasOwnProperty('persist')) {
                 obj['persist'] = ApiClient.convertToType(data['persist'], 'Boolean');
             }
+            if (data.hasOwnProperty('tag')) {
+                obj['tag'] = ApiClient.convertToType(data['tag'], 'Number');
+            }
             if (data.hasOwnProperty('type')) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
@@ -120,6 +123,12 @@ Property.prototype['permission'] = undefined;
  * @default false
  */
 Property.prototype['persist'] = false;
+
+/**
+ * The integer id of the property
+ * @member {Number} tag
+ */
+Property.prototype['tag'] = undefined;
 
 /**
  * The type of the property
