@@ -12,12 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
-import AnyType from './AnyType';
 
 /**
  * The ArduinoDevicev2SimpleProperties model module.
  * @module model/ArduinoDevicev2SimpleProperties
- * @version 1.3.0
+ * @version 1.3.1
  */
 class ArduinoDevicev2SimpleProperties {
     /**
@@ -26,7 +25,7 @@ class ArduinoDevicev2SimpleProperties {
      * @alias module:model/ArduinoDevicev2SimpleProperties
      * @param name {String} The name of the property
      * @param updatedAt {Date} Update date of the property
-     * @param value {module:model/AnyType} Value of the property
+     * @param value {Object} Value of the property
      */
     constructor(name, updatedAt, value) { 
         
@@ -62,7 +61,7 @@ class ArduinoDevicev2SimpleProperties {
                 obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
             }
             if (data.hasOwnProperty('value')) {
-                obj['value'] = ApiClient.convertToType(data['value'], AnyType);
+                obj['value'] = ApiClient.convertToType(data['value'], Object);
             }
         }
         return obj;
@@ -85,7 +84,7 @@ ArduinoDevicev2SimpleProperties.prototype['updated_at'] = undefined;
 
 /**
  * Value of the property
- * @member {module:model/AnyType} value
+ * @member {Object} value
  */
 ArduinoDevicev2SimpleProperties.prototype['value'] = undefined;
 

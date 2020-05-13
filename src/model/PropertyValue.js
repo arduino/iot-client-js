@@ -12,19 +12,18 @@
  */
 
 import ApiClient from '../ApiClient';
-import AnyType from './AnyType';
 
 /**
  * The PropertyValue model module.
  * @module model/PropertyValue
- * @version 1.3.0
+ * @version 1.3.1
  */
 class PropertyValue {
     /**
      * Constructs a new <code>PropertyValue</code>.
      * PropertyValuePayload describes a property value
      * @alias module:model/PropertyValue
-     * @param value {module:model/AnyType} The property value
+     * @param value {Object} The property value
      */
     constructor(value) { 
         
@@ -55,7 +54,7 @@ class PropertyValue {
                 obj['device_id'] = ApiClient.convertToType(data['device_id'], 'String');
             }
             if (data.hasOwnProperty('value')) {
-                obj['value'] = ApiClient.convertToType(data['value'], AnyType);
+                obj['value'] = ApiClient.convertToType(data['value'], Object);
             }
         }
         return obj;
@@ -72,7 +71,7 @@ PropertyValue.prototype['device_id'] = undefined;
 
 /**
  * The property value
- * @member {module:model/AnyType} value
+ * @member {Object} value
  */
 PropertyValue.prototype['value'] = undefined;
 

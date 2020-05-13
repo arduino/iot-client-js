@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BatchQueryRawResponseSeriesMediaV1 model module.
  * @module model/BatchQueryRawResponseSeriesMediaV1
- * @version 1.3.0
+ * @version 1.3.1
  */
 class BatchQueryRawResponseSeriesMediaV1 {
     /**

@@ -12,12 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
-import AnyType from './AnyType';
 
 /**
  * The ArduinoSeriesRawLastValueResponse model module.
  * @module model/ArduinoSeriesRawLastValueResponse
- * @version 1.3.0
+ * @version 1.3.1
  */
 class ArduinoSeriesRawLastValueResponse {
     /**
@@ -28,7 +27,7 @@ class ArduinoSeriesRawLastValueResponse {
      * @param propertyId {String} Property id
      * @param thingId {String} Thing id
      * @param times {Array.<Date>} Timestamp in RFC3339
-     * @param values {Array.<module:model/AnyType>} Values can be in Float, String, Bool, Object
+     * @param values {Array.<Object>} Values can be in Float, String, Bool, Object
      */
     constructor(countValues, propertyId, thingId, times, values) { 
         
@@ -72,7 +71,7 @@ class ArduinoSeriesRawLastValueResponse {
                 obj['times'] = ApiClient.convertToType(data['times'], ['Date']);
             }
             if (data.hasOwnProperty('values')) {
-                obj['values'] = ApiClient.convertToType(data['values'], [AnyType]);
+                obj['values'] = ApiClient.convertToType(data['values'], [Object]);
             }
         }
         return obj;
@@ -107,7 +106,7 @@ ArduinoSeriesRawLastValueResponse.prototype['times'] = undefined;
 
 /**
  * Values can be in Float, String, Bool, Object
- * @member {Array.<module:model/AnyType>} values
+ * @member {Array.<Object>} values
  */
 ArduinoSeriesRawLastValueResponse.prototype['values'] = undefined;
 

@@ -12,12 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
-import AnyType from './AnyType';
 
 /**
  * The ArduinoProperty model module.
  * @module model/ArduinoProperty
- * @version 1.3.0
+ * @version 1.3.1
  */
 class ArduinoProperty {
     /**
@@ -76,7 +75,7 @@ class ArduinoProperty {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
             if (data.hasOwnProperty('last_value')) {
-                obj['last_value'] = ApiClient.convertToType(data['last_value'], AnyType);
+                obj['last_value'] = ApiClient.convertToType(data['last_value'], Object);
             }
             if (data.hasOwnProperty('max_value')) {
                 obj['max_value'] = ApiClient.convertToType(data['max_value'], 'Number');
@@ -150,7 +149,7 @@ ArduinoProperty.prototype['id'] = undefined;
 
 /**
  * Last value of this property
- * @member {module:model/AnyType} last_value
+ * @member {Object} last_value
  */
 ArduinoProperty.prototype['last_value'] = undefined;
 

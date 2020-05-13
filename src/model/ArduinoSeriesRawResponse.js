@@ -12,13 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
-import AnyType from './AnyType';
 import BatchQueryRawResponseSeriesMediaV1 from './BatchQueryRawResponseSeriesMediaV1';
 
 /**
  * The ArduinoSeriesRawResponse model module.
  * @module model/ArduinoSeriesRawResponse
- * @version 1.3.0
+ * @version 1.3.1
  */
 class ArduinoSeriesRawResponse {
     /**
@@ -34,7 +33,7 @@ class ArduinoSeriesRawResponse {
      * @param status {String} Status of the response
      * @param times {Array.<Date>} Timestamp in RFC3339
      * @param toDate {Date} To date
-     * @param values {Array.<module:model/AnyType>} Values can be in Float, String, Bool, Object
+     * @param values {Array.<Object>} Values can be in Float, String, Bool, Object
      */
     constructor(countValues, fromDate, query, respVersion, series, sort, status, times, toDate, values) { 
         
@@ -104,7 +103,7 @@ class ArduinoSeriesRawResponse {
                 obj['to_date'] = ApiClient.convertToType(data['to_date'], 'Date');
             }
             if (data.hasOwnProperty('values')) {
-                obj['values'] = ApiClient.convertToType(data['values'], [AnyType]);
+                obj['values'] = ApiClient.convertToType(data['values'], [Object]);
             }
         }
         return obj;
@@ -181,7 +180,7 @@ ArduinoSeriesRawResponse.prototype['to_date'] = undefined;
 
 /**
  * Values can be in Float, String, Bool, Object
- * @member {Array.<module:model/AnyType>} values
+ * @member {Array.<Object>} values
  */
 ArduinoSeriesRawResponse.prototype['values'] = undefined;
 
