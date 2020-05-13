@@ -88,3 +88,21 @@ catch (error) {
     console.error("Failed getting an access token: " + error)
 }
 ```
+
+## How to get Arduino IoT Cloud Client Credentials
+
+**NOTE:** Client Credentials are an Arduino IoT Cloud Maker Plan feature. Form more informations check the [Arduino Store](https://store.arduino.cc/digital/create).
+
+You can generate Arduino IoT Cloud Client Credentials in the `ARDUINO API` section in the [IoT Cloud things dashobard](https://create.arduino.cc/iot/things):
+
+### Step 1
+
+![IoT Cloud Site](./img/selection_1.png)
+
+### Step 2
+
+![IoT Cloud Site](./img/selection_2.png)
+
+### Step 3
+
+![IoT Cloud Site](./img/selection_3.png)

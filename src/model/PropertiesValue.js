@@ -12,12 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
-import AnyType from './AnyType';
 
 /**
  * The PropertiesValue model module.
  * @module model/PropertiesValue
- * @version 1.3.0
+ * @version 1.3.1
  */
 class PropertiesValue {
     /**
@@ -25,7 +24,7 @@ class PropertiesValue {
      * @alias module:model/PropertiesValue
      * @param name {String} The name of the property
      * @param type {module:model/PropertiesValue.TypeEnum} The type of the property
-     * @param value {module:model/AnyType} The last value of the property
+     * @param value {Object} The last value of the property
      */
     constructor(name, type, value) { 
         
@@ -61,7 +60,7 @@ class PropertiesValue {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
             if (data.hasOwnProperty('value')) {
-                obj['value'] = ApiClient.convertToType(data['value'], AnyType);
+                obj['value'] = ApiClient.convertToType(data['value'], Object);
             }
         }
         return obj;
@@ -85,7 +84,7 @@ PropertiesValue.prototype['type'] = 'infer';
 
 /**
  * The last value of the property
- * @member {module:model/AnyType} value
+ * @member {Object} value
  */
 PropertiesValue.prototype['value'] = undefined;
 
