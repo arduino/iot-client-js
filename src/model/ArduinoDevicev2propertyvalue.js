@@ -17,7 +17,7 @@ import ArduinoDevicev2propertyvalueValue from './ArduinoDevicev2propertyvalueVal
 /**
  * The ArduinoDevicev2propertyvalue model module.
  * @module model/ArduinoDevicev2propertyvalue
- * @version 1.3.1
+ * @version 1.3.2
  */
 class ArduinoDevicev2propertyvalue {
     /**
