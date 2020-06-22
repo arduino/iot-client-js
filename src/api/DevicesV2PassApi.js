@@ -21,7 +21,7 @@ import Error from '../model/Error';
 /**
 * DevicesV2Pass service.
 * @module api/DevicesV2PassApi
-* @version 1.3.2
+* @version 1.3.3
 */
 export default class DevicesV2PassApi {
 

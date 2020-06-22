@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PropertyValue model module.
  * @module model/PropertyValue
- * @version 1.3.2
+ * @version 1.3.3
  */
 class PropertyValue {
     /**

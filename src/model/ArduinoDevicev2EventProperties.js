@@ -17,7 +17,7 @@ import ArduinoDevicev2SimpleProperties from './ArduinoDevicev2SimpleProperties';
 /**
  * The ArduinoDevicev2EventProperties model module.
  * @module model/ArduinoDevicev2EventProperties
- * @version 1.3.2
+ * @version 1.3.3
  */
 class ArduinoDevicev2EventProperties {
     /**
