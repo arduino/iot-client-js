@@ -31,12 +31,13 @@ async function run() {
     var oauth2 = client.authentications['oauth2'];
     oauth2.accessToken = await getToken();
     
-    var api = new IotApi.DevicesV2Api(client)    
-    api.devicesV2List().then(devices => {
+    try {
+        var api = new IotApi.DevicesV2Api(client)
+        var devices = await api.devicesV2List();
         console.log(devices);
-    }, error => {
-        console.log(error)
-    });
+    } catch (err) {
+        console.log(err.message);
+    }
 }
 
 run();
