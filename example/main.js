@@ -1,5 +1,6 @@
 var IotApi = require('@arduino/arduino-iot-client');
 var rp = require('request-promise');
+require("dotenv").config();
 
 async function getToken() {
     var options = {
@@ -9,8 +10,8 @@ async function getToken() {
         json: true,
         form: {
             grant_type: 'client_credentials',
-            client_id: 'CLIENT_ID',
-            client_secret: 'CLIENT_SECRET',
+            client_id: process.env.CLIENT_ID,
+            client_secret: process.env.CLIENT_SECRET,
             audience: 'https://api2.arduino.cc/iot'
         }
     };
