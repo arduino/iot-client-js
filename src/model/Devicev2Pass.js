@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Devicev2Pass model module.
  * @module model/Devicev2Pass
- * @version 1.3.3
+ * @version 1.3.4
  */
 class Devicev2Pass {
     /**
