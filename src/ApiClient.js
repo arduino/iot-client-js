@@ -331,7 +331,7 @@ class ApiClient {
         var data = response.body;
         if (data == null || (typeof data === 'object' && typeof data.length === 'undefined' && !Object.keys(data).length)) {
             // SuperAgent does not always produce a body; use the unparsed response as a fallback
-            data = response.text;
+            data = JSON.parse(response.text);
         }
 
         return ApiClient.convertToType(data, returnType);
