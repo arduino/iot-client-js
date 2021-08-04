@@ -25,7 +25,7 @@ import PropertiesValues from '../model/PropertiesValues';
 /**
 * DevicesV2 service.
 * @module api/DevicesV2Api
-* @version 1.3.4
+* @version 1.3.5
 */
 export default class DevicesV2Api {
 
@@ -158,7 +158,7 @@ export default class DevicesV2Api {
         'id': id
       };
       let queryParams = {
-        'limit': opts['limit'],
+        'limit': opts['limit']
         'start': opts['start']
       };
       let headerParams = {
@@ -366,11 +366,11 @@ export default class DevicesV2Api {
       }
 
       let pathParams = {
-        'id': id,
+        'id': id
         'pid': pid
       };
       let queryParams = {
-        'limit': opts['limit'],
+        'limit': opts['limit']
         'start': opts['start']
       };
       let headerParams = {

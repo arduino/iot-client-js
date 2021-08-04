@@ -21,7 +21,7 @@ import PropertyValue from '../model/PropertyValue';
 /**
 * PropertiesV2 service.
 * @module api/PropertiesV2Api
-* @version 1.3.4
+* @version 1.3.5
 */
 export default class PropertiesV2Api {
 
@@ -114,7 +114,7 @@ export default class PropertiesV2Api {
       }
 
       let pathParams = {
-        'id': id,
+        'id': id
         'pid': pid
       };
       let queryParams = {
@@ -231,7 +231,7 @@ export default class PropertiesV2Api {
       }
 
       let pathParams = {
-        'id': id,
+        'id': id
         'pid': pid
       };
       let queryParams = {
@@ -290,7 +290,7 @@ export default class PropertiesV2Api {
       }
 
       let pathParams = {
-        'id': id,
+        'id': id
         'pid': pid
       };
       let queryParams = {
@@ -353,7 +353,7 @@ export default class PropertiesV2Api {
       }
 
       let pathParams = {
-        'id': id,
+        'id': id
         'pid': pid
       };
       let queryParams = {

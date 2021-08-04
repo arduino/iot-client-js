@@ -23,7 +23,7 @@ import UpdateSketch from '../model/UpdateSketch';
 /**
 * ThingsV2 service.
 * @module api/ThingsV2Api
-* @version 1.3.4
+* @version 1.3.5
 */
 export default class ThingsV2Api {
 
@@ -265,10 +265,10 @@ export default class ThingsV2Api {
       let pathParams = {
       };
       let queryParams = {
-        'across_user_ids': opts['acrossUserIds'],
-        'device_id': opts['deviceId'],
-        'ids': this.apiClient.buildCollectionParam(opts['ids'], 'multi'),
-        'show_deleted': opts['showDeleted'],
+        'across_user_ids': opts['acrossUserIds']
+        'device_id': opts['deviceId']
+        'ids': this.apiClient.buildCollectionParam(opts['ids'], 'multi')
+        'show_deleted': opts['showDeleted']
         'show_properties': opts['showProperties']
       };
       let headerParams = {
@@ -442,7 +442,7 @@ export default class ThingsV2Api {
       }
 
       let pathParams = {
-        'id': id,
+        'id': id
         'sketchId': sketchId
       };
       let queryParams = {
