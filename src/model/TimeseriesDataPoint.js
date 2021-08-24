@@ -14,20 +14,20 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The PropertyValue model module.
- * @module model/PropertyValue
+ * The TimeseriesDataPoint model module.
+ * @module model/TimeseriesDataPoint
  * @version 1.3.6
  */
-class PropertyValue {
+class TimeseriesDataPoint {
     /**
-     * Constructs a new <code>PropertyValue</code>.
-     * PropertyValuePayload describes a property value
-     * @alias module:model/PropertyValue
-     * @param value {Object} The property value
+     * Constructs a new <code>TimeseriesDataPoint</code>.
+     * @alias module:model/TimeseriesDataPoint
+     * @param time {Date} Binning timestamp
+     * @param value {Number} Avg value on the binning interval
      */
-    constructor(value) { 
+    constructor(time, value) { 
         
-        PropertyValue.initialize(this, value);
+        TimeseriesDataPoint.initialize(this, time, value);
     }
 
     /**
@@ -35,26 +35,27 @@ class PropertyValue {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, value) { 
+    static initialize(obj, time, value) { 
+        obj['time'] = time;
         obj['value'] = value;
     }
 
     /**
-     * Constructs a <code>PropertyValue</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>TimeseriesDataPoint</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/PropertyValue} obj Optional instance to populate.
-     * @return {module:model/PropertyValue} The populated <code>PropertyValue</code> instance.
+     * @param {module:model/TimeseriesDataPoint} obj Optional instance to populate.
+     * @return {module:model/TimeseriesDataPoint} The populated <code>TimeseriesDataPoint</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new PropertyValue();
+            obj = obj || new TimeseriesDataPoint();
 
-            if (data.hasOwnProperty('device_id')) {
-                obj['device_id'] = ApiClient.convertToType(data['device_id'], 'String');
+            if (data.hasOwnProperty('time')) {
+                obj['time'] = ApiClient.convertToType(data['time'], 'Date');
             }
             if (data.hasOwnProperty('value')) {
-                obj['value'] = ApiClient.convertToType(data['value'], Object);
+                obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
         }
         return obj;
@@ -64,21 +65,21 @@ class PropertyValue {
 }
 
 /**
- * The device who send the property
- * @member {String} device_id
+ * Binning timestamp
+ * @member {Date} time
  */
-PropertyValue.prototype['device_id'] = undefined;
+TimeseriesDataPoint.prototype['time'] = undefined;
 
 /**
- * The property value
- * @member {Object} value
+ * Avg value on the binning interval
+ * @member {Number} value
  */
-PropertyValue.prototype['value'] = undefined;
+TimeseriesDataPoint.prototype['value'] = undefined;
 
 
 
 
 
 
-export default PropertyValue;
+export default TimeseriesDataPoint;
 

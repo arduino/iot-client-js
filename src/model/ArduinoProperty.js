@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoProperty model module.
  * @module model/ArduinoProperty
- * @version 1.3.4
+ * @version 1.3.6
  */
 class ArduinoProperty {
     /**
@@ -92,11 +92,17 @@ class ArduinoProperty {
             if (data.hasOwnProperty('persist')) {
                 obj['persist'] = ApiClient.convertToType(data['persist'], 'Boolean');
             }
+            if (data.hasOwnProperty('sync_id')) {
+                obj['sync_id'] = ApiClient.convertToType(data['sync_id'], 'String');
+            }
             if (data.hasOwnProperty('tag')) {
                 obj['tag'] = ApiClient.convertToType(data['tag'], 'Number');
             }
             if (data.hasOwnProperty('thing_id')) {
                 obj['thing_id'] = ApiClient.convertToType(data['thing_id'], 'String');
+            }
+            if (data.hasOwnProperty('thing_name')) {
+                obj['thing_name'] = ApiClient.convertToType(data['thing_name'], 'String');
             }
             if (data.hasOwnProperty('type')) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
@@ -184,6 +190,12 @@ ArduinoProperty.prototype['permission'] = undefined;
 ArduinoProperty.prototype['persist'] = undefined;
 
 /**
+ * The id of the sync pool
+ * @member {String} sync_id
+ */
+ArduinoProperty.prototype['sync_id'] = undefined;
+
+/**
  * The integer id of the property
  * @member {Number} tag
  */
@@ -194,6 +206,12 @@ ArduinoProperty.prototype['tag'] = undefined;
  * @member {String} thing_id
  */
 ArduinoProperty.prototype['thing_id'] = undefined;
+
+/**
+ * The name of the associated thing
+ * @member {String} thing_name
+ */
+ArduinoProperty.prototype['thing_name'] = undefined;
 
 /**
  * The type of the property

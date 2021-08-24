@@ -14,11 +14,12 @@
 import ApiClient from '../ApiClient';
 import ArduinoDevicev2SimpleProperties from './ArduinoDevicev2SimpleProperties';
 import ArduinoDevicev2Webhook from './ArduinoDevicev2Webhook';
+import ArduinoThing from './ArduinoThing';
 
 /**
  * The ArduinoDevicev2 model module.
  * @module model/ArduinoDevicev2
- * @version 1.3.4
+ * @version 1.3.6
  */
 class ArduinoDevicev2 {
     /**
@@ -27,14 +28,15 @@ class ArduinoDevicev2 {
      * @alias module:model/ArduinoDevicev2
      * @param href {String} The api reference of this device
      * @param id {String} The arn of the device
+     * @param label {String} The label of the device
      * @param name {String} The friendly name of the device
      * @param serial {String} The serial uuid of the device
      * @param type {String} The type of the device
      * @param userId {String} The id of the user
      */
-    constructor(href, id, name, serial, type, userId) { 
+    constructor(href, id, label, name, serial, type, userId) { 
         
-        ArduinoDevicev2.initialize(this, href, id, name, serial, type, userId);
+        ArduinoDevicev2.initialize(this, href, id, label, name, serial, type, userId);
     }
 
     /**
@@ -42,9 +44,10 @@ class ArduinoDevicev2 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, href, id, name, serial, type, userId) { 
+    static initialize(obj, href, id, label, name, serial, type, userId) { 
         obj['href'] = href;
         obj['id'] = id;
+        obj['label'] = label;
         obj['name'] = name;
         obj['serial'] = serial;
         obj['type'] = type;
@@ -77,8 +80,14 @@ class ArduinoDevicev2 {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            if (data.hasOwnProperty('label')) {
+                obj['label'] = ApiClient.convertToType(data['label'], 'String');
+            }
             if (data.hasOwnProperty('last_activity_at')) {
                 obj['last_activity_at'] = ApiClient.convertToType(data['last_activity_at'], 'Date');
+            }
+            if (data.hasOwnProperty('latest_wifi_fw_version')) {
+                obj['latest_wifi_fw_version'] = ApiClient.convertToType(data['latest_wifi_fw_version'], 'String');
             }
             if (data.hasOwnProperty('metadata')) {
                 obj['metadata'] = ApiClient.convertToType(data['metadata'], {'String': Object});
@@ -86,8 +95,20 @@ class ArduinoDevicev2 {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            if (data.hasOwnProperty('ota_available')) {
+                obj['ota_available'] = ApiClient.convertToType(data['ota_available'], 'Boolean');
+            }
+            if (data.hasOwnProperty('ota_compatible')) {
+                obj['ota_compatible'] = ApiClient.convertToType(data['ota_compatible'], 'Boolean');
+            }
+            if (data.hasOwnProperty('required_wifi_fw_version')) {
+                obj['required_wifi_fw_version'] = ApiClient.convertToType(data['required_wifi_fw_version'], 'String');
+            }
             if (data.hasOwnProperty('serial')) {
                 obj['serial'] = ApiClient.convertToType(data['serial'], 'String');
+            }
+            if (data.hasOwnProperty('thing')) {
+                obj['thing'] = ArduinoThing.constructFromObject(data['thing']);
             }
             if (data.hasOwnProperty('type')) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
@@ -97,6 +118,9 @@ class ArduinoDevicev2 {
             }
             if (data.hasOwnProperty('webhooks')) {
                 obj['webhooks'] = ApiClient.convertToType(data['webhooks'], [ArduinoDevicev2Webhook]);
+            }
+            if (data.hasOwnProperty('wifi_fw_version')) {
+                obj['wifi_fw_version'] = ApiClient.convertToType(data['wifi_fw_version'], 'String');
             }
         }
         return obj;
@@ -136,10 +160,22 @@ ArduinoDevicev2.prototype['href'] = undefined;
 ArduinoDevicev2.prototype['id'] = undefined;
 
 /**
+ * The label of the device
+ * @member {String} label
+ */
+ArduinoDevicev2.prototype['label'] = undefined;
+
+/**
  * Last activity date
  * @member {Date} last_activity_at
  */
 ArduinoDevicev2.prototype['last_activity_at'] = undefined;
+
+/**
+ * The latest version of the NINA/WIFI101 firmware available for this device
+ * @member {String} latest_wifi_fw_version
+ */
+ArduinoDevicev2.prototype['latest_wifi_fw_version'] = undefined;
 
 /**
  * The metadata of the device
@@ -154,10 +190,33 @@ ArduinoDevicev2.prototype['metadata'] = undefined;
 ArduinoDevicev2.prototype['name'] = undefined;
 
 /**
+ * True if the device type is ready to receive OTA updated
+ * @member {Boolean} ota_available
+ */
+ArduinoDevicev2.prototype['ota_available'] = undefined;
+
+/**
+ * True if the device type is OTA compatible
+ * @member {Boolean} ota_compatible
+ */
+ArduinoDevicev2.prototype['ota_compatible'] = undefined;
+
+/**
+ * The required version of the NINA/WIFI101 firmware needed by IoT Cloud
+ * @member {String} required_wifi_fw_version
+ */
+ArduinoDevicev2.prototype['required_wifi_fw_version'] = undefined;
+
+/**
  * The serial uuid of the device
  * @member {String} serial
  */
 ArduinoDevicev2.prototype['serial'] = undefined;
+
+/**
+ * @member {module:model/ArduinoThing} thing
+ */
+ArduinoDevicev2.prototype['thing'] = undefined;
 
 /**
  * The type of the device
@@ -176,6 +235,12 @@ ArduinoDevicev2.prototype['user_id'] = undefined;
  * @member {Array.<module:model/ArduinoDevicev2Webhook>} webhooks
  */
 ArduinoDevicev2.prototype['webhooks'] = undefined;
+
+/**
+ * The version of the NINA/WIFI101 firmware running on the device
+ * @member {String} wifi_fw_version
+ */
+ArduinoDevicev2.prototype['wifi_fw_version'] = undefined;
 
 
 

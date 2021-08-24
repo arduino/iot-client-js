@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Devicev2 model module.
  * @module model/Devicev2
- * @version 1.3.4
+ * @version 1.3.6
  */
 class Devicev2 {
     /**
@@ -63,6 +63,9 @@ class Devicev2 {
             if (data.hasOwnProperty('user_id')) {
                 obj['user_id'] = ApiClient.convertToType(data['user_id'], 'String');
             }
+            if (data.hasOwnProperty('wifi_fw_version')) {
+                obj['wifi_fw_version'] = ApiClient.convertToType(data['wifi_fw_version'], 'String');
+            }
         }
         return obj;
     }
@@ -99,6 +102,12 @@ Devicev2.prototype['type'] = undefined;
  * @member {String} user_id
  */
 Devicev2.prototype['user_id'] = undefined;
+
+/**
+ * The version of the NINA/WIFI101 firmware running on the device
+ * @member {String} wifi_fw_version
+ */
+Devicev2.prototype['wifi_fw_version'] = undefined;
 
 
 
@@ -163,7 +172,19 @@ Devicev2['TypeEnum'] = {
      * value: "login_and_secretkey_wifi"
      * @const
      */
-    "login_and_secretkey_wifi": "login_and_secretkey_wifi"
+    "login_and_secretkey_wifi": "login_and_secretkey_wifi",
+
+    /**
+     * value: "envie_m7"
+     * @const
+     */
+    "envie_m7": "envie_m7",
+
+    /**
+     * value: "nanorp2040connect"
+     * @const
+     */
+    "nanorp2040connect": "nanorp2040connect"
 };
 
 

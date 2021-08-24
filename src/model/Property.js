@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Property model module.
  * @module model/Property
- * @version 1.3.4
+ * @version 1.3.6
  */
 class Property {
     /**
@@ -688,7 +688,163 @@ Property['TypeEnum'] = {
      * value: "HOME_TELEVISION"
      * @const
      */
-    "HOME_TELEVISION": "HOME_TELEVISION"
+    "HOME_TELEVISION": "HOME_TELEVISION",
+
+    /**
+     * value: "ENERGY"
+     * @const
+     */
+    "ENERGY": "ENERGY",
+
+    /**
+     * value: "FORCE"
+     * @const
+     */
+    "FORCE": "FORCE",
+
+    /**
+     * value: "TEMPERATURE"
+     * @const
+     */
+    "TEMPERATURE": "TEMPERATURE",
+
+    /**
+     * value: "POWER"
+     * @const
+     */
+    "POWER": "POWER",
+
+    /**
+     * value: "ELECTRIC_CURRENT"
+     * @const
+     */
+    "ELECTRIC_CURRENT": "ELECTRIC_CURRENT",
+
+    /**
+     * value: "ELECTRIC_POTENTIAL"
+     * @const
+     */
+    "ELECTRIC_POTENTIAL": "ELECTRIC_POTENTIAL",
+
+    /**
+     * value: "ELECTRICAL_RESISTANCE"
+     * @const
+     */
+    "ELECTRICAL_RESISTANCE": "ELECTRICAL_RESISTANCE",
+
+    /**
+     * value: "CAPACITANCE"
+     * @const
+     */
+    "CAPACITANCE": "CAPACITANCE",
+
+    /**
+     * value: "TIME"
+     * @const
+     */
+    "TIME": "TIME",
+
+    /**
+     * value: "FREQUENCY"
+     * @const
+     */
+    "FREQUENCY": "FREQUENCY",
+
+    /**
+     * value: "DATA_RATE"
+     * @const
+     */
+    "DATA_RATE": "DATA_RATE",
+
+    /**
+     * value: "ACCELERATION"
+     * @const
+     */
+    "ACCELERATION": "ACCELERATION",
+
+    /**
+     * value: "AREA"
+     * @const
+     */
+    "AREA": "AREA",
+
+    /**
+     * value: "LENGTH"
+     * @const
+     */
+    "LENGTH": "LENGTH",
+
+    /**
+     * value: "VELOCITY"
+     * @const
+     */
+    "VELOCITY": "VELOCITY",
+
+    /**
+     * value: "MASS"
+     * @const
+     */
+    "MASS": "MASS",
+
+    /**
+     * value: "VOLUME"
+     * @const
+     */
+    "VOLUME": "VOLUME",
+
+    /**
+     * value: "FLOW_RATE"
+     * @const
+     */
+    "FLOW_RATE": "FLOW_RATE",
+
+    /**
+     * value: "ANGLE"
+     * @const
+     */
+    "ANGLE": "ANGLE",
+
+    /**
+     * value: "ILLUMINANCE"
+     * @const
+     */
+    "ILLUMINANCE": "ILLUMINANCE",
+
+    /**
+     * value: "LUMINOUS_FLUX"
+     * @const
+     */
+    "LUMINOUS_FLUX": "LUMINOUS_FLUX",
+
+    /**
+     * value: "LUMINANCE"
+     * @const
+     */
+    "LUMINANCE": "LUMINANCE",
+
+    /**
+     * value: "LUMINOUS_INTENSITY"
+     * @const
+     */
+    "LUMINOUS_INTENSITY": "LUMINOUS_INTENSITY",
+
+    /**
+     * value: "LOGARITHMIC_QUANTITY"
+     * @const
+     */
+    "LOGARITHMIC_QUANTITY": "LOGARITHMIC_QUANTITY",
+
+    /**
+     * value: "PRESSURE"
+     * @const
+     */
+    "PRESSURE": "PRESSURE",
+
+    /**
+     * value: "INFORMATION_CONTENT"
+     * @const
+     */
+    "INFORMATION_CONTENT": "INFORMATION_CONTENT"
 };
 
 
