@@ -14,7 +14,6 @@
 
 import ApiClient from "../ApiClient";
 import ArduinoThing from '../model/ArduinoThing';
-import CreateThingsV2Payload from '../model/CreateThingsV2Payload';
 import Error from '../model/Error';
 import Thing from '../model/Thing';
 import ThingSketch from '../model/ThingSketch';
@@ -23,7 +22,7 @@ import UpdateSketch from '../model/UpdateSketch';
 /**
 * ThingsV2 service.
 * @module api/ThingsV2Api
-* @version 1.3.4
+* @version 1.3.6
 */
 export default class ThingsV2Api {
 
@@ -43,17 +42,17 @@ export default class ThingsV2Api {
     /**
      * create things_v2
      * Creates a new thing associated to the user
-     * @param {module:model/CreateThingsV2Payload} createThingsV2Payload ThingPayload describes a thing
+     * @param {module:model/Thing} thing ThingPayload describes a thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
-    thingsV2CreateWithHttpInfo(createThingsV2Payload, opts) {
+    thingsV2CreateWithHttpInfo(thing, opts) {
       opts = opts || {};
-      let postBody = createThingsV2Payload;
-      // verify the required parameter 'createThingsV2Payload' is set
-      if (createThingsV2Payload === undefined || createThingsV2Payload === null) {
-        throw new Error("Missing the required parameter 'createThingsV2Payload' when calling thingsV2Create");
+      let postBody = thing;
+      // verify the required parameter 'thing' is set
+      if (thing === undefined || thing === null) {
+        throw new Error("Missing the required parameter 'thing' when calling thingsV2Create");
       }
 
       let pathParams = {
@@ -80,13 +79,13 @@ export default class ThingsV2Api {
     /**
      * create things_v2
      * Creates a new thing associated to the user
-     * @param {module:model/CreateThingsV2Payload} createThingsV2Payload ThingPayload describes a thing
+     * @param {module:model/Thing} thing ThingPayload describes a thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
-    thingsV2Create(createThingsV2Payload, opts) {
-      return this.thingsV2CreateWithHttpInfo(createThingsV2Payload, opts)
+    thingsV2Create(thing, opts) {
+      return this.thingsV2CreateWithHttpInfo(thing, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

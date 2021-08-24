@@ -25,7 +25,7 @@ import PropertiesValues from '../model/PropertiesValues';
 /**
 * DevicesV2 service.
 * @module api/DevicesV2Api
-* @version 1.3.4
+* @version 1.3.6
 */
 export default class DevicesV2Api {
 
@@ -253,6 +253,7 @@ export default class DevicesV2Api {
      * Returns the list of devices associated to the user
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.acrossUserIds If true, returns all the devices
+     * @param {String} opts.serial Filter by device serial number
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoDevicev2>} and HTTP response
      */
     devicesV2ListWithHttpInfo(opts) {
@@ -262,7 +263,8 @@ export default class DevicesV2Api {
       let pathParams = {
       };
       let queryParams = {
-        'across_user_ids': opts['acrossUserIds']
+        'across_user_ids': opts['acrossUserIds'],
+        'serial': opts['serial']
       };
       let headerParams = {
       };
@@ -285,6 +287,7 @@ export default class DevicesV2Api {
      * Returns the list of devices associated to the user
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.acrossUserIds If true, returns all the devices
+     * @param {String} opts.serial Filter by device serial number
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoDevicev2>}
      */
     devicesV2List(opts) {

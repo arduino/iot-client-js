@@ -14,6 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import ArduinoProperty from '../model/ArduinoProperty';
+import ArduinoTimeseriesmedia from '../model/ArduinoTimeseriesmedia';
 import Error from '../model/Error';
 import Property from '../model/Property';
 import PropertyValue from '../model/PropertyValue';
@@ -21,7 +22,7 @@ import PropertyValue from '../model/PropertyValue';
 /**
 * PropertiesV2 service.
 * @module api/PropertiesV2Api
-* @version 1.3.4
+* @version 1.3.6
 */
 export default class PropertiesV2Api {
 
@@ -323,6 +324,76 @@ export default class PropertiesV2Api {
      */
     propertiesV2Show(id, pid, opts) {
       return this.propertiesV2ShowWithHttpInfo(id, pid, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * timeseries properties_v2
+     * Get numerical property's historic data binned on a specified time interval (note: the total number of data points should NOT be greater than 1000 otherwise the result could be truncated)
+     * @param {String} id The id of the thing
+     * @param {String} pid ID of a numerical property
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.desc Whether data's ordering (by time) should be descending
+     * @param {String} opts.from Get data with a timestamp >= to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
+     * @param {Number} opts.interval Binning interval in seconds (ex. 15mins are 15*60)
+     * @param {String} opts.to Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoTimeseriesmedia} and HTTP response
+     */
+    propertiesV2TimeseriesWithHttpInfo(id, pid, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling propertiesV2Timeseries");
+      }
+      // verify the required parameter 'pid' is set
+      if (pid === undefined || pid === null) {
+        throw new Error("Missing the required parameter 'pid' when calling propertiesV2Timeseries");
+      }
+
+      let pathParams = {
+        'id': id,
+        'pid': pid
+      };
+      let queryParams = {
+        'desc': opts['desc'],
+        'from': opts['from'],
+        'interval': opts['interval'],
+        'to': opts['to']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oauth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ArduinoTimeseriesmedia;
+      return this.apiClient.callApi(
+        '/v2/things/{id}/properties/{pid}/timeseries', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * timeseries properties_v2
+     * Get numerical property's historic data binned on a specified time interval (note: the total number of data points should NOT be greater than 1000 otherwise the result could be truncated)
+     * @param {String} id The id of the thing
+     * @param {String} pid ID of a numerical property
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.desc Whether data's ordering (by time) should be descending
+     * @param {String} opts.from Get data with a timestamp >= to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
+     * @param {Number} opts.interval Binning interval in seconds (ex. 15mins are 15*60)
+     * @param {String} opts.to Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoTimeseriesmedia}
+     */
+    propertiesV2Timeseries(id, pid, opts) {
+      return this.propertiesV2TimeseriesWithHttpInfo(id, pid, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

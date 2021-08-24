@@ -17,7 +17,7 @@ import PropertiesValue from './PropertiesValue';
 /**
  * The PropertiesValues model module.
  * @module model/PropertiesValues
- * @version 1.3.4
+ * @version 1.3.6
  */
 class PropertiesValues {
     /**

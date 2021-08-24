@@ -34,6 +34,7 @@ import ArduinoSeriesRawLastValueResponse from './model/ArduinoSeriesRawLastValue
 import ArduinoSeriesRawResponse from './model/ArduinoSeriesRawResponse';
 import ArduinoSeriesResponse from './model/ArduinoSeriesResponse';
 import ArduinoThing from './model/ArduinoThing';
+import ArduinoTimeseriesmedia from './model/ArduinoTimeseriesmedia';
 import BatchLastValueRequestsMediaV1 from './model/BatchLastValueRequestsMediaV1';
 import BatchQueryRawLastValueRequestMediaV1 from './model/BatchQueryRawLastValueRequestMediaV1';
 import BatchQueryRawRequestMediaV1 from './model/BatchQueryRawRequestMediaV1';
@@ -44,7 +45,6 @@ import BatchQueryRequestsMediaV1 from './model/BatchQueryRequestsMediaV1';
 import CheckDevicesV2PassPayload from './model/CheckDevicesV2PassPayload';
 import CreateDevicesV2CertsPayload from './model/CreateDevicesV2CertsPayload';
 import CreateDevicesV2Payload from './model/CreateDevicesV2Payload';
-import CreateThingsV2Payload from './model/CreateThingsV2Payload';
 import Devicev2 from './model/Devicev2';
 import Devicev2Cert from './model/Devicev2Cert';
 import Devicev2Pass from './model/Devicev2Pass';
@@ -55,6 +55,7 @@ import Property from './model/Property';
 import PropertyValue from './model/PropertyValue';
 import Thing from './model/Thing';
 import ThingSketch from './model/ThingSketch';
+import TimeseriesDataPoint from './model/TimeseriesDataPoint';
 import UpdateSketch from './model/UpdateSketch';
 import DevicesV2Api from './api/DevicesV2Api';
 import DevicesV2CertsApi from './api/DevicesV2CertsApi';
@@ -93,7 +94,7 @@ import ThingsV2Api from './api/ThingsV2Api';
 * </pre>
 * </p>
 * @module index
-* @version 1.3.4
+* @version 1.3.6
 */
 export {
     /**
@@ -229,6 +230,12 @@ export {
     ArduinoThing,
 
     /**
+     * The ArduinoTimeseriesmedia model constructor.
+     * @property {module:model/ArduinoTimeseriesmedia}
+     */
+    ArduinoTimeseriesmedia,
+
+    /**
      * The BatchLastValueRequestsMediaV1 model constructor.
      * @property {module:model/BatchLastValueRequestsMediaV1}
      */
@@ -289,12 +296,6 @@ export {
     CreateDevicesV2Payload,
 
     /**
-     * The CreateThingsV2Payload model constructor.
-     * @property {module:model/CreateThingsV2Payload}
-     */
-    CreateThingsV2Payload,
-
-    /**
      * The Devicev2 model constructor.
      * @property {module:model/Devicev2}
      */
@@ -353,6 +354,12 @@ export {
      * @property {module:model/ThingSketch}
      */
     ThingSketch,
+
+    /**
+     * The TimeseriesDataPoint model constructor.
+     * @property {module:model/TimeseriesDataPoint}
+     */
+    TimeseriesDataPoint,
 
     /**
      * The UpdateSketch model constructor.

@@ -12,11 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
+import Property from './Property';
 
 /**
  * The Thing model module.
  * @module model/Thing
- * @version 1.3.4
+ * @version 1.3.6
  */
 class Thing {
     /**
@@ -57,6 +58,9 @@ class Thing {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            if (data.hasOwnProperty('properties')) {
+                obj['properties'] = ApiClient.convertToType(data['properties'], [Property]);
+            }
             if (data.hasOwnProperty('webhook_active')) {
                 obj['webhook_active'] = ApiClient.convertToType(data['webhook_active'], 'Boolean');
             }
@@ -87,6 +91,12 @@ Thing.prototype['id'] = undefined;
  * @member {String} name
  */
 Thing.prototype['name'] = undefined;
+
+/**
+ * The properties of the thing
+ * @member {Array.<module:model/Property>} properties
+ */
+Thing.prototype['properties'] = undefined;
 
 /**
  * Webhook uri
