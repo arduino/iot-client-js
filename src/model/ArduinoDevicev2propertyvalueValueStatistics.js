@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoDevicev2propertyvalueValueStatistics model module.
  * @module model/ArduinoDevicev2propertyvalueValueStatistics
- * @version 1.3.6
+ * @version 1.3.7
  */
 class ArduinoDevicev2propertyvalueValueStatistics {
     /**

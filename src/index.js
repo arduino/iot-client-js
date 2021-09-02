@@ -47,8 +47,11 @@ import CreateDevicesV2CertsPayload from './model/CreateDevicesV2CertsPayload';
 import CreateDevicesV2Payload from './model/CreateDevicesV2Payload';
 import Devicev2 from './model/Devicev2';
 import Devicev2Cert from './model/Devicev2Cert';
+import Devicev2Otabinaryurl from './model/Devicev2Otabinaryurl';
 import Devicev2Pass from './model/Devicev2Pass';
 import Error from './model/Error';
+import HistoricDataRequest from './model/HistoricDataRequest';
+import InlineObject from './model/InlineObject';
 import PropertiesValue from './model/PropertiesValue';
 import PropertiesValues from './model/PropertiesValues';
 import Property from './model/Property';
@@ -59,6 +62,7 @@ import TimeseriesDataPoint from './model/TimeseriesDataPoint';
 import UpdateSketch from './model/UpdateSketch';
 import DevicesV2Api from './api/DevicesV2Api';
 import DevicesV2CertsApi from './api/DevicesV2CertsApi';
+import DevicesV2OtaApi from './api/DevicesV2OtaApi';
 import DevicesV2PassApi from './api/DevicesV2PassApi';
 import PropertiesV2Api from './api/PropertiesV2Api';
 import SeriesV2Api from './api/SeriesV2Api';
@@ -94,7 +98,7 @@ import ThingsV2Api from './api/ThingsV2Api';
 * </pre>
 * </p>
 * @module index
-* @version 1.3.6
+* @version 1.3.7
 */
 export {
     /**
@@ -308,6 +312,12 @@ export {
     Devicev2Cert,
 
     /**
+     * The Devicev2Otabinaryurl model constructor.
+     * @property {module:model/Devicev2Otabinaryurl}
+     */
+    Devicev2Otabinaryurl,
+
+    /**
      * The Devicev2Pass model constructor.
      * @property {module:model/Devicev2Pass}
      */
@@ -318,6 +328,18 @@ export {
      * @property {module:model/Error}
      */
     Error,
+
+    /**
+     * The HistoricDataRequest model constructor.
+     * @property {module:model/HistoricDataRequest}
+     */
+    HistoricDataRequest,
+
+    /**
+     * The InlineObject model constructor.
+     * @property {module:model/InlineObject}
+     */
+    InlineObject,
 
     /**
      * The PropertiesValue model constructor.
@@ -378,6 +400,12 @@ export {
     * @property {module:api/DevicesV2CertsApi}
     */
     DevicesV2CertsApi,
+
+    /**
+    * The DevicesV2OtaApi service constructor.
+    * @property {module:api/DevicesV2OtaApi}
+    */
+    DevicesV2OtaApi,
 
     /**
     * The DevicesV2PassApi service constructor.

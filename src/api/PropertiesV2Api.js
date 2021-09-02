@@ -22,7 +22,7 @@ import PropertyValue from '../model/PropertyValue';
 /**
 * PropertiesV2 service.
 * @module api/PropertiesV2Api
-* @version 1.3.6
+* @version 1.3.7
 */
 export default class PropertiesV2Api {
 
@@ -68,7 +68,7 @@ export default class PropertiesV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = ArduinoProperty;
       return this.apiClient.callApi(
@@ -99,7 +99,7 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {String} pid The id of the property
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.force If true, hard delete the property
+     * @param {Boolean} opts.force If true, hard delete the property (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     propertiesV2DeleteWithHttpInfo(id, pid, opts) {
@@ -143,7 +143,7 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {String} pid The id of the property
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.force If true, hard delete the property
+     * @param {Boolean} opts.force If true, hard delete the property (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
     propertiesV2Delete(id, pid, opts) {
@@ -159,7 +159,7 @@ export default class PropertiesV2Api {
      * Returns the list of properties associated to the thing
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoProperty>} and HTTP response
      */
     propertiesV2ListWithHttpInfo(id, opts) {
@@ -197,7 +197,7 @@ export default class PropertiesV2Api {
      * Returns the list of properties associated to the thing
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoProperty>}
      */
     propertiesV2List(id, opts) {
@@ -243,7 +243,7 @@ export default class PropertiesV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
@@ -275,7 +275,7 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {String} pid The id of the property
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoProperty} and HTTP response
      */
     propertiesV2ShowWithHttpInfo(id, pid, opts) {
@@ -319,7 +319,7 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {String} pid The id of the property
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoProperty}
      */
     propertiesV2Show(id, pid, opts) {
@@ -336,9 +336,9 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {String} pid ID of a numerical property
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.desc Whether data's ordering (by time) should be descending
+     * @param {Boolean} opts.desc Whether data's ordering (by time) should be descending (default to false)
      * @param {String} opts.from Get data with a timestamp >= to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
-     * @param {Number} opts.interval Binning interval in seconds (ex. 15mins are 15*60)
+     * @param {Number} opts.interval Binning interval in seconds (ex. 15mins are 15*60) (default to 1800)
      * @param {String} opts.to Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoTimeseriesmedia} and HTTP response
      */
@@ -386,9 +386,9 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {String} pid ID of a numerical property
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.desc Whether data's ordering (by time) should be descending
+     * @param {Boolean} opts.desc Whether data's ordering (by time) should be descending (default to false)
      * @param {String} opts.from Get data with a timestamp >= to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
-     * @param {Number} opts.interval Binning interval in seconds (ex. 15mins are 15*60)
+     * @param {Number} opts.interval Binning interval in seconds (ex. 15mins are 15*60) (default to 1800)
      * @param {String} opts.to Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoTimeseriesmedia}
      */
@@ -435,7 +435,7 @@ export default class PropertiesV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = ArduinoProperty;
       return this.apiClient.callApi(

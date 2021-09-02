@@ -20,11 +20,12 @@ import BatchLastValueRequestsMediaV1 from '../model/BatchLastValueRequestsMediaV
 import BatchQueryRawRequestsMediaV1 from '../model/BatchQueryRawRequestsMediaV1';
 import BatchQueryRequestsMediaV1 from '../model/BatchQueryRequestsMediaV1';
 import Error from '../model/Error';
+import HistoricDataRequest from '../model/HistoricDataRequest';
 
 /**
 * SeriesV2 service.
 * @module api/SeriesV2Api
-* @version 1.3.6
+* @version 1.3.7
 */
 export default class SeriesV2Api {
 
@@ -64,7 +65,7 @@ export default class SeriesV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = ArduinoSeriesBatch;
       return this.apiClient.callApi(
@@ -111,7 +112,7 @@ export default class SeriesV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = ArduinoSeriesRawBatch;
       return this.apiClient.callApi(
@@ -158,7 +159,7 @@ export default class SeriesV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = ArduinoSeriesRawBatchLastvalue;
       return this.apiClient.callApi(
@@ -176,6 +177,53 @@ export default class SeriesV2Api {
      */
     seriesV2BatchQueryRawLastValue(batchLastValueRequestsMediaV1) {
       return this.seriesV2BatchQueryRawLastValueWithHttpInfo(batchLastValueRequestsMediaV1)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * historic_data series_v2
+     * Request sending of historical data of properties by email
+     * @param {module:model/HistoricDataRequest} historicDataRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    seriesV2HistoricDataWithHttpInfo(historicDataRequest) {
+      let postBody = historicDataRequest;
+      // verify the required parameter 'historicDataRequest' is set
+      if (historicDataRequest === undefined || historicDataRequest === null) {
+        throw new Error("Missing the required parameter 'historicDataRequest' when calling seriesV2HistoricData");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oauth2'];
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let accepts = ['application/json'];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/v2/series/historic_data', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * historic_data series_v2
+     * Request sending of historical data of properties by email
+     * @param {module:model/HistoricDataRequest} historicDataRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    seriesV2HistoricData(historicDataRequest) {
+      return this.seriesV2HistoricDataWithHttpInfo(historicDataRequest)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

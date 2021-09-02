@@ -17,7 +17,7 @@ import ArduinoProperty from './ArduinoProperty';
 /**
  * The ArduinoDevicev2properties model module.
  * @module model/ArduinoDevicev2properties
- * @version 1.3.6
+ * @version 1.3.7
  */
 class ArduinoDevicev2properties {
     /**

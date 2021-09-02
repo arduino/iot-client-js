@@ -25,7 +25,7 @@ import PropertiesValues from '../model/PropertiesValues';
 /**
 * DevicesV2 service.
 * @module api/DevicesV2Api
-* @version 1.3.6
+* @version 1.3.7
 */
 export default class DevicesV2Api {
 
@@ -65,7 +65,7 @@ export default class DevicesV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = ArduinoDevicev2;
       return this.apiClient.callApi(
@@ -199,7 +199,7 @@ export default class DevicesV2Api {
      * GET device properties
      * @param {String} id The id of the device
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2properties} and HTTP response
      */
     devicesV2GetPropertiesWithHttpInfo(id, opts) {
@@ -237,7 +237,7 @@ export default class DevicesV2Api {
      * GET device properties
      * @param {String} id The id of the device
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties
+     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2properties}
      */
     devicesV2GetProperties(id, opts) {
@@ -252,7 +252,7 @@ export default class DevicesV2Api {
      * list devices_v2
      * Returns the list of devices associated to the user
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.acrossUserIds If true, returns all the devices
+     * @param {Boolean} opts.acrossUserIds If true, returns all the devices (default to false)
      * @param {String} opts.serial Filter by device serial number
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoDevicev2>} and HTTP response
      */
@@ -286,7 +286,7 @@ export default class DevicesV2Api {
      * list devices_v2
      * Returns the list of devices associated to the user
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.acrossUserIds If true, returns all the devices
+     * @param {Boolean} opts.acrossUserIds If true, returns all the devices (default to false)
      * @param {String} opts.serial Filter by device serial number
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoDevicev2>}
      */
@@ -439,7 +439,7 @@ export default class DevicesV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = ArduinoDevicev2;
       return this.apiClient.callApi(
@@ -493,7 +493,7 @@ export default class DevicesV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
