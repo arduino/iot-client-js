@@ -21,7 +21,7 @@ import Error from '../model/Error';
 /**
 * DevicesV2Pass service.
 * @module api/DevicesV2PassApi
-* @version 1.3.6
+* @version 1.3.7
 */
 export default class DevicesV2PassApi {
 
@@ -67,7 +67,7 @@ export default class DevicesV2PassApi {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
@@ -145,7 +145,7 @@ export default class DevicesV2PassApi {
      * Returns whether the password for this device is set or not. It doesn't return the password.
      * @param {String} id The id of the device
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.suggestedPassword If true, return a suggested password
+     * @param {Boolean} opts.suggestedPassword If true, return a suggested password (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2Pass} and HTTP response
      */
     devicesV2PassGetWithHttpInfo(id, opts) {
@@ -183,7 +183,7 @@ export default class DevicesV2PassApi {
      * Returns whether the password for this device is set or not. It doesn't return the password.
      * @param {String} id The id of the device
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.suggestedPassword If true, return a suggested password
+     * @param {Boolean} opts.suggestedPassword If true, return a suggested password (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2Pass}
      */
     devicesV2PassGet(id, opts) {
@@ -223,7 +223,7 @@ export default class DevicesV2PassApi {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = ArduinoDevicev2Pass;
       return this.apiClient.callApi(

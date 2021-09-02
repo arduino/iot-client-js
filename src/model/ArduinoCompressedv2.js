@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoCompressedv2 model module.
  * @module model/ArduinoCompressedv2
- * @version 1.3.6
+ * @version 1.3.7
  */
 class ArduinoCompressedv2 {
     /**

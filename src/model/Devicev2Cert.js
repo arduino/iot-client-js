@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Devicev2Cert model module.
  * @module model/Devicev2Cert
- * @version 1.3.6
+ * @version 1.3.7
  */
 class Devicev2Cert {
     /**
