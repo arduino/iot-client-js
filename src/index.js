@@ -14,6 +14,8 @@
 
 import ApiClient from './ApiClient';
 import ArduinoCompressedv2 from './model/ArduinoCompressedv2';
+import ArduinoDashboardshare from './model/ArduinoDashboardshare';
+import ArduinoDashboardv2 from './model/ArduinoDashboardv2';
 import ArduinoDevicev2 from './model/ArduinoDevicev2';
 import ArduinoDevicev2Cert from './model/ArduinoDevicev2Cert';
 import ArduinoDevicev2EventProperties from './model/ArduinoDevicev2EventProperties';
@@ -26,6 +28,7 @@ import ArduinoDevicev2propertyvalueValue from './model/ArduinoDevicev2propertyva
 import ArduinoDevicev2propertyvalueValueStatistics from './model/ArduinoDevicev2propertyvalueValueStatistics';
 import ArduinoDevicev2propertyvalues from './model/ArduinoDevicev2propertyvalues';
 import ArduinoDevicev2propertyvaluesLastEvaluatedKey from './model/ArduinoDevicev2propertyvaluesLastEvaluatedKey';
+import ArduinoLinkedvariable from './model/ArduinoLinkedvariable';
 import ArduinoProperty from './model/ArduinoProperty';
 import ArduinoSeriesBatch from './model/ArduinoSeriesBatch';
 import ArduinoSeriesRawBatch from './model/ArduinoSeriesRawBatch';
@@ -35,6 +38,8 @@ import ArduinoSeriesRawResponse from './model/ArduinoSeriesRawResponse';
 import ArduinoSeriesResponse from './model/ArduinoSeriesResponse';
 import ArduinoThing from './model/ArduinoThing';
 import ArduinoTimeseriesmedia from './model/ArduinoTimeseriesmedia';
+import ArduinoVariableslinks from './model/ArduinoVariableslinks';
+import ArduinoWidgetv2 from './model/ArduinoWidgetv2';
 import BatchLastValueRequestsMediaV1 from './model/BatchLastValueRequestsMediaV1';
 import BatchQueryRawLastValueRequestMediaV1 from './model/BatchQueryRawLastValueRequestMediaV1';
 import BatchQueryRawRequestMediaV1 from './model/BatchQueryRawRequestMediaV1';
@@ -45,6 +50,8 @@ import BatchQueryRequestsMediaV1 from './model/BatchQueryRequestsMediaV1';
 import CheckDevicesV2PassPayload from './model/CheckDevicesV2PassPayload';
 import CreateDevicesV2CertsPayload from './model/CreateDevicesV2CertsPayload';
 import CreateDevicesV2Payload from './model/CreateDevicesV2Payload';
+import Dashboardshare from './model/Dashboardshare';
+import Dashboardv2 from './model/Dashboardv2';
 import Devicev2 from './model/Devicev2';
 import Devicev2Cert from './model/Devicev2Cert';
 import Devicev2Otabinaryurl from './model/Devicev2Otabinaryurl';
@@ -56,10 +63,14 @@ import PropertiesValue from './model/PropertiesValue';
 import PropertiesValues from './model/PropertiesValues';
 import Property from './model/Property';
 import PropertyValue from './model/PropertyValue';
+import Sharerequest from './model/Sharerequest';
 import Thing from './model/Thing';
 import ThingSketch from './model/ThingSketch';
 import TimeseriesDataPoint from './model/TimeseriesDataPoint';
 import UpdateSketch from './model/UpdateSketch';
+import Widget from './model/Widget';
+import Widgetlink from './model/Widgetlink';
+import DashboardsV2Api from './api/DashboardsV2Api';
 import DevicesV2Api from './api/DevicesV2Api';
 import DevicesV2CertsApi from './api/DevicesV2CertsApi';
 import DevicesV2OtaApi from './api/DevicesV2OtaApi';
@@ -98,7 +109,7 @@ import ThingsV2Api from './api/ThingsV2Api';
 * </pre>
 * </p>
 * @module index
-* @version 1.3.7
+* @version 1.3.8
 */
 export {
     /**
@@ -112,6 +123,18 @@ export {
      * @property {module:model/ArduinoCompressedv2}
      */
     ArduinoCompressedv2,
+
+    /**
+     * The ArduinoDashboardshare model constructor.
+     * @property {module:model/ArduinoDashboardshare}
+     */
+    ArduinoDashboardshare,
+
+    /**
+     * The ArduinoDashboardv2 model constructor.
+     * @property {module:model/ArduinoDashboardv2}
+     */
+    ArduinoDashboardv2,
 
     /**
      * The ArduinoDevicev2 model constructor.
@@ -186,6 +209,12 @@ export {
     ArduinoDevicev2propertyvaluesLastEvaluatedKey,
 
     /**
+     * The ArduinoLinkedvariable model constructor.
+     * @property {module:model/ArduinoLinkedvariable}
+     */
+    ArduinoLinkedvariable,
+
+    /**
      * The ArduinoProperty model constructor.
      * @property {module:model/ArduinoProperty}
      */
@@ -238,6 +267,18 @@ export {
      * @property {module:model/ArduinoTimeseriesmedia}
      */
     ArduinoTimeseriesmedia,
+
+    /**
+     * The ArduinoVariableslinks model constructor.
+     * @property {module:model/ArduinoVariableslinks}
+     */
+    ArduinoVariableslinks,
+
+    /**
+     * The ArduinoWidgetv2 model constructor.
+     * @property {module:model/ArduinoWidgetv2}
+     */
+    ArduinoWidgetv2,
 
     /**
      * The BatchLastValueRequestsMediaV1 model constructor.
@@ -298,6 +339,18 @@ export {
      * @property {module:model/CreateDevicesV2Payload}
      */
     CreateDevicesV2Payload,
+
+    /**
+     * The Dashboardshare model constructor.
+     * @property {module:model/Dashboardshare}
+     */
+    Dashboardshare,
+
+    /**
+     * The Dashboardv2 model constructor.
+     * @property {module:model/Dashboardv2}
+     */
+    Dashboardv2,
 
     /**
      * The Devicev2 model constructor.
@@ -366,6 +419,12 @@ export {
     PropertyValue,
 
     /**
+     * The Sharerequest model constructor.
+     * @property {module:model/Sharerequest}
+     */
+    Sharerequest,
+
+    /**
      * The Thing model constructor.
      * @property {module:model/Thing}
      */
@@ -388,6 +447,24 @@ export {
      * @property {module:model/UpdateSketch}
      */
     UpdateSketch,
+
+    /**
+     * The Widget model constructor.
+     * @property {module:model/Widget}
+     */
+    Widget,
+
+    /**
+     * The Widgetlink model constructor.
+     * @property {module:model/Widgetlink}
+     */
+    Widgetlink,
+
+    /**
+    * The DashboardsV2Api service constructor.
+    * @property {module:api/DashboardsV2Api}
+    */
+    DashboardsV2Api,
 
     /**
     * The DevicesV2Api service constructor.
