@@ -22,7 +22,7 @@ import PropertyValue from '../model/PropertyValue';
 /**
 * PropertiesV2 service.
 * @module api/PropertiesV2Api
-* @version 1.3.7
+* @version 1.3.8
 */
 export default class PropertiesV2Api {
 
