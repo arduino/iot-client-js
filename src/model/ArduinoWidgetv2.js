@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  *
- *
  */
 
 import ApiClient from '../ApiClient';
@@ -18,7 +17,7 @@ import ArduinoLinkedvariable from './ArduinoLinkedvariable';
 /**
  * The ArduinoWidgetv2 model module.
  * @module model/ArduinoWidgetv2
- * @version 1.3.8
+ * @version 1.3.9
  */
 class ArduinoWidgetv2 {
     /**

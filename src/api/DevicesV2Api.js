@@ -25,7 +25,7 @@ import PropertiesValues from '../model/PropertiesValues';
 /**
 * DevicesV2 service.
 * @module api/DevicesV2Api
-* @version 1.3.8
+* @version 1.3.9
 */
 export default class DevicesV2Api {
 
@@ -254,6 +254,7 @@ export default class DevicesV2Api {
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.acrossUserIds If true, returns all the devices (default to false)
      * @param {String} opts.serial Filter by device serial number
+     * @param {Array.<String>} opts.tags Filter by tags
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoDevicev2>} and HTTP response
      */
     devicesV2ListWithHttpInfo(opts) {
@@ -264,7 +265,8 @@ export default class DevicesV2Api {
       };
       let queryParams = {
         'across_user_ids': opts['acrossUserIds'],
-        'serial': opts['serial']
+        'serial': opts['serial'],
+        'tags': this.apiClient.buildCollectionParam(opts['tags'], 'multi')
       };
       let headerParams = {
       };
@@ -288,6 +290,7 @@ export default class DevicesV2Api {
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.acrossUserIds If true, returns all the devices (default to false)
      * @param {String} opts.serial Filter by device serial number
+     * @param {Array.<String>} opts.tags Filter by tags
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoDevicev2>}
      */
     devicesV2List(opts) {
