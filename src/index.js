@@ -36,6 +36,7 @@ import ArduinoSeriesRawBatchLastvalue from './model/ArduinoSeriesRawBatchLastval
 import ArduinoSeriesRawLastValueResponse from './model/ArduinoSeriesRawLastValueResponse';
 import ArduinoSeriesRawResponse from './model/ArduinoSeriesRawResponse';
 import ArduinoSeriesResponse from './model/ArduinoSeriesResponse';
+import ArduinoTags from './model/ArduinoTags';
 import ArduinoThing from './model/ArduinoThing';
 import ArduinoTimeseriesmedia from './model/ArduinoTimeseriesmedia';
 import ArduinoVariableslinks from './model/ArduinoVariableslinks';
@@ -64,6 +65,7 @@ import PropertiesValues from './model/PropertiesValues';
 import Property from './model/Property';
 import PropertyValue from './model/PropertyValue';
 import Sharerequest from './model/Sharerequest';
+import Tag from './model/Tag';
 import Thing from './model/Thing';
 import ThingSketch from './model/ThingSketch';
 import TimeseriesDataPoint from './model/TimeseriesDataPoint';
@@ -75,9 +77,11 @@ import DevicesV2Api from './api/DevicesV2Api';
 import DevicesV2CertsApi from './api/DevicesV2CertsApi';
 import DevicesV2OtaApi from './api/DevicesV2OtaApi';
 import DevicesV2PassApi from './api/DevicesV2PassApi';
+import DevicesV2TagsApi from './api/DevicesV2TagsApi';
 import PropertiesV2Api from './api/PropertiesV2Api';
 import SeriesV2Api from './api/SeriesV2Api';
 import ThingsV2Api from './api/ThingsV2Api';
+import ThingsV2TagsApi from './api/ThingsV2TagsApi';
 
 
 /**
@@ -109,7 +113,7 @@ import ThingsV2Api from './api/ThingsV2Api';
 * </pre>
 * </p>
 * @module index
-* @version 1.3.8
+* @version 1.3.9
 */
 export {
     /**
@@ -255,6 +259,12 @@ export {
      * @property {module:model/ArduinoSeriesResponse}
      */
     ArduinoSeriesResponse,
+
+    /**
+     * The ArduinoTags model constructor.
+     * @property {module:model/ArduinoTags}
+     */
+    ArduinoTags,
 
     /**
      * The ArduinoThing model constructor.
@@ -425,6 +435,12 @@ export {
     Sharerequest,
 
     /**
+     * The Tag model constructor.
+     * @property {module:model/Tag}
+     */
+    Tag,
+
+    /**
      * The Thing model constructor.
      * @property {module:model/Thing}
      */
@@ -491,6 +507,12 @@ export {
     DevicesV2PassApi,
 
     /**
+    * The DevicesV2TagsApi service constructor.
+    * @property {module:api/DevicesV2TagsApi}
+    */
+    DevicesV2TagsApi,
+
+    /**
     * The PropertiesV2Api service constructor.
     * @property {module:api/PropertiesV2Api}
     */
@@ -506,5 +528,11 @@ export {
     * The ThingsV2Api service constructor.
     * @property {module:api/ThingsV2Api}
     */
-    ThingsV2Api
+    ThingsV2Api,
+
+    /**
+    * The ThingsV2TagsApi service constructor.
+    * @property {module:api/ThingsV2TagsApi}
+    */
+    ThingsV2TagsApi
 };

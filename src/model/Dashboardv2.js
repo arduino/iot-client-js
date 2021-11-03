@@ -17,7 +17,7 @@ import Widget from './Widget';
 /**
  * The Dashboardv2 model module.
  * @module model/Dashboardv2
- * @version 1.3.8
+ * @version 1.3.9
  */
 class Dashboardv2 {
     /**

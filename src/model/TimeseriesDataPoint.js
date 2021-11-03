@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The TimeseriesDataPoint model module.
  * @module model/TimeseriesDataPoint
- * @version 1.3.8
+ * @version 1.3.9
  */
 class TimeseriesDataPoint {
     /**

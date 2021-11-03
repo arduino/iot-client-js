@@ -19,7 +19,7 @@ import ArduinoThing from './ArduinoThing';
 /**
  * The ArduinoDevicev2 model module.
  * @module model/ArduinoDevicev2
- * @version 1.3.8
+ * @version 1.3.9
  */
 class ArduinoDevicev2 {
     /**
@@ -106,6 +106,9 @@ class ArduinoDevicev2 {
             }
             if (data.hasOwnProperty('serial')) {
                 obj['serial'] = ApiClient.convertToType(data['serial'], 'String');
+            }
+            if (data.hasOwnProperty('tags')) {
+                obj['tags'] = ApiClient.convertToType(data['tags'], {'String': Object});
             }
             if (data.hasOwnProperty('thing')) {
                 obj['thing'] = ArduinoThing.constructFromObject(data['thing']);
@@ -212,6 +215,12 @@ ArduinoDevicev2.prototype['required_wifi_fw_version'] = undefined;
  * @member {String} serial
  */
 ArduinoDevicev2.prototype['serial'] = undefined;
+
+/**
+ * Tags belonging to the device
+ * @member {Object.<String, Object>} tags
+ */
+ArduinoDevicev2.prototype['tags'] = undefined;
 
 /**
  * @member {module:model/ArduinoThing} thing

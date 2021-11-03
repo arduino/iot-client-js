@@ -17,7 +17,7 @@ import ArduinoProperty from './ArduinoProperty';
 /**
  * The ArduinoThing model module.
  * @module model/ArduinoThing
- * @version 1.3.8
+ * @version 1.3.9
  */
 class ArduinoThing {
     /**
@@ -83,6 +83,9 @@ class ArduinoThing {
             }
             if (data.hasOwnProperty('sketch_id')) {
                 obj['sketch_id'] = ApiClient.convertToType(data['sketch_id'], 'String');
+            }
+            if (data.hasOwnProperty('tags')) {
+                obj['tags'] = ApiClient.convertToType(data['tags'], {'String': Object});
             }
             if (data.hasOwnProperty('updated_at')) {
                 obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
@@ -156,6 +159,12 @@ ArduinoThing.prototype['properties_count'] = undefined;
  * @member {String} sketch_id
  */
 ArduinoThing.prototype['sketch_id'] = undefined;
+
+/**
+ * Tags of the thing
+ * @member {Object.<String, Object>} tags
+ */
+ArduinoThing.prototype['tags'] = undefined;
 
 /**
  * Update date of the thing

@@ -22,7 +22,7 @@ import UpdateSketch from '../model/UpdateSketch';
 /**
 * ThingsV2 service.
 * @module api/ThingsV2Api
-* @version 1.3.8
+* @version 1.3.9
 */
 export default class ThingsV2Api {
 
@@ -255,6 +255,7 @@ export default class ThingsV2Api {
      * @param {Array.<String>} opts.ids Filter only the desired things
      * @param {Boolean} opts.showDeleted If true, shows the soft deleted things (default to false)
      * @param {Boolean} opts.showProperties If true, returns things with their properties, and last values (default to false)
+     * @param {Array.<String>} opts.tags Filter by tags
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoThing>} and HTTP response
      */
     thingsV2ListWithHttpInfo(opts) {
@@ -268,7 +269,8 @@ export default class ThingsV2Api {
         'device_id': opts['deviceId'],
         'ids': this.apiClient.buildCollectionParam(opts['ids'], 'multi'),
         'show_deleted': opts['showDeleted'],
-        'show_properties': opts['showProperties']
+        'show_properties': opts['showProperties'],
+        'tags': this.apiClient.buildCollectionParam(opts['tags'], 'multi')
       };
       let headerParams = {
       };
@@ -295,6 +297,7 @@ export default class ThingsV2Api {
      * @param {Array.<String>} opts.ids Filter only the desired things
      * @param {Boolean} opts.showDeleted If true, shows the soft deleted things (default to false)
      * @param {Boolean} opts.showProperties If true, returns things with their properties, and last values (default to false)
+     * @param {Array.<String>} opts.tags Filter by tags
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoThing>}
      */
     thingsV2List(opts) {

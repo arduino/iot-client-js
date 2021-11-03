@@ -17,7 +17,7 @@ import TimeseriesDataPoint from './TimeseriesDataPoint';
 /**
  * The ArduinoTimeseriesmedia model module.
  * @module model/ArduinoTimeseriesmedia
- * @version 1.3.8
+ * @version 1.3.9
  */
 class ArduinoTimeseriesmedia {
     /**
