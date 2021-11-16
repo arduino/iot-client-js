@@ -17,7 +17,7 @@ import ArduinoProperty from './ArduinoProperty';
 /**
  * The ArduinoThing model module.
  * @module model/ArduinoThing
- * @version 1.3.9
+ * @version 1.4.0
  */
 class ArduinoThing {
     /**
@@ -27,11 +27,12 @@ class ArduinoThing {
      * @param href {String} The api reference of this thing
      * @param id {String} The id of the thing
      * @param name {String} The friendly name of the thing
+     * @param timezone {String} Time zone of the thing
      * @param userId {String} The user id of the owner
      */
-    constructor(href, id, name, userId) { 
+    constructor(href, id, name, timezone, userId) { 
         
-        ArduinoThing.initialize(this, href, id, name, userId);
+        ArduinoThing.initialize(this, href, id, name, timezone, userId);
     }
 
     /**
@@ -39,10 +40,11 @@ class ArduinoThing {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, href, id, name, userId) { 
+    static initialize(obj, href, id, name, timezone, userId) { 
         obj['href'] = href;
         obj['id'] = id;
         obj['name'] = name;
+        obj['timezone'] = timezone;
         obj['user_id'] = userId;
     }
 
@@ -86,6 +88,9 @@ class ArduinoThing {
             }
             if (data.hasOwnProperty('tags')) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], {'String': Object});
+            }
+            if (data.hasOwnProperty('timezone')) {
+                obj['timezone'] = ApiClient.convertToType(data['timezone'], 'String');
             }
             if (data.hasOwnProperty('updated_at')) {
                 obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
@@ -165,6 +170,12 @@ ArduinoThing.prototype['sketch_id'] = undefined;
  * @member {Object.<String, Object>} tags
  */
 ArduinoThing.prototype['tags'] = undefined;
+
+/**
+ * Time zone of the thing
+ * @member {String} timezone
+ */
+ArduinoThing.prototype['timezone'] = undefined;
 
 /**
  * Update date of the thing

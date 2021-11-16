@@ -15,14 +15,15 @@
 import ApiClient from "../ApiClient";
 import ArduinoThing from '../model/ArduinoThing';
 import Error from '../model/Error';
-import Thing from '../model/Thing';
+import ThingCreate from '../model/ThingCreate';
 import ThingSketch from '../model/ThingSketch';
+import ThingUpdate from '../model/ThingUpdate';
 import UpdateSketch from '../model/UpdateSketch';
 
 /**
 * ThingsV2 service.
 * @module api/ThingsV2Api
-* @version 1.3.9
+* @version 1.4.0
 */
 export default class ThingsV2Api {
 
@@ -42,17 +43,17 @@ export default class ThingsV2Api {
     /**
      * create things_v2
      * Creates a new thing associated to the user
-     * @param {module:model/Thing} thing ThingPayload describes a thing
+     * @param {module:model/ThingCreate} thingCreate Payload to create a new thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
-    thingsV2CreateWithHttpInfo(thing, opts) {
+    thingsV2CreateWithHttpInfo(thingCreate, opts) {
       opts = opts || {};
-      let postBody = thing;
-      // verify the required parameter 'thing' is set
-      if (thing === undefined || thing === null) {
-        throw new Error("Missing the required parameter 'thing' when calling thingsV2Create");
+      let postBody = thingCreate;
+      // verify the required parameter 'thingCreate' is set
+      if (thingCreate === undefined || thingCreate === null) {
+        throw new Error("Missing the required parameter 'thingCreate' when calling thingsV2Create");
       }
 
       let pathParams = {
@@ -79,13 +80,13 @@ export default class ThingsV2Api {
     /**
      * create things_v2
      * Creates a new thing associated to the user
-     * @param {module:model/Thing} thing ThingPayload describes a thing
+     * @param {module:model/ThingCreate} thingCreate Payload to create a new thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
-    thingsV2Create(thing, opts) {
-      return this.thingsV2CreateWithHttpInfo(thing, opts)
+    thingsV2Create(thingCreate, opts) {
+      return this.thingsV2CreateWithHttpInfo(thingCreate, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -366,21 +367,21 @@ export default class ThingsV2Api {
      * update things_v2
      * Updates a thing associated to the user
      * @param {String} id The id of the thing
-     * @param {module:model/Thing} thing ThingPayload describes a thing
+     * @param {module:model/ThingUpdate} thingUpdate Payload to update an existing thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
-    thingsV2UpdateWithHttpInfo(id, thing, opts) {
+    thingsV2UpdateWithHttpInfo(id, thingUpdate, opts) {
       opts = opts || {};
-      let postBody = thing;
+      let postBody = thingUpdate;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling thingsV2Update");
       }
-      // verify the required parameter 'thing' is set
-      if (thing === undefined || thing === null) {
-        throw new Error("Missing the required parameter 'thing' when calling thingsV2Update");
+      // verify the required parameter 'thingUpdate' is set
+      if (thingUpdate === undefined || thingUpdate === null) {
+        throw new Error("Missing the required parameter 'thingUpdate' when calling thingsV2Update");
       }
 
       let pathParams = {
@@ -409,13 +410,13 @@ export default class ThingsV2Api {
      * update things_v2
      * Updates a thing associated to the user
      * @param {String} id The id of the thing
-     * @param {module:model/Thing} thing ThingPayload describes a thing
+     * @param {module:model/ThingUpdate} thingUpdate Payload to update an existing thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
-    thingsV2Update(id, thing, opts) {
-      return this.thingsV2UpdateWithHttpInfo(id, thing, opts)
+    thingsV2Update(id, thingUpdate, opts) {
+      return this.thingsV2UpdateWithHttpInfo(id, thingUpdate, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

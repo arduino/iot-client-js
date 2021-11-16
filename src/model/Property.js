@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Property model module.
  * @module model/Property
- * @version 1.3.9
+ * @version 1.4.0
  */
 class Property {
     /**
@@ -844,7 +844,13 @@ Property['TypeEnum'] = {
      * value: "INFORMATION_CONTENT"
      * @const
      */
-    "INFORMATION_CONTENT": "INFORMATION_CONTENT"
+    "INFORMATION_CONTENT": "INFORMATION_CONTENT",
+
+    /**
+     * value: "SCHEDULE"
+     * @const
+     */
+    "SCHEDULE": "SCHEDULE"
 };
 
 

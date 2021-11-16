@@ -12,22 +12,22 @@
  */
 
 import ApiClient from '../ApiClient';
+import ArduinoLorafreqplanv1 from './ArduinoLorafreqplanv1';
 
 /**
- * The ArduinoVariableslinks model module.
- * @module model/ArduinoVariableslinks
+ * The ArduinoLorafreqplansv1 model module.
+ * @module model/ArduinoLorafreqplansv1
  * @version 1.4.0
  */
-class ArduinoVariableslinks {
+class ArduinoLorafreqplansv1 {
     /**
-     * Constructs a new <code>ArduinoVariableslinks</code>.
-     * ArduinoVariableslinks media type (default view)
-     * @alias module:model/ArduinoVariableslinks
-     * @param variables {Array.<String>} The ids of the linked variables
+     * Constructs a new <code>ArduinoLorafreqplansv1</code>.
+     * ArduinoLorafreqplansv1 media type (default view)
+     * @alias module:model/ArduinoLorafreqplansv1
      */
-    constructor(variables) { 
+    constructor() { 
         
-        ArduinoVariableslinks.initialize(this, variables);
+        ArduinoLorafreqplansv1.initialize(this);
     }
 
     /**
@@ -35,23 +35,22 @@ class ArduinoVariableslinks {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, variables) { 
-        obj['variables'] = variables;
+    static initialize(obj) { 
     }
 
     /**
-     * Constructs a <code>ArduinoVariableslinks</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>ArduinoLorafreqplansv1</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ArduinoVariableslinks} obj Optional instance to populate.
-     * @return {module:model/ArduinoVariableslinks} The populated <code>ArduinoVariableslinks</code> instance.
+     * @param {module:model/ArduinoLorafreqplansv1} obj Optional instance to populate.
+     * @return {module:model/ArduinoLorafreqplansv1} The populated <code>ArduinoLorafreqplansv1</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new ArduinoVariableslinks();
+            obj = obj || new ArduinoLorafreqplansv1();
 
-            if (data.hasOwnProperty('variables')) {
-                obj['variables'] = ApiClient.convertToType(data['variables'], ['String']);
+            if (data.hasOwnProperty('frequency_plans')) {
+                obj['frequency_plans'] = ApiClient.convertToType(data['frequency_plans'], [ArduinoLorafreqplanv1]);
             }
         }
         return obj;
@@ -61,15 +60,15 @@ class ArduinoVariableslinks {
 }
 
 /**
- * The ids of the linked variables
- * @member {Array.<String>} variables
+ * The list of frequency plans
+ * @member {Array.<module:model/ArduinoLorafreqplanv1>} frequency_plans
  */
-ArduinoVariableslinks.prototype['variables'] = undefined;
+ArduinoLorafreqplansv1.prototype['frequency_plans'] = undefined;
 
 
 
 
 
 
-export default ArduinoVariableslinks;
+export default ArduinoLorafreqplansv1;
 

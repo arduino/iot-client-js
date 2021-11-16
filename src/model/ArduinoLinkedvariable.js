@@ -12,11 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
+import ArduinoTimezone from './ArduinoTimezone';
 
 /**
  * The ArduinoLinkedvariable model module.
  * @module model/ArduinoLinkedvariable
- * @version 1.3.9
+ * @version 1.4.0
  */
 class ArduinoLinkedvariable {
     /**
@@ -83,6 +84,9 @@ class ArduinoLinkedvariable {
             if (data.hasOwnProperty('thing_name')) {
                 obj['thing_name'] = ApiClient.convertToType(data['thing_name'], 'String');
             }
+            if (data.hasOwnProperty('thing_timezone')) {
+                obj['thing_timezone'] = ArduinoTimezone.constructFromObject(data['thing_timezone']);
+            }
             if (data.hasOwnProperty('type')) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
@@ -137,6 +141,11 @@ ArduinoLinkedvariable.prototype['thing_id'] = undefined;
  * @member {String} thing_name
  */
 ArduinoLinkedvariable.prototype['thing_name'] = undefined;
+
+/**
+ * @member {module:model/ArduinoTimezone} thing_timezone
+ */
+ArduinoLinkedvariable.prototype['thing_timezone'] = undefined;
 
 /**
  * The type of the variable
