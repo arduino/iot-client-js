@@ -14,18 +14,22 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The ArduinoDevicev2propertyvaluesLastEvaluatedKey model module.
- * @module model/ArduinoDevicev2propertyvaluesLastEvaluatedKey
+ * The ArduinoLorafreqplanv1 model module.
+ * @module model/ArduinoLorafreqplanv1
  * @version 1.4.0
  */
-class ArduinoDevicev2propertyvaluesLastEvaluatedKey {
+class ArduinoLorafreqplanv1 {
     /**
-     * Constructs a new <code>ArduinoDevicev2propertyvaluesLastEvaluatedKey</code>.
-     * @alias module:model/ArduinoDevicev2propertyvaluesLastEvaluatedKey
+     * Constructs a new <code>ArduinoLorafreqplanv1</code>.
+     * ArduinoLorafreqplanv1 media type (default view)
+     * @alias module:model/ArduinoLorafreqplanv1
+     * @param advanced {Boolean} Frequency plan only for advanced users
+     * @param id {String} The ID of the frequency paln
+     * @param name {String} The name of the frequency plan
      */
-    constructor() { 
+    constructor(advanced, id, name) { 
         
-        ArduinoDevicev2propertyvaluesLastEvaluatedKey.initialize(this);
+        ArduinoLorafreqplanv1.initialize(this, advanced, id, name);
     }
 
     /**
@@ -33,22 +37,25 @@ class ArduinoDevicev2propertyvaluesLastEvaluatedKey {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, advanced, id, name) { 
+        obj['advanced'] = advanced;
+        obj['id'] = id;
+        obj['name'] = name;
     }
 
     /**
-     * Constructs a <code>ArduinoDevicev2propertyvaluesLastEvaluatedKey</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>ArduinoLorafreqplanv1</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ArduinoDevicev2propertyvaluesLastEvaluatedKey} obj Optional instance to populate.
-     * @return {module:model/ArduinoDevicev2propertyvaluesLastEvaluatedKey} The populated <code>ArduinoDevicev2propertyvaluesLastEvaluatedKey</code> instance.
+     * @param {module:model/ArduinoLorafreqplanv1} obj Optional instance to populate.
+     * @return {module:model/ArduinoLorafreqplanv1} The populated <code>ArduinoLorafreqplanv1</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new ArduinoDevicev2propertyvaluesLastEvaluatedKey();
+            obj = obj || new ArduinoLorafreqplanv1();
 
-            if (data.hasOwnProperty('created_at')) {
-                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+            if (data.hasOwnProperty('advanced')) {
+                obj['advanced'] = ApiClient.convertToType(data['advanced'], 'Boolean');
             }
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
@@ -64,24 +71,27 @@ class ArduinoDevicev2propertyvaluesLastEvaluatedKey {
 }
 
 /**
- * @member {Date} created_at
+ * Frequency plan only for advanced users
+ * @member {Boolean} advanced
  */
-ArduinoDevicev2propertyvaluesLastEvaluatedKey.prototype['created_at'] = undefined;
+ArduinoLorafreqplanv1.prototype['advanced'] = undefined;
 
 /**
+ * The ID of the frequency paln
  * @member {String} id
  */
-ArduinoDevicev2propertyvaluesLastEvaluatedKey.prototype['id'] = undefined;
+ArduinoLorafreqplanv1.prototype['id'] = undefined;
 
 /**
+ * The name of the frequency plan
  * @member {String} name
  */
-ArduinoDevicev2propertyvaluesLastEvaluatedKey.prototype['name'] = undefined;
+ArduinoLorafreqplanv1.prototype['name'] = undefined;
 
 
 
 
 
 
-export default ArduinoDevicev2propertyvaluesLastEvaluatedKey;
+export default ArduinoLorafreqplanv1;
 

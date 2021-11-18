@@ -29,6 +29,9 @@ import ArduinoDevicev2propertyvalueValueStatistics from './model/ArduinoDevicev2
 import ArduinoDevicev2propertyvalues from './model/ArduinoDevicev2propertyvalues';
 import ArduinoDevicev2propertyvaluesLastEvaluatedKey from './model/ArduinoDevicev2propertyvaluesLastEvaluatedKey';
 import ArduinoLinkedvariable from './model/ArduinoLinkedvariable';
+import ArduinoLoradevicev1 from './model/ArduinoLoradevicev1';
+import ArduinoLorafreqplansv1 from './model/ArduinoLorafreqplansv1';
+import ArduinoLorafreqplanv1 from './model/ArduinoLorafreqplanv1';
 import ArduinoProperty from './model/ArduinoProperty';
 import ArduinoSeriesBatch from './model/ArduinoSeriesBatch';
 import ArduinoSeriesRawBatch from './model/ArduinoSeriesRawBatch';
@@ -39,6 +42,7 @@ import ArduinoSeriesResponse from './model/ArduinoSeriesResponse';
 import ArduinoTags from './model/ArduinoTags';
 import ArduinoThing from './model/ArduinoThing';
 import ArduinoTimeseriesmedia from './model/ArduinoTimeseriesmedia';
+import ArduinoTimezone from './model/ArduinoTimezone';
 import ArduinoVariableslinks from './model/ArduinoVariableslinks';
 import ArduinoWidgetv2 from './model/ArduinoWidgetv2';
 import BatchLastValueRequestsMediaV1 from './model/BatchLastValueRequestsMediaV1';
@@ -51,6 +55,7 @@ import BatchQueryRequestsMediaV1 from './model/BatchQueryRequestsMediaV1';
 import CheckDevicesV2PassPayload from './model/CheckDevicesV2PassPayload';
 import CreateDevicesV2CertsPayload from './model/CreateDevicesV2CertsPayload';
 import CreateDevicesV2Payload from './model/CreateDevicesV2Payload';
+import CreateLoraDevicesV1Payload from './model/CreateLoraDevicesV1Payload';
 import Dashboardshare from './model/Dashboardshare';
 import Dashboardv2 from './model/Dashboardv2';
 import Devicev2 from './model/Devicev2';
@@ -66,8 +71,9 @@ import Property from './model/Property';
 import PropertyValue from './model/PropertyValue';
 import Sharerequest from './model/Sharerequest';
 import Tag from './model/Tag';
-import Thing from './model/Thing';
+import ThingCreate from './model/ThingCreate';
 import ThingSketch from './model/ThingSketch';
+import ThingUpdate from './model/ThingUpdate';
 import TimeseriesDataPoint from './model/TimeseriesDataPoint';
 import UpdateSketch from './model/UpdateSketch';
 import Widget from './model/Widget';
@@ -78,6 +84,8 @@ import DevicesV2CertsApi from './api/DevicesV2CertsApi';
 import DevicesV2OtaApi from './api/DevicesV2OtaApi';
 import DevicesV2PassApi from './api/DevicesV2PassApi';
 import DevicesV2TagsApi from './api/DevicesV2TagsApi';
+import LoraDevicesV1Api from './api/LoraDevicesV1Api';
+import LoraFreqPlanV1Api from './api/LoraFreqPlanV1Api';
 import PropertiesV2Api from './api/PropertiesV2Api';
 import SeriesV2Api from './api/SeriesV2Api';
 import ThingsV2Api from './api/ThingsV2Api';
@@ -113,7 +121,7 @@ import ThingsV2TagsApi from './api/ThingsV2TagsApi';
 * </pre>
 * </p>
 * @module index
-* @version 1.3.9
+* @version 1.4.0
 */
 export {
     /**
@@ -219,6 +227,24 @@ export {
     ArduinoLinkedvariable,
 
     /**
+     * The ArduinoLoradevicev1 model constructor.
+     * @property {module:model/ArduinoLoradevicev1}
+     */
+    ArduinoLoradevicev1,
+
+    /**
+     * The ArduinoLorafreqplansv1 model constructor.
+     * @property {module:model/ArduinoLorafreqplansv1}
+     */
+    ArduinoLorafreqplansv1,
+
+    /**
+     * The ArduinoLorafreqplanv1 model constructor.
+     * @property {module:model/ArduinoLorafreqplanv1}
+     */
+    ArduinoLorafreqplanv1,
+
+    /**
      * The ArduinoProperty model constructor.
      * @property {module:model/ArduinoProperty}
      */
@@ -277,6 +303,12 @@ export {
      * @property {module:model/ArduinoTimeseriesmedia}
      */
     ArduinoTimeseriesmedia,
+
+    /**
+     * The ArduinoTimezone model constructor.
+     * @property {module:model/ArduinoTimezone}
+     */
+    ArduinoTimezone,
 
     /**
      * The ArduinoVariableslinks model constructor.
@@ -349,6 +381,12 @@ export {
      * @property {module:model/CreateDevicesV2Payload}
      */
     CreateDevicesV2Payload,
+
+    /**
+     * The CreateLoraDevicesV1Payload model constructor.
+     * @property {module:model/CreateLoraDevicesV1Payload}
+     */
+    CreateLoraDevicesV1Payload,
 
     /**
      * The Dashboardshare model constructor.
@@ -441,16 +479,22 @@ export {
     Tag,
 
     /**
-     * The Thing model constructor.
-     * @property {module:model/Thing}
+     * The ThingCreate model constructor.
+     * @property {module:model/ThingCreate}
      */
-    Thing,
+    ThingCreate,
 
     /**
      * The ThingSketch model constructor.
      * @property {module:model/ThingSketch}
      */
     ThingSketch,
+
+    /**
+     * The ThingUpdate model constructor.
+     * @property {module:model/ThingUpdate}
+     */
+    ThingUpdate,
 
     /**
      * The TimeseriesDataPoint model constructor.
@@ -511,6 +555,18 @@ export {
     * @property {module:api/DevicesV2TagsApi}
     */
     DevicesV2TagsApi,
+
+    /**
+    * The LoraDevicesV1Api service constructor.
+    * @property {module:api/LoraDevicesV1Api}
+    */
+    LoraDevicesV1Api,
+
+    /**
+    * The LoraFreqPlanV1Api service constructor.
+    * @property {module:api/LoraFreqPlanV1Api}
+    */
+    LoraFreqPlanV1Api,
 
     /**
     * The PropertiesV2Api service constructor.

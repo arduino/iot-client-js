@@ -12,22 +12,23 @@
  */
 
 import ApiClient from '../ApiClient';
-import Widget from './Widget';
 
 /**
- * The Dashboardv2 model module.
- * @module model/Dashboardv2
+ * The ArduinoTimezone model module.
+ * @module model/ArduinoTimezone
  * @version 1.4.0
  */
-class Dashboardv2 {
+class ArduinoTimezone {
     /**
-     * Constructs a new <code>Dashboardv2</code>.
-     * DashboardV2Payload describes a dashboard
-     * @alias module:model/Dashboardv2
+     * Constructs a new <code>ArduinoTimezone</code>.
+     * ArduinoTimezone media type (default view)
+     * @alias module:model/ArduinoTimezone
+     * @param name {String} Name of the time zone.
+     * @param offset {Number} Current UTC DST offset in seconds.
      */
-    constructor() { 
+    constructor(name, offset) { 
         
-        Dashboardv2.initialize(this);
+        ArduinoTimezone.initialize(this, name, offset);
     }
 
     /**
@@ -35,25 +36,27 @@ class Dashboardv2 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, name, offset) { 
+        obj['name'] = name;
+        obj['offset'] = offset;
     }
 
     /**
-     * Constructs a <code>Dashboardv2</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>ArduinoTimezone</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/Dashboardv2} obj Optional instance to populate.
-     * @return {module:model/Dashboardv2} The populated <code>Dashboardv2</code> instance.
+     * @param {module:model/ArduinoTimezone} obj Optional instance to populate.
+     * @return {module:model/ArduinoTimezone} The populated <code>ArduinoTimezone</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new Dashboardv2();
+            obj = obj || new ArduinoTimezone();
 
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('widgets')) {
-                obj['widgets'] = ApiClient.convertToType(data['widgets'], [Widget]);
+            if (data.hasOwnProperty('offset')) {
+                obj['offset'] = ApiClient.convertToType(data['offset'], 'Number');
             }
         }
         return obj;
@@ -63,21 +66,21 @@ class Dashboardv2 {
 }
 
 /**
- * The friendly name of the dashboard
+ * Name of the time zone.
  * @member {String} name
  */
-Dashboardv2.prototype['name'] = undefined;
+ArduinoTimezone.prototype['name'] = undefined;
 
 /**
- * Widgets attached to this dashboard
- * @member {Array.<module:model/Widget>} widgets
+ * Current UTC DST offset in seconds.
+ * @member {Number} offset
  */
-Dashboardv2.prototype['widgets'] = undefined;
+ArduinoTimezone.prototype['offset'] = undefined;
 
 
 
 
 
 
-export default Dashboardv2;
+export default ArduinoTimezone;
 

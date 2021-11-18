@@ -25,7 +25,7 @@ import HistoricDataRequest from '../model/HistoricDataRequest';
 /**
 * SeriesV2 service.
 * @module api/SeriesV2Api
-* @version 1.3.9
+* @version 1.4.0
 */
 export default class SeriesV2Api {
 

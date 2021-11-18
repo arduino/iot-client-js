@@ -17,7 +17,7 @@ import ArduinoLinkedvariable from './ArduinoLinkedvariable';
 /**
  * The ArduinoWidgetv2 model module.
  * @module model/ArduinoWidgetv2
- * @version 1.3.9
+ * @version 1.4.0
  */
 class ArduinoWidgetv2 {
     /**
