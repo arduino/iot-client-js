@@ -17,7 +17,7 @@ import PropertiesValue from './PropertiesValue';
 /**
  * The PropertiesValues model module.
  * @module model/PropertiesValues
- * @version 1.4.0
+ * @version 1.4.1
  */
 class PropertiesValues {
     /**
@@ -50,6 +50,9 @@ class PropertiesValues {
         if (data) {
             obj = obj || new PropertiesValues();
 
+            if (data.hasOwnProperty('input')) {
+                obj['input'] = ApiClient.convertToType(data['input'], 'Boolean');
+            }
             if (data.hasOwnProperty('properties')) {
                 obj['properties'] = ApiClient.convertToType(data['properties'], [PropertiesValue]);
             }
@@ -59,6 +62,13 @@ class PropertiesValues {
 
 
 }
+
+/**
+ * If true, send property values to device's input topic.
+ * @member {Boolean} input
+ * @default false
+ */
+PropertiesValues.prototype['input'] = false;
 
 /**
  * @member {Array.<module:model/PropertiesValue>} properties

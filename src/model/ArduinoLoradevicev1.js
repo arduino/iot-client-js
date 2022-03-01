@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoLoradevicev1 model module.
  * @module model/ArduinoLoradevicev1
- * @version 1.4.0
+ * @version 1.4.1
  */
 class ArduinoLoradevicev1 {
     /**

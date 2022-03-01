@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Dashboardshare model module.
  * @module model/Dashboardshare
- * @version 1.4.0
+ * @version 1.4.1
  */
 class Dashboardshare {
     /**

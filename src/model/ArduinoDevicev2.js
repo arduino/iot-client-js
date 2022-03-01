@@ -19,7 +19,7 @@ import ArduinoThing from './ArduinoThing';
 /**
  * The ArduinoDevicev2 model module.
  * @module model/ArduinoDevicev2
- * @version 1.4.0
+ * @version 1.4.1
  */
 class ArduinoDevicev2 {
     /**
