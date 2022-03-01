@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoTimezone model module.
  * @module model/ArduinoTimezone
- * @version 1.4.0
+ * @version 1.4.1
  */
 class ArduinoTimezone {
     /**
@@ -58,6 +58,9 @@ class ArduinoTimezone {
             if (data.hasOwnProperty('offset')) {
                 obj['offset'] = ApiClient.convertToType(data['offset'], 'Number');
             }
+            if (data.hasOwnProperty('until')) {
+                obj['until'] = ApiClient.convertToType(data['until'], 'Date');
+            }
         }
         return obj;
     }
@@ -76,6 +79,12 @@ ArduinoTimezone.prototype['name'] = undefined;
  * @member {Number} offset
  */
 ArduinoTimezone.prototype['offset'] = undefined;
+
+/**
+ * Date until the offset is valid.
+ * @member {Date} until
+ */
+ArduinoTimezone.prototype['until'] = undefined;
 
 
 

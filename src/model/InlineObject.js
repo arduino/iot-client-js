@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineObject model module.
  * @module model/InlineObject
- * @version 1.4.0
+ * @version 1.4.1
  */
 class InlineObject {
     /**
@@ -49,6 +49,9 @@ class InlineObject {
         if (data) {
             obj = obj || new InlineObject();
 
+            if (data.hasOwnProperty('async')) {
+                obj['async'] = ApiClient.convertToType(data['async'], 'Boolean');
+            }
             if (data.hasOwnProperty('expire_in_mins')) {
                 obj['expire_in_mins'] = ApiClient.convertToType(data['expire_in_mins'], 'Number');
             }
@@ -61,6 +64,13 @@ class InlineObject {
 
 
 }
+
+/**
+ * If false, wait for the full OTA process, until it gets a result from the device
+ * @member {Boolean} async
+ * @default true
+ */
+InlineObject.prototype['async'] = true;
 
 /**
  * Binary expire time in minutes, default 10 mins

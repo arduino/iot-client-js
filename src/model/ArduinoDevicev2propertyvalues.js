@@ -18,7 +18,7 @@ import ArduinoDevicev2propertyvaluesLastEvaluatedKey from './ArduinoDevicev2prop
 /**
  * The ArduinoDevicev2propertyvalues model module.
  * @module model/ArduinoDevicev2propertyvalues
- * @version 1.4.0
+ * @version 1.4.1
  */
 class ArduinoDevicev2propertyvalues {
     /**

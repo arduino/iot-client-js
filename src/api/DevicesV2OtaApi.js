@@ -19,7 +19,7 @@ import Error from '../model/Error';
 /**
 * DevicesV2Ota service.
 * @module api/DevicesV2OtaApi
-* @version 1.4.0
+* @version 1.4.1
 */
 export default class DevicesV2OtaApi {
 
@@ -96,6 +96,7 @@ export default class DevicesV2OtaApi {
      * @param {String} id The id of the device
      * @param {File} otaFile OTA file
      * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.async If false, wait for the full OTA process, until it gets a result from the device (default to true)
      * @param {Number} opts.expireInMins Binary expire time in minutes, default 10 mins (default to 10)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
@@ -119,6 +120,7 @@ export default class DevicesV2OtaApi {
       let headerParams = {
       };
       let formParams = {
+        'async': opts['async'],
         'expire_in_mins': opts['expireInMins'],
         'ota_file': otaFile
       };
@@ -140,6 +142,7 @@ export default class DevicesV2OtaApi {
      * @param {String} id The id of the device
      * @param {File} otaFile OTA file
      * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.async If false, wait for the full OTA process, until it gets a result from the device (default to true)
      * @param {Number} opts.expireInMins Binary expire time in minutes, default 10 mins (default to 10)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */

@@ -17,7 +17,7 @@ import ArduinoProperty from './ArduinoProperty';
 /**
  * The ArduinoThing model module.
  * @module model/ArduinoThing
- * @version 1.4.0
+ * @version 1.4.1
  */
 class ArduinoThing {
     /**
@@ -65,8 +65,17 @@ class ArduinoThing {
             if (data.hasOwnProperty('deleted_at')) {
                 obj['deleted_at'] = ApiClient.convertToType(data['deleted_at'], 'Date');
             }
+            if (data.hasOwnProperty('device_fqbn')) {
+                obj['device_fqbn'] = ApiClient.convertToType(data['device_fqbn'], 'String');
+            }
             if (data.hasOwnProperty('device_id')) {
                 obj['device_id'] = ApiClient.convertToType(data['device_id'], 'String');
+            }
+            if (data.hasOwnProperty('device_name')) {
+                obj['device_name'] = ApiClient.convertToType(data['device_name'], 'String');
+            }
+            if (data.hasOwnProperty('device_type')) {
+                obj['device_type'] = ApiClient.convertToType(data['device_type'], 'String');
             }
             if (data.hasOwnProperty('href')) {
                 obj['href'] = ApiClient.convertToType(data['href'], 'String');
@@ -124,10 +133,28 @@ ArduinoThing.prototype['created_at'] = undefined;
 ArduinoThing.prototype['deleted_at'] = undefined;
 
 /**
- * The arn of the device
+ * The fqbn of the attached device, if any
+ * @member {String} device_fqbn
+ */
+ArduinoThing.prototype['device_fqbn'] = undefined;
+
+/**
+ * The id of the device
  * @member {String} device_id
  */
 ArduinoThing.prototype['device_id'] = undefined;
+
+/**
+ * The name of the attached device, if any
+ * @member {String} device_name
+ */
+ArduinoThing.prototype['device_name'] = undefined;
+
+/**
+ * The type of the attached device, if any
+ * @member {String} device_type
+ */
+ArduinoThing.prototype['device_type'] = undefined;
 
 /**
  * The api reference of this thing

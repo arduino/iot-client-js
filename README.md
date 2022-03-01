@@ -91,10 +91,9 @@ catch (error) {
 
 ## How to get Arduino IoT Cloud Client Credentials
 
-You can generate Arduino IoT Cloud Client Credentials in the `Integrations` section in the [IoT Cloud things section](https://create.arduino.cc/iot/things):
+You can generate Arduino IoT Cloud Client Credentials in the `ARDUINO API` section in the [IoT Cloud things section](https://create.arduino.cc/iot/things):
 
 ### Step 1
- 
 
 ![IoT Cloud Site](https://github.com/arduino/iot-client-js/blob/master/img/selection_1.png?raw=true)
 
