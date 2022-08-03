@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Devicev2 model module.
  * @module model/Devicev2
- * @version 1.4.1
+ * @version 1.4.2
  */
 class Devicev2 {
     /**
@@ -184,7 +184,13 @@ Devicev2['TypeEnum'] = {
      * value: "nanorp2040connect"
      * @const
      */
-    "nanorp2040connect": "nanorp2040connect"
+    "nanorp2040connect": "nanorp2040connect",
+
+    /**
+     * value: "nicla_vision"
+     * @const
+     */
+    "nicla_vision": "nicla_vision"
 };
 
 

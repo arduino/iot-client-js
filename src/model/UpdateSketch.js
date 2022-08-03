@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UpdateSketch model module.
  * @module model/UpdateSketch
- * @version 1.4.1
+ * @version 1.4.2
  */
 class UpdateSketch {
     /**

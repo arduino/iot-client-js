@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The HistoricDataRequest model module.
  * @module model/HistoricDataRequest
- * @version 1.4.1
+ * @version 1.4.2
  */
 class HistoricDataRequest {
     /**

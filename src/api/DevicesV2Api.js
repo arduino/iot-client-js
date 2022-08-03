@@ -25,7 +25,7 @@ import PropertiesValues from '../model/PropertiesValues';
 /**
 * DevicesV2 service.
 * @module api/DevicesV2Api
-* @version 1.4.1
+* @version 1.4.2
 */
 export default class DevicesV2Api {
 
@@ -46,9 +46,12 @@ export default class DevicesV2Api {
      * create devices_v2
      * Creates a new device associated to the user.
      * @param {module:model/CreateDevicesV2Payload} createDevicesV2Payload DeviceV2 describes a device.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2} and HTTP response
      */
-    devicesV2CreateWithHttpInfo(createDevicesV2Payload) {
+    devicesV2CreateWithHttpInfo(createDevicesV2Payload, opts) {
+      opts = opts || {};
       let postBody = createDevicesV2Payload;
       // verify the required parameter 'createDevicesV2Payload' is set
       if (createDevicesV2Payload === undefined || createDevicesV2Payload === null) {
@@ -60,6 +63,7 @@ export default class DevicesV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -79,10 +83,12 @@ export default class DevicesV2Api {
      * create devices_v2
      * Creates a new device associated to the user.
      * @param {module:model/CreateDevicesV2Payload} createDevicesV2Payload DeviceV2 describes a device.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2}
      */
-    devicesV2Create(createDevicesV2Payload) {
-      return this.devicesV2CreateWithHttpInfo(createDevicesV2Payload)
+    devicesV2Create(createDevicesV2Payload, opts) {
+      return this.devicesV2CreateWithHttpInfo(createDevicesV2Payload, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -93,9 +99,12 @@ export default class DevicesV2Api {
      * delete devices_v2
      * Removes a device associated to the user
      * @param {String} id The id of the device
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    devicesV2DeleteWithHttpInfo(id) {
+    devicesV2DeleteWithHttpInfo(id, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -108,6 +117,7 @@ export default class DevicesV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -127,10 +137,12 @@ export default class DevicesV2Api {
      * delete devices_v2
      * Removes a device associated to the user
      * @param {String} id The id of the device
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    devicesV2Delete(id) {
-      return this.devicesV2DeleteWithHttpInfo(id)
+    devicesV2Delete(id, opts) {
+      return this.devicesV2DeleteWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -144,6 +156,7 @@ export default class DevicesV2Api {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit The number of events to select
      * @param {String} opts.start The time at which to start selecting events
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2EventProperties} and HTTP response
      */
     devicesV2GetEventsWithHttpInfo(id, opts) {
@@ -162,6 +175,7 @@ export default class DevicesV2Api {
         'start': opts['start']
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -184,6 +198,7 @@ export default class DevicesV2Api {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit The number of events to select
      * @param {String} opts.start The time at which to start selecting events
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2EventProperties}
      */
     devicesV2GetEvents(id, opts) {
@@ -200,6 +215,7 @@ export default class DevicesV2Api {
      * @param {String} id The id of the device
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2properties} and HTTP response
      */
     devicesV2GetPropertiesWithHttpInfo(id, opts) {
@@ -217,6 +233,7 @@ export default class DevicesV2Api {
         'show_deleted': opts['showDeleted']
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -238,6 +255,7 @@ export default class DevicesV2Api {
      * @param {String} id The id of the device
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2properties}
      */
     devicesV2GetProperties(id, opts) {
@@ -255,6 +273,7 @@ export default class DevicesV2Api {
      * @param {Boolean} opts.acrossUserIds If true, returns all the devices (default to false)
      * @param {String} opts.serial Filter by device serial number
      * @param {Array.<String>} opts.tags Filter by tags
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoDevicev2>} and HTTP response
      */
     devicesV2ListWithHttpInfo(opts) {
@@ -269,6 +288,7 @@ export default class DevicesV2Api {
         'tags': this.apiClient.buildCollectionParam(opts['tags'], 'multi')
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -291,6 +311,7 @@ export default class DevicesV2Api {
      * @param {Boolean} opts.acrossUserIds If true, returns all the devices (default to false)
      * @param {String} opts.serial Filter by device serial number
      * @param {Array.<String>} opts.tags Filter by tags
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoDevicev2>}
      */
     devicesV2List(opts) {
@@ -305,9 +326,12 @@ export default class DevicesV2Api {
      * show devices_v2
      * Returns the device requested by the user
      * @param {String} id The id of the device
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2} and HTTP response
      */
-    devicesV2ShowWithHttpInfo(id) {
+    devicesV2ShowWithHttpInfo(id, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -320,6 +344,7 @@ export default class DevicesV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -339,10 +364,12 @@ export default class DevicesV2Api {
      * show devices_v2
      * Returns the device requested by the user
      * @param {String} id The id of the device
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2}
      */
-    devicesV2Show(id) {
-      return this.devicesV2ShowWithHttpInfo(id)
+    devicesV2Show(id, opts) {
+      return this.devicesV2ShowWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -357,6 +384,7 @@ export default class DevicesV2Api {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit The number of properties to select
      * @param {String} opts.start The time at which to start selecting properties
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2propertyvalues} and HTTP response
      */
     devicesV2TimeseriesWithHttpInfo(id, pid, opts) {
@@ -380,6 +408,7 @@ export default class DevicesV2Api {
         'start': opts['start']
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -403,6 +432,7 @@ export default class DevicesV2Api {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit The number of properties to select
      * @param {String} opts.start The time at which to start selecting properties
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2propertyvalues}
      */
     devicesV2Timeseries(id, pid, opts) {
@@ -418,9 +448,12 @@ export default class DevicesV2Api {
      * Updates a device associated to the user
      * @param {String} id The id of the device
      * @param {module:model/Devicev2} devicev2 DeviceV2 describes a device.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2} and HTTP response
      */
-    devicesV2UpdateWithHttpInfo(id, devicev2) {
+    devicesV2UpdateWithHttpInfo(id, devicev2, opts) {
+      opts = opts || {};
       let postBody = devicev2;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -437,6 +470,7 @@ export default class DevicesV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -457,10 +491,12 @@ export default class DevicesV2Api {
      * Updates a device associated to the user
      * @param {String} id The id of the device
      * @param {module:model/Devicev2} devicev2 DeviceV2 describes a device.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2}
      */
-    devicesV2Update(id, devicev2) {
-      return this.devicesV2UpdateWithHttpInfo(id, devicev2)
+    devicesV2Update(id, devicev2, opts) {
+      return this.devicesV2UpdateWithHttpInfo(id, devicev2, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -472,9 +508,12 @@ export default class DevicesV2Api {
      * Update device properties last values
      * @param {String} id The id of the device
      * @param {module:model/PropertiesValues} propertiesValues 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    devicesV2UpdatePropertiesWithHttpInfo(id, propertiesValues) {
+    devicesV2UpdatePropertiesWithHttpInfo(id, propertiesValues, opts) {
+      opts = opts || {};
       let postBody = propertiesValues;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -491,6 +530,7 @@ export default class DevicesV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -511,10 +551,12 @@ export default class DevicesV2Api {
      * Update device properties last values
      * @param {String} id The id of the device
      * @param {module:model/PropertiesValues} propertiesValues 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    devicesV2UpdateProperties(id, propertiesValues) {
-      return this.devicesV2UpdatePropertiesWithHttpInfo(id, propertiesValues)
+    devicesV2UpdateProperties(id, propertiesValues, opts) {
+      return this.devicesV2UpdatePropertiesWithHttpInfo(id, propertiesValues, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

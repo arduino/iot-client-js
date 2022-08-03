@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Property model module.
  * @module model/Property
- * @version 1.4.1
+ * @version 1.4.2
  */
 class Property {
     /**
@@ -120,9 +120,9 @@ Property.prototype['permission'] = undefined;
 /**
  * If true, data will persist into a timeseries database
  * @member {Boolean} persist
- * @default false
+ * @default true
  */
-Property.prototype['persist'] = false;
+Property.prototype['persist'] = true;
 
 /**
  * The integer id of the property

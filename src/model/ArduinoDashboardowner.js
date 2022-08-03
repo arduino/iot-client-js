@@ -14,18 +14,20 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The Dashboardshare model module.
- * @module model/Dashboardshare
+ * The ArduinoDashboardowner model module.
+ * @module model/ArduinoDashboardowner
  * @version 1.4.2
  */
-class Dashboardshare {
+class ArduinoDashboardowner {
     /**
-     * Constructs a new <code>Dashboardshare</code>.
-     * @alias module:model/Dashboardshare
+     * Constructs a new <code>ArduinoDashboardowner</code>.
+     * ArduinoDashboardowner media type (default view)
+     * @alias module:model/ArduinoDashboardowner
+     * @param userId {String} The userID of the user who created the dashboard
      */
-    constructor() { 
+    constructor(userId) { 
         
-        Dashboardshare.initialize(this);
+        ArduinoDashboardowner.initialize(this, userId);
     }
 
     /**
@@ -33,19 +35,20 @@ class Dashboardshare {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, userId) { 
+        obj['user_id'] = userId;
     }
 
     /**
-     * Constructs a <code>Dashboardshare</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>ArduinoDashboardowner</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/Dashboardshare} obj Optional instance to populate.
-     * @return {module:model/Dashboardshare} The populated <code>Dashboardshare</code> instance.
+     * @param {module:model/ArduinoDashboardowner} obj Optional instance to populate.
+     * @return {module:model/ArduinoDashboardowner} The populated <code>ArduinoDashboardowner</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new Dashboardshare();
+            obj = obj || new ArduinoDashboardowner();
 
             if (data.hasOwnProperty('user_id')) {
                 obj['user_id'] = ApiClient.convertToType(data['user_id'], 'String');
@@ -61,21 +64,21 @@ class Dashboardshare {
 }
 
 /**
- * The userID of the user you want to share the dashboard with
+ * The userID of the user who created the dashboard
  * @member {String} user_id
  */
-Dashboardshare.prototype['user_id'] = undefined;
+ArduinoDashboardowner.prototype['user_id'] = undefined;
 
 /**
- * The username of the user you want to share the dashboard with
+ * The username of the user who created the dashboard
  * @member {String} username
  */
-Dashboardshare.prototype['username'] = undefined;
+ArduinoDashboardowner.prototype['username'] = undefined;
 
 
 
 
 
 
-export default Dashboardshare;
+export default ArduinoDashboardowner;
 

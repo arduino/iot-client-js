@@ -23,7 +23,7 @@ import UpdateSketch from '../model/UpdateSketch';
 /**
 * ThingsV2 service.
 * @module api/ThingsV2Api
-* @version 1.4.1
+* @version 1.4.2
 */
 export default class ThingsV2Api {
 
@@ -46,6 +46,7 @@ export default class ThingsV2Api {
      * @param {module:model/ThingCreate} thingCreate Payload to create a new thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing (default to false)
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
     thingsV2CreateWithHttpInfo(thingCreate, opts) {
@@ -62,6 +63,7 @@ export default class ThingsV2Api {
         'force': opts['force']
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -83,6 +85,7 @@ export default class ThingsV2Api {
      * @param {module:model/ThingCreate} thingCreate Payload to create a new thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing (default to false)
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
     thingsV2Create(thingCreate, opts) {
@@ -98,9 +101,12 @@ export default class ThingsV2Api {
      * Creates a new sketch thing associated to the thing
      * @param {String} id The id of the thing
      * @param {module:model/ThingSketch} thingSketch ThingSketchPayload describes a sketch of a thing
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
-    thingsV2CreateSketchWithHttpInfo(id, thingSketch) {
+    thingsV2CreateSketchWithHttpInfo(id, thingSketch, opts) {
+      opts = opts || {};
       let postBody = thingSketch;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -117,6 +123,7 @@ export default class ThingsV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -137,10 +144,12 @@ export default class ThingsV2Api {
      * Creates a new sketch thing associated to the thing
      * @param {String} id The id of the thing
      * @param {module:model/ThingSketch} thingSketch ThingSketchPayload describes a sketch of a thing
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
-    thingsV2CreateSketch(id, thingSketch) {
-      return this.thingsV2CreateSketchWithHttpInfo(id, thingSketch)
+    thingsV2CreateSketch(id, thingSketch, opts) {
+      return this.thingsV2CreateSketchWithHttpInfo(id, thingSketch, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -153,6 +162,7 @@ export default class ThingsV2Api {
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, hard delete the thing (default to false)
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     thingsV2DeleteWithHttpInfo(id, opts) {
@@ -170,6 +180,7 @@ export default class ThingsV2Api {
         'force': opts['force']
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -191,6 +202,7 @@ export default class ThingsV2Api {
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, hard delete the thing (default to false)
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
     thingsV2Delete(id, opts) {
@@ -204,9 +216,12 @@ export default class ThingsV2Api {
     /**
      * deleteSketch things_v2
      * @param {String} id The id of the thing
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
-    thingsV2DeleteSketchWithHttpInfo(id) {
+    thingsV2DeleteSketchWithHttpInfo(id, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -219,6 +234,7 @@ export default class ThingsV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -237,10 +253,12 @@ export default class ThingsV2Api {
     /**
      * deleteSketch things_v2
      * @param {String} id The id of the thing
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
-    thingsV2DeleteSketch(id) {
-      return this.thingsV2DeleteSketchWithHttpInfo(id)
+    thingsV2DeleteSketch(id, opts) {
+      return this.thingsV2DeleteSketchWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -257,6 +275,7 @@ export default class ThingsV2Api {
      * @param {Boolean} opts.showDeleted If true, shows the soft deleted things (default to false)
      * @param {Boolean} opts.showProperties If true, returns things with their properties, and last values (default to false)
      * @param {Array.<String>} opts.tags Filter by tags
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoThing>} and HTTP response
      */
     thingsV2ListWithHttpInfo(opts) {
@@ -274,6 +293,7 @@ export default class ThingsV2Api {
         'tags': this.apiClient.buildCollectionParam(opts['tags'], 'multi')
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -299,6 +319,7 @@ export default class ThingsV2Api {
      * @param {Boolean} opts.showDeleted If true, shows the soft deleted things (default to false)
      * @param {Boolean} opts.showProperties If true, returns things with their properties, and last values (default to false)
      * @param {Array.<String>} opts.tags Filter by tags
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoThing>}
      */
     thingsV2List(opts) {
@@ -315,6 +336,7 @@ export default class ThingsV2Api {
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.showDeleted If true, shows the soft deleted thing (default to false)
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
     thingsV2ShowWithHttpInfo(id, opts) {
@@ -332,6 +354,7 @@ export default class ThingsV2Api {
         'show_deleted': opts['showDeleted']
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -353,6 +376,7 @@ export default class ThingsV2Api {
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.showDeleted If true, shows the soft deleted thing (default to false)
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
     thingsV2Show(id, opts) {
@@ -370,6 +394,7 @@ export default class ThingsV2Api {
      * @param {module:model/ThingUpdate} thingUpdate Payload to update an existing thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing (default to false)
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
     thingsV2UpdateWithHttpInfo(id, thingUpdate, opts) {
@@ -391,6 +416,7 @@ export default class ThingsV2Api {
         'force': opts['force']
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -413,6 +439,7 @@ export default class ThingsV2Api {
      * @param {module:model/ThingUpdate} thingUpdate Payload to update an existing thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing (default to false)
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
     thingsV2Update(id, thingUpdate, opts) {
@@ -429,6 +456,7 @@ export default class ThingsV2Api {
      * @param {String} id The id of the thing
      * @param {String} sketchId The id of the sketch
      * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @param {module:model/UpdateSketch} opts.updateSketch 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
@@ -451,6 +479,7 @@ export default class ThingsV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -472,6 +501,7 @@ export default class ThingsV2Api {
      * @param {String} id The id of the thing
      * @param {String} sketchId The id of the sketch
      * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @param {module:model/UpdateSketch} opts.updateSketch 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */

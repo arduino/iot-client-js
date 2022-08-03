@@ -14,6 +14,7 @@
 
 import ApiClient from './ApiClient';
 import ArduinoCompressedv2 from './model/ArduinoCompressedv2';
+import ArduinoDashboardowner from './model/ArduinoDashboardowner';
 import ArduinoDashboardshare from './model/ArduinoDashboardshare';
 import ArduinoDashboardv2 from './model/ArduinoDashboardv2';
 import ArduinoDevicev2 from './model/ArduinoDevicev2';
@@ -121,7 +122,7 @@ import ThingsV2TagsApi from './api/ThingsV2TagsApi';
 * </pre>
 * </p>
 * @module index
-* @version 1.4.1
+* @version 1.4.2
 */
 export {
     /**
@@ -135,6 +136,12 @@ export {
      * @property {module:model/ArduinoCompressedv2}
      */
     ArduinoCompressedv2,
+
+    /**
+     * The ArduinoDashboardowner model constructor.
+     * @property {module:model/ArduinoDashboardowner}
+     */
+    ArduinoDashboardowner,
 
     /**
      * The ArduinoDashboardshare model constructor.

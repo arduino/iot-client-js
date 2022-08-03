@@ -12,13 +12,14 @@
  */
 
 import ApiClient from '../ApiClient';
+import ArduinoDashboardowner from './ArduinoDashboardowner';
 import ArduinoDashboardshare from './ArduinoDashboardshare';
 import ArduinoWidgetv2 from './ArduinoWidgetv2';
 
 /**
  * The ArduinoDashboardv2 model module.
  * @module model/ArduinoDashboardv2
- * @version 1.4.1
+ * @version 1.4.2
  */
 class ArduinoDashboardv2 {
     /**
@@ -56,11 +57,17 @@ class ArduinoDashboardv2 {
         if (data) {
             obj = obj || new ArduinoDashboardv2();
 
+            if (data.hasOwnProperty('created_by')) {
+                obj['created_by'] = ArduinoDashboardowner.constructFromObject(data['created_by']);
+            }
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('organization_id')) {
+                obj['organization_id'] = ApiClient.convertToType(data['organization_id'], 'String');
             }
             if (data.hasOwnProperty('shared_by')) {
                 obj['shared_by'] = ArduinoDashboardshare.constructFromObject(data['shared_by']);
@@ -82,6 +89,11 @@ class ArduinoDashboardv2 {
 }
 
 /**
+ * @member {module:model/ArduinoDashboardowner} created_by
+ */
+ArduinoDashboardv2.prototype['created_by'] = undefined;
+
+/**
  * The friendly name of the dashboard
  * @member {String} id
  */
@@ -92,6 +104,12 @@ ArduinoDashboardv2.prototype['id'] = undefined;
  * @member {String} name
  */
 ArduinoDashboardv2.prototype['name'] = undefined;
+
+/**
+ * Id of the organization the dashboard belongs to
+ * @member {String} organization_id
+ */
+ArduinoDashboardv2.prototype['organization_id'] = undefined;
 
 /**
  * @member {module:model/ArduinoDashboardshare} shared_by

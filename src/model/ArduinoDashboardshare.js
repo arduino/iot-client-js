@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoDashboardshare model module.
  * @module model/ArduinoDashboardshare
- * @version 1.4.1
+ * @version 1.4.2
  */
 class ArduinoDashboardshare {
     /**
@@ -24,11 +24,10 @@ class ArduinoDashboardshare {
      * ArduinoDashboardshare media type (default view)
      * @alias module:model/ArduinoDashboardshare
      * @param userId {String} The userID of the user you want to share the dashboard with
-     * @param username {String} The username of the user you want to share the dashboard with
      */
-    constructor(userId, username) { 
+    constructor(userId) { 
         
-        ArduinoDashboardshare.initialize(this, userId, username);
+        ArduinoDashboardshare.initialize(this, userId);
     }
 
     /**
@@ -36,9 +35,8 @@ class ArduinoDashboardshare {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, userId, username) { 
+    static initialize(obj, userId) { 
         obj['user_id'] = userId;
-        obj['username'] = username;
     }
 
     /**
