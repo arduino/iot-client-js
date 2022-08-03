@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Devicev2Otabinaryurl model module.
  * @module model/Devicev2Otabinaryurl
- * @version 1.4.1
+ * @version 1.4.2
  */
 class Devicev2Otabinaryurl {
     /**

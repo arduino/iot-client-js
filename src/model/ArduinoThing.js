@@ -17,7 +17,7 @@ import ArduinoProperty from './ArduinoProperty';
 /**
  * The ArduinoThing model module.
  * @module model/ArduinoThing
- * @version 1.4.1
+ * @version 1.4.2
  */
 class ArduinoThing {
     /**
@@ -85,6 +85,9 @@ class ArduinoThing {
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('organization_id')) {
+                obj['organization_id'] = ApiClient.convertToType(data['organization_id'], 'String');
             }
             if (data.hasOwnProperty('properties')) {
                 obj['properties'] = ApiClient.convertToType(data['properties'], [ArduinoProperty]);
@@ -173,6 +176,12 @@ ArduinoThing.prototype['id'] = undefined;
  * @member {String} name
  */
 ArduinoThing.prototype['name'] = undefined;
+
+/**
+ * Id of the organization the thing belongs to
+ * @member {String} organization_id
+ */
+ArduinoThing.prototype['organization_id'] = undefined;
 
 /**
  * ArduinoPropertyCollection is the media type for an array of ArduinoProperty (default view)

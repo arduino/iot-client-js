@@ -19,7 +19,7 @@ import ArduinoThing from './ArduinoThing';
 /**
  * The ArduinoDevicev2 model module.
  * @module model/ArduinoDevicev2
- * @version 1.4.1
+ * @version 1.4.2
  */
 class ArduinoDevicev2 {
     /**
@@ -94,6 +94,9 @@ class ArduinoDevicev2 {
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('organization_id')) {
+                obj['organization_id'] = ApiClient.convertToType(data['organization_id'], 'String');
             }
             if (data.hasOwnProperty('ota_available')) {
                 obj['ota_available'] = ApiClient.convertToType(data['ota_available'], 'Boolean');
@@ -191,6 +194,12 @@ ArduinoDevicev2.prototype['metadata'] = undefined;
  * @member {String} name
  */
 ArduinoDevicev2.prototype['name'] = undefined;
+
+/**
+ * Id of the organization the device belongs to
+ * @member {String} organization_id
+ */
+ArduinoDevicev2.prototype['organization_id'] = undefined;
 
 /**
  * True if the device type is ready to receive OTA updated

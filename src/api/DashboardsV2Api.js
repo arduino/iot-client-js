@@ -25,7 +25,7 @@ import Widgetlink from '../model/Widgetlink';
 /**
 * DashboardsV2 service.
 * @module api/DashboardsV2Api
-* @version 1.4.1
+* @version 1.4.2
 */
 export default class DashboardsV2Api {
 
@@ -46,9 +46,12 @@ export default class DashboardsV2Api {
      * create dashboards_v2
      * Create a new dashboard
      * @param {module:model/Dashboardv2} dashboardv2 DashboardV2Payload describes a dashboard
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDashboardv2} and HTTP response
      */
-    dashboardsV2CreateWithHttpInfo(dashboardv2) {
+    dashboardsV2CreateWithHttpInfo(dashboardv2, opts) {
+      opts = opts || {};
       let postBody = dashboardv2;
       // verify the required parameter 'dashboardv2' is set
       if (dashboardv2 === undefined || dashboardv2 === null) {
@@ -60,6 +63,7 @@ export default class DashboardsV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -79,10 +83,12 @@ export default class DashboardsV2Api {
      * create dashboards_v2
      * Create a new dashboard
      * @param {module:model/Dashboardv2} dashboardv2 DashboardV2Payload describes a dashboard
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDashboardv2}
      */
-    dashboardsV2Create(dashboardv2) {
-      return this.dashboardsV2CreateWithHttpInfo(dashboardv2)
+    dashboardsV2Create(dashboardv2, opts) {
+      return this.dashboardsV2CreateWithHttpInfo(dashboardv2, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -93,9 +99,12 @@ export default class DashboardsV2Api {
      * delete dashboards_v2
      * Delete a dashboard
      * @param {String} id The id of the dashboard
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    dashboardsV2DeleteWithHttpInfo(id) {
+    dashboardsV2DeleteWithHttpInfo(id, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -108,6 +117,7 @@ export default class DashboardsV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -127,10 +137,12 @@ export default class DashboardsV2Api {
      * delete dashboards_v2
      * Delete a dashboard
      * @param {String} id The id of the dashboard
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    dashboardsV2Delete(id) {
-      return this.dashboardsV2DeleteWithHttpInfo(id)
+    dashboardsV2Delete(id, opts) {
+      return this.dashboardsV2DeleteWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -142,9 +154,12 @@ export default class DashboardsV2Api {
      * Delete a user the dashboard has been shared with
      * @param {String} id The id of the dashboard
      * @param {String} userId The id of the user
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    dashboardsV2DeleteShareWithHttpInfo(id, userId) {
+    dashboardsV2DeleteShareWithHttpInfo(id, userId, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -162,6 +177,7 @@ export default class DashboardsV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -182,10 +198,12 @@ export default class DashboardsV2Api {
      * Delete a user the dashboard has been shared with
      * @param {String} id The id of the dashboard
      * @param {String} userId The id of the user
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    dashboardsV2DeleteShare(id, userId) {
-      return this.dashboardsV2DeleteShareWithHttpInfo(id, userId)
+    dashboardsV2DeleteShare(id, userId, opts) {
+      return this.dashboardsV2DeleteShareWithHttpInfo(id, userId, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -198,9 +216,12 @@ export default class DashboardsV2Api {
      * @param {String} id The id of the dashboard
      * @param {String} widgetId The id of the widget
      * @param {module:model/Widgetlink} widgetlink 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoVariableslinks} and HTTP response
      */
-    dashboardsV2LinkWithHttpInfo(id, widgetId, widgetlink) {
+    dashboardsV2LinkWithHttpInfo(id, widgetId, widgetlink, opts) {
+      opts = opts || {};
       let postBody = widgetlink;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -222,6 +243,7 @@ export default class DashboardsV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -243,10 +265,12 @@ export default class DashboardsV2Api {
      * @param {String} id The id of the dashboard
      * @param {String} widgetId The id of the widget
      * @param {module:model/Widgetlink} widgetlink 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoVariableslinks}
      */
-    dashboardsV2Link(id, widgetId, widgetlink) {
-      return this.dashboardsV2LinkWithHttpInfo(id, widgetId, widgetlink)
+    dashboardsV2Link(id, widgetId, widgetlink, opts) {
+      return this.dashboardsV2LinkWithHttpInfo(id, widgetId, widgetlink, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -259,6 +283,7 @@ export default class DashboardsV2Api {
      * @param {Object} opts Optional parameters
      * @param {String} opts.name The name of the dashboard
      * @param {String} opts.userId The user_id of the dashboard's owner
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoDashboardv2>} and HTTP response
      */
     dashboardsV2ListWithHttpInfo(opts) {
@@ -272,6 +297,7 @@ export default class DashboardsV2Api {
         'user_id': opts['userId']
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -293,6 +319,7 @@ export default class DashboardsV2Api {
      * @param {Object} opts Optional parameters
      * @param {String} opts.name The name of the dashboard
      * @param {String} opts.userId The user_id of the dashboard's owner
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoDashboardv2>}
      */
     dashboardsV2List(opts) {
@@ -307,9 +334,12 @@ export default class DashboardsV2Api {
      * listShares dashboards_v2
      * List of users the dashboard has been shared with
      * @param {String} id The id of the dashboard
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoDashboardshare>} and HTTP response
      */
-    dashboardsV2ListSharesWithHttpInfo(id) {
+    dashboardsV2ListSharesWithHttpInfo(id, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -322,6 +352,7 @@ export default class DashboardsV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -341,10 +372,12 @@ export default class DashboardsV2Api {
      * listShares dashboards_v2
      * List of users the dashboard has been shared with
      * @param {String} id The id of the dashboard
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoDashboardshare>}
      */
-    dashboardsV2ListShares(id) {
-      return this.dashboardsV2ListSharesWithHttpInfo(id)
+    dashboardsV2ListShares(id, opts) {
+      return this.dashboardsV2ListSharesWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -356,9 +389,12 @@ export default class DashboardsV2Api {
      * Request access to a dashboard
      * @param {String} id The id of the dashboard
      * @param {module:model/Sharerequest} sharerequest 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    dashboardsV2RequestAccessWithHttpInfo(id, sharerequest) {
+    dashboardsV2RequestAccessWithHttpInfo(id, sharerequest, opts) {
+      opts = opts || {};
       let postBody = sharerequest;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -375,6 +411,7 @@ export default class DashboardsV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -395,10 +432,12 @@ export default class DashboardsV2Api {
      * Request access to a dashboard
      * @param {String} id The id of the dashboard
      * @param {module:model/Sharerequest} sharerequest 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    dashboardsV2RequestAccess(id, sharerequest) {
-      return this.dashboardsV2RequestAccessWithHttpInfo(id, sharerequest)
+    dashboardsV2RequestAccess(id, sharerequest, opts) {
+      return this.dashboardsV2RequestAccessWithHttpInfo(id, sharerequest, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -410,9 +449,12 @@ export default class DashboardsV2Api {
      * Share a dashboard
      * @param {String} id The id of the dashboard
      * @param {module:model/Dashboardshare} dashboardshare 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    dashboardsV2ShareWithHttpInfo(id, dashboardshare) {
+    dashboardsV2ShareWithHttpInfo(id, dashboardshare, opts) {
+      opts = opts || {};
       let postBody = dashboardshare;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -429,6 +471,7 @@ export default class DashboardsV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -449,10 +492,12 @@ export default class DashboardsV2Api {
      * Share a dashboard
      * @param {String} id The id of the dashboard
      * @param {module:model/Dashboardshare} dashboardshare 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    dashboardsV2Share(id, dashboardshare) {
-      return this.dashboardsV2ShareWithHttpInfo(id, dashboardshare)
+    dashboardsV2Share(id, dashboardshare, opts) {
+      return this.dashboardsV2ShareWithHttpInfo(id, dashboardshare, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -463,9 +508,12 @@ export default class DashboardsV2Api {
      * show dashboards_v2
      * Show a dashboard
      * @param {String} id The id of the dashboard
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDashboardv2} and HTTP response
      */
-    dashboardsV2ShowWithHttpInfo(id) {
+    dashboardsV2ShowWithHttpInfo(id, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -478,6 +526,7 @@ export default class DashboardsV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -497,10 +546,12 @@ export default class DashboardsV2Api {
      * show dashboards_v2
      * Show a dashboard
      * @param {String} id The id of the dashboard
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDashboardv2}
      */
-    dashboardsV2Show(id) {
-      return this.dashboardsV2ShowWithHttpInfo(id)
+    dashboardsV2Show(id, opts) {
+      return this.dashboardsV2ShowWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -512,9 +563,12 @@ export default class DashboardsV2Api {
      * Updates an existing dashboard
      * @param {String} id The id of the dashboard
      * @param {module:model/Dashboardv2} dashboardv2 DashboardV2Payload describes a dashboard
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDashboardv2} and HTTP response
      */
-    dashboardsV2UpdateWithHttpInfo(id, dashboardv2) {
+    dashboardsV2UpdateWithHttpInfo(id, dashboardv2, opts) {
+      opts = opts || {};
       let postBody = dashboardv2;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -531,6 +585,7 @@ export default class DashboardsV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -551,10 +606,12 @@ export default class DashboardsV2Api {
      * Updates an existing dashboard
      * @param {String} id The id of the dashboard
      * @param {module:model/Dashboardv2} dashboardv2 DashboardV2Payload describes a dashboard
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDashboardv2}
      */
-    dashboardsV2Update(id, dashboardv2) {
-      return this.dashboardsV2UpdateWithHttpInfo(id, dashboardv2)
+    dashboardsV2Update(id, dashboardv2, opts) {
+      return this.dashboardsV2UpdateWithHttpInfo(id, dashboardv2, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
