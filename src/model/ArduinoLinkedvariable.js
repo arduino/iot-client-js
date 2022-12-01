@@ -17,7 +17,7 @@ import ArduinoTimezone from './ArduinoTimezone';
 /**
  * The ArduinoLinkedvariable model module.
  * @module model/ArduinoLinkedvariable
- * @version 1.4.2
+ * @version 1.4.3
  */
 class ArduinoLinkedvariable {
     /**
