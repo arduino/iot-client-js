@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateDevicesV2CertsPayload model module.
  * @module model/CreateDevicesV2CertsPayload
- * @version 1.4.2
+ * @version 1.4.3
  */
 class CreateDevicesV2CertsPayload {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Sharerequest model module.
  * @module model/Sharerequest
- * @version 1.4.2
+ * @version 1.4.3
  */
 class Sharerequest {
     /**
