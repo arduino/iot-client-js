@@ -122,7 +122,7 @@ import ThingsV2TagsApi from './api/ThingsV2TagsApi';
 * </pre>
 * </p>
 * @module index
-* @version 1.4.2
+* @version 1.4.4
 */
 export {
     /**
