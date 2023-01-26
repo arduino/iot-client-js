@@ -19,7 +19,7 @@ import ArduinoThing from './ArduinoThing';
 /**
  * The ArduinoDevicev2 model module.
  * @module model/ArduinoDevicev2
- * @version 1.4.2
+ * @version 1.4.4
  */
 class ArduinoDevicev2 {
     /**
@@ -65,6 +65,9 @@ class ArduinoDevicev2 {
         if (data) {
             obj = obj || new ArduinoDevicev2();
 
+            if (data.hasOwnProperty('connection_type')) {
+                obj['connection_type'] = ApiClient.convertToType(data['connection_type'], 'String');
+            }
             if (data.hasOwnProperty('created_at')) {
                 obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
             }
@@ -94,6 +97,9 @@ class ArduinoDevicev2 {
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('no_sketch')) {
+                obj['no_sketch'] = ApiClient.convertToType(data['no_sketch'], 'Boolean');
             }
             if (data.hasOwnProperty('organization_id')) {
                 obj['organization_id'] = ApiClient.convertToType(data['organization_id'], 'String');
@@ -134,6 +140,12 @@ class ArduinoDevicev2 {
 
 
 }
+
+/**
+ * The type of the connections selected by the user when multiple connections are available
+ * @member {module:model/ArduinoDevicev2.ConnectionTypeEnum} connection_type
+ */
+ArduinoDevicev2.prototype['connection_type'] = undefined;
 
 /**
  * Creation date of the device
@@ -194,6 +206,12 @@ ArduinoDevicev2.prototype['metadata'] = undefined;
  * @member {String} name
  */
 ArduinoDevicev2.prototype['name'] = undefined;
+
+/**
+ * True if the device type can not have an associated sketch
+ * @member {Boolean} no_sketch
+ */
+ArduinoDevicev2.prototype['no_sketch'] = undefined;
 
 /**
  * Id of the organization the device belongs to
@@ -262,6 +280,51 @@ ArduinoDevicev2.prototype['wifi_fw_version'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>connection_type</code> property.
+ * @enum {String}
+ * @readonly
+ */
+ArduinoDevicev2['ConnectionTypeEnum'] = {
+
+    /**
+     * value: "wifi"
+     * @const
+     */
+    "wifi": "wifi",
+
+    /**
+     * value: "eth"
+     * @const
+     */
+    "eth": "eth",
+
+    /**
+     * value: "wifiandsecret"
+     * @const
+     */
+    "wifiandsecret": "wifiandsecret",
+
+    /**
+     * value: "gsm"
+     * @const
+     */
+    "gsm": "gsm",
+
+    /**
+     * value: "nb"
+     * @const
+     */
+    "nb": "nb",
+
+    /**
+     * value: "lora"
+     * @const
+     */
+    "lora": "lora"
+};
 
 
 

@@ -19,7 +19,7 @@ import CreateLoraDevicesV1Payload from '../model/CreateLoraDevicesV1Payload';
 /**
 * LoraDevicesV1 service.
 * @module api/LoraDevicesV1Api
-* @version 1.4.2
+* @version 1.4.4
 */
 export default class LoraDevicesV1Api {
 
@@ -40,9 +40,12 @@ export default class LoraDevicesV1Api {
      * create lora_devices_v1
      * Create a new lora device. Its info are saved on our database, and on the lora provider network. Creates a device_v2 automatically
      * @param {module:model/CreateLoraDevicesV1Payload} createLoraDevicesV1Payload 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoLoradevicev1} and HTTP response
      */
-    loraDevicesV1CreateWithHttpInfo(createLoraDevicesV1Payload) {
+    loraDevicesV1CreateWithHttpInfo(createLoraDevicesV1Payload, opts) {
+      opts = opts || {};
       let postBody = createLoraDevicesV1Payload;
       // verify the required parameter 'createLoraDevicesV1Payload' is set
       if (createLoraDevicesV1Payload === undefined || createLoraDevicesV1Payload === null) {
@@ -54,6 +57,7 @@ export default class LoraDevicesV1Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -73,10 +77,12 @@ export default class LoraDevicesV1Api {
      * create lora_devices_v1
      * Create a new lora device. Its info are saved on our database, and on the lora provider network. Creates a device_v2 automatically
      * @param {module:model/CreateLoraDevicesV1Payload} createLoraDevicesV1Payload 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoLoradevicev1}
      */
-    loraDevicesV1Create(createLoraDevicesV1Payload) {
-      return this.loraDevicesV1CreateWithHttpInfo(createLoraDevicesV1Payload)
+    loraDevicesV1Create(createLoraDevicesV1Payload, opts) {
+      return this.loraDevicesV1CreateWithHttpInfo(createLoraDevicesV1Payload, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

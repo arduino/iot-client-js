@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateDevicesV2Payload model module.
  * @module model/CreateDevicesV2Payload
- * @version 1.4.2
+ * @version 1.4.4
  */
 class CreateDevicesV2Payload {
     /**
@@ -50,6 +50,9 @@ class CreateDevicesV2Payload {
         if (data) {
             obj = obj || new CreateDevicesV2Payload();
 
+            if (data.hasOwnProperty('connection_type')) {
+                obj['connection_type'] = ApiClient.convertToType(data['connection_type'], 'String');
+            }
             if (data.hasOwnProperty('fqbn')) {
                 obj['fqbn'] = ApiClient.convertToType(data['fqbn'], 'String');
             }
@@ -74,6 +77,12 @@ class CreateDevicesV2Payload {
 
 
 }
+
+/**
+ * The type of the connections selected by the user when multiple connections are available
+ * @member {module:model/CreateDevicesV2Payload.ConnectionTypeEnum} connection_type
+ */
+CreateDevicesV2Payload.prototype['connection_type'] = undefined;
 
 /**
  * The fully qualified board name
@@ -113,6 +122,51 @@ CreateDevicesV2Payload.prototype['wifi_fw_version'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>connection_type</code> property.
+ * @enum {String}
+ * @readonly
+ */
+CreateDevicesV2Payload['ConnectionTypeEnum'] = {
+
+    /**
+     * value: "wifi"
+     * @const
+     */
+    "wifi": "wifi",
+
+    /**
+     * value: "eth"
+     * @const
+     */
+    "eth": "eth",
+
+    /**
+     * value: "wifiandsecret"
+     * @const
+     */
+    "wifiandsecret": "wifiandsecret",
+
+    /**
+     * value: "gsm"
+     * @const
+     */
+    "gsm": "gsm",
+
+    /**
+     * value: "nb"
+     * @const
+     */
+    "nb": "nb",
+
+    /**
+     * value: "lora"
+     * @const
+     */
+    "lora": "lora"
+};
 
 
 /**
@@ -192,7 +246,25 @@ CreateDevicesV2Payload['TypeEnum'] = {
      * value: "nicla_vision"
      * @const
      */
-    "nicla_vision": "nicla_vision"
+    "nicla_vision": "nicla_vision",
+
+    /**
+     * value: "phone"
+     * @const
+     */
+    "phone": "phone",
+
+    /**
+     * value: "portenta_x8"
+     * @const
+     */
+    "portenta_x8": "portenta_x8",
+
+    /**
+     * value: "opta"
+     * @const
+     */
+    "opta": "opta"
 };
 
 
