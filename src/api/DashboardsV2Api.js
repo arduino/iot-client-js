@@ -68,7 +68,7 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2']; 
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = ArduinoDashboardv2;
@@ -122,8 +122,8 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
-      let contentTypes = [];
+      let authNames = ['oauth2']; 
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
@@ -182,8 +182,8 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
-      let contentTypes = [];
+      let authNames = ['oauth2']; 
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
@@ -248,7 +248,7 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2']; 
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = ArduinoVariableslinks;
@@ -302,8 +302,8 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
-      let contentTypes = [];
+      let authNames = ['oauth2']; 
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = [ArduinoDashboardv2];
       return this.apiClient.callApi(
@@ -357,8 +357,8 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
-      let contentTypes = [];
+      let authNames = ['oauth2']; 
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = [ArduinoDashboardshare];
       return this.apiClient.callApi(
@@ -416,7 +416,7 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2']; 
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = null;
@@ -476,7 +476,7 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2']; 
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = null;
@@ -531,8 +531,8 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
-      let contentTypes = [];
+      let authNames = ['oauth2']; 
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = ArduinoDashboardv2;
       return this.apiClient.callApi(
@@ -590,7 +590,7 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2']; 
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = ArduinoDashboardv2;
