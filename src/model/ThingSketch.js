@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ThingSketch model module.
  * @module model/ThingSketch
- * @version 1.4.4
+ * @version 1.4.5
  */
 class ThingSketch {
     /**

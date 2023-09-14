@@ -17,7 +17,7 @@ import ArduinoCompressedv2 from './ArduinoCompressedv2';
 /**
  * The ArduinoDevicev2Cert model module.
  * @module model/ArduinoDevicev2Cert
- * @version 1.4.4
+ * @version 1.4.5
  */
 class ArduinoDevicev2Cert {
     /**

@@ -17,7 +17,7 @@ import ArduinoSeriesResponse from './ArduinoSeriesResponse';
 /**
  * The ArduinoSeriesBatch model module.
  * @module model/ArduinoSeriesBatch
- * @version 1.4.4
+ * @version 1.4.5
  */
 class ArduinoSeriesBatch {
     /**

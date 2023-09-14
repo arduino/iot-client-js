@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Devicev2 model module.
  * @module model/Devicev2
- * @version 1.4.4
+ * @version 1.4.5
  */
 class Devicev2 {
     /**
@@ -262,7 +262,13 @@ Devicev2['TypeEnum'] = {
      * value: "opta"
      * @const
      */
-    "opta": "opta"
+    "opta": "opta",
+
+    /**
+     * value: "giga"
+     * @const
+     */
+    "giga": "giga"
 };
 
 

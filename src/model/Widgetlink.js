@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Widgetlink model module.
  * @module model/Widgetlink
- * @version 1.4.4
+ * @version 1.4.5
  */
 class Widgetlink {
     /**

@@ -17,7 +17,7 @@ import Property from './Property';
 /**
  * The ThingUpdate model module.
  * @module model/ThingUpdate
- * @version 1.4.4
+ * @version 1.4.5
  */
 class ThingUpdate {
     /**

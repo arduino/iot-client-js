@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoTimezone model module.
  * @module model/ArduinoTimezone
- * @version 1.4.4
+ * @version 1.4.5
  */
 class ArduinoTimezone {
     /**

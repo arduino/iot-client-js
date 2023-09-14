@@ -25,7 +25,7 @@ import Widgetlink from '../model/Widgetlink';
 /**
 * DashboardsV2 service.
 * @module api/DashboardsV2Api
-* @version 1.4.4
+* @version 1.4.5
 */
 export default class DashboardsV2Api {
 
@@ -68,7 +68,7 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = ArduinoDashboardv2;
@@ -122,7 +122,7 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = null;
@@ -182,7 +182,7 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = null;
@@ -248,7 +248,7 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = ArduinoVariableslinks;
@@ -302,7 +302,7 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = [ArduinoDashboardv2];
@@ -357,7 +357,7 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = [ArduinoDashboardshare];
@@ -416,7 +416,7 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = null;
@@ -476,7 +476,7 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = null;
@@ -531,7 +531,7 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ArduinoDashboardv2;
@@ -590,7 +590,7 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = ArduinoDashboardv2;

@@ -19,7 +19,7 @@ import Error from '../model/Error';
 /**
 * LoraFreqPlanV1 service.
 * @module api/LoraFreqPlanV1Api
-* @version 1.4.4
+* @version 1.4.5
 */
 export default class LoraFreqPlanV1Api {
 
