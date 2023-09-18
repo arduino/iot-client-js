@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoSeriesResponse model module.
  * @module model/ArduinoSeriesResponse
- * @version 1.4.4
+ * @version 1.5.0
  */
 class ArduinoSeriesResponse {
     /**
@@ -103,8 +103,46 @@ class ArduinoSeriesResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoSeriesResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoSeriesResponse</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoSeriesResponse.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['message'] && !(typeof data['message'] === 'string' || data['message'] instanceof String)) {
+            throw new Error("Expected the field `message` to be a primitive type in the JSON string but got " + data['message']);
+        }
+        // ensure the json data is a string
+        if (data['query'] && !(typeof data['query'] === 'string' || data['query'] instanceof String)) {
+            throw new Error("Expected the field `query` to be a primitive type in the JSON string but got " + data['query']);
+        }
+        // ensure the json data is a string
+        if (data['status'] && !(typeof data['status'] === 'string' || data['status'] instanceof String)) {
+            throw new Error("Expected the field `status` to be a primitive type in the JSON string but got " + data['status']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['times'])) {
+            throw new Error("Expected the field `times` to be an array in the JSON data but got " + data['times']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['values'])) {
+            throw new Error("Expected the field `values` to be an array in the JSON data but got " + data['values']);
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoSeriesResponse.RequiredProperties = ["count_values", "from_date", "interval", "query", "resp_version", "status", "times", "to_date", "values"];
 
 /**
  * Total number of values in the array 'values'

@@ -19,7 +19,7 @@ import CreateLoraDevicesV1Payload from '../model/CreateLoraDevicesV1Payload';
 /**
 * LoraDevicesV1 service.
 * @module api/LoraDevicesV1Api
-* @version 1.4.4
+* @version 1.5.0
 */
 export default class LoraDevicesV1Api {
 
@@ -41,7 +41,7 @@ export default class LoraDevicesV1Api {
      * Create a new lora device. Its info are saved on our database, and on the lora provider network. Creates a device_v2 automatically
      * @param {module:model/CreateLoraDevicesV1Payload} createLoraDevicesV1Payload 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoLoradevicev1} and HTTP response
      */
     loraDevicesV1CreateWithHttpInfo(createLoraDevicesV1Payload, opts) {

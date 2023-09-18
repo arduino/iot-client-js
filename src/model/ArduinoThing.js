@@ -17,7 +17,7 @@ import ArduinoProperty from './ArduinoProperty';
 /**
  * The ArduinoThing model module.
  * @module model/ArduinoThing
- * @version 1.4.4
+ * @version 1.5.0
  */
 class ArduinoThing {
     /**
@@ -120,8 +120,84 @@ class ArduinoThing {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoThing</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoThing</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoThing.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['device_fqbn'] && !(typeof data['device_fqbn'] === 'string' || data['device_fqbn'] instanceof String)) {
+            throw new Error("Expected the field `device_fqbn` to be a primitive type in the JSON string but got " + data['device_fqbn']);
+        }
+        // ensure the json data is a string
+        if (data['device_id'] && !(typeof data['device_id'] === 'string' || data['device_id'] instanceof String)) {
+            throw new Error("Expected the field `device_id` to be a primitive type in the JSON string but got " + data['device_id']);
+        }
+        // ensure the json data is a string
+        if (data['device_name'] && !(typeof data['device_name'] === 'string' || data['device_name'] instanceof String)) {
+            throw new Error("Expected the field `device_name` to be a primitive type in the JSON string but got " + data['device_name']);
+        }
+        // ensure the json data is a string
+        if (data['device_type'] && !(typeof data['device_type'] === 'string' || data['device_type'] instanceof String)) {
+            throw new Error("Expected the field `device_type` to be a primitive type in the JSON string but got " + data['device_type']);
+        }
+        // ensure the json data is a string
+        if (data['href'] && !(typeof data['href'] === 'string' || data['href'] instanceof String)) {
+            throw new Error("Expected the field `href` to be a primitive type in the JSON string but got " + data['href']);
+        }
+        // ensure the json data is a string
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['organization_id'] && !(typeof data['organization_id'] === 'string' || data['organization_id'] instanceof String)) {
+            throw new Error("Expected the field `organization_id` to be a primitive type in the JSON string but got " + data['organization_id']);
+        }
+        if (data['properties']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['properties'])) {
+                throw new Error("Expected the field `properties` to be an array in the JSON data but got " + data['properties']);
+            }
+            // validate the optional field `properties` (array)
+            for (const item of data['properties']) {
+                ArduinoProperty.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['sketch_id'] && !(typeof data['sketch_id'] === 'string' || data['sketch_id'] instanceof String)) {
+            throw new Error("Expected the field `sketch_id` to be a primitive type in the JSON string but got " + data['sketch_id']);
+        }
+        // ensure the json data is a string
+        if (data['timezone'] && !(typeof data['timezone'] === 'string' || data['timezone'] instanceof String)) {
+            throw new Error("Expected the field `timezone` to be a primitive type in the JSON string but got " + data['timezone']);
+        }
+        // ensure the json data is a string
+        if (data['user_id'] && !(typeof data['user_id'] === 'string' || data['user_id'] instanceof String)) {
+            throw new Error("Expected the field `user_id` to be a primitive type in the JSON string but got " + data['user_id']);
+        }
+        // ensure the json data is a string
+        if (data['webhook_uri'] && !(typeof data['webhook_uri'] === 'string' || data['webhook_uri'] instanceof String)) {
+            throw new Error("Expected the field `webhook_uri` to be a primitive type in the JSON string but got " + data['webhook_uri']);
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoThing.RequiredProperties = ["href", "id", "name", "timezone", "user_id"];
 
 /**
  * Creation date of the thing

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Widgetlink model module.
  * @module model/Widgetlink
- * @version 1.4.4
+ * @version 1.5.0
  */
 class Widgetlink {
     /**
@@ -54,8 +54,24 @@ class Widgetlink {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>Widgetlink</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>Widgetlink</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['variables'])) {
+            throw new Error("Expected the field `variables` to be an array in the JSON data but got " + data['variables']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<String>} variables

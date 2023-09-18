@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoDashboardowner model module.
  * @module model/ArduinoDashboardowner
- * @version 1.4.4
+ * @version 1.5.0
  */
 class ArduinoDashboardowner {
     /**
@@ -60,8 +60,34 @@ class ArduinoDashboardowner {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoDashboardowner</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoDashboardowner</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoDashboardowner.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['user_id'] && !(typeof data['user_id'] === 'string' || data['user_id'] instanceof String)) {
+            throw new Error("Expected the field `user_id` to be a primitive type in the JSON string but got " + data['user_id']);
+        }
+        // ensure the json data is a string
+        if (data['username'] && !(typeof data['username'] === 'string' || data['username'] instanceof String)) {
+            throw new Error("Expected the field `username` to be a primitive type in the JSON string but got " + data['username']);
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoDashboardowner.RequiredProperties = ["user_id"];
 
 /**
  * The userID of the user who created the dashboard

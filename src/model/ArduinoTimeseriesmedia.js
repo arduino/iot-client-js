@@ -17,7 +17,7 @@ import TimeseriesDataPoint from './TimeseriesDataPoint';
 /**
  * The ArduinoTimeseriesmedia model module.
  * @module model/ArduinoTimeseriesmedia
- * @version 1.4.4
+ * @version 1.5.0
  */
 class ArduinoTimeseriesmedia {
     /**
@@ -58,8 +58,36 @@ class ArduinoTimeseriesmedia {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoTimeseriesmedia</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoTimeseriesmedia</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoTimeseriesmedia.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        if (data['data']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['data'])) {
+                throw new Error("Expected the field `data` to be an array in the JSON data but got " + data['data']);
+            }
+            // validate the optional field `data` (array)
+            for (const item of data['data']) {
+                TimeseriesDataPoint.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoTimeseriesmedia.RequiredProperties = ["data"];
 
 /**
  * @member {Array.<module:model/TimeseriesDataPoint>} data

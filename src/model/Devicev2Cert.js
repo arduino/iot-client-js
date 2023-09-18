@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Devicev2Cert model module.
  * @module model/Devicev2Cert
- * @version 1.4.4
+ * @version 1.5.0
  */
 class Devicev2Cert {
     /**
@@ -60,8 +60,28 @@ class Devicev2Cert {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>Devicev2Cert</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>Devicev2Cert</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['ca'] && !(typeof data['ca'] === 'string' || data['ca'] instanceof String)) {
+            throw new Error("Expected the field `ca` to be a primitive type in the JSON string but got " + data['ca']);
+        }
+        // ensure the json data is a string
+        if (data['csr'] && !(typeof data['csr'] === 'string' || data['csr'] instanceof String)) {
+            throw new Error("Expected the field `csr` to be a primitive type in the JSON string but got " + data['csr']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * The Certification Authority you want to use

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Devicev2Pass model module.
  * @module model/Devicev2Pass
- * @version 1.4.4
+ * @version 1.5.0
  */
 class Devicev2Pass {
     /**
@@ -54,8 +54,24 @@ class Devicev2Pass {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>Devicev2Pass</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>Devicev2Pass</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['password'] && !(typeof data['password'] === 'string' || data['password'] instanceof String)) {
+            throw new Error("Expected the field `password` to be a primitive type in the JSON string but got " + data['password']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * The password for the device

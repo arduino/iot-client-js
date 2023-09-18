@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BatchQueryRequestMediaV1 model module.
  * @module model/BatchQueryRequestMediaV1
- * @version 1.4.4
+ * @version 1.5.0
  */
 class BatchQueryRequestMediaV1 {
     /**
@@ -72,8 +72,30 @@ class BatchQueryRequestMediaV1 {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>BatchQueryRequestMediaV1</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>BatchQueryRequestMediaV1</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of BatchQueryRequestMediaV1.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['q'] && !(typeof data['q'] === 'string' || data['q'] instanceof String)) {
+            throw new Error("Expected the field `q` to be a primitive type in the JSON string but got " + data['q']);
+        }
+
+        return true;
+    }
+
 
 }
+
+BatchQueryRequestMediaV1.RequiredProperties = ["from", "q", "to"];
 
 /**
  * From timestamp

@@ -19,7 +19,7 @@ import ArduinoThing from './ArduinoThing';
 /**
  * The ArduinoDevicev2 model module.
  * @module model/ArduinoDevicev2
- * @version 1.4.4
+ * @version 1.5.0
  */
 class ArduinoDevicev2 {
     /**
@@ -138,8 +138,102 @@ class ArduinoDevicev2 {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoDevicev2</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoDevicev2</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoDevicev2.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['connection_type'] && !(typeof data['connection_type'] === 'string' || data['connection_type'] instanceof String)) {
+            throw new Error("Expected the field `connection_type` to be a primitive type in the JSON string but got " + data['connection_type']);
+        }
+        if (data['events']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['events'])) {
+                throw new Error("Expected the field `events` to be an array in the JSON data but got " + data['events']);
+            }
+            // validate the optional field `events` (array)
+            for (const item of data['events']) {
+                ArduinoDevicev2SimpleProperties.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['fqbn'] && !(typeof data['fqbn'] === 'string' || data['fqbn'] instanceof String)) {
+            throw new Error("Expected the field `fqbn` to be a primitive type in the JSON string but got " + data['fqbn']);
+        }
+        // ensure the json data is a string
+        if (data['href'] && !(typeof data['href'] === 'string' || data['href'] instanceof String)) {
+            throw new Error("Expected the field `href` to be a primitive type in the JSON string but got " + data['href']);
+        }
+        // ensure the json data is a string
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        }
+        // ensure the json data is a string
+        if (data['label'] && !(typeof data['label'] === 'string' || data['label'] instanceof String)) {
+            throw new Error("Expected the field `label` to be a primitive type in the JSON string but got " + data['label']);
+        }
+        // ensure the json data is a string
+        if (data['latest_wifi_fw_version'] && !(typeof data['latest_wifi_fw_version'] === 'string' || data['latest_wifi_fw_version'] instanceof String)) {
+            throw new Error("Expected the field `latest_wifi_fw_version` to be a primitive type in the JSON string but got " + data['latest_wifi_fw_version']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['organization_id'] && !(typeof data['organization_id'] === 'string' || data['organization_id'] instanceof String)) {
+            throw new Error("Expected the field `organization_id` to be a primitive type in the JSON string but got " + data['organization_id']);
+        }
+        // ensure the json data is a string
+        if (data['required_wifi_fw_version'] && !(typeof data['required_wifi_fw_version'] === 'string' || data['required_wifi_fw_version'] instanceof String)) {
+            throw new Error("Expected the field `required_wifi_fw_version` to be a primitive type in the JSON string but got " + data['required_wifi_fw_version']);
+        }
+        // ensure the json data is a string
+        if (data['serial'] && !(typeof data['serial'] === 'string' || data['serial'] instanceof String)) {
+            throw new Error("Expected the field `serial` to be a primitive type in the JSON string but got " + data['serial']);
+        }
+        // validate the optional field `thing`
+        if (data['thing']) { // data not null
+          ArduinoThing.validateJSON(data['thing']);
+        }
+        // ensure the json data is a string
+        if (data['type'] && !(typeof data['type'] === 'string' || data['type'] instanceof String)) {
+            throw new Error("Expected the field `type` to be a primitive type in the JSON string but got " + data['type']);
+        }
+        // ensure the json data is a string
+        if (data['user_id'] && !(typeof data['user_id'] === 'string' || data['user_id'] instanceof String)) {
+            throw new Error("Expected the field `user_id` to be a primitive type in the JSON string but got " + data['user_id']);
+        }
+        if (data['webhooks']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['webhooks'])) {
+                throw new Error("Expected the field `webhooks` to be an array in the JSON data but got " + data['webhooks']);
+            }
+            // validate the optional field `webhooks` (array)
+            for (const item of data['webhooks']) {
+                ArduinoDevicev2Webhook.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['wifi_fw_version'] && !(typeof data['wifi_fw_version'] === 'string' || data['wifi_fw_version'] instanceof String)) {
+            throw new Error("Expected the field `wifi_fw_version` to be a primitive type in the JSON string but got " + data['wifi_fw_version']);
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoDevicev2.RequiredProperties = ["href", "id", "label", "name", "serial", "type", "user_id"];
 
 /**
  * The type of the connections selected by the user when multiple connections are available

@@ -21,7 +21,7 @@ import Error from '../model/Error';
 /**
 * DevicesV2Pass service.
 * @module api/DevicesV2PassApi
-* @version 1.4.4
+* @version 1.5.0
 */
 export default class DevicesV2PassApi {
 
@@ -145,7 +145,7 @@ export default class DevicesV2PassApi {
      * Returns whether the password for this device is set or not. It doesn't return the password.
      * @param {String} id The id of the device
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.suggestedPassword If true, return a suggested password (default to false)
+     * @param {Boolean} [suggestedPassword = false)] If true, return a suggested password
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2Pass} and HTTP response
      */
     devicesV2PassGetWithHttpInfo(id, opts) {

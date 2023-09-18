@@ -17,7 +17,7 @@ import BatchQueryRawRequestMediaV1 from './BatchQueryRawRequestMediaV1';
 /**
  * The BatchQueryRawRequestsMediaV1 model module.
  * @module model/BatchQueryRawRequestsMediaV1
- * @version 1.4.4
+ * @version 1.5.0
  */
 class BatchQueryRawRequestsMediaV1 {
     /**
@@ -62,8 +62,36 @@ class BatchQueryRawRequestsMediaV1 {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>BatchQueryRawRequestsMediaV1</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>BatchQueryRawRequestsMediaV1</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of BatchQueryRawRequestsMediaV1.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        if (data['requests']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['requests'])) {
+                throw new Error("Expected the field `requests` to be an array in the JSON data but got " + data['requests']);
+            }
+            // validate the optional field `requests` (array)
+            for (const item of data['requests']) {
+                BatchQueryRawRequestMediaV1.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+BatchQueryRawRequestsMediaV1.RequiredProperties = ["requests", "resp_version"];
 
 /**
  * Requests

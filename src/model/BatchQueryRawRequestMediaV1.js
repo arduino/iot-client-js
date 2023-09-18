@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BatchQueryRawRequestMediaV1 model module.
  * @module model/BatchQueryRawRequestMediaV1
- * @version 1.4.4
+ * @version 1.5.0
  */
 class BatchQueryRawRequestMediaV1 {
     /**
@@ -68,8 +68,34 @@ class BatchQueryRawRequestMediaV1 {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>BatchQueryRawRequestMediaV1</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>BatchQueryRawRequestMediaV1</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of BatchQueryRawRequestMediaV1.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['q'] && !(typeof data['q'] === 'string' || data['q'] instanceof String)) {
+            throw new Error("Expected the field `q` to be a primitive type in the JSON string but got " + data['q']);
+        }
+        // ensure the json data is a string
+        if (data['sort'] && !(typeof data['sort'] === 'string' || data['sort'] instanceof String)) {
+            throw new Error("Expected the field `sort` to be a primitive type in the JSON string but got " + data['sort']);
+        }
+
+        return true;
+    }
+
 
 }
+
+BatchQueryRawRequestMediaV1.RequiredProperties = ["q"];
 
 /**
  * From timestamp
