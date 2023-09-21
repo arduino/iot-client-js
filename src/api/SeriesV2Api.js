@@ -25,7 +25,7 @@ import HistoricDataRequest from '../model/HistoricDataRequest';
 /**
 * SeriesV2 service.
 * @module api/SeriesV2Api
-* @version 1.4.4
+* @version 1.5.0
 */
 export default class SeriesV2Api {
 
@@ -66,7 +66,7 @@ export default class SeriesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.series.batch+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoSeriesBatch;
       return this.apiClient.callApi(
         '/v2/series/batch_query', 'POST',
@@ -113,7 +113,7 @@ export default class SeriesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.series.raw.batch+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoSeriesRawBatch;
       return this.apiClient.callApi(
         '/v2/series/batch_query_raw', 'POST',
@@ -160,7 +160,7 @@ export default class SeriesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.series.raw.batch.lastvalue+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoSeriesRawBatchLastvalue;
       return this.apiClient.callApi(
         '/v2/series/batch_query_raw/lastvalue', 'POST',
@@ -207,7 +207,7 @@ export default class SeriesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.goa.error+json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/v2/series/historic_data', 'POST',

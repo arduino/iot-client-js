@@ -17,7 +17,7 @@ import ArduinoDevicev2propertyvalueValueStatistics from './ArduinoDevicev2proper
 /**
  * The ArduinoDevicev2propertyvalueValue model module.
  * @module model/ArduinoDevicev2propertyvalueValue
- * @version 1.4.4
+ * @version 1.5.0
  */
 class ArduinoDevicev2propertyvalueValue {
     /**
@@ -61,8 +61,28 @@ class ArduinoDevicev2propertyvalueValue {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoDevicev2propertyvalueValue</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoDevicev2propertyvalueValue</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['payload'] && !(typeof data['payload'] === 'string' || data['payload'] instanceof String)) {
+            throw new Error("Expected the field `payload` to be a primitive type in the JSON string but got " + data['payload']);
+        }
+        // validate the optional field `statistics`
+        if (data['statistics']) { // data not null
+          ArduinoDevicev2propertyvalueValueStatistics.validateJSON(data['statistics']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} payload

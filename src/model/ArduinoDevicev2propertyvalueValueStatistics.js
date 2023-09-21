@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoDevicev2propertyvalueValueStatistics model module.
  * @module model/ArduinoDevicev2propertyvalueValueStatistics
- * @version 1.4.4
+ * @version 1.5.0
  */
 class ArduinoDevicev2propertyvalueValueStatistics {
     /**
@@ -81,8 +81,20 @@ class ArduinoDevicev2propertyvalueValueStatistics {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoDevicev2propertyvalueValueStatistics</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoDevicev2propertyvalueValueStatistics</code>.
+     */
+    static validateJSON(data) {
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Number} adr

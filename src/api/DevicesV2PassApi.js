@@ -21,7 +21,7 @@ import Error from '../model/Error';
 /**
 * DevicesV2Pass service.
 * @module api/DevicesV2PassApi
-* @version 1.4.4
+* @version 1.5.0
 */
 export default class DevicesV2PassApi {
 
@@ -68,7 +68,7 @@ export default class DevicesV2PassApi {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
         '/v2/devices/{id}/pass', 'POST',
@@ -117,7 +117,7 @@ export default class DevicesV2PassApi {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
         '/v2/devices/{id}/pass', 'DELETE',
@@ -145,7 +145,7 @@ export default class DevicesV2PassApi {
      * Returns whether the password for this device is set or not. It doesn't return the password.
      * @param {String} id The id of the device
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.suggestedPassword If true, return a suggested password (default to false)
+     * @param {Boolean} [suggestedPassword = false)] If true, return a suggested password
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2Pass} and HTTP response
      */
     devicesV2PassGetWithHttpInfo(id, opts) {
@@ -169,7 +169,7 @@ export default class DevicesV2PassApi {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.devicev2.pass+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2Pass;
       return this.apiClient.callApi(
         '/v2/devices/{id}/pass', 'GET',
@@ -224,7 +224,7 @@ export default class DevicesV2PassApi {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.devicev2.pass+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2Pass;
       return this.apiClient.callApi(
         '/v2/devices/{id}/pass', 'PUT',

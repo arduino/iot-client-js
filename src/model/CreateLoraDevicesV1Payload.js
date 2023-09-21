@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateLoraDevicesV1Payload model module.
  * @module model/CreateLoraDevicesV1Payload
- * @version 1.4.4
+ * @version 1.5.0
  */
 class CreateLoraDevicesV1Payload {
     /**
@@ -90,8 +90,62 @@ class CreateLoraDevicesV1Payload {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>CreateLoraDevicesV1Payload</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CreateLoraDevicesV1Payload</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of CreateLoraDevicesV1Payload.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['app'] && !(typeof data['app'] === 'string' || data['app'] instanceof String)) {
+            throw new Error("Expected the field `app` to be a primitive type in the JSON string but got " + data['app']);
+        }
+        // ensure the json data is a string
+        if (data['app_eui'] && !(typeof data['app_eui'] === 'string' || data['app_eui'] instanceof String)) {
+            throw new Error("Expected the field `app_eui` to be a primitive type in the JSON string but got " + data['app_eui']);
+        }
+        // ensure the json data is a string
+        if (data['app_key'] && !(typeof data['app_key'] === 'string' || data['app_key'] instanceof String)) {
+            throw new Error("Expected the field `app_key` to be a primitive type in the JSON string but got " + data['app_key']);
+        }
+        // ensure the json data is a string
+        if (data['eui'] && !(typeof data['eui'] === 'string' || data['eui'] instanceof String)) {
+            throw new Error("Expected the field `eui` to be a primitive type in the JSON string but got " + data['eui']);
+        }
+        // ensure the json data is a string
+        if (data['frequency_plan'] && !(typeof data['frequency_plan'] === 'string' || data['frequency_plan'] instanceof String)) {
+            throw new Error("Expected the field `frequency_plan` to be a primitive type in the JSON string but got " + data['frequency_plan']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['serial'] && !(typeof data['serial'] === 'string' || data['serial'] instanceof String)) {
+            throw new Error("Expected the field `serial` to be a primitive type in the JSON string but got " + data['serial']);
+        }
+        // ensure the json data is a string
+        if (data['type'] && !(typeof data['type'] === 'string' || data['type'] instanceof String)) {
+            throw new Error("Expected the field `type` to be a primitive type in the JSON string but got " + data['type']);
+        }
+        // ensure the json data is a string
+        if (data['user_id'] && !(typeof data['user_id'] === 'string' || data['user_id'] instanceof String)) {
+            throw new Error("Expected the field `user_id` to be a primitive type in the JSON string but got " + data['user_id']);
+        }
+
+        return true;
+    }
+
 
 }
+
+CreateLoraDevicesV1Payload.RequiredProperties = ["app", "eui", "frequency_plan", "name", "type", "user_id"];
 
 /**
  * The app name

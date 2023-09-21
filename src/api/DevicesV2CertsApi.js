@@ -21,7 +21,7 @@ import Error from '../model/Error';
 /**
 * DevicesV2Certs service.
 * @module api/DevicesV2CertsApi
-* @version 1.4.4
+* @version 1.5.0
 */
 export default class DevicesV2CertsApi {
 
@@ -68,7 +68,7 @@ export default class DevicesV2CertsApi {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.devicev2.cert+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2Cert;
       return this.apiClient.callApi(
         '/v2/devices/{id}/certs', 'PUT',
@@ -123,7 +123,7 @@ export default class DevicesV2CertsApi {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
         '/v2/devices/{id}/certs/{cid}', 'DELETE',
@@ -172,7 +172,7 @@ export default class DevicesV2CertsApi {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.devicev2.cert+json; type=collection', 'application/vnd.goa.error+json'];
       let returnType = [ArduinoDevicev2Cert];
       return this.apiClient.callApi(
         '/v2/devices/{id}/certs', 'GET',
@@ -226,7 +226,7 @@ export default class DevicesV2CertsApi {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.devicev2.cert+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2Cert;
       return this.apiClient.callApi(
         '/v2/devices/{id}/certs/{cid}', 'GET',
@@ -286,7 +286,7 @@ export default class DevicesV2CertsApi {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.devicev2.cert+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2Cert;
       return this.apiClient.callApi(
         '/v2/devices/{id}/certs/{cid}', 'POST',

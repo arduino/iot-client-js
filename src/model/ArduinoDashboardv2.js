@@ -19,7 +19,7 @@ import ArduinoWidgetv2 from './ArduinoWidgetv2';
 /**
  * The ArduinoDashboardv2 model module.
  * @module model/ArduinoDashboardv2
- * @version 1.4.4
+ * @version 1.5.0
  */
 class ArduinoDashboardv2 {
     /**
@@ -85,8 +85,66 @@ class ArduinoDashboardv2 {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoDashboardv2</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoDashboardv2</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoDashboardv2.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // validate the optional field `created_by`
+        if (data['created_by']) { // data not null
+          ArduinoDashboardowner.validateJSON(data['created_by']);
+        }
+        // ensure the json data is a string
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['organization_id'] && !(typeof data['organization_id'] === 'string' || data['organization_id'] instanceof String)) {
+            throw new Error("Expected the field `organization_id` to be a primitive type in the JSON string but got " + data['organization_id']);
+        }
+        // validate the optional field `shared_by`
+        if (data['shared_by']) { // data not null
+          ArduinoDashboardshare.validateJSON(data['shared_by']);
+        }
+        if (data['shared_with']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['shared_with'])) {
+                throw new Error("Expected the field `shared_with` to be an array in the JSON data but got " + data['shared_with']);
+            }
+            // validate the optional field `shared_with` (array)
+            for (const item of data['shared_with']) {
+                ArduinoDashboardshare.validateJSON(item);
+            };
+        }
+        if (data['widgets']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['widgets'])) {
+                throw new Error("Expected the field `widgets` to be an array in the JSON data but got " + data['widgets']);
+            }
+            // validate the optional field `widgets` (array)
+            for (const item of data['widgets']) {
+                ArduinoWidgetv2.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoDashboardv2.RequiredProperties = ["id", "name", "updated_at"];
 
 /**
  * @member {module:model/ArduinoDashboardowner} created_by

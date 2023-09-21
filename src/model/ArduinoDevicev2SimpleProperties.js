@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoDevicev2SimpleProperties model module.
  * @module model/ArduinoDevicev2SimpleProperties
- * @version 1.4.4
+ * @version 1.5.0
  */
 class ArduinoDevicev2SimpleProperties {
     /**
@@ -67,8 +67,30 @@ class ArduinoDevicev2SimpleProperties {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoDevicev2SimpleProperties</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoDevicev2SimpleProperties</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoDevicev2SimpleProperties.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoDevicev2SimpleProperties.RequiredProperties = ["name", "updated_at", "value"];
 
 /**
  * The name of the property

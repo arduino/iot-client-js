@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Widget model module.
  * @module model/Widget
- * @version 1.4.4
+ * @version 1.5.0
  */
 class Widget {
     /**
@@ -105,8 +105,42 @@ class Widget {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>Widget</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>Widget</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of Widget.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['type'] && !(typeof data['type'] === 'string' || data['type'] instanceof String)) {
+            throw new Error("Expected the field `type` to be a primitive type in the JSON string but got " + data['type']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['variables'])) {
+            throw new Error("Expected the field `variables` to be an array in the JSON data but got " + data['variables']);
+        }
+
+        return true;
+    }
+
 
 }
+
+Widget.RequiredProperties = ["height", "id", "options", "type", "width", "x", "y"];
 
 /**
  * Widget current height for desktop

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoLoradevicev1 model module.
  * @module model/ArduinoLoradevicev1
- * @version 1.4.4
+ * @version 1.5.0
  */
 class ArduinoLoradevicev1 {
     /**
@@ -72,8 +72,42 @@ class ArduinoLoradevicev1 {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoLoradevicev1</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoLoradevicev1</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoLoradevicev1.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['app_eui'] && !(typeof data['app_eui'] === 'string' || data['app_eui'] instanceof String)) {
+            throw new Error("Expected the field `app_eui` to be a primitive type in the JSON string but got " + data['app_eui']);
+        }
+        // ensure the json data is a string
+        if (data['app_key'] && !(typeof data['app_key'] === 'string' || data['app_key'] instanceof String)) {
+            throw new Error("Expected the field `app_key` to be a primitive type in the JSON string but got " + data['app_key']);
+        }
+        // ensure the json data is a string
+        if (data['device_id'] && !(typeof data['device_id'] === 'string' || data['device_id'] instanceof String)) {
+            throw new Error("Expected the field `device_id` to be a primitive type in the JSON string but got " + data['device_id']);
+        }
+        // ensure the json data is a string
+        if (data['eui'] && !(typeof data['eui'] === 'string' || data['eui'] instanceof String)) {
+            throw new Error("Expected the field `eui` to be a primitive type in the JSON string but got " + data['eui']);
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoLoradevicev1.RequiredProperties = ["app_eui", "app_key", "device_id", "eui"];
 
 /**
  * The eui of the app

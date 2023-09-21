@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateDevicesV2Payload model module.
  * @module model/CreateDevicesV2Payload
- * @version 1.4.4
+ * @version 1.5.0
  */
 class CreateDevicesV2Payload {
     /**
@@ -75,8 +75,54 @@ class CreateDevicesV2Payload {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>CreateDevicesV2Payload</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CreateDevicesV2Payload</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of CreateDevicesV2Payload.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['connection_type'] && !(typeof data['connection_type'] === 'string' || data['connection_type'] instanceof String)) {
+            throw new Error("Expected the field `connection_type` to be a primitive type in the JSON string but got " + data['connection_type']);
+        }
+        // ensure the json data is a string
+        if (data['fqbn'] && !(typeof data['fqbn'] === 'string' || data['fqbn'] instanceof String)) {
+            throw new Error("Expected the field `fqbn` to be a primitive type in the JSON string but got " + data['fqbn']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['serial'] && !(typeof data['serial'] === 'string' || data['serial'] instanceof String)) {
+            throw new Error("Expected the field `serial` to be a primitive type in the JSON string but got " + data['serial']);
+        }
+        // ensure the json data is a string
+        if (data['type'] && !(typeof data['type'] === 'string' || data['type'] instanceof String)) {
+            throw new Error("Expected the field `type` to be a primitive type in the JSON string but got " + data['type']);
+        }
+        // ensure the json data is a string
+        if (data['user_id'] && !(typeof data['user_id'] === 'string' || data['user_id'] instanceof String)) {
+            throw new Error("Expected the field `user_id` to be a primitive type in the JSON string but got " + data['user_id']);
+        }
+        // ensure the json data is a string
+        if (data['wifi_fw_version'] && !(typeof data['wifi_fw_version'] === 'string' || data['wifi_fw_version'] instanceof String)) {
+            throw new Error("Expected the field `wifi_fw_version` to be a primitive type in the JSON string but got " + data['wifi_fw_version']);
+        }
+
+        return true;
+    }
+
 
 }
+
+CreateDevicesV2Payload.RequiredProperties = ["type"];
 
 /**
  * The type of the connections selected by the user when multiple connections are available
@@ -264,7 +310,37 @@ CreateDevicesV2Payload['TypeEnum'] = {
      * value: "opta"
      * @const
      */
-    "opta": "opta"
+    "opta": "opta",
+
+    /**
+     * value: "giga"
+     * @const
+     */
+    "giga": "giga",
+
+    /**
+     * value: "generic_device_secretkey"
+     * @const
+     */
+    "generic_device_secretkey": "generic_device_secretkey",
+
+    /**
+     * value: "portenta_c33"
+     * @const
+     */
+    "portenta_c33": "portenta_c33",
+
+    /**
+     * value: "unor4wifi"
+     * @const
+     */
+    "unor4wifi": "unor4wifi",
+
+    /**
+     * value: "nano_nora"
+     * @const
+     */
+    "nano_nora": "nano_nora"
 };
 
 

@@ -17,7 +17,7 @@ import Tag from './Tag';
 /**
  * The ArduinoTags model module.
  * @module model/ArduinoTags
- * @version 1.4.4
+ * @version 1.5.0
  */
 class ArduinoTags {
     /**
@@ -58,8 +58,36 @@ class ArduinoTags {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoTags</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoTags</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoTags.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        if (data['tags']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['tags'])) {
+                throw new Error("Expected the field `tags` to be an array in the JSON data but got " + data['tags']);
+            }
+            // validate the optional field `tags` (array)
+            for (const item of data['tags']) {
+                Tag.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoTags.RequiredProperties = ["tags"];
 
 /**
  * @member {Array.<module:model/Tag>} tags

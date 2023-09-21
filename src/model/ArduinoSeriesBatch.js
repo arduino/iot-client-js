@@ -17,7 +17,7 @@ import ArduinoSeriesResponse from './ArduinoSeriesResponse';
 /**
  * The ArduinoSeriesBatch model module.
  * @module model/ArduinoSeriesBatch
- * @version 1.4.4
+ * @version 1.5.0
  */
 class ArduinoSeriesBatch {
     /**
@@ -63,8 +63,36 @@ class ArduinoSeriesBatch {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoSeriesBatch</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoSeriesBatch</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoSeriesBatch.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        if (data['responses']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['responses'])) {
+                throw new Error("Expected the field `responses` to be an array in the JSON data but got " + data['responses']);
+            }
+            // validate the optional field `responses` (array)
+            for (const item of data['responses']) {
+                ArduinoSeriesResponse.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoSeriesBatch.RequiredProperties = ["resp_version", "responses"];
 
 /**
  * Response version

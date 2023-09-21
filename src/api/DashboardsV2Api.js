@@ -25,7 +25,7 @@ import Widgetlink from '../model/Widgetlink';
 /**
 * DashboardsV2 service.
 * @module api/DashboardsV2Api
-* @version 1.4.4
+* @version 1.5.0
 */
 export default class DashboardsV2Api {
 
@@ -47,7 +47,7 @@ export default class DashboardsV2Api {
      * Create a new dashboard
      * @param {module:model/Dashboardv2} dashboardv2 DashboardV2Payload describes a dashboard
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDashboardv2} and HTTP response
      */
     dashboardsV2CreateWithHttpInfo(dashboardv2, opts) {
@@ -68,9 +68,9 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.dashboardv2+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDashboardv2;
       return this.apiClient.callApi(
         '/v2/dashboards', 'POST',
@@ -100,7 +100,7 @@ export default class DashboardsV2Api {
      * Delete a dashboard
      * @param {String} id The id of the dashboard
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     dashboardsV2DeleteWithHttpInfo(id, opts) {
@@ -122,9 +122,9 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
         '/v2/dashboards/{id}', 'DELETE',
@@ -155,7 +155,7 @@ export default class DashboardsV2Api {
      * @param {String} id The id of the dashboard
      * @param {String} userId The id of the user
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     dashboardsV2DeleteShareWithHttpInfo(id, userId, opts) {
@@ -182,9 +182,9 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
         '/v2/dashboards/{id}/shares/{user_id}', 'DELETE',
@@ -217,7 +217,7 @@ export default class DashboardsV2Api {
      * @param {String} widgetId The id of the widget
      * @param {module:model/Widgetlink} widgetlink 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoVariableslinks} and HTTP response
      */
     dashboardsV2LinkWithHttpInfo(id, widgetId, widgetlink, opts) {
@@ -248,9 +248,9 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.variableslinks+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoVariableslinks;
       return this.apiClient.callApi(
         '/v2/dashboards/{id}/widgets/{widgetId}/variables', 'PUT',
@@ -281,9 +281,9 @@ export default class DashboardsV2Api {
      * list dashboards_v2
      * Returns the list of dashboards
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name The name of the dashboard
-     * @param {String} opts.userId The user_id of the dashboard's owner
-     * @param {String} opts.xOrganization 
+     * @param {String} [name] The name of the dashboard
+     * @param {String} [userId] The user_id of the dashboard's owner
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoDashboardv2>} and HTTP response
      */
     dashboardsV2ListWithHttpInfo(opts) {
@@ -302,9 +302,9 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.dashboardv2+json; type=collection', 'application/vnd.goa.error+json'];
       let returnType = [ArduinoDashboardv2];
       return this.apiClient.callApi(
         '/v2/dashboards', 'GET',
@@ -335,7 +335,7 @@ export default class DashboardsV2Api {
      * List of users the dashboard has been shared with
      * @param {String} id The id of the dashboard
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoDashboardshare>} and HTTP response
      */
     dashboardsV2ListSharesWithHttpInfo(id, opts) {
@@ -357,9 +357,9 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.dashboardshare+json; type=collection', 'application/vnd.goa.error+json'];
       let returnType = [ArduinoDashboardshare];
       return this.apiClient.callApi(
         '/v2/dashboards/{id}/shares', 'GET',
@@ -390,7 +390,7 @@ export default class DashboardsV2Api {
      * @param {String} id The id of the dashboard
      * @param {module:model/Sharerequest} sharerequest 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     dashboardsV2RequestAccessWithHttpInfo(id, sharerequest, opts) {
@@ -416,9 +416,9 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
         '/v2/dashboards/{id}/share_request', 'PUT',
@@ -450,7 +450,7 @@ export default class DashboardsV2Api {
      * @param {String} id The id of the dashboard
      * @param {module:model/Dashboardshare} dashboardshare 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     dashboardsV2ShareWithHttpInfo(id, dashboardshare, opts) {
@@ -476,9 +476,9 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
         '/v2/dashboards/{id}/shares', 'PUT',
@@ -509,7 +509,7 @@ export default class DashboardsV2Api {
      * Show a dashboard
      * @param {String} id The id of the dashboard
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDashboardv2} and HTTP response
      */
     dashboardsV2ShowWithHttpInfo(id, opts) {
@@ -531,9 +531,9 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.dashboardv2+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDashboardv2;
       return this.apiClient.callApi(
         '/v2/dashboards/{id}', 'GET',
@@ -564,7 +564,7 @@ export default class DashboardsV2Api {
      * @param {String} id The id of the dashboard
      * @param {module:model/Dashboardv2} dashboardv2 DashboardV2Payload describes a dashboard
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDashboardv2} and HTTP response
      */
     dashboardsV2UpdateWithHttpInfo(id, dashboardv2, opts) {
@@ -590,9 +590,9 @@ export default class DashboardsV2Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.dashboardv2+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDashboardv2;
       return this.apiClient.callApi(
         '/v2/dashboards/{id}', 'PUT',

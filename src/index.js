@@ -65,7 +65,6 @@ import Devicev2Otabinaryurl from './model/Devicev2Otabinaryurl';
 import Devicev2Pass from './model/Devicev2Pass';
 import Error from './model/Error';
 import HistoricDataRequest from './model/HistoricDataRequest';
-import InlineObject from './model/InlineObject';
 import PropertiesValue from './model/PropertiesValue';
 import PropertiesValues from './model/PropertiesValues';
 import Property from './model/Property';
@@ -94,7 +93,7 @@ import ThingsV2TagsApi from './api/ThingsV2TagsApi';
 
 
 /**
-* Provides_a_set_of_endpoints_to_manage_Arduino_IoT_Cloud_Devices_Things_Properties_and_Timeseries__This_API_can_be_called_just_with_any_HTTP_Client_or_using_one_of_these_clients__Javascript_NPM_package_https__www_npmjs_com_package_arduino_arduino_iot_client__Python_PYPI_Package_https__pypi_org_project_arduino_iot_client___Golang_Module_https__github_com_arduino_iot_client_go.<br>
+*  Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go).<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -122,7 +121,7 @@ import ThingsV2TagsApi from './api/ThingsV2TagsApi';
 * </pre>
 * </p>
 * @module index
-* @version 1.4.4
+* @version 1.5.0
 */
 export {
     /**
@@ -442,12 +441,6 @@ export {
      * @property {module:model/HistoricDataRequest}
      */
     HistoricDataRequest,
-
-    /**
-     * The InlineObject model constructor.
-     * @property {module:model/InlineObject}
-     */
-    InlineObject,
 
     /**
      * The PropertiesValue model constructor.
