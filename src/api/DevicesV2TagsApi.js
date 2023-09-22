@@ -20,7 +20,7 @@ import Tag from '../model/Tag';
 /**
 * DevicesV2Tags service.
 * @module api/DevicesV2TagsApi
-* @version 1.4.4
+* @version 2.0.0
 */
 export default class DevicesV2TagsApi {
 
@@ -68,7 +68,7 @@ export default class DevicesV2TagsApi {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
         '/v2/devices/{id}/tags/{key}', 'DELETE',
@@ -117,7 +117,7 @@ export default class DevicesV2TagsApi {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.tags+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoTags;
       return this.apiClient.callApi(
         '/v2/devices/{id}/tags', 'GET',
@@ -170,7 +170,7 @@ export default class DevicesV2TagsApi {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
         '/v2/devices/{id}/tags', 'PUT',

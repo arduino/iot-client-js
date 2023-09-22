@@ -25,7 +25,7 @@ import PropertiesValues from '../model/PropertiesValues';
 /**
 * DevicesV2 service.
 * @module api/DevicesV2Api
-* @version 1.4.4
+* @version 2.0.0
 */
 export default class DevicesV2Api {
 
@@ -47,7 +47,7 @@ export default class DevicesV2Api {
      * Creates a new device associated to the user.
      * @param {module:model/CreateDevicesV2Payload} createDevicesV2Payload DeviceV2 describes a device.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2} and HTTP response
      */
     devicesV2CreateWithHttpInfo(createDevicesV2Payload, opts) {
@@ -70,7 +70,7 @@ export default class DevicesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.devicev2+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2;
       return this.apiClient.callApi(
         '/v2/devices', 'PUT',
@@ -100,7 +100,7 @@ export default class DevicesV2Api {
      * Removes a device associated to the user
      * @param {String} id The id of the device
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     devicesV2DeleteWithHttpInfo(id, opts) {
@@ -124,7 +124,7 @@ export default class DevicesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
         '/v2/devices/{id}', 'DELETE',
@@ -154,9 +154,9 @@ export default class DevicesV2Api {
      * GET device events
      * @param {String} id The id of the device
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.limit The number of events to select
-     * @param {String} opts.start The time at which to start selecting events
-     * @param {String} opts.xOrganization 
+     * @param {Number} [limit] The number of events to select
+     * @param {String} [start] The time at which to start selecting events
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2EventProperties} and HTTP response
      */
     devicesV2GetEventsWithHttpInfo(id, opts) {
@@ -182,7 +182,7 @@ export default class DevicesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.devicev2.event.properties+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2EventProperties;
       return this.apiClient.callApi(
         '/v2/devices/{id}/events', 'GET',
@@ -214,8 +214,8 @@ export default class DevicesV2Api {
      * GET device properties
      * @param {String} id The id of the device
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
-     * @param {String} opts.xOrganization 
+     * @param {Boolean} [showDeleted = false)] If true, shows the soft deleted properties
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2properties} and HTTP response
      */
     devicesV2GetPropertiesWithHttpInfo(id, opts) {
@@ -240,7 +240,7 @@ export default class DevicesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.devicev2properties+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2properties;
       return this.apiClient.callApi(
         '/v2/devices/{id}/properties', 'GET',
@@ -270,10 +270,10 @@ export default class DevicesV2Api {
      * list devices_v2
      * Returns the list of devices associated to the user
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.acrossUserIds If true, returns all the devices (default to false)
-     * @param {String} opts.serial Filter by device serial number
-     * @param {Array.<String>} opts.tags Filter by tags
-     * @param {String} opts.xOrganization 
+     * @param {Boolean} [acrossUserIds = false)] If true, returns all the devices
+     * @param {String} [serial] Filter by device serial number
+     * @param {Array.<String>} [tags] Filter by tags
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoDevicev2>} and HTTP response
      */
     devicesV2ListWithHttpInfo(opts) {
@@ -295,7 +295,7 @@ export default class DevicesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.devicev2+json; type=collection', 'application/vnd.goa.error+json'];
       let returnType = [ArduinoDevicev2];
       return this.apiClient.callApi(
         '/v2/devices', 'GET',
@@ -327,7 +327,7 @@ export default class DevicesV2Api {
      * Returns the device requested by the user
      * @param {String} id The id of the device
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2} and HTTP response
      */
     devicesV2ShowWithHttpInfo(id, opts) {
@@ -351,7 +351,7 @@ export default class DevicesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.devicev2+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2;
       return this.apiClient.callApi(
         '/v2/devices/{id}', 'GET',
@@ -382,9 +382,9 @@ export default class DevicesV2Api {
      * @param {String} id The id of the device
      * @param {String} pid The id of the property
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.limit The number of properties to select
-     * @param {String} opts.start The time at which to start selecting properties
-     * @param {String} opts.xOrganization 
+     * @param {Number} [limit] The number of properties to select
+     * @param {String} [start] The time at which to start selecting properties
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2propertyvalues} and HTTP response
      */
     devicesV2TimeseriesWithHttpInfo(id, pid, opts) {
@@ -415,7 +415,7 @@ export default class DevicesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.devicev2propertyvalues+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2propertyvalues;
       return this.apiClient.callApi(
         '/v2/devices/{id}/properties/{pid}', 'GET',
@@ -449,7 +449,7 @@ export default class DevicesV2Api {
      * @param {String} id The id of the device
      * @param {module:model/Devicev2} devicev2 DeviceV2 describes a device.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2} and HTTP response
      */
     devicesV2UpdateWithHttpInfo(id, devicev2, opts) {
@@ -477,7 +477,7 @@ export default class DevicesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.devicev2+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2;
       return this.apiClient.callApi(
         '/v2/devices/{id}', 'POST',
@@ -509,7 +509,7 @@ export default class DevicesV2Api {
      * @param {String} id The id of the device
      * @param {module:model/PropertiesValues} propertiesValues 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     devicesV2UpdatePropertiesWithHttpInfo(id, propertiesValues, opts) {
@@ -537,7 +537,7 @@ export default class DevicesV2Api {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
         '/v2/devices/{id}/properties', 'PUT',

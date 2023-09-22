@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Property model module.
  * @module model/Property
- * @version 1.4.4
+ * @version 2.0.0
  */
 class Property {
     /**
@@ -90,8 +90,46 @@ class Property {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>Property</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>Property</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of Property.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['permission'] && !(typeof data['permission'] === 'string' || data['permission'] instanceof String)) {
+            throw new Error("Expected the field `permission` to be a primitive type in the JSON string but got " + data['permission']);
+        }
+        // ensure the json data is a string
+        if (data['type'] && !(typeof data['type'] === 'string' || data['type'] instanceof String)) {
+            throw new Error("Expected the field `type` to be a primitive type in the JSON string but got " + data['type']);
+        }
+        // ensure the json data is a string
+        if (data['update_strategy'] && !(typeof data['update_strategy'] === 'string' || data['update_strategy'] instanceof String)) {
+            throw new Error("Expected the field `update_strategy` to be a primitive type in the JSON string but got " + data['update_strategy']);
+        }
+        // ensure the json data is a string
+        if (data['variable_name'] && !(typeof data['variable_name'] === 'string' || data['variable_name'] instanceof String)) {
+            throw new Error("Expected the field `variable_name` to be a primitive type in the JSON string but got " + data['variable_name']);
+        }
+
+        return true;
+    }
+
 
 }
+
+Property.RequiredProperties = ["name", "permission", "type", "update_strategy"];
 
 /**
  * Maximum value of this property

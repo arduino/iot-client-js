@@ -17,7 +17,7 @@ import ArduinoTimezone from './ArduinoTimezone';
 /**
  * The ArduinoLinkedvariable model module.
  * @module model/ArduinoLinkedvariable
- * @version 1.4.4
+ * @version 2.0.0
  */
 class ArduinoLinkedvariable {
     /**
@@ -97,8 +97,58 @@ class ArduinoLinkedvariable {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoLinkedvariable</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoLinkedvariable</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoLinkedvariable.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['permission'] && !(typeof data['permission'] === 'string' || data['permission'] instanceof String)) {
+            throw new Error("Expected the field `permission` to be a primitive type in the JSON string but got " + data['permission']);
+        }
+        // ensure the json data is a string
+        if (data['thing_id'] && !(typeof data['thing_id'] === 'string' || data['thing_id'] instanceof String)) {
+            throw new Error("Expected the field `thing_id` to be a primitive type in the JSON string but got " + data['thing_id']);
+        }
+        // ensure the json data is a string
+        if (data['thing_name'] && !(typeof data['thing_name'] === 'string' || data['thing_name'] instanceof String)) {
+            throw new Error("Expected the field `thing_name` to be a primitive type in the JSON string but got " + data['thing_name']);
+        }
+        // validate the optional field `thing_timezone`
+        if (data['thing_timezone']) { // data not null
+          ArduinoTimezone.validateJSON(data['thing_timezone']);
+        }
+        // ensure the json data is a string
+        if (data['type'] && !(typeof data['type'] === 'string' || data['type'] instanceof String)) {
+            throw new Error("Expected the field `type` to be a primitive type in the JSON string but got " + data['type']);
+        }
+        // ensure the json data is a string
+        if (data['variable_name'] && !(typeof data['variable_name'] === 'string' || data['variable_name'] instanceof String)) {
+            throw new Error("Expected the field `variable_name` to be a primitive type in the JSON string but got " + data['variable_name']);
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoLinkedvariable.RequiredProperties = ["id", "name", "permission", "thing_id", "thing_name", "type", "variable_name"];
 
 /**
  * The id of the linked variable

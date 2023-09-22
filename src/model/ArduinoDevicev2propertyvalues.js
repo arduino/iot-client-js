@@ -18,7 +18,7 @@ import ArduinoDevicev2propertyvaluesLastEvaluatedKey from './ArduinoDevicev2prop
 /**
  * The ArduinoDevicev2propertyvalues model module.
  * @module model/ArduinoDevicev2propertyvalues
- * @version 1.4.4
+ * @version 2.0.0
  */
 class ArduinoDevicev2propertyvalues {
     /**
@@ -74,8 +74,48 @@ class ArduinoDevicev2propertyvalues {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoDevicev2propertyvalues</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoDevicev2propertyvalues</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoDevicev2propertyvalues.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        }
+        // validate the optional field `last_evaluated_key`
+        if (data['last_evaluated_key']) { // data not null
+          ArduinoDevicev2propertyvaluesLastEvaluatedKey.validateJSON(data['last_evaluated_key']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        if (data['values']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['values'])) {
+                throw new Error("Expected the field `values` to be an array in the JSON data but got " + data['values']);
+            }
+            // validate the optional field `values` (array)
+            for (const item of data['values']) {
+                ArduinoDevicev2propertyvalue.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoDevicev2propertyvalues.RequiredProperties = ["id", "last_evaluated_key", "name", "values"];
 
 /**
  * @member {String} id

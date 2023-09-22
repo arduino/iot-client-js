@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoCompressedv2 model module.
  * @module model/ArduinoCompressedv2
- * @version 1.4.4
+ * @version 2.0.0
  */
 class ArduinoCompressedv2 {
     /**
@@ -85,8 +85,46 @@ class ArduinoCompressedv2 {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoCompressedv2</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoCompressedv2</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoCompressedv2.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['authority_key_identifier'] && !(typeof data['authority_key_identifier'] === 'string' || data['authority_key_identifier'] instanceof String)) {
+            throw new Error("Expected the field `authority_key_identifier` to be a primitive type in the JSON string but got " + data['authority_key_identifier']);
+        }
+        // ensure the json data is a string
+        if (data['serial'] && !(typeof data['serial'] === 'string' || data['serial'] instanceof String)) {
+            throw new Error("Expected the field `serial` to be a primitive type in the JSON string but got " + data['serial']);
+        }
+        // ensure the json data is a string
+        if (data['signature'] && !(typeof data['signature'] === 'string' || data['signature'] instanceof String)) {
+            throw new Error("Expected the field `signature` to be a primitive type in the JSON string but got " + data['signature']);
+        }
+        // ensure the json data is a string
+        if (data['signature_asn1_x'] && !(typeof data['signature_asn1_x'] === 'string' || data['signature_asn1_x'] instanceof String)) {
+            throw new Error("Expected the field `signature_asn1_x` to be a primitive type in the JSON string but got " + data['signature_asn1_x']);
+        }
+        // ensure the json data is a string
+        if (data['signature_asn1_y'] && !(typeof data['signature_asn1_y'] === 'string' || data['signature_asn1_y'] instanceof String)) {
+            throw new Error("Expected the field `signature_asn1_y` to be a primitive type in the JSON string but got " + data['signature_asn1_y']);
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoCompressedv2.RequiredProperties = ["not_after", "not_before", "serial", "signature", "signature_asn1_x", "signature_asn1_y"];
 
 /**
  * The Authority Key Identifier of the certificate

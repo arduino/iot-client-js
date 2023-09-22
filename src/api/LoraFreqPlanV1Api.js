@@ -19,7 +19,7 @@ import Error from '../model/Error';
 /**
 * LoraFreqPlanV1 service.
 * @module api/LoraFreqPlanV1Api
-* @version 1.4.4
+* @version 2.0.0
 */
 export default class LoraFreqPlanV1Api {
 
@@ -55,7 +55,7 @@ export default class LoraFreqPlanV1Api {
 
       let authNames = [];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.arduino.lorafreqplansv1+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoLorafreqplansv1;
       return this.apiClient.callApi(
         '/v1/lora-freq-plans/', 'GET',

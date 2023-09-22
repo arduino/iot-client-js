@@ -17,7 +17,7 @@ import Widget from './Widget';
 /**
  * The Dashboardv2 model module.
  * @module model/Dashboardv2
- * @version 1.4.4
+ * @version 2.0.0
  */
 class Dashboardv2 {
     /**
@@ -59,8 +59,34 @@ class Dashboardv2 {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>Dashboardv2</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>Dashboardv2</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        if (data['widgets']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['widgets'])) {
+                throw new Error("Expected the field `widgets` to be an array in the JSON data but got " + data['widgets']);
+            }
+            // validate the optional field `widgets` (array)
+            for (const item of data['widgets']) {
+                Widget.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * The friendly name of the dashboard

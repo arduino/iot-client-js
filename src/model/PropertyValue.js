@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PropertyValue model module.
  * @module model/PropertyValue
- * @version 1.4.4
+ * @version 2.0.0
  */
 class PropertyValue {
     /**
@@ -60,8 +60,30 @@ class PropertyValue {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>PropertyValue</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>PropertyValue</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of PropertyValue.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['device_id'] && !(typeof data['device_id'] === 'string' || data['device_id'] instanceof String)) {
+            throw new Error("Expected the field `device_id` to be a primitive type in the JSON string but got " + data['device_id']);
+        }
+
+        return true;
+    }
+
 
 }
+
+PropertyValue.RequiredProperties = ["value"];
 
 /**
  * The device who send the property

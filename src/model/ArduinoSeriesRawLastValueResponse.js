@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoSeriesRawLastValueResponse model module.
  * @module model/ArduinoSeriesRawLastValueResponse
- * @version 1.4.4
+ * @version 2.0.0
  */
 class ArduinoSeriesRawLastValueResponse {
     /**
@@ -77,8 +77,42 @@ class ArduinoSeriesRawLastValueResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoSeriesRawLastValueResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoSeriesRawLastValueResponse</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoSeriesRawLastValueResponse.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['property_id'] && !(typeof data['property_id'] === 'string' || data['property_id'] instanceof String)) {
+            throw new Error("Expected the field `property_id` to be a primitive type in the JSON string but got " + data['property_id']);
+        }
+        // ensure the json data is a string
+        if (data['thing_id'] && !(typeof data['thing_id'] === 'string' || data['thing_id'] instanceof String)) {
+            throw new Error("Expected the field `thing_id` to be a primitive type in the JSON string but got " + data['thing_id']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['times'])) {
+            throw new Error("Expected the field `times` to be an array in the JSON data but got " + data['times']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['values'])) {
+            throw new Error("Expected the field `values` to be an array in the JSON data but got " + data['values']);
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoSeriesRawLastValueResponse.RequiredProperties = ["count_values", "property_id", "thing_id", "times", "values"];
 
 /**
  * Total number of values in the array 'values'

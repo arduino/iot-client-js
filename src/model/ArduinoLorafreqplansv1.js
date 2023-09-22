@@ -17,7 +17,7 @@ import ArduinoLorafreqplanv1 from './ArduinoLorafreqplanv1';
 /**
  * The ArduinoLorafreqplansv1 model module.
  * @module model/ArduinoLorafreqplansv1
- * @version 1.4.4
+ * @version 2.0.0
  */
 class ArduinoLorafreqplansv1 {
     /**
@@ -56,8 +56,30 @@ class ArduinoLorafreqplansv1 {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoLorafreqplansv1</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoLorafreqplansv1</code>.
+     */
+    static validateJSON(data) {
+        if (data['frequency_plans']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['frequency_plans'])) {
+                throw new Error("Expected the field `frequency_plans` to be an array in the JSON data but got " + data['frequency_plans']);
+            }
+            // validate the optional field `frequency_plans` (array)
+            for (const item of data['frequency_plans']) {
+                ArduinoLorafreqplanv1.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * The list of frequency plans

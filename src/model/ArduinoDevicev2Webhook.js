@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoDevicev2Webhook model module.
  * @module model/ArduinoDevicev2Webhook
- * @version 1.4.4
+ * @version 2.0.0
  */
 class ArduinoDevicev2Webhook {
     /**
@@ -65,8 +65,34 @@ class ArduinoDevicev2Webhook {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoDevicev2Webhook</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoDevicev2Webhook</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoDevicev2Webhook.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        }
+        // ensure the json data is a string
+        if (data['uri'] && !(typeof data['uri'] === 'string' || data['uri'] instanceof String)) {
+            throw new Error("Expected the field `uri` to be a primitive type in the JSON string but got " + data['uri']);
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoDevicev2Webhook.RequiredProperties = ["id", "uri"];
 
 /**
  * Whether the webhook is active

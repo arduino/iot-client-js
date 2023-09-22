@@ -19,7 +19,7 @@ import Error from '../model/Error';
 /**
 * DevicesV2Ota service.
 * @module api/DevicesV2OtaApi
-* @version 1.4.4
+* @version 2.0.0
 */
 export default class DevicesV2OtaApi {
 
@@ -66,7 +66,7 @@ export default class DevicesV2OtaApi {
 
       let authNames = ['oauth2'];
       let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
         '/v2/devices/{id}/ota', 'PUT',
@@ -96,8 +96,8 @@ export default class DevicesV2OtaApi {
      * @param {String} id The id of the device
      * @param {File} otaFile OTA file
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.async If false, wait for the full OTA process, until it gets a result from the device (default to true)
-     * @param {Number} opts.expireInMins Binary expire time in minutes, default 10 mins (default to 10)
+     * @param {Boolean} [async = true)] If false, wait for the full OTA process, until it gets a result from the device
+     * @param {Number} [expireInMins = 10)] Binary expire time in minutes, default 10 mins
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     devicesV2OtaUploadWithHttpInfo(id, otaFile, opts) {
@@ -127,7 +127,7 @@ export default class DevicesV2OtaApi {
 
       let authNames = ['oauth2'];
       let contentTypes = ['multipart/form-data'];
-      let accepts = ['application/json'];
+      let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
         '/v2/devices/{id}/ota', 'POST',
