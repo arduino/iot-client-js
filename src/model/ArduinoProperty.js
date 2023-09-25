@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoProperty model module.
  * @module model/ArduinoProperty
- * @version 1.4.4
+ * @version 2.0.0
  */
 class ArduinoProperty {
     /**
@@ -77,6 +77,9 @@ class ArduinoProperty {
             if (data.hasOwnProperty('last_value')) {
                 obj['last_value'] = ApiClient.convertToType(data['last_value'], Object);
             }
+            if (data.hasOwnProperty('linked_to_trigger')) {
+                obj['linked_to_trigger'] = ApiClient.convertToType(data['linked_to_trigger'], 'Boolean');
+            }
             if (data.hasOwnProperty('max_value')) {
                 obj['max_value'] = ApiClient.convertToType(data['max_value'], 'Number');
             }
@@ -126,8 +129,66 @@ class ArduinoProperty {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoProperty</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoProperty</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoProperty.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['href'] && !(typeof data['href'] === 'string' || data['href'] instanceof String)) {
+            throw new Error("Expected the field `href` to be a primitive type in the JSON string but got " + data['href']);
+        }
+        // ensure the json data is a string
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['permission'] && !(typeof data['permission'] === 'string' || data['permission'] instanceof String)) {
+            throw new Error("Expected the field `permission` to be a primitive type in the JSON string but got " + data['permission']);
+        }
+        // ensure the json data is a string
+        if (data['sync_id'] && !(typeof data['sync_id'] === 'string' || data['sync_id'] instanceof String)) {
+            throw new Error("Expected the field `sync_id` to be a primitive type in the JSON string but got " + data['sync_id']);
+        }
+        // ensure the json data is a string
+        if (data['thing_id'] && !(typeof data['thing_id'] === 'string' || data['thing_id'] instanceof String)) {
+            throw new Error("Expected the field `thing_id` to be a primitive type in the JSON string but got " + data['thing_id']);
+        }
+        // ensure the json data is a string
+        if (data['thing_name'] && !(typeof data['thing_name'] === 'string' || data['thing_name'] instanceof String)) {
+            throw new Error("Expected the field `thing_name` to be a primitive type in the JSON string but got " + data['thing_name']);
+        }
+        // ensure the json data is a string
+        if (data['type'] && !(typeof data['type'] === 'string' || data['type'] instanceof String)) {
+            throw new Error("Expected the field `type` to be a primitive type in the JSON string but got " + data['type']);
+        }
+        // ensure the json data is a string
+        if (data['update_strategy'] && !(typeof data['update_strategy'] === 'string' || data['update_strategy'] instanceof String)) {
+            throw new Error("Expected the field `update_strategy` to be a primitive type in the JSON string but got " + data['update_strategy']);
+        }
+        // ensure the json data is a string
+        if (data['variable_name'] && !(typeof data['variable_name'] === 'string' || data['variable_name'] instanceof String)) {
+            throw new Error("Expected the field `variable_name` to be a primitive type in the JSON string but got " + data['variable_name']);
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoProperty.RequiredProperties = ["href", "id", "name", "permission", "thing_id", "type", "update_strategy"];
 
 /**
  * Creation date of the property
@@ -158,6 +219,12 @@ ArduinoProperty.prototype['id'] = undefined;
  * @member {Object} last_value
  */
 ArduinoProperty.prototype['last_value'] = undefined;
+
+/**
+ * Indicates if the property is involved in the activation of at least a trigger
+ * @member {Boolean} linked_to_trigger
+ */
+ArduinoProperty.prototype['linked_to_trigger'] = undefined;
 
 /**
  * Maximum value of this property

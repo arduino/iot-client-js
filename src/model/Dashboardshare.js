@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Dashboardshare model module.
  * @module model/Dashboardshare
- * @version 1.4.4
+ * @version 2.0.0
  */
 class Dashboardshare {
     /**
@@ -57,8 +57,28 @@ class Dashboardshare {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>Dashboardshare</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>Dashboardshare</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['user_id'] && !(typeof data['user_id'] === 'string' || data['user_id'] instanceof String)) {
+            throw new Error("Expected the field `user_id` to be a primitive type in the JSON string but got " + data['user_id']);
+        }
+        // ensure the json data is a string
+        if (data['username'] && !(typeof data['username'] === 'string' || data['username'] instanceof String)) {
+            throw new Error("Expected the field `username` to be a primitive type in the JSON string but got " + data['username']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * The userID of the user you want to share the dashboard with

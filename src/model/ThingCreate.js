@@ -17,7 +17,7 @@ import Property from './Property';
 /**
  * The ThingCreate model module.
  * @module model/ThingCreate
- * @version 1.4.4
+ * @version 2.0.0
  */
 class ThingCreate {
     /**
@@ -74,8 +74,50 @@ class ThingCreate {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ThingCreate</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ThingCreate</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['device_id'] && !(typeof data['device_id'] === 'string' || data['device_id'] instanceof String)) {
+            throw new Error("Expected the field `device_id` to be a primitive type in the JSON string but got " + data['device_id']);
+        }
+        // ensure the json data is a string
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        if (data['properties']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['properties'])) {
+                throw new Error("Expected the field `properties` to be an array in the JSON data but got " + data['properties']);
+            }
+            // validate the optional field `properties` (array)
+            for (const item of data['properties']) {
+                Property.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['timezone'] && !(typeof data['timezone'] === 'string' || data['timezone'] instanceof String)) {
+            throw new Error("Expected the field `timezone` to be a primitive type in the JSON string but got " + data['timezone']);
+        }
+        // ensure the json data is a string
+        if (data['webhook_uri'] && !(typeof data['webhook_uri'] === 'string' || data['webhook_uri'] instanceof String)) {
+            throw new Error("Expected the field `webhook_uri` to be a primitive type in the JSON string but got " + data['webhook_uri']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * The arn of the associated device

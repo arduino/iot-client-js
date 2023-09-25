@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoVariableslinks model module.
  * @module model/ArduinoVariableslinks
- * @version 1.4.4
+ * @version 2.0.0
  */
 class ArduinoVariableslinks {
     /**
@@ -57,8 +57,30 @@ class ArduinoVariableslinks {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoVariableslinks</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoVariableslinks</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoVariableslinks.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['variables'])) {
+            throw new Error("Expected the field `variables` to be an array in the JSON data but got " + data['variables']);
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoVariableslinks.RequiredProperties = ["variables"];
 
 /**
  * The ids of the linked variables

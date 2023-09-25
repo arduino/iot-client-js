@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BatchQueryRawResponseSeriesMediaV1 model module.
  * @module model/BatchQueryRawResponseSeriesMediaV1
- * @version 1.4.4
+ * @version 2.0.0
  */
 class BatchQueryRawResponseSeriesMediaV1 {
     /**
@@ -56,8 +56,30 @@ class BatchQueryRawResponseSeriesMediaV1 {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>BatchQueryRawResponseSeriesMediaV1</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>BatchQueryRawResponseSeriesMediaV1</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of BatchQueryRawResponseSeriesMediaV1.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['metric'] && !(typeof data['metric'] === 'string' || data['metric'] instanceof String)) {
+            throw new Error("Expected the field `metric` to be a primitive type in the JSON string but got " + data['metric']);
+        }
+
+        return true;
+    }
+
 
 }
+
+BatchQueryRawResponseSeriesMediaV1.RequiredProperties = ["metric"];
 
 /**
  * Metric name

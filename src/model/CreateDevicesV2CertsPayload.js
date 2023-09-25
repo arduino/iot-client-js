@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateDevicesV2CertsPayload model module.
  * @module model/CreateDevicesV2CertsPayload
- * @version 1.4.4
+ * @version 2.0.0
  */
 class CreateDevicesV2CertsPayload {
     /**
@@ -64,8 +64,34 @@ class CreateDevicesV2CertsPayload {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>CreateDevicesV2CertsPayload</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CreateDevicesV2CertsPayload</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of CreateDevicesV2CertsPayload.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['ca'] && !(typeof data['ca'] === 'string' || data['ca'] instanceof String)) {
+            throw new Error("Expected the field `ca` to be a primitive type in the JSON string but got " + data['ca']);
+        }
+        // ensure the json data is a string
+        if (data['csr'] && !(typeof data['csr'] === 'string' || data['csr'] instanceof String)) {
+            throw new Error("Expected the field `csr` to be a primitive type in the JSON string but got " + data['csr']);
+        }
+
+        return true;
+    }
+
 
 }
+
+CreateDevicesV2CertsPayload.RequiredProperties = ["csr", "enabled"];
 
 /**
  * The Certification Authority you want to use

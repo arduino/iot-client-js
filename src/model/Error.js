@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Error model module.
  * @module model/Error
- * @version 1.4.4
+ * @version 2.0.0
  */
 class Error {
     /**
@@ -67,8 +67,32 @@ class Error {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>Error</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>Error</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['code'] && !(typeof data['code'] === 'string' || data['code'] instanceof String)) {
+            throw new Error("Expected the field `code` to be a primitive type in the JSON string but got " + data['code']);
+        }
+        // ensure the json data is a string
+        if (data['detail'] && !(typeof data['detail'] === 'string' || data['detail'] instanceof String)) {
+            throw new Error("Expected the field `detail` to be a primitive type in the JSON string but got " + data['detail']);
+        }
+        // ensure the json data is a string
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * an application-specific error code, expressed as a string value.

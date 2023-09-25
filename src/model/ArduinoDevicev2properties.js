@@ -17,7 +17,7 @@ import ArduinoProperty from './ArduinoProperty';
 /**
  * The ArduinoDevicev2properties model module.
  * @module model/ArduinoDevicev2properties
- * @version 1.4.4
+ * @version 2.0.0
  */
 class ArduinoDevicev2properties {
     /**
@@ -73,8 +73,44 @@ class ArduinoDevicev2properties {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoDevicev2properties</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoDevicev2properties</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoDevicev2properties.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['deviceId'] && !(typeof data['deviceId'] === 'string' || data['deviceId'] instanceof String)) {
+            throw new Error("Expected the field `deviceId` to be a primitive type in the JSON string but got " + data['deviceId']);
+        }
+        if (data['properties']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['properties'])) {
+                throw new Error("Expected the field `properties` to be an array in the JSON data but got " + data['properties']);
+            }
+            // validate the optional field `properties` (array)
+            for (const item of data['properties']) {
+                ArduinoProperty.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['user_id'] && !(typeof data['user_id'] === 'string' || data['user_id'] instanceof String)) {
+            throw new Error("Expected the field `user_id` to be a primitive type in the JSON string but got " + data['user_id']);
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoDevicev2properties.RequiredProperties = ["data_retention_days", "deviceId", "properties", "user_id"];
 
 /**
  * How many days the data will be kept

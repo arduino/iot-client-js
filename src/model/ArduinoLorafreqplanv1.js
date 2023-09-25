@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoLorafreqplanv1 model module.
  * @module model/ArduinoLorafreqplanv1
- * @version 1.4.4
+ * @version 2.0.0
  */
 class ArduinoLorafreqplanv1 {
     /**
@@ -67,8 +67,34 @@ class ArduinoLorafreqplanv1 {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoLorafreqplanv1</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoLorafreqplanv1</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoLorafreqplanv1.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoLorafreqplanv1.RequiredProperties = ["advanced", "id", "name"];
 
 /**
  * Frequency plan only for advanced users

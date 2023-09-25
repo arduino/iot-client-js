@@ -17,7 +17,7 @@ import PropertiesValue from './PropertiesValue';
 /**
  * The PropertiesValues model module.
  * @module model/PropertiesValues
- * @version 1.4.4
+ * @version 2.0.0
  */
 class PropertiesValues {
     /**
@@ -60,8 +60,36 @@ class PropertiesValues {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>PropertiesValues</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>PropertiesValues</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of PropertiesValues.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        if (data['properties']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['properties'])) {
+                throw new Error("Expected the field `properties` to be an array in the JSON data but got " + data['properties']);
+            }
+            // validate the optional field `properties` (array)
+            for (const item of data['properties']) {
+                PropertiesValue.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+PropertiesValues.RequiredProperties = ["properties"];
 
 /**
  * If true, send property values to device's input topic.

@@ -17,7 +17,7 @@ import ArduinoDevicev2propertyvalueValue from './ArduinoDevicev2propertyvalueVal
 /**
  * The ArduinoDevicev2propertyvalue model module.
  * @module model/ArduinoDevicev2propertyvalue
- * @version 1.4.4
+ * @version 2.0.0
  */
 class ArduinoDevicev2propertyvalue {
     /**
@@ -59,8 +59,24 @@ class ArduinoDevicev2propertyvalue {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoDevicev2propertyvalue</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoDevicev2propertyvalue</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `value`
+        if (data['value']) { // data not null
+          ArduinoDevicev2propertyvalueValue.validateJSON(data['value']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Date} created_at

@@ -17,7 +17,7 @@ import ArduinoSeriesRawLastValueResponse from './ArduinoSeriesRawLastValueRespon
 /**
  * The ArduinoSeriesRawBatchLastvalue model module.
  * @module model/ArduinoSeriesRawBatchLastvalue
- * @version 1.4.4
+ * @version 2.0.0
  */
 class ArduinoSeriesRawBatchLastvalue {
     /**
@@ -63,8 +63,40 @@ class ArduinoSeriesRawBatchLastvalue {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoSeriesRawBatchLastvalue</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoSeriesRawBatchLastvalue</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoSeriesRawBatchLastvalue.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        if (data['responses']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['responses'])) {
+                throw new Error("Expected the field `responses` to be an array in the JSON data but got " + data['responses']);
+            }
+            // validate the optional field `responses` (array)
+            for (const item of data['responses']) {
+                ArduinoSeriesRawLastValueResponse.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['status'] && !(typeof data['status'] === 'string' || data['status'] instanceof String)) {
+            throw new Error("Expected the field `status` to be a primitive type in the JSON string but got " + data['status']);
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoSeriesRawBatchLastvalue.RequiredProperties = ["responses", "status"];
 
 /**
  * Responses of the request

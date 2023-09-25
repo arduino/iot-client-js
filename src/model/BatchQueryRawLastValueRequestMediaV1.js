@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BatchQueryRawLastValueRequestMediaV1 model module.
  * @module model/BatchQueryRawLastValueRequestMediaV1
- * @version 1.4.4
+ * @version 2.0.0
  */
 class BatchQueryRawLastValueRequestMediaV1 {
     /**
@@ -61,8 +61,34 @@ class BatchQueryRawLastValueRequestMediaV1 {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>BatchQueryRawLastValueRequestMediaV1</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>BatchQueryRawLastValueRequestMediaV1</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of BatchQueryRawLastValueRequestMediaV1.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['property_id'] && !(typeof data['property_id'] === 'string' || data['property_id'] instanceof String)) {
+            throw new Error("Expected the field `property_id` to be a primitive type in the JSON string but got " + data['property_id']);
+        }
+        // ensure the json data is a string
+        if (data['thing_id'] && !(typeof data['thing_id'] === 'string' || data['thing_id'] instanceof String)) {
+            throw new Error("Expected the field `thing_id` to be a primitive type in the JSON string but got " + data['thing_id']);
+        }
+
+        return true;
+    }
+
 
 }
+
+BatchQueryRawLastValueRequestMediaV1.RequiredProperties = ["property_id", "thing_id"];
 
 /**
  * Property id

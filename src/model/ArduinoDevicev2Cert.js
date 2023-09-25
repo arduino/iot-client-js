@@ -17,7 +17,7 @@ import ArduinoCompressedv2 from './ArduinoCompressedv2';
 /**
  * The ArduinoDevicev2Cert model module.
  * @module model/ArduinoDevicev2Cert
- * @version 1.4.4
+ * @version 2.0.0
  */
 class ArduinoDevicev2Cert {
     /**
@@ -46,7 +46,7 @@ class ArduinoDevicev2Cert {
         obj['compressed'] = compressed;
         obj['der'] = der;
         obj['device_id'] = deviceId;
-        obj['enabled'] = enabled;
+        obj['enabled'] = enabled || true;
         obj['href'] = href;
         obj['id'] = id;
         obj['pem'] = pem;
@@ -91,8 +91,54 @@ class ArduinoDevicev2Cert {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ArduinoDevicev2Cert</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoDevicev2Cert</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoDevicev2Cert.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['ca'] && !(typeof data['ca'] === 'string' || data['ca'] instanceof String)) {
+            throw new Error("Expected the field `ca` to be a primitive type in the JSON string but got " + data['ca']);
+        }
+        // validate the optional field `compressed`
+        if (data['compressed']) { // data not null
+          ArduinoCompressedv2.validateJSON(data['compressed']);
+        }
+        // ensure the json data is a string
+        if (data['der'] && !(typeof data['der'] === 'string' || data['der'] instanceof String)) {
+            throw new Error("Expected the field `der` to be a primitive type in the JSON string but got " + data['der']);
+        }
+        // ensure the json data is a string
+        if (data['device_id'] && !(typeof data['device_id'] === 'string' || data['device_id'] instanceof String)) {
+            throw new Error("Expected the field `device_id` to be a primitive type in the JSON string but got " + data['device_id']);
+        }
+        // ensure the json data is a string
+        if (data['href'] && !(typeof data['href'] === 'string' || data['href'] instanceof String)) {
+            throw new Error("Expected the field `href` to be a primitive type in the JSON string but got " + data['href']);
+        }
+        // ensure the json data is a string
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        }
+        // ensure the json data is a string
+        if (data['pem'] && !(typeof data['pem'] === 'string' || data['pem'] instanceof String)) {
+            throw new Error("Expected the field `pem` to be a primitive type in the JSON string but got " + data['pem']);
+        }
+
+        return true;
+    }
+
 
 }
+
+ArduinoDevicev2Cert.RequiredProperties = ["compressed", "der", "device_id", "enabled", "href", "id", "pem"];
 
 /**
  * The Certification Authority used to sign the certificate
