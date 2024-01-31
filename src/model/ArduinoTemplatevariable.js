@@ -15,26 +15,24 @@ import ApiClient from '../ApiClient';
 import ArduinoTimezone from './ArduinoTimezone';
 
 /**
- * The ArduinoLinkedvariable model module.
- * @module model/ArduinoLinkedvariable
+ * The ArduinoTemplatevariable model module.
+ * @module model/ArduinoTemplatevariable
  * @version 2.0.1
  */
-class ArduinoLinkedvariable {
+class ArduinoTemplatevariable {
     /**
-     * Constructs a new <code>ArduinoLinkedvariable</code>.
-     * ArduinoLinkedvariable media type (default view)
-     * @alias module:model/ArduinoLinkedvariable
-     * @param id {String} The id of the linked variable
+     * Constructs a new <code>ArduinoTemplatevariable</code>.
+     * ArduinoTemplatevariable media type (default view)
+     * @alias module:model/ArduinoTemplatevariable
      * @param name {String} The name of the variable
      * @param permission {String} The permission of the linked variable
-     * @param thingId {String} The id of the related thing
-     * @param thingName {String} The name of the related thing
+     * @param thingId {String} The name of the related thing
      * @param type {String} The type of the variable
-     * @param variableName {String} The name of the variable in the code
+     * @param variableId {String} The name of the variable in the code
      */
-    constructor(id, name, permission, thingId, thingName, type, variableName) { 
+    constructor(name, permission, thingId, type, variableId) { 
         
-        ArduinoLinkedvariable.initialize(this, id, name, permission, thingId, thingName, type, variableName);
+        ArduinoTemplatevariable.initialize(this, name, permission, thingId, type, variableId);
     }
 
     /**
@@ -42,36 +40,25 @@ class ArduinoLinkedvariable {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, name, permission, thingId, thingName, type, variableName) { 
-        obj['id'] = id;
+    static initialize(obj, name, permission, thingId, type, variableId) { 
         obj['name'] = name;
         obj['permission'] = permission;
         obj['thing_id'] = thingId;
-        obj['thing_name'] = thingName;
         obj['type'] = type;
-        obj['variable_name'] = variableName;
+        obj['variable_id'] = variableId;
     }
 
     /**
-     * Constructs a <code>ArduinoLinkedvariable</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>ArduinoTemplatevariable</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ArduinoLinkedvariable} obj Optional instance to populate.
-     * @return {module:model/ArduinoLinkedvariable} The populated <code>ArduinoLinkedvariable</code> instance.
+     * @param {module:model/ArduinoTemplatevariable} obj Optional instance to populate.
+     * @return {module:model/ArduinoTemplatevariable} The populated <code>ArduinoTemplatevariable</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new ArduinoLinkedvariable();
+            obj = obj || new ArduinoTemplatevariable();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
-            if (data.hasOwnProperty('last_value')) {
-                obj['last_value'] = ApiClient.convertToType(data['last_value'], Object);
-            }
-            if (data.hasOwnProperty('last_value_updated_at')) {
-                obj['last_value_updated_at'] = ApiClient.convertToType(data['last_value_updated_at'], 'Date');
-            }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
@@ -81,37 +68,30 @@ class ArduinoLinkedvariable {
             if (data.hasOwnProperty('thing_id')) {
                 obj['thing_id'] = ApiClient.convertToType(data['thing_id'], 'String');
             }
-            if (data.hasOwnProperty('thing_name')) {
-                obj['thing_name'] = ApiClient.convertToType(data['thing_name'], 'String');
-            }
             if (data.hasOwnProperty('thing_timezone')) {
                 obj['thing_timezone'] = ArduinoTimezone.constructFromObject(data['thing_timezone']);
             }
             if (data.hasOwnProperty('type')) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('variable_name')) {
-                obj['variable_name'] = ApiClient.convertToType(data['variable_name'], 'String');
+            if (data.hasOwnProperty('variable_id')) {
+                obj['variable_id'] = ApiClient.convertToType(data['variable_id'], 'String');
             }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>ArduinoLinkedvariable</code>.
+     * Validates the JSON data with respect to <code>ArduinoTemplatevariable</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoLinkedvariable</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoTemplatevariable</code>.
      */
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
-        for (const property of ArduinoLinkedvariable.RequiredProperties) {
+        for (const property of ArduinoTemplatevariable.RequiredProperties) {
             if (!data[property]) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
-        }
-        // ensure the json data is a string
-        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
-            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
         }
         // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
@@ -125,10 +105,6 @@ class ArduinoLinkedvariable {
         if (data['thing_id'] && !(typeof data['thing_id'] === 'string' || data['thing_id'] instanceof String)) {
             throw new Error("Expected the field `thing_id` to be a primitive type in the JSON string but got " + data['thing_id']);
         }
-        // ensure the json data is a string
-        if (data['thing_name'] && !(typeof data['thing_name'] === 'string' || data['thing_name'] instanceof String)) {
-            throw new Error("Expected the field `thing_name` to be a primitive type in the JSON string but got " + data['thing_name']);
-        }
         // validate the optional field `thing_timezone`
         if (data['thing_timezone']) { // data not null
           ArduinoTimezone.validateJSON(data['thing_timezone']);
@@ -138,8 +114,8 @@ class ArduinoLinkedvariable {
             throw new Error("Expected the field `type` to be a primitive type in the JSON string but got " + data['type']);
         }
         // ensure the json data is a string
-        if (data['variable_name'] && !(typeof data['variable_name'] === 'string' || data['variable_name'] instanceof String)) {
-            throw new Error("Expected the field `variable_name` to be a primitive type in the JSON string but got " + data['variable_name']);
+        if (data['variable_id'] && !(typeof data['variable_id'] === 'string' || data['variable_id'] instanceof String)) {
+            throw new Error("Expected the field `variable_id` to be a primitive type in the JSON string but got " + data['variable_id']);
         }
 
         return true;
@@ -148,71 +124,47 @@ class ArduinoLinkedvariable {
 
 }
 
-ArduinoLinkedvariable.RequiredProperties = ["id", "name", "permission", "thing_id", "thing_name", "type", "variable_name"];
-
-/**
- * The id of the linked variable
- * @member {String} id
- */
-ArduinoLinkedvariable.prototype['id'] = undefined;
-
-/**
- * Last value of the linked property
- * @member {Object} last_value
- */
-ArduinoLinkedvariable.prototype['last_value'] = undefined;
-
-/**
- * Update date of the last value
- * @member {Date} last_value_updated_at
- */
-ArduinoLinkedvariable.prototype['last_value_updated_at'] = undefined;
+ArduinoTemplatevariable.RequiredProperties = ["name", "permission", "thing_id", "type", "variable_id"];
 
 /**
  * The name of the variable
  * @member {String} name
  */
-ArduinoLinkedvariable.prototype['name'] = undefined;
+ArduinoTemplatevariable.prototype['name'] = undefined;
 
 /**
  * The permission of the linked variable
  * @member {String} permission
  */
-ArduinoLinkedvariable.prototype['permission'] = undefined;
-
-/**
- * The id of the related thing
- * @member {String} thing_id
- */
-ArduinoLinkedvariable.prototype['thing_id'] = undefined;
+ArduinoTemplatevariable.prototype['permission'] = undefined;
 
 /**
  * The name of the related thing
- * @member {String} thing_name
+ * @member {String} thing_id
  */
-ArduinoLinkedvariable.prototype['thing_name'] = undefined;
+ArduinoTemplatevariable.prototype['thing_id'] = undefined;
 
 /**
  * @member {module:model/ArduinoTimezone} thing_timezone
  */
-ArduinoLinkedvariable.prototype['thing_timezone'] = undefined;
+ArduinoTemplatevariable.prototype['thing_timezone'] = undefined;
 
 /**
  * The type of the variable
  * @member {String} type
  */
-ArduinoLinkedvariable.prototype['type'] = undefined;
+ArduinoTemplatevariable.prototype['type'] = undefined;
 
 /**
  * The name of the variable in the code
- * @member {String} variable_name
+ * @member {String} variable_id
  */
-ArduinoLinkedvariable.prototype['variable_name'] = undefined;
+ArduinoTemplatevariable.prototype['variable_id'] = undefined;
 
 
 
 
 
 
-export default ArduinoLinkedvariable;
+export default ArduinoTemplatevariable;
 

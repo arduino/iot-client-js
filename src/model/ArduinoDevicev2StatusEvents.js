@@ -12,24 +12,24 @@
  */
 
 import ApiClient from '../ApiClient';
-import ArduinoDevicev2SimpleProperties from './ArduinoDevicev2SimpleProperties';
+import ArduinoDevicev2StatusEvent from './ArduinoDevicev2StatusEvent';
 
 /**
- * The ArduinoDevicev2EventProperties model module.
- * @module model/ArduinoDevicev2EventProperties
+ * The ArduinoDevicev2StatusEvents model module.
+ * @module model/ArduinoDevicev2StatusEvents
  * @version 2.0.1
  */
-class ArduinoDevicev2EventProperties {
+class ArduinoDevicev2StatusEvents {
     /**
-     * Constructs a new <code>ArduinoDevicev2EventProperties</code>.
-     * ArduinoDevicev2EventProperties media type (default view)
-     * @alias module:model/ArduinoDevicev2EventProperties
-     * @param events {Array.<module:model/ArduinoDevicev2SimpleProperties>} ArduinoDevicev2SimplePropertiesCollection is the media type for an array of ArduinoDevicev2SimpleProperties (default view)
-     * @param id {String} The device of the property
+     * Constructs a new <code>ArduinoDevicev2StatusEvents</code>.
+     * ArduinoDevicev2StatusEvents media type (default view)
+     * @alias module:model/ArduinoDevicev2StatusEvents
+     * @param events {Array.<module:model/ArduinoDevicev2StatusEvent>} ArduinoDevicev2StatusEventCollection is the media type for an array of ArduinoDevicev2StatusEvent (default view)
+     * @param id {String} The id of the device
      */
     constructor(events, id) { 
         
-        ArduinoDevicev2EventProperties.initialize(this, events, id);
+        ArduinoDevicev2StatusEvents.initialize(this, events, id);
     }
 
     /**
@@ -43,18 +43,18 @@ class ArduinoDevicev2EventProperties {
     }
 
     /**
-     * Constructs a <code>ArduinoDevicev2EventProperties</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>ArduinoDevicev2StatusEvents</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ArduinoDevicev2EventProperties} obj Optional instance to populate.
-     * @return {module:model/ArduinoDevicev2EventProperties} The populated <code>ArduinoDevicev2EventProperties</code> instance.
+     * @param {module:model/ArduinoDevicev2StatusEvents} obj Optional instance to populate.
+     * @return {module:model/ArduinoDevicev2StatusEvents} The populated <code>ArduinoDevicev2StatusEvents</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new ArduinoDevicev2EventProperties();
+            obj = obj || new ArduinoDevicev2StatusEvents();
 
             if (data.hasOwnProperty('events')) {
-                obj['events'] = ApiClient.convertToType(data['events'], [ArduinoDevicev2SimpleProperties]);
+                obj['events'] = ApiClient.convertToType(data['events'], [ArduinoDevicev2StatusEvent]);
             }
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
@@ -64,13 +64,13 @@ class ArduinoDevicev2EventProperties {
     }
 
     /**
-     * Validates the JSON data with respect to <code>ArduinoDevicev2EventProperties</code>.
+     * Validates the JSON data with respect to <code>ArduinoDevicev2StatusEvents</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoDevicev2EventProperties</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoDevicev2StatusEvents</code>.
      */
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
-        for (const property of ArduinoDevicev2EventProperties.RequiredProperties) {
+        for (const property of ArduinoDevicev2StatusEvents.RequiredProperties) {
             if (!data[property]) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
@@ -82,7 +82,7 @@ class ArduinoDevicev2EventProperties {
             }
             // validate the optional field `events` (array)
             for (const item of data['events']) {
-                ArduinoDevicev2SimpleProperties.validateJSON(item);
+                ArduinoDevicev2StatusEvent.validateJSON(item);
             };
         }
         // ensure the json data is a string
@@ -96,24 +96,24 @@ class ArduinoDevicev2EventProperties {
 
 }
 
-ArduinoDevicev2EventProperties.RequiredProperties = ["events", "id"];
+ArduinoDevicev2StatusEvents.RequiredProperties = ["events", "id"];
 
 /**
- * ArduinoDevicev2SimplePropertiesCollection is the media type for an array of ArduinoDevicev2SimpleProperties (default view)
- * @member {Array.<module:model/ArduinoDevicev2SimpleProperties>} events
+ * ArduinoDevicev2StatusEventCollection is the media type for an array of ArduinoDevicev2StatusEvent (default view)
+ * @member {Array.<module:model/ArduinoDevicev2StatusEvent>} events
  */
-ArduinoDevicev2EventProperties.prototype['events'] = undefined;
+ArduinoDevicev2StatusEvents.prototype['events'] = undefined;
 
 /**
- * The device of the property
+ * The id of the device
  * @member {String} id
  */
-ArduinoDevicev2EventProperties.prototype['id'] = undefined;
+ArduinoDevicev2StatusEvents.prototype['id'] = undefined;
 
 
 
 
 
 
-export default ArduinoDevicev2EventProperties;
+export default ArduinoDevicev2StatusEvents;
 

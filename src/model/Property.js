@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Property model module.
  * @module model/Property
- * @version 2.0.0
+ * @version 2.0.1
  */
 class Property {
     /**
@@ -727,6 +727,132 @@ Property['TypeEnum'] = {
      * @const
      */
     "HOME_TELEVISION": "HOME_TELEVISION",
+
+    /**
+     * value: "GOOGLE_HOME_COLORED_LIGHT"
+     * @const
+     */
+    "GOOGLE_HOME_COLORED_LIGHT": "GOOGLE_HOME_COLORED_LIGHT",
+
+    /**
+     * value: "GOOGLE_HOME_DIMMED_LIGHT"
+     * @const
+     */
+    "GOOGLE_HOME_DIMMED_LIGHT": "GOOGLE_HOME_DIMMED_LIGHT",
+
+    /**
+     * value: "GOOGLE_HOME_LIGHT"
+     * @const
+     */
+    "GOOGLE_HOME_LIGHT": "GOOGLE_HOME_LIGHT",
+
+    /**
+     * value: "GOOGLE_HOME_CONTACT_SENSOR"
+     * @const
+     */
+    "GOOGLE_HOME_CONTACT_SENSOR": "GOOGLE_HOME_CONTACT_SENSOR",
+
+    /**
+     * value: "GOOGLE_HOME_MOTION_SENSOR"
+     * @const
+     */
+    "GOOGLE_HOME_MOTION_SENSOR": "GOOGLE_HOME_MOTION_SENSOR",
+
+    /**
+     * value: "GOOGLE_HOME_SMART_PLUG"
+     * @const
+     */
+    "GOOGLE_HOME_SMART_PLUG": "GOOGLE_HOME_SMART_PLUG",
+
+    /**
+     * value: "GOOGLE_HOME_TEMPERATURE"
+     * @const
+     */
+    "GOOGLE_HOME_TEMPERATURE": "GOOGLE_HOME_TEMPERATURE",
+
+    /**
+     * value: "GOOGLE_HOME_TEMPERATURE_C"
+     * @const
+     */
+    "GOOGLE_HOME_TEMPERATURE_C": "GOOGLE_HOME_TEMPERATURE_C",
+
+    /**
+     * value: "GOOGLE_HOME_TEMPERATURE_F"
+     * @const
+     */
+    "GOOGLE_HOME_TEMPERATURE_F": "GOOGLE_HOME_TEMPERATURE_F",
+
+    /**
+     * value: "GOOGLE_HOME_SWITCH"
+     * @const
+     */
+    "GOOGLE_HOME_SWITCH": "GOOGLE_HOME_SWITCH",
+
+    /**
+     * value: "SMART_HOME_COLORED_LIGHT"
+     * @const
+     */
+    "SMART_HOME_COLORED_LIGHT": "SMART_HOME_COLORED_LIGHT",
+
+    /**
+     * value: "SMART_HOME_DIMMED_LIGHT"
+     * @const
+     */
+    "SMART_HOME_DIMMED_LIGHT": "SMART_HOME_DIMMED_LIGHT",
+
+    /**
+     * value: "SMART_HOME_LIGHT"
+     * @const
+     */
+    "SMART_HOME_LIGHT": "SMART_HOME_LIGHT",
+
+    /**
+     * value: "SMART_HOME_CONTACT_SENSOR"
+     * @const
+     */
+    "SMART_HOME_CONTACT_SENSOR": "SMART_HOME_CONTACT_SENSOR",
+
+    /**
+     * value: "SMART_HOME_MOTION_SENSOR"
+     * @const
+     */
+    "SMART_HOME_MOTION_SENSOR": "SMART_HOME_MOTION_SENSOR",
+
+    /**
+     * value: "SMART_HOME_SMART_PLUG"
+     * @const
+     */
+    "SMART_HOME_SMART_PLUG": "SMART_HOME_SMART_PLUG",
+
+    /**
+     * value: "SMART_HOME_TEMPERATURE"
+     * @const
+     */
+    "SMART_HOME_TEMPERATURE": "SMART_HOME_TEMPERATURE",
+
+    /**
+     * value: "SMART_HOME_TEMPERATURE_C"
+     * @const
+     */
+    "SMART_HOME_TEMPERATURE_C": "SMART_HOME_TEMPERATURE_C",
+
+    /**
+     * value: "SMART_HOME_TEMPERATURE_F"
+     * @const
+     */
+    "SMART_HOME_TEMPERATURE_F": "SMART_HOME_TEMPERATURE_F",
+
+    /**
+     * value: "SMART_HOME_SWITCH"
+     * @const
+     */
+    "SMART_HOME_SWITCH": "SMART_HOME_SWITCH",
+
+    /**
+     * value: "SMART_HOME_TELEVISION"
+     * @const
+     */
+    "SMART_HOME_TELEVISION": "SMART_HOME_TELEVISION",
 
     /**
      * value: "ENERGY"

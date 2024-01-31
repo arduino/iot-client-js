@@ -17,11 +17,14 @@ import ArduinoCompressedv2 from './model/ArduinoCompressedv2';
 import ArduinoDashboardowner from './model/ArduinoDashboardowner';
 import ArduinoDashboardshare from './model/ArduinoDashboardshare';
 import ArduinoDashboardv2 from './model/ArduinoDashboardv2';
+import ArduinoDashboardv2template from './model/ArduinoDashboardv2template';
 import ArduinoDevicev2 from './model/ArduinoDevicev2';
 import ArduinoDevicev2Cert from './model/ArduinoDevicev2Cert';
 import ArduinoDevicev2EventProperties from './model/ArduinoDevicev2EventProperties';
 import ArduinoDevicev2Pass from './model/ArduinoDevicev2Pass';
 import ArduinoDevicev2SimpleProperties from './model/ArduinoDevicev2SimpleProperties';
+import ArduinoDevicev2StatusEvent from './model/ArduinoDevicev2StatusEvent';
+import ArduinoDevicev2StatusEvents from './model/ArduinoDevicev2StatusEvents';
 import ArduinoDevicev2Webhook from './model/ArduinoDevicev2Webhook';
 import ArduinoDevicev2properties from './model/ArduinoDevicev2properties';
 import ArduinoDevicev2propertyvalue from './model/ArduinoDevicev2propertyvalue';
@@ -41,11 +44,15 @@ import ArduinoSeriesRawLastValueResponse from './model/ArduinoSeriesRawLastValue
 import ArduinoSeriesRawResponse from './model/ArduinoSeriesRawResponse';
 import ArduinoSeriesResponse from './model/ArduinoSeriesResponse';
 import ArduinoTags from './model/ArduinoTags';
+import ArduinoTemplateproperty from './model/ArduinoTemplateproperty';
+import ArduinoTemplatevariable from './model/ArduinoTemplatevariable';
 import ArduinoThing from './model/ArduinoThing';
+import ArduinoThingtemplate from './model/ArduinoThingtemplate';
 import ArduinoTimeseriesmedia from './model/ArduinoTimeseriesmedia';
 import ArduinoTimezone from './model/ArduinoTimezone';
 import ArduinoVariableslinks from './model/ArduinoVariableslinks';
 import ArduinoWidgetv2 from './model/ArduinoWidgetv2';
+import ArduinoWidgetv2template from './model/ArduinoWidgetv2template';
 import BatchLastValueRequestsMediaV1 from './model/BatchLastValueRequestsMediaV1';
 import BatchQueryRawLastValueRequestMediaV1 from './model/BatchQueryRawLastValueRequestMediaV1';
 import BatchQueryRawRequestMediaV1 from './model/BatchQueryRawRequestMediaV1';
@@ -54,6 +61,7 @@ import BatchQueryRawResponseSeriesMediaV1 from './model/BatchQueryRawResponseSer
 import BatchQueryRequestMediaV1 from './model/BatchQueryRequestMediaV1';
 import BatchQueryRequestsMediaV1 from './model/BatchQueryRequestsMediaV1';
 import CheckDevicesV2PassPayload from './model/CheckDevicesV2PassPayload';
+import Clone from './model/Clone';
 import CreateDevicesV2CertsPayload from './model/CreateDevicesV2CertsPayload';
 import CreateDevicesV2Payload from './model/CreateDevicesV2Payload';
 import CreateLoraDevicesV1Payload from './model/CreateLoraDevicesV1Payload';
@@ -65,12 +73,14 @@ import Devicev2Otabinaryurl from './model/Devicev2Otabinaryurl';
 import Devicev2Pass from './model/Devicev2Pass';
 import Error from './model/Error';
 import HistoricDataRequest from './model/HistoricDataRequest';
+import Override from './model/Override';
 import PropertiesValue from './model/PropertiesValue';
 import PropertiesValues from './model/PropertiesValues';
 import Property from './model/Property';
 import PropertyValue from './model/PropertyValue';
 import Sharerequest from './model/Sharerequest';
 import Tag from './model/Tag';
+import ThingClone from './model/ThingClone';
 import ThingCreate from './model/ThingCreate';
 import ThingSketch from './model/ThingSketch';
 import ThingUpdate from './model/ThingUpdate';
@@ -121,7 +131,7 @@ import ThingsV2TagsApi from './api/ThingsV2TagsApi';
 * </pre>
 * </p>
 * @module index
-* @version 2.0.0
+* @version 2.0.1
 */
 export {
     /**
@@ -155,6 +165,12 @@ export {
     ArduinoDashboardv2,
 
     /**
+     * The ArduinoDashboardv2template model constructor.
+     * @property {module:model/ArduinoDashboardv2template}
+     */
+    ArduinoDashboardv2template,
+
+    /**
      * The ArduinoDevicev2 model constructor.
      * @property {module:model/ArduinoDevicev2}
      */
@@ -183,6 +199,18 @@ export {
      * @property {module:model/ArduinoDevicev2SimpleProperties}
      */
     ArduinoDevicev2SimpleProperties,
+
+    /**
+     * The ArduinoDevicev2StatusEvent model constructor.
+     * @property {module:model/ArduinoDevicev2StatusEvent}
+     */
+    ArduinoDevicev2StatusEvent,
+
+    /**
+     * The ArduinoDevicev2StatusEvents model constructor.
+     * @property {module:model/ArduinoDevicev2StatusEvents}
+     */
+    ArduinoDevicev2StatusEvents,
 
     /**
      * The ArduinoDevicev2Webhook model constructor.
@@ -299,10 +327,28 @@ export {
     ArduinoTags,
 
     /**
+     * The ArduinoTemplateproperty model constructor.
+     * @property {module:model/ArduinoTemplateproperty}
+     */
+    ArduinoTemplateproperty,
+
+    /**
+     * The ArduinoTemplatevariable model constructor.
+     * @property {module:model/ArduinoTemplatevariable}
+     */
+    ArduinoTemplatevariable,
+
+    /**
      * The ArduinoThing model constructor.
      * @property {module:model/ArduinoThing}
      */
     ArduinoThing,
+
+    /**
+     * The ArduinoThingtemplate model constructor.
+     * @property {module:model/ArduinoThingtemplate}
+     */
+    ArduinoThingtemplate,
 
     /**
      * The ArduinoTimeseriesmedia model constructor.
@@ -327,6 +373,12 @@ export {
      * @property {module:model/ArduinoWidgetv2}
      */
     ArduinoWidgetv2,
+
+    /**
+     * The ArduinoWidgetv2template model constructor.
+     * @property {module:model/ArduinoWidgetv2template}
+     */
+    ArduinoWidgetv2template,
 
     /**
      * The BatchLastValueRequestsMediaV1 model constructor.
@@ -375,6 +427,12 @@ export {
      * @property {module:model/CheckDevicesV2PassPayload}
      */
     CheckDevicesV2PassPayload,
+
+    /**
+     * The Clone model constructor.
+     * @property {module:model/Clone}
+     */
+    Clone,
 
     /**
      * The CreateDevicesV2CertsPayload model constructor.
@@ -443,6 +501,12 @@ export {
     HistoricDataRequest,
 
     /**
+     * The Override model constructor.
+     * @property {module:model/Override}
+     */
+    Override,
+
+    /**
      * The PropertiesValue model constructor.
      * @property {module:model/PropertiesValue}
      */
@@ -477,6 +541,12 @@ export {
      * @property {module:model/Tag}
      */
     Tag,
+
+    /**
+     * The ThingClone model constructor.
+     * @property {module:model/ThingClone}
+     */
+    ThingClone,
 
     /**
      * The ThingCreate model constructor.

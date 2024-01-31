@@ -14,20 +14,20 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The PropertyValue model module.
- * @module model/PropertyValue
+ * The ThingClone model module.
+ * @module model/ThingClone
  * @version 2.0.1
  */
-class PropertyValue {
+class ThingClone {
     /**
-     * Constructs a new <code>PropertyValue</code>.
-     * PropertyValuePayload describes a property value
-     * @alias module:model/PropertyValue
-     * @param value {Object} The property value
+     * Constructs a new <code>ThingClone</code>.
+     * Payload to clone a new thing from an existing one
+     * @alias module:model/ThingClone
+     * @param name {String} The friendly name of the thing
      */
-    constructor(value) { 
+    constructor(name) { 
         
-        PropertyValue.initialize(this, value);
+        ThingClone.initialize(this, name);
     }
 
     /**
@@ -35,46 +35,46 @@ class PropertyValue {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, value) { 
-        obj['value'] = value;
+    static initialize(obj, name) { 
+        obj['name'] = name;
     }
 
     /**
-     * Constructs a <code>PropertyValue</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>ThingClone</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/PropertyValue} obj Optional instance to populate.
-     * @return {module:model/PropertyValue} The populated <code>PropertyValue</code> instance.
+     * @param {module:model/ThingClone} obj Optional instance to populate.
+     * @return {module:model/ThingClone} The populated <code>ThingClone</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new PropertyValue();
+            obj = obj || new ThingClone();
 
-            if (data.hasOwnProperty('device_id')) {
-                obj['device_id'] = ApiClient.convertToType(data['device_id'], 'String');
+            if (data.hasOwnProperty('include_tags')) {
+                obj['include_tags'] = ApiClient.convertToType(data['include_tags'], 'Boolean');
             }
-            if (data.hasOwnProperty('value')) {
-                obj['value'] = ApiClient.convertToType(data['value'], Object);
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>PropertyValue</code>.
+     * Validates the JSON data with respect to <code>ThingClone</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>PropertyValue</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ThingClone</code>.
      */
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
-        for (const property of PropertyValue.RequiredProperties) {
+        for (const property of ThingClone.RequiredProperties) {
             if (!data[property]) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
         // ensure the json data is a string
-        if (data['device_id'] && !(typeof data['device_id'] === 'string' || data['device_id'] instanceof String)) {
-            throw new Error("Expected the field `device_id` to be a primitive type in the JSON string but got " + data['device_id']);
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
         }
 
         return true;
@@ -83,24 +83,24 @@ class PropertyValue {
 
 }
 
-PropertyValue.RequiredProperties = ["value"];
+ThingClone.RequiredProperties = ["name"];
 
 /**
- * The device who send the property
- * @member {String} device_id
+ * Include tags in clone procedure
+ * @member {Boolean} include_tags
  */
-PropertyValue.prototype['device_id'] = undefined;
+ThingClone.prototype['include_tags'] = undefined;
 
 /**
- * The property value
- * @member {Object} value
+ * The friendly name of the thing
+ * @member {String} name
  */
-PropertyValue.prototype['value'] = undefined;
+ThingClone.prototype['name'] = undefined;
 
 
 
 
 
 
-export default PropertyValue;
+export default ThingClone;
 

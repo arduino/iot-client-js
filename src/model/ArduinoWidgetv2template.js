@@ -12,29 +12,28 @@
  */
 
 import ApiClient from '../ApiClient';
-import ArduinoLinkedvariable from './ArduinoLinkedvariable';
+import ArduinoTemplatevariable from './ArduinoTemplatevariable';
 
 /**
- * The ArduinoWidgetv2 model module.
- * @module model/ArduinoWidgetv2
+ * The ArduinoWidgetv2template model module.
+ * @module model/ArduinoWidgetv2template
  * @version 2.0.1
  */
-class ArduinoWidgetv2 {
+class ArduinoWidgetv2template {
     /**
-     * Constructs a new <code>ArduinoWidgetv2</code>.
-     * ArduinoWidgetv2 media type (default view)
-     * @alias module:model/ArduinoWidgetv2
+     * Constructs a new <code>ArduinoWidgetv2template</code>.
+     * ArduinoWidgetv2template media type (default view)
+     * @alias module:model/ArduinoWidgetv2template
      * @param height {Number} Widget current height for desktop
-     * @param id {String} The UUID of the widget, set by client
      * @param options {Object.<String, Object>} Widget options
-     * @param type {module:model/ArduinoWidgetv2.TypeEnum} The type of the widget
+     * @param type {String} The type of the widget
      * @param width {Number} Widget current width for desktop
      * @param x {Number} Widget x position for desktop
      * @param y {Number} Widget y position for desktop
      */
-    constructor(height, id, options, type, width, x, y) { 
+    constructor(height, options, type, width, x, y) { 
         
-        ArduinoWidgetv2.initialize(this, height, id, options, type, width, x, y);
+        ArduinoWidgetv2template.initialize(this, height, options, type, width, x, y);
     }
 
     /**
@@ -42,9 +41,8 @@ class ArduinoWidgetv2 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, height, id, options, type, width, x, y) { 
+    static initialize(obj, height, options, type, width, x, y) { 
         obj['height'] = height;
-        obj['id'] = id;
         obj['options'] = options;
         obj['type'] = type;
         obj['width'] = width;
@@ -53,33 +51,21 @@ class ArduinoWidgetv2 {
     }
 
     /**
-     * Constructs a <code>ArduinoWidgetv2</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>ArduinoWidgetv2template</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ArduinoWidgetv2} obj Optional instance to populate.
-     * @return {module:model/ArduinoWidgetv2} The populated <code>ArduinoWidgetv2</code> instance.
+     * @param {module:model/ArduinoWidgetv2template} obj Optional instance to populate.
+     * @return {module:model/ArduinoWidgetv2template} The populated <code>ArduinoWidgetv2template</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new ArduinoWidgetv2();
+            obj = obj || new ArduinoWidgetv2template();
 
-            if (data.hasOwnProperty('has_permission_incompatibility')) {
-                obj['has_permission_incompatibility'] = ApiClient.convertToType(data['has_permission_incompatibility'], 'Boolean');
-            }
-            if (data.hasOwnProperty('has_type_incompatibility')) {
-                obj['has_type_incompatibility'] = ApiClient.convertToType(data['has_type_incompatibility'], 'Boolean');
-            }
-            if (data.hasOwnProperty('has_unlinked_variable')) {
-                obj['has_unlinked_variable'] = ApiClient.convertToType(data['has_unlinked_variable'], 'Boolean');
-            }
             if (data.hasOwnProperty('height')) {
                 obj['height'] = ApiClient.convertToType(data['height'], 'Number');
             }
             if (data.hasOwnProperty('height_mobile')) {
                 obj['height_mobile'] = ApiClient.convertToType(data['height_mobile'], 'Number');
-            }
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
@@ -91,7 +77,7 @@ class ArduinoWidgetv2 {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
             if (data.hasOwnProperty('variables')) {
-                obj['variables'] = ApiClient.convertToType(data['variables'], [ArduinoLinkedvariable]);
+                obj['variables'] = ApiClient.convertToType(data['variables'], [ArduinoTemplatevariable]);
             }
             if (data.hasOwnProperty('width')) {
                 obj['width'] = ApiClient.convertToType(data['width'], 'Number');
@@ -116,20 +102,16 @@ class ArduinoWidgetv2 {
     }
 
     /**
-     * Validates the JSON data with respect to <code>ArduinoWidgetv2</code>.
+     * Validates the JSON data with respect to <code>ArduinoWidgetv2template</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoWidgetv2</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoWidgetv2template</code>.
      */
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
-        for (const property of ArduinoWidgetv2.RequiredProperties) {
+        for (const property of ArduinoWidgetv2template.RequiredProperties) {
             if (!data[property]) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
-        }
-        // ensure the json data is a string
-        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
-            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
         }
         // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
@@ -146,7 +128,7 @@ class ArduinoWidgetv2 {
             }
             // validate the optional field `variables` (array)
             for (const item of data['variables']) {
-                ArduinoLinkedvariable.validateJSON(item);
+                ArduinoTemplatevariable.validateJSON(item);
             };
         }
 
@@ -156,123 +138,84 @@ class ArduinoWidgetv2 {
 
 }
 
-ArduinoWidgetv2.RequiredProperties = ["height", "id", "options", "type", "width", "x", "y"];
-
-/**
- * True if the linked variables permissions are incompatible with the widget
- * @member {Boolean} has_permission_incompatibility
- */
-ArduinoWidgetv2.prototype['has_permission_incompatibility'] = undefined;
-
-/**
- * True if the linked variables types are incompatible with the widget
- * @member {Boolean} has_type_incompatibility
- */
-ArduinoWidgetv2.prototype['has_type_incompatibility'] = undefined;
-
-/**
- * If it's true the widget is linked to a soft-deleted variable
- * @member {Boolean} has_unlinked_variable
- */
-ArduinoWidgetv2.prototype['has_unlinked_variable'] = undefined;
+ArduinoWidgetv2template.RequiredProperties = ["height", "options", "type", "width", "x", "y"];
 
 /**
  * Widget current height for desktop
  * @member {Number} height
  */
-ArduinoWidgetv2.prototype['height'] = undefined;
+ArduinoWidgetv2template.prototype['height'] = undefined;
 
 /**
  * Widget current height for mobile
  * @member {Number} height_mobile
  */
-ArduinoWidgetv2.prototype['height_mobile'] = undefined;
-
-/**
- * The UUID of the widget, set by client
- * @member {String} id
- */
-ArduinoWidgetv2.prototype['id'] = undefined;
+ArduinoWidgetv2template.prototype['height_mobile'] = undefined;
 
 /**
  * The name of the widget
  * @member {String} name
  */
-ArduinoWidgetv2.prototype['name'] = undefined;
+ArduinoWidgetv2template.prototype['name'] = undefined;
 
 /**
  * Widget options
  * @member {Object.<String, Object>} options
  */
-ArduinoWidgetv2.prototype['options'] = undefined;
+ArduinoWidgetv2template.prototype['options'] = undefined;
 
 /**
  * The type of the widget
- * @member {module:model/ArduinoWidgetv2.TypeEnum} type
+ * @member {String} type
  */
-ArduinoWidgetv2.prototype['type'] = undefined;
+ArduinoWidgetv2template.prototype['type'] = undefined;
 
 /**
- * ArduinoLinkedvariableCollection is the media type for an array of ArduinoLinkedvariable (default view)
- * @member {Array.<module:model/ArduinoLinkedvariable>} variables
+ * ArduinoTemplatevariableCollection is the media type for an array of ArduinoTemplatevariable (default view)
+ * @member {Array.<module:model/ArduinoTemplatevariable>} variables
  */
-ArduinoWidgetv2.prototype['variables'] = undefined;
+ArduinoWidgetv2template.prototype['variables'] = undefined;
 
 /**
  * Widget current width for desktop
  * @member {Number} width
  */
-ArduinoWidgetv2.prototype['width'] = undefined;
+ArduinoWidgetv2template.prototype['width'] = undefined;
 
 /**
  * Widget current width for mobile
  * @member {Number} width_mobile
  */
-ArduinoWidgetv2.prototype['width_mobile'] = undefined;
+ArduinoWidgetv2template.prototype['width_mobile'] = undefined;
 
 /**
  * Widget x position for desktop
  * @member {Number} x
  */
-ArduinoWidgetv2.prototype['x'] = undefined;
+ArduinoWidgetv2template.prototype['x'] = undefined;
 
 /**
  * Widget x position for mobile
  * @member {Number} x_mobile
  */
-ArduinoWidgetv2.prototype['x_mobile'] = undefined;
+ArduinoWidgetv2template.prototype['x_mobile'] = undefined;
 
 /**
  * Widget y position for desktop
  * @member {Number} y
  */
-ArduinoWidgetv2.prototype['y'] = undefined;
+ArduinoWidgetv2template.prototype['y'] = undefined;
 
 /**
  * Widget y position for mobile
  * @member {Number} y_mobile
  */
-ArduinoWidgetv2.prototype['y_mobile'] = undefined;
+ArduinoWidgetv2template.prototype['y_mobile'] = undefined;
 
 
 
 
 
-/**
- * Allowed values for the <code>type</code> property.
- * @enum {String}
- * @readonly
- */
-ArduinoWidgetv2['TypeEnum'] = {
 
-    /**
-     * value: "slider, gauge"
-     * @const
-     */
-    "slider, gauge": "slider, gauge"
-};
-
-
-
-export default ArduinoWidgetv2;
+export default ArduinoWidgetv2template;
 

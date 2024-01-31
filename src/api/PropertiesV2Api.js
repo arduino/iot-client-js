@@ -22,7 +22,7 @@ import PropertyValue from '../model/PropertyValue';
 /**
 * PropertiesV2 service.
 * @module api/PropertiesV2Api
-* @version 2.0.0
+* @version 2.0.1
 */
 export default class PropertiesV2Api {
 
@@ -44,9 +44,12 @@ export default class PropertiesV2Api {
      * Creates a new property associated to a thing
      * @param {String} id The id of the thing
      * @param {module:model/Property} property PropertyPayload describes a property of a thing. No field is mandatory
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoProperty} and HTTP response
      */
-    propertiesV2CreateWithHttpInfo(id, property) {
+    propertiesV2CreateWithHttpInfo(id, property, opts) {
+      opts = opts || {};
       let postBody = property;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -63,6 +66,7 @@ export default class PropertiesV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -83,10 +87,12 @@ export default class PropertiesV2Api {
      * Creates a new property associated to a thing
      * @param {String} id The id of the thing
      * @param {module:model/Property} property PropertyPayload describes a property of a thing. No field is mandatory
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoProperty}
      */
-    propertiesV2Create(id, property) {
-      return this.propertiesV2CreateWithHttpInfo(id, property)
+    propertiesV2Create(id, property, opts) {
+      return this.propertiesV2CreateWithHttpInfo(id, property, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -100,6 +106,7 @@ export default class PropertiesV2Api {
      * @param {String} pid The id of the property
      * @param {Object} opts Optional parameters
      * @param {Boolean} [force = false)] If true, hard delete the property
+     * @param {String} [xOrganization] The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     propertiesV2DeleteWithHttpInfo(id, pid, opts) {
@@ -122,6 +129,7 @@ export default class PropertiesV2Api {
         'force': opts['force']
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -144,6 +152,7 @@ export default class PropertiesV2Api {
      * @param {String} pid The id of the property
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, hard delete the property (default to false)
+     * @param {String} opts.xOrganization The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
     propertiesV2Delete(id, pid, opts) {
@@ -160,6 +169,7 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} [showDeleted = false)] If true, shows the soft deleted properties
+     * @param {String} [xOrganization] The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoProperty>} and HTTP response
      */
     propertiesV2ListWithHttpInfo(id, opts) {
@@ -177,6 +187,7 @@ export default class PropertiesV2Api {
         'show_deleted': opts['showDeleted']
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -198,6 +209,7 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
+     * @param {String} opts.xOrganization The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoProperty>}
      */
     propertiesV2List(id, opts) {
@@ -214,9 +226,12 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {String} pid The id of the property
      * @param {module:model/PropertyValue} propertyValue PropertyValuePayload describes a property value
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    propertiesV2PublishWithHttpInfo(id, pid, propertyValue) {
+    propertiesV2PublishWithHttpInfo(id, pid, propertyValue, opts) {
+      opts = opts || {};
       let postBody = propertyValue;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -238,6 +253,7 @@ export default class PropertiesV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -259,10 +275,12 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {String} pid The id of the property
      * @param {module:model/PropertyValue} propertyValue PropertyValuePayload describes a property value
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    propertiesV2Publish(id, pid, propertyValue) {
-      return this.propertiesV2PublishWithHttpInfo(id, pid, propertyValue)
+    propertiesV2Publish(id, pid, propertyValue, opts) {
+      return this.propertiesV2PublishWithHttpInfo(id, pid, propertyValue, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -276,6 +294,7 @@ export default class PropertiesV2Api {
      * @param {String} pid The id of the property
      * @param {Object} opts Optional parameters
      * @param {Boolean} [showDeleted = false)] If true, shows the soft deleted properties
+     * @param {String} [xOrganization] The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoProperty} and HTTP response
      */
     propertiesV2ShowWithHttpInfo(id, pid, opts) {
@@ -298,6 +317,7 @@ export default class PropertiesV2Api {
         'show_deleted': opts['showDeleted']
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -320,6 +340,7 @@ export default class PropertiesV2Api {
      * @param {String} pid The id of the property
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
+     * @param {String} opts.xOrganization The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoProperty}
      */
     propertiesV2Show(id, pid, opts) {
@@ -336,10 +357,12 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {String} pid ID of a numerical property
      * @param {Object} opts Optional parameters
+     * @param {module:model/String} [aggregation] Samples aggregation statistic. Supported aggregations AVG|MAX|MIN|COUNT|SUM|PCT_99|PCT_95|PCT_90|PCT_75|PCT_50|PCT_15|PCT_5
      * @param {Boolean} [desc = false)] Whether data's ordering (by time) should be descending
      * @param {String} [from] Get data with a timestamp >= to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
      * @param {Number} [interval] Binning interval in seconds (defaut: the smallest possible value compatibly with the limit of 1000 data points in the response)
      * @param {String} [to] Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
+     * @param {String} [xOrganization] The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoTimeseriesmedia} and HTTP response
      */
     propertiesV2TimeseriesWithHttpInfo(id, pid, opts) {
@@ -359,12 +382,14 @@ export default class PropertiesV2Api {
         'pid': pid
       };
       let queryParams = {
+        'aggregation': opts['aggregation'],
         'desc': opts['desc'],
         'from': opts['from'],
         'interval': opts['interval'],
         'to': opts['to']
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -386,10 +411,12 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {String} pid ID of a numerical property
      * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.aggregation Samples aggregation statistic. Supported aggregations AVG|MAX|MIN|COUNT|SUM|PCT_99|PCT_95|PCT_90|PCT_75|PCT_50|PCT_15|PCT_5
      * @param {Boolean} opts.desc Whether data's ordering (by time) should be descending (default to false)
      * @param {String} opts.from Get data with a timestamp >= to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
      * @param {Number} opts.interval Binning interval in seconds (defaut: the smallest possible value compatibly with the limit of 1000 data points in the response)
      * @param {String} opts.to Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
+     * @param {String} opts.xOrganization The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoTimeseriesmedia}
      */
     propertiesV2Timeseries(id, pid, opts) {
@@ -406,9 +433,12 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {String} pid The id of the property
      * @param {module:model/Property} property PropertyPayload describes a property of a thing. No field is mandatory
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoProperty} and HTTP response
      */
-    propertiesV2UpdateWithHttpInfo(id, pid, property) {
+    propertiesV2UpdateWithHttpInfo(id, pid, property, opts) {
+      opts = opts || {};
       let postBody = property;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -430,6 +460,7 @@ export default class PropertiesV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -451,10 +482,12 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {String} pid The id of the property
      * @param {module:model/Property} property PropertyPayload describes a property of a thing. No field is mandatory
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoProperty}
      */
-    propertiesV2Update(id, pid, property) {
-      return this.propertiesV2UpdateWithHttpInfo(id, pid, property)
+    propertiesV2Update(id, pid, property, opts) {
+      return this.propertiesV2UpdateWithHttpInfo(id, pid, property, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

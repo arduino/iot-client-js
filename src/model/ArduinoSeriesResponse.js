@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoSeriesResponse model module.
  * @module model/ArduinoSeriesResponse
- * @version 2.0.0
+ * @version 2.0.1
  */
 class ArduinoSeriesResponse {
     /**
@@ -66,6 +66,9 @@ class ArduinoSeriesResponse {
         if (data) {
             obj = obj || new ArduinoSeriesResponse();
 
+            if (data.hasOwnProperty('aggregation')) {
+                obj['aggregation'] = ApiClient.convertToType(data['aggregation'], 'String');
+            }
             if (data.hasOwnProperty('count_values')) {
                 obj['count_values'] = ApiClient.convertToType(data['count_values'], 'Number');
             }
@@ -116,6 +119,10 @@ class ArduinoSeriesResponse {
             }
         }
         // ensure the json data is a string
+        if (data['aggregation'] && !(typeof data['aggregation'] === 'string' || data['aggregation'] instanceof String)) {
+            throw new Error("Expected the field `aggregation` to be a primitive type in the JSON string but got " + data['aggregation']);
+        }
+        // ensure the json data is a string
         if (data['message'] && !(typeof data['message'] === 'string' || data['message'] instanceof String)) {
             throw new Error("Expected the field `message` to be a primitive type in the JSON string but got " + data['message']);
         }
@@ -143,6 +150,12 @@ class ArduinoSeriesResponse {
 }
 
 ArduinoSeriesResponse.RequiredProperties = ["count_values", "from_date", "interval", "query", "resp_version", "status", "times", "to_date", "values"];
+
+/**
+ * Aggregation statistic function. For numeric values, AVG statistic is used by default. PCT_X compute the Xth approximate percentile (e.g. PCT_95 is the 95th approximate percentile). For boolean, BOOL_OR statistic is used as default.
+ * @member {module:model/ArduinoSeriesResponse.AggregationEnum} aggregation
+ */
+ArduinoSeriesResponse.prototype['aggregation'] = undefined;
 
 /**
  * Total number of values in the array 'values'
@@ -182,7 +195,7 @@ ArduinoSeriesResponse.prototype['query'] = undefined;
 ArduinoSeriesResponse.prototype['resp_version'] = undefined;
 
 /**
- * Max of values
+ * Maximum number of values returned after data aggregation, if any
  * @member {Number} series_limit
  */
 ArduinoSeriesResponse.prototype['series_limit'] = undefined;
@@ -213,6 +226,99 @@ ArduinoSeriesResponse.prototype['values'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>aggregation</code> property.
+ * @enum {String}
+ * @readonly
+ */
+ArduinoSeriesResponse['AggregationEnum'] = {
+
+    /**
+     * value: "AVG"
+     * @const
+     */
+    "AVG": "AVG",
+
+    /**
+     * value: "MIN"
+     * @const
+     */
+    "MIN": "MIN",
+
+    /**
+     * value: "MAX"
+     * @const
+     */
+    "MAX": "MAX",
+
+    /**
+     * value: "SUM"
+     * @const
+     */
+    "SUM": "SUM",
+
+    /**
+     * value: "COUNT"
+     * @const
+     */
+    "COUNT": "COUNT",
+
+    /**
+     * value: "PCT_99"
+     * @const
+     */
+    "PCT_99": "PCT_99",
+
+    /**
+     * value: "PCT_95"
+     * @const
+     */
+    "PCT_95": "PCT_95",
+
+    /**
+     * value: "PCT_90"
+     * @const
+     */
+    "PCT_90": "PCT_90",
+
+    /**
+     * value: "PCT_75"
+     * @const
+     */
+    "PCT_75": "PCT_75",
+
+    /**
+     * value: "PCT_50"
+     * @const
+     */
+    "PCT_50": "PCT_50",
+
+    /**
+     * value: "PCT_15"
+     * @const
+     */
+    "PCT_15": "PCT_15",
+
+    /**
+     * value: "PCT_5"
+     * @const
+     */
+    "PCT_5": "PCT_5",
+
+    /**
+     * value: "BOOL_OR"
+     * @const
+     */
+    "BOOL_OR": "BOOL_OR",
+
+    /**
+     * value: "BOOL_AND"
+     * @const
+     */
+    "BOOL_AND": "BOOL_AND"
+};
 
 
 

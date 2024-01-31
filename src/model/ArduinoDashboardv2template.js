@@ -12,22 +12,23 @@
  */
 
 import ApiClient from '../ApiClient';
-import Widget from './Widget';
+import ArduinoWidgetv2template from './ArduinoWidgetv2template';
 
 /**
- * The Dashboardv2 model module.
- * @module model/Dashboardv2
+ * The ArduinoDashboardv2template model module.
+ * @module model/ArduinoDashboardv2template
  * @version 2.0.1
  */
-class Dashboardv2 {
+class ArduinoDashboardv2template {
     /**
-     * Constructs a new <code>Dashboardv2</code>.
-     * DashboardV2Payload describes a dashboard
-     * @alias module:model/Dashboardv2
+     * Constructs a new <code>ArduinoDashboardv2template</code>.
+     * ArduinoDashboardv2template media type (default view)
+     * @alias module:model/ArduinoDashboardv2template
+     * @param name {String} The friendly name of the dashboard
      */
-    constructor() { 
+    constructor(name) { 
         
-        Dashboardv2.initialize(this);
+        ArduinoDashboardv2template.initialize(this, name);
     }
 
     /**
@@ -35,36 +36,43 @@ class Dashboardv2 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, name) { 
+        obj['name'] = name;
     }
 
     /**
-     * Constructs a <code>Dashboardv2</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>ArduinoDashboardv2template</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/Dashboardv2} obj Optional instance to populate.
-     * @return {module:model/Dashboardv2} The populated <code>Dashboardv2</code> instance.
+     * @param {module:model/ArduinoDashboardv2template} obj Optional instance to populate.
+     * @return {module:model/ArduinoDashboardv2template} The populated <code>ArduinoDashboardv2template</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new Dashboardv2();
+            obj = obj || new ArduinoDashboardv2template();
 
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
             if (data.hasOwnProperty('widgets')) {
-                obj['widgets'] = ApiClient.convertToType(data['widgets'], [Widget]);
+                obj['widgets'] = ApiClient.convertToType(data['widgets'], [ArduinoWidgetv2template]);
             }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>Dashboardv2</code>.
+     * Validates the JSON data with respect to <code>ArduinoDashboardv2template</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>Dashboardv2</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoDashboardv2template</code>.
      */
     static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoDashboardv2template.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
         // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
             throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
@@ -76,7 +84,7 @@ class Dashboardv2 {
             }
             // validate the optional field `widgets` (array)
             for (const item of data['widgets']) {
-                Widget.validateJSON(item);
+                ArduinoWidgetv2template.validateJSON(item);
             };
         }
 
@@ -86,24 +94,24 @@ class Dashboardv2 {
 
 }
 
-
+ArduinoDashboardv2template.RequiredProperties = ["name"];
 
 /**
  * The friendly name of the dashboard
  * @member {String} name
  */
-Dashboardv2.prototype['name'] = undefined;
+ArduinoDashboardv2template.prototype['name'] = undefined;
 
 /**
- * Widgets attached to this dashboard
- * @member {Array.<module:model/Widget>} widgets
+ * ArduinoWidgetv2templateCollection is the media type for an array of ArduinoWidgetv2template (default view)
+ * @member {Array.<module:model/ArduinoWidgetv2template>} widgets
  */
-Dashboardv2.prototype['widgets'] = undefined;
+ArduinoDashboardv2template.prototype['widgets'] = undefined;
 
 
 
 
 
 
-export default Dashboardv2;
+export default ArduinoDashboardv2template;
 

@@ -16,13 +16,13 @@ import ApiClient from '../ApiClient';
 /**
  * The BatchQueryRawRequestMediaV1 model module.
  * @module model/BatchQueryRawRequestMediaV1
- * @version 2.0.0
+ * @version 2.0.1
  */
 class BatchQueryRawRequestMediaV1 {
     /**
      * Constructs a new <code>BatchQueryRawRequestMediaV1</code>.
      * @alias module:model/BatchQueryRawRequestMediaV1
-     * @param q {String} Query
+     * @param q {String} Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5)
      */
     constructor(q) { 
         
@@ -104,7 +104,7 @@ BatchQueryRawRequestMediaV1.RequiredProperties = ["q"];
 BatchQueryRawRequestMediaV1.prototype['from'] = undefined;
 
 /**
- * Query
+ * Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5)
  * @member {String} q
  */
 BatchQueryRawRequestMediaV1.prototype['q'] = undefined;
