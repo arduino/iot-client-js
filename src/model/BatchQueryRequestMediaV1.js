@@ -16,14 +16,14 @@ import ApiClient from '../ApiClient';
 /**
  * The BatchQueryRequestMediaV1 model module.
  * @module model/BatchQueryRequestMediaV1
- * @version 2.0.0
+ * @version 2.0.1
  */
 class BatchQueryRequestMediaV1 {
     /**
      * Constructs a new <code>BatchQueryRequestMediaV1</code>.
      * @alias module:model/BatchQueryRequestMediaV1
      * @param from {Date} From timestamp
-     * @param q {String} Query
+     * @param q {String} Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5)
      * @param to {Date} To timestamp
      */
     constructor(from, q, to) { 
@@ -53,6 +53,9 @@ class BatchQueryRequestMediaV1 {
         if (data) {
             obj = obj || new BatchQueryRequestMediaV1();
 
+            if (data.hasOwnProperty('aggregation')) {
+                obj['aggregation'] = ApiClient.convertToType(data['aggregation'], 'String');
+            }
             if (data.hasOwnProperty('from')) {
                 obj['from'] = ApiClient.convertToType(data['from'], 'Date');
             }
@@ -85,6 +88,10 @@ class BatchQueryRequestMediaV1 {
             }
         }
         // ensure the json data is a string
+        if (data['aggregation'] && !(typeof data['aggregation'] === 'string' || data['aggregation'] instanceof String)) {
+            throw new Error("Expected the field `aggregation` to be a primitive type in the JSON string but got " + data['aggregation']);
+        }
+        // ensure the json data is a string
         if (data['q'] && !(typeof data['q'] === 'string' || data['q'] instanceof String)) {
             throw new Error("Expected the field `q` to be a primitive type in the JSON string but got " + data['q']);
         }
@@ -98,25 +105,31 @@ class BatchQueryRequestMediaV1 {
 BatchQueryRequestMediaV1.RequiredProperties = ["from", "q", "to"];
 
 /**
+ * Aggregation statistic function. For numeric values, AVG statistic is used by default. PCT_X compute the Xth approximate percentile (e.g. PCT_95 is the 95th approximate percentile). For boolean, BOOL_OR statistic is used as default.
+ * @member {module:model/BatchQueryRequestMediaV1.AggregationEnum} aggregation
+ */
+BatchQueryRequestMediaV1.prototype['aggregation'] = undefined;
+
+/**
  * From timestamp
  * @member {Date} from
  */
 BatchQueryRequestMediaV1.prototype['from'] = undefined;
 
 /**
- * Resolution in seconds
+ * Resolution in seconds (max allowed: 86400)
  * @member {Number} interval
  */
 BatchQueryRequestMediaV1.prototype['interval'] = undefined;
 
 /**
- * Query
+ * Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5)
  * @member {String} q
  */
 BatchQueryRequestMediaV1.prototype['q'] = undefined;
 
 /**
- * Max of values
+ * Maximum number of values returned after data aggregation, if any (default: 300, limit: 1000)
  * @member {Number} series_limit
  */
 BatchQueryRequestMediaV1.prototype['series_limit'] = undefined;
@@ -129,6 +142,99 @@ BatchQueryRequestMediaV1.prototype['to'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>aggregation</code> property.
+ * @enum {String}
+ * @readonly
+ */
+BatchQueryRequestMediaV1['AggregationEnum'] = {
+
+    /**
+     * value: "AVG"
+     * @const
+     */
+    "AVG": "AVG",
+
+    /**
+     * value: "MIN"
+     * @const
+     */
+    "MIN": "MIN",
+
+    /**
+     * value: "MAX"
+     * @const
+     */
+    "MAX": "MAX",
+
+    /**
+     * value: "SUM"
+     * @const
+     */
+    "SUM": "SUM",
+
+    /**
+     * value: "COUNT"
+     * @const
+     */
+    "COUNT": "COUNT",
+
+    /**
+     * value: "PCT_99"
+     * @const
+     */
+    "PCT_99": "PCT_99",
+
+    /**
+     * value: "PCT_95"
+     * @const
+     */
+    "PCT_95": "PCT_95",
+
+    /**
+     * value: "PCT_90"
+     * @const
+     */
+    "PCT_90": "PCT_90",
+
+    /**
+     * value: "PCT_75"
+     * @const
+     */
+    "PCT_75": "PCT_75",
+
+    /**
+     * value: "PCT_50"
+     * @const
+     */
+    "PCT_50": "PCT_50",
+
+    /**
+     * value: "PCT_15"
+     * @const
+     */
+    "PCT_15": "PCT_15",
+
+    /**
+     * value: "PCT_5"
+     * @const
+     */
+    "PCT_5": "PCT_5",
+
+    /**
+     * value: "BOOL_OR"
+     * @const
+     */
+    "BOOL_OR": "BOOL_OR",
+
+    /**
+     * value: "BOOL_AND"
+     * @const
+     */
+    "BOOL_AND": "BOOL_AND"
+};
 
 
 

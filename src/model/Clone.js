@@ -12,20 +12,21 @@
  */
 
 import ApiClient from '../ApiClient';
+import Override from './Override';
 
 /**
- * The Widgetlink model module.
- * @module model/Widgetlink
+ * The Clone model module.
+ * @module model/Clone
  * @version 2.0.1
  */
-class Widgetlink {
+class Clone {
     /**
-     * Constructs a new <code>Widgetlink</code>.
-     * @alias module:model/Widgetlink
+     * Constructs a new <code>Clone</code>.
+     * @alias module:model/Clone
      */
     constructor() { 
         
-        Widgetlink.initialize(this);
+        Clone.initialize(this);
     }
 
     /**
@@ -37,32 +38,38 @@ class Widgetlink {
     }
 
     /**
-     * Constructs a <code>Widgetlink</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>Clone</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/Widgetlink} obj Optional instance to populate.
-     * @return {module:model/Widgetlink} The populated <code>Widgetlink</code> instance.
+     * @param {module:model/Clone} obj Optional instance to populate.
+     * @return {module:model/Clone} The populated <code>Clone</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new Widgetlink();
+            obj = obj || new Clone();
 
-            if (data.hasOwnProperty('variables')) {
-                obj['variables'] = ApiClient.convertToType(data['variables'], ['String']);
+            if (data.hasOwnProperty('overrides')) {
+                obj['overrides'] = ApiClient.convertToType(data['overrides'], [Override]);
             }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>Widgetlink</code>.
+     * Validates the JSON data with respect to <code>Clone</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>Widgetlink</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>Clone</code>.
      */
     static validateJSON(data) {
-        // ensure the json data is an array
-        if (!Array.isArray(data['variables'])) {
-            throw new Error("Expected the field `variables` to be an array in the JSON data but got " + data['variables']);
+        if (data['overrides']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['overrides'])) {
+                throw new Error("Expected the field `overrides` to be an array in the JSON data but got " + data['overrides']);
+            }
+            // validate the optional field `overrides` (array)
+            for (const item of data['overrides']) {
+                Override.validateJSON(item);
+            };
         }
 
         return true;
@@ -74,14 +81,15 @@ class Widgetlink {
 
 
 /**
- * @member {Array.<String>} variables
+ * The overrides to apply to the cloned dashboard. An override is a tuple of ids: the id of the thing to override and the id of the new thing to link
+ * @member {Array.<module:model/Override>} overrides
  */
-Widgetlink.prototype['variables'] = undefined;
+Clone.prototype['overrides'] = undefined;
 
 
 
 
 
 
-export default Widgetlink;
+export default Clone;
 

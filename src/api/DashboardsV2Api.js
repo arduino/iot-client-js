@@ -15,7 +15,9 @@
 import ApiClient from "../ApiClient";
 import ArduinoDashboardshare from '../model/ArduinoDashboardshare';
 import ArduinoDashboardv2 from '../model/ArduinoDashboardv2';
+import ArduinoDashboardv2template from '../model/ArduinoDashboardv2template';
 import ArduinoVariableslinks from '../model/ArduinoVariableslinks';
+import Clone from '../model/Clone';
 import Dashboardshare from '../model/Dashboardshare';
 import Dashboardv2 from '../model/Dashboardv2';
 import Error from '../model/Error';
@@ -25,7 +27,7 @@ import Widgetlink from '../model/Widgetlink';
 /**
 * DashboardsV2 service.
 * @module api/DashboardsV2Api
-* @version 2.0.0
+* @version 2.0.1
 */
 export default class DashboardsV2Api {
 
@@ -40,6 +42,66 @@ export default class DashboardsV2Api {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+
+    /**
+     * clone dashboards_v2
+     * Clone an existing dashboard
+     * @param {String} id The id of the dashboard
+     * @param {module:model/Clone} clone 
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDashboardv2} and HTTP response
+     */
+    dashboardsV2CloneWithHttpInfo(id, clone, opts) {
+      opts = opts || {};
+      let postBody = clone;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling dashboardsV2Clone");
+      }
+      // verify the required parameter 'clone' is set
+      if (clone === undefined || clone === null) {
+        throw new Error("Missing the required parameter 'clone' when calling dashboardsV2Clone");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+        'X-Organization': opts['xOrganization']
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oauth2'];
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let accepts = ['application/vnd.arduino.dashboardv2+json', 'application/vnd.goa.error+json'];
+      let returnType = ArduinoDashboardv2;
+      return this.apiClient.callApi(
+        '/v2/dashboards/{id}/clone', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * clone dashboards_v2
+     * Clone an existing dashboard
+     * @param {String} id The id of the dashboard
+     * @param {module:model/Clone} clone 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDashboardv2}
+     */
+    dashboardsV2Clone(id, clone, opts) {
+      return this.dashboardsV2CloneWithHttpInfo(id, clone, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
 
 
     /**
@@ -552,6 +614,60 @@ export default class DashboardsV2Api {
      */
     dashboardsV2Show(id, opts) {
       return this.dashboardsV2ShowWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * template dashboards_v2
+     * Get a template of the dashboard
+     * @param {String} id The id of the dashboard
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDashboardv2template} and HTTP response
+     */
+    dashboardsV2TemplateWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling dashboardsV2Template");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+        'X-Organization': opts['xOrganization']
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oauth2'];
+      let contentTypes = [];
+      let accepts = ['application/vnd.arduino.dashboardv2template+json', 'application/vnd.goa.error+json'];
+      let returnType = ArduinoDashboardv2template;
+      return this.apiClient.callApi(
+        '/v2/dashboards/{id}/template', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * template dashboards_v2
+     * Get a template of the dashboard
+     * @param {String} id The id of the dashboard
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDashboardv2template}
+     */
+    dashboardsV2Template(id, opts) {
+      return this.dashboardsV2TemplateWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

@@ -12,23 +12,25 @@
  */
 
 import ApiClient from '../ApiClient';
-import Property from './Property';
+import ArduinoTemplateproperty from './ArduinoTemplateproperty';
 import Tag from './Tag';
 
 /**
- * The ThingCreate model module.
- * @module model/ThingCreate
+ * The ArduinoThingtemplate model module.
+ * @module model/ArduinoThingtemplate
  * @version 2.0.1
  */
-class ThingCreate {
+class ArduinoThingtemplate {
     /**
-     * Constructs a new <code>ThingCreate</code>.
-     * Payload to create a new thing
-     * @alias module:model/ThingCreate
+     * Constructs a new <code>ArduinoThingtemplate</code>.
+     * ArduinoThingtemplate media type (default view)
+     * @alias module:model/ArduinoThingtemplate
+     * @param name {String} The friendly name of the thing
+     * @param timezone {String} Time zone of the thing
      */
-    constructor() { 
+    constructor(name, timezone) { 
         
-        ThingCreate.initialize(this);
+        ArduinoThingtemplate.initialize(this, name, timezone);
     }
 
     /**
@@ -36,40 +38,36 @@ class ThingCreate {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, name, timezone) { 
+        obj['name'] = name;
+        obj['timezone'] = timezone;
     }
 
     /**
-     * Constructs a <code>ThingCreate</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>ArduinoThingtemplate</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ThingCreate} obj Optional instance to populate.
-     * @return {module:model/ThingCreate} The populated <code>ThingCreate</code> instance.
+     * @param {module:model/ArduinoThingtemplate} obj Optional instance to populate.
+     * @return {module:model/ArduinoThingtemplate} The populated <code>ArduinoThingtemplate</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new ThingCreate();
+            obj = obj || new ArduinoThingtemplate();
 
-            if (data.hasOwnProperty('device_id')) {
-                obj['device_id'] = ApiClient.convertToType(data['device_id'], 'String');
-            }
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            if (data.hasOwnProperty('organization_id')) {
+                obj['organization_id'] = ApiClient.convertToType(data['organization_id'], 'String');
+            }
             if (data.hasOwnProperty('properties')) {
-                obj['properties'] = ApiClient.convertToType(data['properties'], [Property]);
+                obj['properties'] = ApiClient.convertToType(data['properties'], [ArduinoTemplateproperty]);
             }
             if (data.hasOwnProperty('tags')) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], [Tag]);
             }
             if (data.hasOwnProperty('timezone')) {
                 obj['timezone'] = ApiClient.convertToType(data['timezone'], 'String');
-            }
-            if (data.hasOwnProperty('webhook_active')) {
-                obj['webhook_active'] = ApiClient.convertToType(data['webhook_active'], 'Boolean');
             }
             if (data.hasOwnProperty('webhook_uri')) {
                 obj['webhook_uri'] = ApiClient.convertToType(data['webhook_uri'], 'String');
@@ -79,22 +77,24 @@ class ThingCreate {
     }
 
     /**
-     * Validates the JSON data with respect to <code>ThingCreate</code>.
+     * Validates the JSON data with respect to <code>ArduinoThingtemplate</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ThingCreate</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoThingtemplate</code>.
      */
     static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['device_id'] && !(typeof data['device_id'] === 'string' || data['device_id'] instanceof String)) {
-            throw new Error("Expected the field `device_id` to be a primitive type in the JSON string but got " + data['device_id']);
-        }
-        // ensure the json data is a string
-        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
-            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ArduinoThingtemplate.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
         }
         // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
             throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['organization_id'] && !(typeof data['organization_id'] === 'string' || data['organization_id'] instanceof String)) {
+            throw new Error("Expected the field `organization_id` to be a primitive type in the JSON string but got " + data['organization_id']);
         }
         if (data['properties']) { // data not null
             // ensure the json data is an array
@@ -103,7 +103,7 @@ class ThingCreate {
             }
             // validate the optional field `properties` (array)
             for (const item of data['properties']) {
-                Property.validateJSON(item);
+                ArduinoTemplateproperty.validateJSON(item);
             };
         }
         if (data['tags']) { // data not null
@@ -131,61 +131,48 @@ class ThingCreate {
 
 }
 
-
-
-/**
- * The arn of the associated device
- * @member {String} device_id
- */
-ThingCreate.prototype['device_id'] = undefined;
-
-/**
- * The id of the thing
- * @member {String} id
- */
-ThingCreate.prototype['id'] = undefined;
+ArduinoThingtemplate.RequiredProperties = ["name", "timezone"];
 
 /**
  * The friendly name of the thing
  * @member {String} name
  */
-ThingCreate.prototype['name'] = undefined;
+ArduinoThingtemplate.prototype['name'] = undefined;
 
 /**
- * The properties of the thing
- * @member {Array.<module:model/Property>} properties
+ * Id of the organization the thing belongs to
+ * @member {String} organization_id
  */
-ThingCreate.prototype['properties'] = undefined;
+ArduinoThingtemplate.prototype['organization_id'] = undefined;
 
 /**
- * Optional set of tags
+ * ArduinoTemplatepropertyCollection is the media type for an array of ArduinoTemplateproperty (default view)
+ * @member {Array.<module:model/ArduinoTemplateproperty>} properties
+ */
+ArduinoThingtemplate.prototype['properties'] = undefined;
+
+/**
+ * Tags of the thing
  * @member {Array.<module:model/Tag>} tags
  */
-ThingCreate.prototype['tags'] = undefined;
+ArduinoThingtemplate.prototype['tags'] = undefined;
 
 /**
- * A time zone name Check /v2/timezones for a list of valid names.
+ * Time zone of the thing
  * @member {String} timezone
- * @default 'America/New_York'
  */
-ThingCreate.prototype['timezone'] = 'America/New_York';
-
-/**
- * Webhook uri
- * @member {Boolean} webhook_active
- */
-ThingCreate.prototype['webhook_active'] = undefined;
+ArduinoThingtemplate.prototype['timezone'] = undefined;
 
 /**
  * Webhook uri
  * @member {String} webhook_uri
  */
-ThingCreate.prototype['webhook_uri'] = undefined;
+ArduinoThingtemplate.prototype['webhook_uri'] = undefined;
 
 
 
 
 
 
-export default ThingCreate;
+export default ArduinoThingtemplate;
 

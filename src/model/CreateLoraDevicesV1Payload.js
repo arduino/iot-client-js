@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateLoraDevicesV1Payload model module.
  * @module model/CreateLoraDevicesV1Payload
- * @version 2.0.0
+ * @version 2.0.1
  */
 class CreateLoraDevicesV1Payload {
     /**

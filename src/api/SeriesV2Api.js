@@ -25,7 +25,7 @@ import HistoricDataRequest from '../model/HistoricDataRequest';
 /**
 * SeriesV2 service.
 * @module api/SeriesV2Api
-* @version 2.0.0
+* @version 2.0.1
 */
 export default class SeriesV2Api {
 
@@ -44,7 +44,7 @@ export default class SeriesV2Api {
 
     /**
      * batch_query series_v2
-     * Returns the batch of time-series data
+     * Returns the batch of time-series aggregated samples
      * @param {module:model/BatchQueryRequestsMediaV1} batchQueryRequestsMediaV1 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoSeriesBatch} and HTTP response
      */
@@ -77,7 +77,7 @@ export default class SeriesV2Api {
 
     /**
      * batch_query series_v2
-     * Returns the batch of time-series data
+     * Returns the batch of time-series aggregated samples
      * @param {module:model/BatchQueryRequestsMediaV1} batchQueryRequestsMediaV1 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoSeriesBatch}
      */
@@ -91,7 +91,7 @@ export default class SeriesV2Api {
 
     /**
      * batch_query_raw series_v2
-     * Returns the batch of time-series data raw
+     * Returns the batch of time-series raw samples
      * @param {module:model/BatchQueryRawRequestsMediaV1} batchQueryRawRequestsMediaV1 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoSeriesRawBatch} and HTTP response
      */
@@ -124,7 +124,7 @@ export default class SeriesV2Api {
 
     /**
      * batch_query_raw series_v2
-     * Returns the batch of time-series data raw
+     * Returns the batch of time-series raw samples
      * @param {module:model/BatchQueryRawRequestsMediaV1} batchQueryRawRequestsMediaV1 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoSeriesRawBatch}
      */

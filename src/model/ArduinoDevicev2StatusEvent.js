@@ -14,20 +14,21 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The Tag model module.
- * @module model/Tag
+ * The ArduinoDevicev2StatusEvent model module.
+ * @module model/ArduinoDevicev2StatusEvent
  * @version 2.0.1
  */
-class Tag {
+class ArduinoDevicev2StatusEvent {
     /**
-     * Constructs a new <code>Tag</code>.
-     * @alias module:model/Tag
-     * @param key {String} Key of the tag
-     * @param value {String} Value of the tag
+     * Constructs a new <code>ArduinoDevicev2StatusEvent</code>.
+     * ArduinoDevicev2StatusEvent media type (default view)
+     * @alias module:model/ArduinoDevicev2StatusEvent
+     * @param updatedAt {Date} Update timestamp of the status event
+     * @param value {module:model/ArduinoDevicev2StatusEvent.ValueEnum} The status event of the device
      */
-    constructor(key, value) { 
+    constructor(updatedAt, value) { 
         
-        Tag.initialize(this, key, value);
+        ArduinoDevicev2StatusEvent.initialize(this, updatedAt, value);
     }
 
     /**
@@ -35,24 +36,24 @@ class Tag {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, key, value) { 
-        obj['key'] = key;
+    static initialize(obj, updatedAt, value) { 
+        obj['updated_at'] = updatedAt;
         obj['value'] = value;
     }
 
     /**
-     * Constructs a <code>Tag</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>ArduinoDevicev2StatusEvent</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/Tag} obj Optional instance to populate.
-     * @return {module:model/Tag} The populated <code>Tag</code> instance.
+     * @param {module:model/ArduinoDevicev2StatusEvent} obj Optional instance to populate.
+     * @return {module:model/ArduinoDevicev2StatusEvent} The populated <code>ArduinoDevicev2StatusEvent</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new Tag();
+            obj = obj || new ArduinoDevicev2StatusEvent();
 
-            if (data.hasOwnProperty('key')) {
-                obj['key'] = ApiClient.convertToType(data['key'], 'String');
+            if (data.hasOwnProperty('updated_at')) {
+                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
             }
             if (data.hasOwnProperty('value')) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
@@ -62,20 +63,16 @@ class Tag {
     }
 
     /**
-     * Validates the JSON data with respect to <code>Tag</code>.
+     * Validates the JSON data with respect to <code>ArduinoDevicev2StatusEvent</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>Tag</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoDevicev2StatusEvent</code>.
      */
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
-        for (const property of Tag.RequiredProperties) {
+        for (const property of ArduinoDevicev2StatusEvent.RequiredProperties) {
             if (!data[property]) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
-        }
-        // ensure the json data is a string
-        if (data['key'] && !(typeof data['key'] === 'string' || data['key'] instanceof String)) {
-            throw new Error("Expected the field `key` to be a primitive type in the JSON string but got " + data['key']);
         }
         // ensure the json data is a string
         if (data['value'] && !(typeof data['value'] === 'string' || data['value'] instanceof String)) {
@@ -88,24 +85,45 @@ class Tag {
 
 }
 
-Tag.RequiredProperties = ["key", "value"];
+ArduinoDevicev2StatusEvent.RequiredProperties = ["updated_at", "value"];
 
 /**
- * Key of the tag
- * @member {String} key
+ * Update timestamp of the status event
+ * @member {Date} updated_at
  */
-Tag.prototype['key'] = undefined;
+ArduinoDevicev2StatusEvent.prototype['updated_at'] = undefined;
 
 /**
- * Value of the tag
- * @member {String} value
+ * The status event of the device
+ * @member {module:model/ArduinoDevicev2StatusEvent.ValueEnum} value
  */
-Tag.prototype['value'] = undefined;
+ArduinoDevicev2StatusEvent.prototype['value'] = undefined;
 
 
 
 
 
+/**
+ * Allowed values for the <code>value</code> property.
+ * @enum {String}
+ * @readonly
+ */
+ArduinoDevicev2StatusEvent['ValueEnum'] = {
 
-export default Tag;
+    /**
+     * value: "CONNECTED"
+     * @const
+     */
+    "CONNECTED": "CONNECTED",
+
+    /**
+     * value: "DISCONNECTED"
+     * @const
+     */
+    "DISCONNECTED": "DISCONNECTED"
+};
+
+
+
+export default ArduinoDevicev2StatusEvent;
 

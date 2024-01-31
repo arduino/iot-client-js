@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoTimezone model module.
  * @module model/ArduinoTimezone
- * @version 2.0.0
+ * @version 2.0.1
  */
 class ArduinoTimezone {
     /**
@@ -25,10 +25,11 @@ class ArduinoTimezone {
      * @alias module:model/ArduinoTimezone
      * @param name {String} Name of the time zone.
      * @param offset {Number} Current UTC DST offset in seconds.
+     * @param until {Date} Date until the offset is valid.
      */
-    constructor(name, offset) { 
+    constructor(name, offset, until) { 
         
-        ArduinoTimezone.initialize(this, name, offset);
+        ArduinoTimezone.initialize(this, name, offset, until);
     }
 
     /**
@@ -36,9 +37,10 @@ class ArduinoTimezone {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name, offset) { 
+    static initialize(obj, name, offset, until) { 
         obj['name'] = name;
         obj['offset'] = offset;
+        obj['until'] = until;
     }
 
     /**
@@ -88,7 +90,7 @@ class ArduinoTimezone {
 
 }
 
-ArduinoTimezone.RequiredProperties = ["name", "offset"];
+ArduinoTimezone.RequiredProperties = ["name", "offset", "until"];
 
 /**
  * Name of the time zone.

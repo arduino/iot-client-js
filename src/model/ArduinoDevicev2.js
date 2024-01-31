@@ -19,7 +19,7 @@ import ArduinoThing from './ArduinoThing';
 /**
  * The ArduinoDevicev2 model module.
  * @module model/ArduinoDevicev2
- * @version 2.0.0
+ * @version 2.0.1
  */
 class ArduinoDevicev2 {
     /**
@@ -70,6 +70,9 @@ class ArduinoDevicev2 {
             }
             if (data.hasOwnProperty('created_at')) {
                 obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+            }
+            if (data.hasOwnProperty('device_status')) {
+                obj['device_status'] = ApiClient.convertToType(data['device_status'], 'String');
             }
             if (data.hasOwnProperty('events')) {
                 obj['events'] = ApiClient.convertToType(data['events'], [ArduinoDevicev2SimpleProperties]);
@@ -153,6 +156,10 @@ class ArduinoDevicev2 {
         // ensure the json data is a string
         if (data['connection_type'] && !(typeof data['connection_type'] === 'string' || data['connection_type'] instanceof String)) {
             throw new Error("Expected the field `connection_type` to be a primitive type in the JSON string but got " + data['connection_type']);
+        }
+        // ensure the json data is a string
+        if (data['device_status'] && !(typeof data['device_status'] === 'string' || data['device_status'] instanceof String)) {
+            throw new Error("Expected the field `device_status` to be a primitive type in the JSON string but got " + data['device_status']);
         }
         if (data['events']) { // data not null
             // ensure the json data is an array
@@ -246,6 +253,12 @@ ArduinoDevicev2.prototype['connection_type'] = undefined;
  * @member {Date} created_at
  */
 ArduinoDevicev2.prototype['created_at'] = undefined;
+
+/**
+ * The connection status of the device
+ * @member {module:model/ArduinoDevicev2.DeviceStatusEnum} device_status
+ */
+ArduinoDevicev2.prototype['device_status'] = undefined;
 
 /**
  * ArduinoDevicev2SimplePropertiesCollection is the media type for an array of ArduinoDevicev2SimpleProperties (default view)
@@ -418,6 +431,33 @@ ArduinoDevicev2['ConnectionTypeEnum'] = {
      * @const
      */
     "lora": "lora"
+};
+
+
+/**
+ * Allowed values for the <code>device_status</code> property.
+ * @enum {String}
+ * @readonly
+ */
+ArduinoDevicev2['DeviceStatusEnum'] = {
+
+    /**
+     * value: "ONLINE"
+     * @const
+     */
+    "ONLINE": "ONLINE",
+
+    /**
+     * value: "OFFLINE"
+     * @const
+     */
+    "OFFLINE": "OFFLINE",
+
+    /**
+     * value: "UNKNOWN"
+     * @const
+     */
+    "UNKNOWN": "UNKNOWN"
 };
 
 

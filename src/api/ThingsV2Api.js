@@ -14,7 +14,9 @@
 
 import ApiClient from "../ApiClient";
 import ArduinoThing from '../model/ArduinoThing';
+import ArduinoThingtemplate from '../model/ArduinoThingtemplate';
 import Error from '../model/Error';
+import ThingClone from '../model/ThingClone';
 import ThingCreate from '../model/ThingCreate';
 import ThingSketch from '../model/ThingSketch';
 import ThingUpdate from '../model/ThingUpdate';
@@ -23,7 +25,7 @@ import UpdateSketch from '../model/UpdateSketch';
 /**
 * ThingsV2 service.
 * @module api/ThingsV2Api
-* @version 2.0.0
+* @version 2.0.1
 */
 export default class ThingsV2Api {
 
@@ -38,6 +40,66 @@ export default class ThingsV2Api {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+
+    /**
+     * clone things_v2
+     * Clone a given thing
+     * @param {String} id The id of the thing
+     * @param {module:model/ThingClone} thingClone Payload to clone a new thing from an existing one
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
+     */
+    thingsV2CloneWithHttpInfo(id, thingClone, opts) {
+      opts = opts || {};
+      let postBody = thingClone;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling thingsV2Clone");
+      }
+      // verify the required parameter 'thingClone' is set
+      if (thingClone === undefined || thingClone === null) {
+        throw new Error("Missing the required parameter 'thingClone' when calling thingsV2Clone");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+        'X-Organization': opts['xOrganization']
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oauth2'];
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let accepts = ['application/vnd.arduino.thing+json', 'application/vnd.goa.error+json'];
+      let returnType = ArduinoThing;
+      return this.apiClient.callApi(
+        '/v2/things/{id}/clone', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * clone things_v2
+     * Clone a given thing
+     * @param {String} id The id of the thing
+     * @param {module:model/ThingClone} thingClone Payload to clone a new thing from an existing one
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
+     */
+    thingsV2Clone(id, thingClone, opts) {
+      return this.thingsV2CloneWithHttpInfo(id, thingClone, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
 
 
     /**
@@ -381,6 +443,60 @@ export default class ThingsV2Api {
      */
     thingsV2Show(id, opts) {
       return this.thingsV2ShowWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * template things_v2
+     * Extract template from the given thing
+     * @param {String} id The id of the thing
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThingtemplate} and HTTP response
+     */
+    thingsV2TemplateWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling thingsV2Template");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+        'X-Organization': opts['xOrganization']
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oauth2'];
+      let contentTypes = [];
+      let accepts = ['application/vnd.arduino.thingtemplate+json', 'application/vnd.goa.error+json'];
+      let returnType = ArduinoThingtemplate;
+      return this.apiClient.callApi(
+        '/v2/things/{id}/template', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * template things_v2
+     * Extract template from the given thing
+     * @param {String} id The id of the thing
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThingtemplate}
+     */
+    thingsV2Template(id, opts) {
+      return this.thingsV2TemplateWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

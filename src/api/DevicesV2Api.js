@@ -15,6 +15,7 @@
 import ApiClient from "../ApiClient";
 import ArduinoDevicev2 from '../model/ArduinoDevicev2';
 import ArduinoDevicev2EventProperties from '../model/ArduinoDevicev2EventProperties';
+import ArduinoDevicev2StatusEvents from '../model/ArduinoDevicev2StatusEvents';
 import ArduinoDevicev2properties from '../model/ArduinoDevicev2properties';
 import ArduinoDevicev2propertyvalues from '../model/ArduinoDevicev2propertyvalues';
 import CreateDevicesV2Payload from '../model/CreateDevicesV2Payload';
@@ -25,7 +26,7 @@ import PropertiesValues from '../model/PropertiesValues';
 /**
 * DevicesV2 service.
 * @module api/DevicesV2Api
-* @version 2.0.0
+* @version 2.0.1
 */
 export default class DevicesV2Api {
 
@@ -260,6 +261,66 @@ export default class DevicesV2Api {
      */
     devicesV2GetProperties(id, opts) {
       return this.devicesV2GetPropertiesWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * GetStatusEvents devices_v2
+     * GET connection status events
+     * @param {String} id The id of the device
+     * @param {Object} opts Optional parameters
+     * @param {Number} [limit = 30)] The number of events to select
+     * @param {String} [start] The time at which to start selecting events
+     * @param {String} [xOrganization] 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2StatusEvents} and HTTP response
+     */
+    devicesV2GetStatusEventsWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling devicesV2GetStatusEvents");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'start': opts['start']
+      };
+      let headerParams = {
+        'X-Organization': opts['xOrganization']
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oauth2'];
+      let contentTypes = [];
+      let accepts = ['application/vnd.arduino.devicev2.status.events+json', 'application/vnd.goa.error+json'];
+      let returnType = ArduinoDevicev2StatusEvents;
+      return this.apiClient.callApi(
+        '/v2/devices/{id}/status', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * GetStatusEvents devices_v2
+     * GET connection status events
+     * @param {String} id The id of the device
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit The number of events to select (default to 30)
+     * @param {String} opts.start The time at which to start selecting events
+     * @param {String} opts.xOrganization 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2StatusEvents}
+     */
+    devicesV2GetStatusEvents(id, opts) {
+      return this.devicesV2GetStatusEventsWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
