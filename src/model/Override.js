@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Override model module.
  * @module model/Override
- * @version 2.0.1
+ * @version 2.0.2
  */
 class Override {
     /**

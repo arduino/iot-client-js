@@ -21,6 +21,7 @@ import ArduinoDashboardv2template from './model/ArduinoDashboardv2template';
 import ArduinoDevicev2 from './model/ArduinoDevicev2';
 import ArduinoDevicev2Cert from './model/ArduinoDevicev2Cert';
 import ArduinoDevicev2EventProperties from './model/ArduinoDevicev2EventProperties';
+import ArduinoDevicev2Otaupload from './model/ArduinoDevicev2Otaupload';
 import ArduinoDevicev2Pass from './model/ArduinoDevicev2Pass';
 import ArduinoDevicev2SimpleProperties from './model/ArduinoDevicev2SimpleProperties';
 import ArduinoDevicev2StatusEvent from './model/ArduinoDevicev2StatusEvent';
@@ -70,6 +71,7 @@ import Dashboardv2 from './model/Dashboardv2';
 import Devicev2 from './model/Devicev2';
 import Devicev2Cert from './model/Devicev2Cert';
 import Devicev2Otabinaryurl from './model/Devicev2Otabinaryurl';
+import Devicev2Otaurlpyalod from './model/Devicev2Otaurlpyalod';
 import Devicev2Pass from './model/Devicev2Pass';
 import Error from './model/Error';
 import HistoricDataRequest from './model/HistoricDataRequest';
@@ -131,7 +133,7 @@ import ThingsV2TagsApi from './api/ThingsV2TagsApi';
 * </pre>
 * </p>
 * @module index
-* @version 2.0.1
+* @version 2.0.2
 */
 export {
     /**
@@ -187,6 +189,12 @@ export {
      * @property {module:model/ArduinoDevicev2EventProperties}
      */
     ArduinoDevicev2EventProperties,
+
+    /**
+     * The ArduinoDevicev2Otaupload model constructor.
+     * @property {module:model/ArduinoDevicev2Otaupload}
+     */
+    ArduinoDevicev2Otaupload,
 
     /**
      * The ArduinoDevicev2Pass model constructor.
@@ -481,6 +489,12 @@ export {
      * @property {module:model/Devicev2Otabinaryurl}
      */
     Devicev2Otabinaryurl,
+
+    /**
+     * The Devicev2Otaurlpyalod model constructor.
+     * @property {module:model/Devicev2Otaurlpyalod}
+     */
+    Devicev2Otaurlpyalod,
 
     /**
      * The Devicev2Pass model constructor.

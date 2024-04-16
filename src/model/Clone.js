@@ -17,7 +17,7 @@ import Override from './Override';
 /**
  * The Clone model module.
  * @module model/Clone
- * @version 2.0.1
+ * @version 2.0.2
  */
 class Clone {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoSeriesRawLastValueResponse model module.
  * @module model/ArduinoSeriesRawLastValueResponse
- * @version 2.0.1
+ * @version 2.0.2
  */
 class ArduinoSeriesRawLastValueResponse {
     /**

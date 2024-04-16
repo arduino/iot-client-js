@@ -18,7 +18,7 @@ import Tag from './Tag';
 /**
  * The ArduinoThingtemplate model module.
  * @module model/ArduinoThingtemplate
- * @version 2.0.1
+ * @version 2.0.2
  */
 class ArduinoThingtemplate {
     /**

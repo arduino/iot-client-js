@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Widget model module.
  * @module model/Widget
- * @version 2.0.1
+ * @version 2.0.2
  */
 class Widget {
     /**
