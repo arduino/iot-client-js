@@ -25,7 +25,7 @@ import UpdateSketch from '../model/UpdateSketch';
 /**
 * ThingsV2 service.
 * @module api/ThingsV2Api
-* @version 2.0.1
+* @version 2.0.2
 */
 export default class ThingsV2Api {
 

@@ -10,6 +10,7 @@ docs/ArduinoDashboardv2template.md
 docs/ArduinoDevicev2.md
 docs/ArduinoDevicev2Cert.md
 docs/ArduinoDevicev2EventProperties.md
+docs/ArduinoDevicev2Otaupload.md
 docs/ArduinoDevicev2Pass.md
 docs/ArduinoDevicev2SimpleProperties.md
 docs/ArduinoDevicev2StatusEvent.md
@@ -65,6 +66,7 @@ docs/DevicesV2TagsApi.md
 docs/Devicev2.md
 docs/Devicev2Cert.md
 docs/Devicev2Otabinaryurl.md
+docs/Devicev2Otaurlpyalod.md
 docs/Devicev2Pass.md
 docs/Error.md
 docs/HistoricDataRequest.md
@@ -114,6 +116,7 @@ src/model/ArduinoDashboardv2template.js
 src/model/ArduinoDevicev2.js
 src/model/ArduinoDevicev2Cert.js
 src/model/ArduinoDevicev2EventProperties.js
+src/model/ArduinoDevicev2Otaupload.js
 src/model/ArduinoDevicev2Pass.js
 src/model/ArduinoDevicev2SimpleProperties.js
 src/model/ArduinoDevicev2StatusEvent.js
@@ -163,6 +166,7 @@ src/model/Dashboardv2.js
 src/model/Devicev2.js
 src/model/Devicev2Cert.js
 src/model/Devicev2Otabinaryurl.js
+src/model/Devicev2Otaurlpyalod.js
 src/model/Devicev2Pass.js
 src/model/Error.js
 src/model/HistoricDataRequest.js
@@ -201,6 +205,7 @@ test/model/ArduinoDashboardv2template.spec.js
 test/model/ArduinoDevicev2.spec.js
 test/model/ArduinoDevicev2Cert.spec.js
 test/model/ArduinoDevicev2EventProperties.spec.js
+test/model/ArduinoDevicev2Otaupload.spec.js
 test/model/ArduinoDevicev2Pass.spec.js
 test/model/ArduinoDevicev2SimpleProperties.spec.js
 test/model/ArduinoDevicev2StatusEvent.spec.js
@@ -250,6 +255,7 @@ test/model/Dashboardv2.spec.js
 test/model/Devicev2.spec.js
 test/model/Devicev2Cert.spec.js
 test/model/Devicev2Otabinaryurl.spec.js
+test/model/Devicev2Otaurlpyalod.spec.js
 test/model/Devicev2Pass.spec.js
 test/model/Error.spec.js
 test/model/HistoricDataRequest.spec.js

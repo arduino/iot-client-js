@@ -13,13 +13,15 @@
 
 
 import ApiClient from "../ApiClient";
+import ArduinoDevicev2Otaupload from '../model/ArduinoDevicev2Otaupload';
 import Devicev2Otabinaryurl from '../model/Devicev2Otabinaryurl';
+import Devicev2Otaurlpyalod from '../model/Devicev2Otaurlpyalod';
 import Error from '../model/Error';
 
 /**
 * DevicesV2Ota service.
 * @module api/DevicesV2OtaApi
-* @version 2.0.1
+* @version 2.0.2
 */
 export default class DevicesV2OtaApi {
 
@@ -98,7 +100,7 @@ export default class DevicesV2OtaApi {
      * @param {Object} opts Optional parameters
      * @param {Boolean} [async = true)] If false, wait for the full OTA process, until it gets a result from the device
      * @param {Number} [expireInMins = 10)] Binary expire time in minutes, default 10 mins
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2Otaupload} and HTTP response
      */
     devicesV2OtaUploadWithHttpInfo(id, otaFile, opts) {
       opts = opts || {};
@@ -127,8 +129,8 @@ export default class DevicesV2OtaApi {
 
       let authNames = ['oauth2'];
       let contentTypes = ['multipart/form-data'];
-      let accepts = ['application/vnd.goa.error+json', 'text/plain'];
-      let returnType = null;
+      let accepts = ['application/vnd.arduino.devicev2.otaupload+json', 'application/vnd.goa.error+json'];
+      let returnType = ArduinoDevicev2Otaupload;
       return this.apiClient.callApi(
         '/v2/devices/{id}/ota', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -144,10 +146,64 @@ export default class DevicesV2OtaApi {
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.async If false, wait for the full OTA process, until it gets a result from the device (default to true)
      * @param {Number} opts.expireInMins Binary expire time in minutes, default 10 mins (default to 10)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2Otaupload}
      */
     devicesV2OtaUpload(id, otaFile, opts) {
       return this.devicesV2OtaUploadWithHttpInfo(id, otaFile, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * url devices_v2_ota
+     * Generate a url for downloading a binary
+     * @param {String} id The id of the device
+     * @param {module:model/Devicev2Otaurlpyalod} devicev2Otaurlpyalod 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    devicesV2OtaUrlWithHttpInfo(id, devicev2Otaurlpyalod) {
+      let postBody = devicev2Otaurlpyalod;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling devicesV2OtaUrl");
+      }
+      // verify the required parameter 'devicev2Otaurlpyalod' is set
+      if (devicev2Otaurlpyalod === undefined || devicev2Otaurlpyalod === null) {
+        throw new Error("Missing the required parameter 'devicev2Otaurlpyalod' when calling devicesV2OtaUrl");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oauth2'];
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let accepts = ['application/vnd.goa.error+json', 'text/plain'];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/v2/devices/{id}/ota/url', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * url devices_v2_ota
+     * Generate a url for downloading a binary
+     * @param {String} id The id of the device
+     * @param {module:model/Devicev2Otaurlpyalod} devicev2Otaurlpyalod 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    devicesV2OtaUrl(id, devicev2Otaurlpyalod) {
+      return this.devicesV2OtaUrlWithHttpInfo(id, devicev2Otaurlpyalod)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Tag model module.
  * @module model/Tag
- * @version 2.0.1
+ * @version 2.0.2
  */
 class Tag {
     /**

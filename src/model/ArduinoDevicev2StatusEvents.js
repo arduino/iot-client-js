@@ -17,7 +17,7 @@ import ArduinoDevicev2StatusEvent from './ArduinoDevicev2StatusEvent';
 /**
  * The ArduinoDevicev2StatusEvents model module.
  * @module model/ArduinoDevicev2StatusEvents
- * @version 2.0.1
+ * @version 2.0.2
  */
 class ArduinoDevicev2StatusEvents {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ThingClone model module.
  * @module model/ThingClone
- * @version 2.0.1
+ * @version 2.0.2
  */
 class ThingClone {
     /**
