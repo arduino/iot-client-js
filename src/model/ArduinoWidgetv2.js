@@ -17,7 +17,7 @@ import ArduinoLinkedvariable from './ArduinoLinkedvariable';
 /**
  * The ArduinoWidgetv2 model module.
  * @module model/ArduinoWidgetv2
- * @version 2.0.2
+ * @version 2.0.3
  */
 class ArduinoWidgetv2 {
     /**
@@ -27,7 +27,7 @@ class ArduinoWidgetv2 {
      * @param height {Number} Widget current height for desktop
      * @param id {String} The UUID of the widget, set by client
      * @param options {Object.<String, Object>} Widget options
-     * @param type {module:model/ArduinoWidgetv2.TypeEnum} The type of the widget
+     * @param type {String} The type of the widget
      * @param width {Number} Widget current width for desktop
      * @param x {Number} Widget x position for desktop
      * @param y {Number} Widget y position for desktop
@@ -208,7 +208,7 @@ ArduinoWidgetv2.prototype['options'] = undefined;
 
 /**
  * The type of the widget
- * @member {module:model/ArduinoWidgetv2.TypeEnum} type
+ * @member {String} type
  */
 ArduinoWidgetv2.prototype['type'] = undefined;
 
@@ -256,21 +256,6 @@ ArduinoWidgetv2.prototype['y_mobile'] = undefined;
 
 
 
-
-
-/**
- * Allowed values for the <code>type</code> property.
- * @enum {String}
- * @readonly
- */
-ArduinoWidgetv2['TypeEnum'] = {
-
-    /**
-     * value: "slider, gauge"
-     * @const
-     */
-    "slider, gauge": "slider, gauge"
-};
 
 
 

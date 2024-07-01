@@ -12,24 +12,24 @@
  */
 
 import ApiClient from '../ApiClient';
-import ArduinoSeriesRawResponse from './ArduinoSeriesRawResponse';
+import ArduinoSeriesSampledResponse from './ArduinoSeriesSampledResponse';
 
 /**
- * The ArduinoSeriesRawBatch model module.
- * @module model/ArduinoSeriesRawBatch
+ * The ArduinoSeriesBatchSampled model module.
+ * @module model/ArduinoSeriesBatchSampled
  * @version 2.0.3
  */
-class ArduinoSeriesRawBatch {
+class ArduinoSeriesBatchSampled {
     /**
-     * Constructs a new <code>ArduinoSeriesRawBatch</code>.
-     * ArduinoSeriesRawBatch media type (default view)
-     * @alias module:model/ArduinoSeriesRawBatch
+     * Constructs a new <code>ArduinoSeriesBatchSampled</code>.
+     * ArduinoSeriesBatchSampled media type (default view)
+     * @alias module:model/ArduinoSeriesBatchSampled
      * @param respVersion {Number} Response version
-     * @param responses {Array.<module:model/ArduinoSeriesRawResponse>} Responses of the request
+     * @param responses {Array.<module:model/ArduinoSeriesSampledResponse>} Responses of the request
      */
     constructor(respVersion, responses) { 
         
-        ArduinoSeriesRawBatch.initialize(this, respVersion, responses);
+        ArduinoSeriesBatchSampled.initialize(this, respVersion, responses);
     }
 
     /**
@@ -43,34 +43,34 @@ class ArduinoSeriesRawBatch {
     }
 
     /**
-     * Constructs a <code>ArduinoSeriesRawBatch</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>ArduinoSeriesBatchSampled</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ArduinoSeriesRawBatch} obj Optional instance to populate.
-     * @return {module:model/ArduinoSeriesRawBatch} The populated <code>ArduinoSeriesRawBatch</code> instance.
+     * @param {module:model/ArduinoSeriesBatchSampled} obj Optional instance to populate.
+     * @return {module:model/ArduinoSeriesBatchSampled} The populated <code>ArduinoSeriesBatchSampled</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new ArduinoSeriesRawBatch();
+            obj = obj || new ArduinoSeriesBatchSampled();
 
             if (data.hasOwnProperty('resp_version')) {
                 obj['resp_version'] = ApiClient.convertToType(data['resp_version'], 'Number');
             }
             if (data.hasOwnProperty('responses')) {
-                obj['responses'] = ApiClient.convertToType(data['responses'], [ArduinoSeriesRawResponse]);
+                obj['responses'] = ApiClient.convertToType(data['responses'], [ArduinoSeriesSampledResponse]);
             }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>ArduinoSeriesRawBatch</code>.
+     * Validates the JSON data with respect to <code>ArduinoSeriesBatchSampled</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoSeriesRawBatch</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoSeriesBatchSampled</code>.
      */
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
-        for (const property of ArduinoSeriesRawBatch.RequiredProperties) {
+        for (const property of ArduinoSeriesBatchSampled.RequiredProperties) {
             if (!data[property]) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
@@ -82,7 +82,7 @@ class ArduinoSeriesRawBatch {
             }
             // validate the optional field `responses` (array)
             for (const item of data['responses']) {
-                ArduinoSeriesRawResponse.validateJSON(item);
+                ArduinoSeriesSampledResponse.validateJSON(item);
             };
         }
 
@@ -92,24 +92,24 @@ class ArduinoSeriesRawBatch {
 
 }
 
-ArduinoSeriesRawBatch.RequiredProperties = ["resp_version", "responses"];
+ArduinoSeriesBatchSampled.RequiredProperties = ["resp_version", "responses"];
 
 /**
  * Response version
  * @member {Number} resp_version
  */
-ArduinoSeriesRawBatch.prototype['resp_version'] = undefined;
+ArduinoSeriesBatchSampled.prototype['resp_version'] = undefined;
 
 /**
  * Responses of the request
- * @member {Array.<module:model/ArduinoSeriesRawResponse>} responses
+ * @member {Array.<module:model/ArduinoSeriesSampledResponse>} responses
  */
-ArduinoSeriesRawBatch.prototype['responses'] = undefined;
+ArduinoSeriesBatchSampled.prototype['responses'] = undefined;
 
 
 
 
 
 
-export default ArduinoSeriesRawBatch;
+export default ArduinoSeriesBatchSampled;
 

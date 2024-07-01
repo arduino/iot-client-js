@@ -27,7 +27,7 @@ import Widgetlink from '../model/Widgetlink';
 /**
 * DashboardsV2 service.
 * @module api/DashboardsV2Api
-* @version 2.0.2
+* @version 2.0.3
 */
 export default class DashboardsV2Api {
 

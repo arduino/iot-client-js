@@ -14,18 +14,20 @@
 
 import ApiClient from "../ApiClient";
 import ArduinoSeriesBatch from '../model/ArduinoSeriesBatch';
+import ArduinoSeriesBatchSampled from '../model/ArduinoSeriesBatchSampled';
 import ArduinoSeriesRawBatch from '../model/ArduinoSeriesRawBatch';
 import ArduinoSeriesRawBatchLastvalue from '../model/ArduinoSeriesRawBatchLastvalue';
 import BatchLastValueRequestsMediaV1 from '../model/BatchLastValueRequestsMediaV1';
 import BatchQueryRawRequestsMediaV1 from '../model/BatchQueryRawRequestsMediaV1';
 import BatchQueryRequestsMediaV1 from '../model/BatchQueryRequestsMediaV1';
+import BatchQuerySampledRequestsMediaV1 from '../model/BatchQuerySampledRequestsMediaV1';
 import Error from '../model/Error';
 import HistoricDataRequest from '../model/HistoricDataRequest';
 
 /**
 * SeriesV2 service.
 * @module api/SeriesV2Api
-* @version 2.0.2
+* @version 2.0.3
 */
 export default class SeriesV2Api {
 
@@ -177,6 +179,53 @@ export default class SeriesV2Api {
      */
     seriesV2BatchQueryRawLastValue(batchLastValueRequestsMediaV1) {
       return this.seriesV2BatchQueryRawLastValueWithHttpInfo(batchLastValueRequestsMediaV1)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * batch_query_sampling series_v2
+     * Returns a batch of time-series sampled samples. To be used for types that does not support mathematic aggregation. Types supported: strings, complex types.
+     * @param {module:model/BatchQuerySampledRequestsMediaV1} batchQuerySampledRequestsMediaV1 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoSeriesBatchSampled} and HTTP response
+     */
+    seriesV2BatchQuerySamplingWithHttpInfo(batchQuerySampledRequestsMediaV1) {
+      let postBody = batchQuerySampledRequestsMediaV1;
+      // verify the required parameter 'batchQuerySampledRequestsMediaV1' is set
+      if (batchQuerySampledRequestsMediaV1 === undefined || batchQuerySampledRequestsMediaV1 === null) {
+        throw new Error("Missing the required parameter 'batchQuerySampledRequestsMediaV1' when calling seriesV2BatchQuerySampling");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oauth2'];
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let accepts = ['application/vnd.arduino.series.batch.sampled+json', 'application/vnd.goa.error+json'];
+      let returnType = ArduinoSeriesBatchSampled;
+      return this.apiClient.callApi(
+        '/v2/series/batch_query_sampling', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * batch_query_sampling series_v2
+     * Returns a batch of time-series sampled samples. To be used for types that does not support mathematic aggregation. Types supported: strings, complex types.
+     * @param {module:model/BatchQuerySampledRequestsMediaV1} batchQuerySampledRequestsMediaV1 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoSeriesBatchSampled}
+     */
+    seriesV2BatchQuerySampling(batchQuerySampledRequestsMediaV1) {
+      return this.seriesV2BatchQuerySamplingWithHttpInfo(batchQuerySampledRequestsMediaV1)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

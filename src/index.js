@@ -33,17 +33,20 @@ import ArduinoDevicev2propertyvalueValue from './model/ArduinoDevicev2propertyva
 import ArduinoDevicev2propertyvalueValueStatistics from './model/ArduinoDevicev2propertyvalueValueStatistics';
 import ArduinoDevicev2propertyvalues from './model/ArduinoDevicev2propertyvalues';
 import ArduinoDevicev2propertyvaluesLastEvaluatedKey from './model/ArduinoDevicev2propertyvaluesLastEvaluatedKey';
+import ArduinoDevicev2templatedevice from './model/ArduinoDevicev2templatedevice';
 import ArduinoLinkedvariable from './model/ArduinoLinkedvariable';
 import ArduinoLoradevicev1 from './model/ArduinoLoradevicev1';
 import ArduinoLorafreqplansv1 from './model/ArduinoLorafreqplansv1';
 import ArduinoLorafreqplanv1 from './model/ArduinoLorafreqplanv1';
 import ArduinoProperty from './model/ArduinoProperty';
 import ArduinoSeriesBatch from './model/ArduinoSeriesBatch';
+import ArduinoSeriesBatchSampled from './model/ArduinoSeriesBatchSampled';
 import ArduinoSeriesRawBatch from './model/ArduinoSeriesRawBatch';
 import ArduinoSeriesRawBatchLastvalue from './model/ArduinoSeriesRawBatchLastvalue';
 import ArduinoSeriesRawLastValueResponse from './model/ArduinoSeriesRawLastValueResponse';
 import ArduinoSeriesRawResponse from './model/ArduinoSeriesRawResponse';
 import ArduinoSeriesResponse from './model/ArduinoSeriesResponse';
+import ArduinoSeriesSampledResponse from './model/ArduinoSeriesSampledResponse';
 import ArduinoTags from './model/ArduinoTags';
 import ArduinoTemplateproperty from './model/ArduinoTemplateproperty';
 import ArduinoTemplatevariable from './model/ArduinoTemplatevariable';
@@ -61,6 +64,8 @@ import BatchQueryRawRequestsMediaV1 from './model/BatchQueryRawRequestsMediaV1';
 import BatchQueryRawResponseSeriesMediaV1 from './model/BatchQueryRawResponseSeriesMediaV1';
 import BatchQueryRequestMediaV1 from './model/BatchQueryRequestMediaV1';
 import BatchQueryRequestsMediaV1 from './model/BatchQueryRequestsMediaV1';
+import BatchQuerySampledRequestMediaV1 from './model/BatchQuerySampledRequestMediaV1';
+import BatchQuerySampledRequestsMediaV1 from './model/BatchQuerySampledRequestsMediaV1';
 import CheckDevicesV2PassPayload from './model/CheckDevicesV2PassPayload';
 import Clone from './model/Clone';
 import CreateDevicesV2CertsPayload from './model/CreateDevicesV2CertsPayload';
@@ -133,7 +138,7 @@ import ThingsV2TagsApi from './api/ThingsV2TagsApi';
 * </pre>
 * </p>
 * @module index
-* @version 2.0.2
+* @version 2.0.3
 */
 export {
     /**
@@ -263,6 +268,12 @@ export {
     ArduinoDevicev2propertyvaluesLastEvaluatedKey,
 
     /**
+     * The ArduinoDevicev2templatedevice model constructor.
+     * @property {module:model/ArduinoDevicev2templatedevice}
+     */
+    ArduinoDevicev2templatedevice,
+
+    /**
      * The ArduinoLinkedvariable model constructor.
      * @property {module:model/ArduinoLinkedvariable}
      */
@@ -299,6 +310,12 @@ export {
     ArduinoSeriesBatch,
 
     /**
+     * The ArduinoSeriesBatchSampled model constructor.
+     * @property {module:model/ArduinoSeriesBatchSampled}
+     */
+    ArduinoSeriesBatchSampled,
+
+    /**
      * The ArduinoSeriesRawBatch model constructor.
      * @property {module:model/ArduinoSeriesRawBatch}
      */
@@ -327,6 +344,12 @@ export {
      * @property {module:model/ArduinoSeriesResponse}
      */
     ArduinoSeriesResponse,
+
+    /**
+     * The ArduinoSeriesSampledResponse model constructor.
+     * @property {module:model/ArduinoSeriesSampledResponse}
+     */
+    ArduinoSeriesSampledResponse,
 
     /**
      * The ArduinoTags model constructor.
@@ -429,6 +452,18 @@ export {
      * @property {module:model/BatchQueryRequestsMediaV1}
      */
     BatchQueryRequestsMediaV1,
+
+    /**
+     * The BatchQuerySampledRequestMediaV1 model constructor.
+     * @property {module:model/BatchQuerySampledRequestMediaV1}
+     */
+    BatchQuerySampledRequestMediaV1,
+
+    /**
+     * The BatchQuerySampledRequestsMediaV1 model constructor.
+     * @property {module:model/BatchQuerySampledRequestsMediaV1}
+     */
+    BatchQuerySampledRequestsMediaV1,
 
     /**
      * The CheckDevicesV2PassPayload model constructor.

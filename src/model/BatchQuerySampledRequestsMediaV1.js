@@ -12,23 +12,23 @@
  */
 
 import ApiClient from '../ApiClient';
-import BatchQueryRequestMediaV1 from './BatchQueryRequestMediaV1';
+import BatchQuerySampledRequestMediaV1 from './BatchQuerySampledRequestMediaV1';
 
 /**
- * The BatchQueryRequestsMediaV1 model module.
- * @module model/BatchQueryRequestsMediaV1
+ * The BatchQuerySampledRequestsMediaV1 model module.
+ * @module model/BatchQuerySampledRequestsMediaV1
  * @version 2.0.3
  */
-class BatchQueryRequestsMediaV1 {
+class BatchQuerySampledRequestsMediaV1 {
     /**
-     * Constructs a new <code>BatchQueryRequestsMediaV1</code>.
-     * @alias module:model/BatchQueryRequestsMediaV1
-     * @param requests {Array.<module:model/BatchQueryRequestMediaV1>} Requests
+     * Constructs a new <code>BatchQuerySampledRequestsMediaV1</code>.
+     * @alias module:model/BatchQuerySampledRequestsMediaV1
+     * @param requests {Array.<module:model/BatchQuerySampledRequestMediaV1>} Requests
      * @param respVersion {Number} Response version
      */
     constructor(requests, respVersion) { 
         
-        BatchQueryRequestsMediaV1.initialize(this, requests, respVersion);
+        BatchQuerySampledRequestsMediaV1.initialize(this, requests, respVersion);
     }
 
     /**
@@ -42,18 +42,18 @@ class BatchQueryRequestsMediaV1 {
     }
 
     /**
-     * Constructs a <code>BatchQueryRequestsMediaV1</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>BatchQuerySampledRequestsMediaV1</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/BatchQueryRequestsMediaV1} obj Optional instance to populate.
-     * @return {module:model/BatchQueryRequestsMediaV1} The populated <code>BatchQueryRequestsMediaV1</code> instance.
+     * @param {module:model/BatchQuerySampledRequestsMediaV1} obj Optional instance to populate.
+     * @return {module:model/BatchQuerySampledRequestsMediaV1} The populated <code>BatchQuerySampledRequestsMediaV1</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new BatchQueryRequestsMediaV1();
+            obj = obj || new BatchQuerySampledRequestsMediaV1();
 
             if (data.hasOwnProperty('requests')) {
-                obj['requests'] = ApiClient.convertToType(data['requests'], [BatchQueryRequestMediaV1]);
+                obj['requests'] = ApiClient.convertToType(data['requests'], [BatchQuerySampledRequestMediaV1]);
             }
             if (data.hasOwnProperty('resp_version')) {
                 obj['resp_version'] = ApiClient.convertToType(data['resp_version'], 'Number');
@@ -63,13 +63,13 @@ class BatchQueryRequestsMediaV1 {
     }
 
     /**
-     * Validates the JSON data with respect to <code>BatchQueryRequestsMediaV1</code>.
+     * Validates the JSON data with respect to <code>BatchQuerySampledRequestsMediaV1</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>BatchQueryRequestsMediaV1</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>BatchQuerySampledRequestsMediaV1</code>.
      */
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
-        for (const property of BatchQueryRequestsMediaV1.RequiredProperties) {
+        for (const property of BatchQuerySampledRequestsMediaV1.RequiredProperties) {
             if (!data[property]) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
@@ -81,7 +81,7 @@ class BatchQueryRequestsMediaV1 {
             }
             // validate the optional field `requests` (array)
             for (const item of data['requests']) {
-                BatchQueryRequestMediaV1.validateJSON(item);
+                BatchQuerySampledRequestMediaV1.validateJSON(item);
             };
         }
 
@@ -91,24 +91,24 @@ class BatchQueryRequestsMediaV1 {
 
 }
 
-BatchQueryRequestsMediaV1.RequiredProperties = ["requests", "resp_version"];
+BatchQuerySampledRequestsMediaV1.RequiredProperties = ["requests", "resp_version"];
 
 /**
  * Requests
- * @member {Array.<module:model/BatchQueryRequestMediaV1>} requests
+ * @member {Array.<module:model/BatchQuerySampledRequestMediaV1>} requests
  */
-BatchQueryRequestsMediaV1.prototype['requests'] = undefined;
+BatchQuerySampledRequestsMediaV1.prototype['requests'] = undefined;
 
 /**
  * Response version
  * @member {Number} resp_version
  */
-BatchQueryRequestsMediaV1.prototype['resp_version'] = undefined;
+BatchQuerySampledRequestsMediaV1.prototype['resp_version'] = undefined;
 
 
 
 
 
 
-export default BatchQueryRequestsMediaV1;
+export default BatchQuerySampledRequestsMediaV1;
 

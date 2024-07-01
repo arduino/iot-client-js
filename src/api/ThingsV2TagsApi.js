@@ -20,7 +20,7 @@ import Tag from '../model/Tag';
 /**
 * ThingsV2Tags service.
 * @module api/ThingsV2TagsApi
-* @version 2.0.2
+* @version 2.0.3
 */
 export default class ThingsV2TagsApi {
 
