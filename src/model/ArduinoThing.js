@@ -17,7 +17,7 @@ import ArduinoProperty from './ArduinoProperty';
 /**
  * The ArduinoThing model module.
  * @module model/ArduinoThing
- * @version 2.0.2
+ * @version 2.0.3
  */
 class ArduinoThing {
     /**
@@ -59,6 +59,9 @@ class ArduinoThing {
         if (data) {
             obj = obj || new ArduinoThing();
 
+            if (data.hasOwnProperty('assistant')) {
+                obj['assistant'] = ApiClient.convertToType(data['assistant'], 'String');
+            }
             if (data.hasOwnProperty('created_at')) {
                 obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
             }
@@ -133,6 +136,10 @@ class ArduinoThing {
             }
         }
         // ensure the json data is a string
+        if (data['assistant'] && !(typeof data['assistant'] === 'string' || data['assistant'] instanceof String)) {
+            throw new Error("Expected the field `assistant` to be a primitive type in the JSON string but got " + data['assistant']);
+        }
+        // ensure the json data is a string
         if (data['device_fqbn'] && !(typeof data['device_fqbn'] === 'string' || data['device_fqbn'] instanceof String)) {
             throw new Error("Expected the field `device_fqbn` to be a primitive type in the JSON string but got " + data['device_fqbn']);
         }
@@ -198,6 +205,12 @@ class ArduinoThing {
 }
 
 ArduinoThing.RequiredProperties = ["href", "id", "name", "timezone", "user_id"];
+
+/**
+ * The kind of voice assistant the thing is connected to, it can be ALEXA | GOOGLE | NONE
+ * @member {module:model/ArduinoThing.AssistantEnum} assistant
+ */
+ArduinoThing.prototype['assistant'] = undefined;
 
 /**
  * Creation date of the thing
@@ -315,6 +328,33 @@ ArduinoThing.prototype['webhook_uri'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>assistant</code> property.
+ * @enum {String}
+ * @readonly
+ */
+ArduinoThing['AssistantEnum'] = {
+
+    /**
+     * value: "ALEXA"
+     * @const
+     */
+    "ALEXA": "ALEXA",
+
+    /**
+     * value: "GOOGLE"
+     * @const
+     */
+    "GOOGLE": "GOOGLE",
+
+    /**
+     * value: "NONE"
+     * @const
+     */
+    "NONE": "NONE"
+};
 
 
 

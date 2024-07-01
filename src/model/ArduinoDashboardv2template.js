@@ -17,7 +17,7 @@ import ArduinoWidgetv2template from './ArduinoWidgetv2template';
 /**
  * The ArduinoDashboardv2template model module.
  * @module model/ArduinoDashboardv2template
- * @version 2.0.2
+ * @version 2.0.3
  */
 class ArduinoDashboardv2template {
     /**
@@ -51,6 +51,9 @@ class ArduinoDashboardv2template {
         if (data) {
             obj = obj || new ArduinoDashboardv2template();
 
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
@@ -74,6 +77,10 @@ class ArduinoDashboardv2template {
             }
         }
         // ensure the json data is a string
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        }
+        // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
             throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
         }
@@ -95,6 +102,12 @@ class ArduinoDashboardv2template {
 }
 
 ArduinoDashboardv2template.RequiredProperties = ["name"];
+
+/**
+ * The friendly ID of the dashboard
+ * @member {String} id
+ */
+ArduinoDashboardv2template.prototype['id'] = undefined;
 
 /**
  * The friendly name of the dashboard

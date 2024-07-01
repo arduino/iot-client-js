@@ -12,32 +12,30 @@
  */
 
 import ApiClient from '../ApiClient';
-import BatchQueryRawResponseSeriesMediaV1 from './BatchQueryRawResponseSeriesMediaV1';
 
 /**
- * The ArduinoSeriesRawResponse model module.
- * @module model/ArduinoSeriesRawResponse
+ * The ArduinoSeriesSampledResponse model module.
+ * @module model/ArduinoSeriesSampledResponse
  * @version 2.0.3
  */
-class ArduinoSeriesRawResponse {
+class ArduinoSeriesSampledResponse {
     /**
-     * Constructs a new <code>ArduinoSeriesRawResponse</code>.
-     * ArduinoSeriesRawResponse media type (default view)
-     * @alias module:model/ArduinoSeriesRawResponse
+     * Constructs a new <code>ArduinoSeriesSampledResponse</code>.
+     * ArduinoSeriesSampledResponse media type (default view)
+     * @alias module:model/ArduinoSeriesSampledResponse
      * @param countValues {Number} Total number of values in the array 'values'
      * @param fromDate {Date} From date
+     * @param interval {Number} Resolution in seconds
      * @param query {String} Query of for the data
      * @param respVersion {Number} Response version
-     * @param series {module:model/BatchQueryRawResponseSeriesMediaV1} 
-     * @param sort {module:model/ArduinoSeriesRawResponse.SortEnum} Sorting
      * @param status {String} Status of the response
      * @param times {Array.<Date>} Timestamp in RFC3339
      * @param toDate {Date} To date
-     * @param values {Array.<Object>} Values can be in Float, String, Bool, Object
+     * @param values {Array.<Object>} Values in Float
      */
-    constructor(countValues, fromDate, query, respVersion, series, sort, status, times, toDate, values) { 
+    constructor(countValues, fromDate, interval, query, respVersion, status, times, toDate, values) { 
         
-        ArduinoSeriesRawResponse.initialize(this, countValues, fromDate, query, respVersion, series, sort, status, times, toDate, values);
+        ArduinoSeriesSampledResponse.initialize(this, countValues, fromDate, interval, query, respVersion, status, times, toDate, values);
     }
 
     /**
@@ -45,13 +43,12 @@ class ArduinoSeriesRawResponse {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, countValues, fromDate, query, respVersion, series, sort, status, times, toDate, values) { 
+    static initialize(obj, countValues, fromDate, interval, query, respVersion, status, times, toDate, values) { 
         obj['count_values'] = countValues;
         obj['from_date'] = fromDate;
+        obj['interval'] = interval;
         obj['query'] = query;
         obj['resp_version'] = respVersion;
-        obj['series'] = series;
-        obj['sort'] = sort;
         obj['status'] = status;
         obj['times'] = times;
         obj['to_date'] = toDate;
@@ -59,21 +56,24 @@ class ArduinoSeriesRawResponse {
     }
 
     /**
-     * Constructs a <code>ArduinoSeriesRawResponse</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>ArduinoSeriesSampledResponse</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ArduinoSeriesRawResponse} obj Optional instance to populate.
-     * @return {module:model/ArduinoSeriesRawResponse} The populated <code>ArduinoSeriesRawResponse</code> instance.
+     * @param {module:model/ArduinoSeriesSampledResponse} obj Optional instance to populate.
+     * @return {module:model/ArduinoSeriesSampledResponse} The populated <code>ArduinoSeriesSampledResponse</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new ArduinoSeriesRawResponse();
+            obj = obj || new ArduinoSeriesSampledResponse();
 
             if (data.hasOwnProperty('count_values')) {
                 obj['count_values'] = ApiClient.convertToType(data['count_values'], 'Number');
             }
             if (data.hasOwnProperty('from_date')) {
                 obj['from_date'] = ApiClient.convertToType(data['from_date'], 'Date');
+            }
+            if (data.hasOwnProperty('interval')) {
+                obj['interval'] = ApiClient.convertToType(data['interval'], 'Number');
             }
             if (data.hasOwnProperty('message')) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
@@ -84,14 +84,8 @@ class ArduinoSeriesRawResponse {
             if (data.hasOwnProperty('resp_version')) {
                 obj['resp_version'] = ApiClient.convertToType(data['resp_version'], 'Number');
             }
-            if (data.hasOwnProperty('series')) {
-                obj['series'] = BatchQueryRawResponseSeriesMediaV1.constructFromObject(data['series']);
-            }
             if (data.hasOwnProperty('series_limit')) {
                 obj['series_limit'] = ApiClient.convertToType(data['series_limit'], 'Number');
-            }
-            if (data.hasOwnProperty('sort')) {
-                obj['sort'] = ApiClient.convertToType(data['sort'], 'String');
             }
             if (data.hasOwnProperty('status')) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
@@ -110,13 +104,13 @@ class ArduinoSeriesRawResponse {
     }
 
     /**
-     * Validates the JSON data with respect to <code>ArduinoSeriesRawResponse</code>.
+     * Validates the JSON data with respect to <code>ArduinoSeriesSampledResponse</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoSeriesRawResponse</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ArduinoSeriesSampledResponse</code>.
      */
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
-        for (const property of ArduinoSeriesRawResponse.RequiredProperties) {
+        for (const property of ArduinoSeriesSampledResponse.RequiredProperties) {
             if (!data[property]) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
@@ -128,14 +122,6 @@ class ArduinoSeriesRawResponse {
         // ensure the json data is a string
         if (data['query'] && !(typeof data['query'] === 'string' || data['query'] instanceof String)) {
             throw new Error("Expected the field `query` to be a primitive type in the JSON string but got " + data['query']);
-        }
-        // validate the optional field `series`
-        if (data['series']) { // data not null
-          BatchQueryRawResponseSeriesMediaV1.validateJSON(data['series']);
-        }
-        // ensure the json data is a string
-        if (data['sort'] && !(typeof data['sort'] === 'string' || data['sort'] instanceof String)) {
-            throw new Error("Expected the field `sort` to be a primitive type in the JSON string but got " + data['sort']);
         }
         // ensure the json data is a string
         if (data['status'] && !(typeof data['status'] === 'string' || data['status'] instanceof String)) {
@@ -156,105 +142,79 @@ class ArduinoSeriesRawResponse {
 
 }
 
-ArduinoSeriesRawResponse.RequiredProperties = ["count_values", "from_date", "query", "resp_version", "series", "sort", "status", "times", "to_date", "values"];
+ArduinoSeriesSampledResponse.RequiredProperties = ["count_values", "from_date", "interval", "query", "resp_version", "status", "times", "to_date", "values"];
 
 /**
  * Total number of values in the array 'values'
  * @member {Number} count_values
  */
-ArduinoSeriesRawResponse.prototype['count_values'] = undefined;
+ArduinoSeriesSampledResponse.prototype['count_values'] = undefined;
 
 /**
  * From date
  * @member {Date} from_date
  */
-ArduinoSeriesRawResponse.prototype['from_date'] = undefined;
+ArduinoSeriesSampledResponse.prototype['from_date'] = undefined;
+
+/**
+ * Resolution in seconds
+ * @member {Number} interval
+ */
+ArduinoSeriesSampledResponse.prototype['interval'] = undefined;
 
 /**
  * If the response is different than 'ok'
  * @member {String} message
  * @default ''
  */
-ArduinoSeriesRawResponse.prototype['message'] = '';
+ArduinoSeriesSampledResponse.prototype['message'] = '';
 
 /**
  * Query of for the data
  * @member {String} query
  */
-ArduinoSeriesRawResponse.prototype['query'] = undefined;
+ArduinoSeriesSampledResponse.prototype['query'] = undefined;
 
 /**
  * Response version
  * @member {Number} resp_version
  */
-ArduinoSeriesRawResponse.prototype['resp_version'] = undefined;
+ArduinoSeriesSampledResponse.prototype['resp_version'] = undefined;
 
 /**
- * @member {module:model/BatchQueryRawResponseSeriesMediaV1} series
- */
-ArduinoSeriesRawResponse.prototype['series'] = undefined;
-
-/**
- * Max of values
+ * Maximum number of values returned after data aggregation, if any
  * @member {Number} series_limit
  */
-ArduinoSeriesRawResponse.prototype['series_limit'] = undefined;
-
-/**
- * Sorting
- * @member {module:model/ArduinoSeriesRawResponse.SortEnum} sort
- */
-ArduinoSeriesRawResponse.prototype['sort'] = undefined;
+ArduinoSeriesSampledResponse.prototype['series_limit'] = undefined;
 
 /**
  * Status of the response
  * @member {String} status
  */
-ArduinoSeriesRawResponse.prototype['status'] = undefined;
+ArduinoSeriesSampledResponse.prototype['status'] = undefined;
 
 /**
  * Timestamp in RFC3339
  * @member {Array.<Date>} times
  */
-ArduinoSeriesRawResponse.prototype['times'] = undefined;
+ArduinoSeriesSampledResponse.prototype['times'] = undefined;
 
 /**
  * To date
  * @member {Date} to_date
  */
-ArduinoSeriesRawResponse.prototype['to_date'] = undefined;
+ArduinoSeriesSampledResponse.prototype['to_date'] = undefined;
 
 /**
- * Values can be in Float, String, Bool, Object
+ * Values in Float
  * @member {Array.<Object>} values
  */
-ArduinoSeriesRawResponse.prototype['values'] = undefined;
+ArduinoSeriesSampledResponse.prototype['values'] = undefined;
 
 
 
 
 
-/**
- * Allowed values for the <code>sort</code> property.
- * @enum {String}
- * @readonly
- */
-ArduinoSeriesRawResponse['SortEnum'] = {
 
-    /**
-     * value: "ASC"
-     * @const
-     */
-    "ASC": "ASC",
-
-    /**
-     * value: "DESC"
-     * @const
-     */
-    "DESC": "DESC"
-};
-
-
-
-export default ArduinoSeriesRawResponse;
+export default ArduinoSeriesSampledResponse;
 

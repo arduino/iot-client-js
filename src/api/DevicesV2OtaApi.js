@@ -21,7 +21,7 @@ import Error from '../model/Error';
 /**
 * DevicesV2Ota service.
 * @module api/DevicesV2OtaApi
-* @version 2.0.2
+* @version 2.0.3
 */
 export default class DevicesV2OtaApi {
 
