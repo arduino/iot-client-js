@@ -17,7 +17,7 @@ import BatchQueryRawLastValueRequestMediaV1 from './BatchQueryRawLastValueReques
 /**
  * The BatchLastValueRequestsMediaV1 model module.
  * @module model/BatchLastValueRequestsMediaV1
- * @version 2.0.2
+ * @version 2.0.4
  */
 class BatchLastValueRequestsMediaV1 {
     /**

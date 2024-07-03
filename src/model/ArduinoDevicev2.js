@@ -19,7 +19,7 @@ import ArduinoThing from './ArduinoThing';
 /**
  * The ArduinoDevicev2 model module.
  * @module model/ArduinoDevicev2
- * @version 2.0.2
+ * @version 2.0.4
  */
 class ArduinoDevicev2 {
     /**
@@ -430,7 +430,19 @@ ArduinoDevicev2['ConnectionTypeEnum'] = {
      * value: "lora"
      * @const
      */
-    "lora": "lora"
+    "lora": "lora",
+
+    /**
+     * value: "catm1"
+     * @const
+     */
+    "catm1": "catm1",
+
+    /**
+     * value: "cellular"
+     * @const
+     */
+    "cellular": "cellular"
 };
 
 

@@ -14,6 +14,7 @@
 
 import ApiClient from './ApiClient';
 import ArduinoCompressedv2 from './model/ArduinoCompressedv2';
+import ArduinoCredentialsv1 from './model/ArduinoCredentialsv1';
 import ArduinoDashboardowner from './model/ArduinoDashboardowner';
 import ArduinoDashboardshare from './model/ArduinoDashboardshare';
 import ArduinoDashboardv2 from './model/ArduinoDashboardv2';
@@ -33,21 +34,26 @@ import ArduinoDevicev2propertyvalueValue from './model/ArduinoDevicev2propertyva
 import ArduinoDevicev2propertyvalueValueStatistics from './model/ArduinoDevicev2propertyvalueValueStatistics';
 import ArduinoDevicev2propertyvalues from './model/ArduinoDevicev2propertyvalues';
 import ArduinoDevicev2propertyvaluesLastEvaluatedKey from './model/ArduinoDevicev2propertyvaluesLastEvaluatedKey';
+import ArduinoDevicev2templatedevice from './model/ArduinoDevicev2templatedevice';
 import ArduinoLinkedvariable from './model/ArduinoLinkedvariable';
 import ArduinoLoradevicev1 from './model/ArduinoLoradevicev1';
 import ArduinoLorafreqplansv1 from './model/ArduinoLorafreqplansv1';
 import ArduinoLorafreqplanv1 from './model/ArduinoLorafreqplanv1';
 import ArduinoProperty from './model/ArduinoProperty';
 import ArduinoSeriesBatch from './model/ArduinoSeriesBatch';
+import ArduinoSeriesBatchSampled from './model/ArduinoSeriesBatchSampled';
 import ArduinoSeriesRawBatch from './model/ArduinoSeriesRawBatch';
 import ArduinoSeriesRawBatchLastvalue from './model/ArduinoSeriesRawBatchLastvalue';
 import ArduinoSeriesRawLastValueResponse from './model/ArduinoSeriesRawLastValueResponse';
 import ArduinoSeriesRawResponse from './model/ArduinoSeriesRawResponse';
 import ArduinoSeriesResponse from './model/ArduinoSeriesResponse';
+import ArduinoSeriesSampledResponse from './model/ArduinoSeriesSampledResponse';
 import ArduinoTags from './model/ArduinoTags';
+import ArduinoTemplate from './model/ArduinoTemplate';
 import ArduinoTemplateproperty from './model/ArduinoTemplateproperty';
 import ArduinoTemplatevariable from './model/ArduinoTemplatevariable';
 import ArduinoThing from './model/ArduinoThing';
+import ArduinoThingresult from './model/ArduinoThingresult';
 import ArduinoThingtemplate from './model/ArduinoThingtemplate';
 import ArduinoTimeseriesmedia from './model/ArduinoTimeseriesmedia';
 import ArduinoTimezone from './model/ArduinoTimezone';
@@ -61,6 +67,8 @@ import BatchQueryRawRequestsMediaV1 from './model/BatchQueryRawRequestsMediaV1';
 import BatchQueryRawResponseSeriesMediaV1 from './model/BatchQueryRawResponseSeriesMediaV1';
 import BatchQueryRequestMediaV1 from './model/BatchQueryRequestMediaV1';
 import BatchQueryRequestsMediaV1 from './model/BatchQueryRequestsMediaV1';
+import BatchQuerySampledRequestMediaV1 from './model/BatchQuerySampledRequestMediaV1';
+import BatchQuerySampledRequestsMediaV1 from './model/BatchQuerySampledRequestsMediaV1';
 import CheckDevicesV2PassPayload from './model/CheckDevicesV2PassPayload';
 import Clone from './model/Clone';
 import CreateDevicesV2CertsPayload from './model/CreateDevicesV2CertsPayload';
@@ -82,6 +90,7 @@ import Property from './model/Property';
 import PropertyValue from './model/PropertyValue';
 import Sharerequest from './model/Sharerequest';
 import Tag from './model/Tag';
+import Template from './model/Template';
 import ThingClone from './model/ThingClone';
 import ThingCreate from './model/ThingCreate';
 import ThingSketch from './model/ThingSketch';
@@ -98,8 +107,10 @@ import DevicesV2PassApi from './api/DevicesV2PassApi';
 import DevicesV2TagsApi from './api/DevicesV2TagsApi';
 import LoraDevicesV1Api from './api/LoraDevicesV1Api';
 import LoraFreqPlanV1Api from './api/LoraFreqPlanV1Api';
+import NetworkCredentialsV1Api from './api/NetworkCredentialsV1Api';
 import PropertiesV2Api from './api/PropertiesV2Api';
 import SeriesV2Api from './api/SeriesV2Api';
+import TemplatesApi from './api/TemplatesApi';
 import ThingsV2Api from './api/ThingsV2Api';
 import ThingsV2TagsApi from './api/ThingsV2TagsApi';
 
@@ -133,7 +144,7 @@ import ThingsV2TagsApi from './api/ThingsV2TagsApi';
 * </pre>
 * </p>
 * @module index
-* @version 2.0.2
+* @version 2.0.4
 */
 export {
     /**
@@ -147,6 +158,12 @@ export {
      * @property {module:model/ArduinoCompressedv2}
      */
     ArduinoCompressedv2,
+
+    /**
+     * The ArduinoCredentialsv1 model constructor.
+     * @property {module:model/ArduinoCredentialsv1}
+     */
+    ArduinoCredentialsv1,
 
     /**
      * The ArduinoDashboardowner model constructor.
@@ -263,6 +280,12 @@ export {
     ArduinoDevicev2propertyvaluesLastEvaluatedKey,
 
     /**
+     * The ArduinoDevicev2templatedevice model constructor.
+     * @property {module:model/ArduinoDevicev2templatedevice}
+     */
+    ArduinoDevicev2templatedevice,
+
+    /**
      * The ArduinoLinkedvariable model constructor.
      * @property {module:model/ArduinoLinkedvariable}
      */
@@ -299,6 +322,12 @@ export {
     ArduinoSeriesBatch,
 
     /**
+     * The ArduinoSeriesBatchSampled model constructor.
+     * @property {module:model/ArduinoSeriesBatchSampled}
+     */
+    ArduinoSeriesBatchSampled,
+
+    /**
      * The ArduinoSeriesRawBatch model constructor.
      * @property {module:model/ArduinoSeriesRawBatch}
      */
@@ -329,10 +358,22 @@ export {
     ArduinoSeriesResponse,
 
     /**
+     * The ArduinoSeriesSampledResponse model constructor.
+     * @property {module:model/ArduinoSeriesSampledResponse}
+     */
+    ArduinoSeriesSampledResponse,
+
+    /**
      * The ArduinoTags model constructor.
      * @property {module:model/ArduinoTags}
      */
     ArduinoTags,
+
+    /**
+     * The ArduinoTemplate model constructor.
+     * @property {module:model/ArduinoTemplate}
+     */
+    ArduinoTemplate,
 
     /**
      * The ArduinoTemplateproperty model constructor.
@@ -351,6 +392,12 @@ export {
      * @property {module:model/ArduinoThing}
      */
     ArduinoThing,
+
+    /**
+     * The ArduinoThingresult model constructor.
+     * @property {module:model/ArduinoThingresult}
+     */
+    ArduinoThingresult,
 
     /**
      * The ArduinoThingtemplate model constructor.
@@ -429,6 +476,18 @@ export {
      * @property {module:model/BatchQueryRequestsMediaV1}
      */
     BatchQueryRequestsMediaV1,
+
+    /**
+     * The BatchQuerySampledRequestMediaV1 model constructor.
+     * @property {module:model/BatchQuerySampledRequestMediaV1}
+     */
+    BatchQuerySampledRequestMediaV1,
+
+    /**
+     * The BatchQuerySampledRequestsMediaV1 model constructor.
+     * @property {module:model/BatchQuerySampledRequestsMediaV1}
+     */
+    BatchQuerySampledRequestsMediaV1,
 
     /**
      * The CheckDevicesV2PassPayload model constructor.
@@ -557,6 +616,12 @@ export {
     Tag,
 
     /**
+     * The Template model constructor.
+     * @property {module:model/Template}
+     */
+    Template,
+
+    /**
      * The ThingClone model constructor.
      * @property {module:model/ThingClone}
      */
@@ -653,6 +718,12 @@ export {
     LoraFreqPlanV1Api,
 
     /**
+    * The NetworkCredentialsV1Api service constructor.
+    * @property {module:api/NetworkCredentialsV1Api}
+    */
+    NetworkCredentialsV1Api,
+
+    /**
     * The PropertiesV2Api service constructor.
     * @property {module:api/PropertiesV2Api}
     */
@@ -663,6 +734,12 @@ export {
     * @property {module:api/SeriesV2Api}
     */
     SeriesV2Api,
+
+    /**
+    * The TemplatesApi service constructor.
+    * @property {module:api/TemplatesApi}
+    */
+    TemplatesApi,
 
     /**
     * The ThingsV2Api service constructor.
