@@ -17,7 +17,7 @@ import Property from './Property';
 /**
  * The ThingUpdate model module.
  * @module model/ThingUpdate
- * @version 2.0.2
+ * @version 2.0.4
  */
 class ThingUpdate {
     /**
@@ -49,6 +49,9 @@ class ThingUpdate {
         if (data) {
             obj = obj || new ThingUpdate();
 
+            if (data.hasOwnProperty('assistant')) {
+                obj['assistant'] = ApiClient.convertToType(data['assistant'], 'String');
+            }
             if (data.hasOwnProperty('device_id')) {
                 obj['device_id'] = ApiClient.convertToType(data['device_id'], 'String');
             }
@@ -80,6 +83,10 @@ class ThingUpdate {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ThingUpdate</code>.
      */
     static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['assistant'] && !(typeof data['assistant'] === 'string' || data['assistant'] instanceof String)) {
+            throw new Error("Expected the field `assistant` to be a primitive type in the JSON string but got " + data['assistant']);
+        }
         // ensure the json data is a string
         if (data['device_id'] && !(typeof data['device_id'] === 'string' || data['device_id'] instanceof String)) {
             throw new Error("Expected the field `device_id` to be a primitive type in the JSON string but got " + data['device_id']);
@@ -118,6 +125,12 @@ class ThingUpdate {
 }
 
 
+
+/**
+ * The kind of voice assistant the thing is connected to, it can be ALEXA | GOOGLE | NONE
+ * @member {module:model/ThingUpdate.AssistantEnum} assistant
+ */
+ThingUpdate.prototype['assistant'] = undefined;
 
 /**
  * The arn of the associated device
@@ -163,6 +176,33 @@ ThingUpdate.prototype['webhook_uri'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>assistant</code> property.
+ * @enum {String}
+ * @readonly
+ */
+ThingUpdate['AssistantEnum'] = {
+
+    /**
+     * value: "ALEXA"
+     * @const
+     */
+    "ALEXA": "ALEXA",
+
+    /**
+     * value: "GOOGLE"
+     * @const
+     */
+    "GOOGLE": "GOOGLE",
+
+    /**
+     * value: "NONE"
+     * @const
+     */
+    "NONE": "NONE"
+};
 
 
 

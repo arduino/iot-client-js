@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateDevicesV2Payload model module.
  * @module model/CreateDevicesV2Payload
- * @version 2.0.2
+ * @version 2.0.4
  */
 class CreateDevicesV2Payload {
     /**
@@ -211,7 +211,19 @@ CreateDevicesV2Payload['ConnectionTypeEnum'] = {
      * value: "lora"
      * @const
      */
-    "lora": "lora"
+    "lora": "lora",
+
+    /**
+     * value: "catm1"
+     * @const
+     */
+    "catm1": "catm1",
+
+    /**
+     * value: "cellular"
+     * @const
+     */
+    "cellular": "cellular"
 };
 
 

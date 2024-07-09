@@ -12,13 +12,14 @@
  */
 
 import ApiClient from '../ApiClient';
+import ArduinoDevicev2templatedevice from './ArduinoDevicev2templatedevice';
 import ArduinoTemplateproperty from './ArduinoTemplateproperty';
 import Tag from './Tag';
 
 /**
  * The ArduinoThingtemplate model module.
  * @module model/ArduinoThingtemplate
- * @version 2.0.2
+ * @version 2.0.4
  */
 class ArduinoThingtemplate {
     /**
@@ -54,20 +55,29 @@ class ArduinoThingtemplate {
         if (data) {
             obj = obj || new ArduinoThingtemplate();
 
+            if (data.hasOwnProperty('device_metadata')) {
+                obj['device_metadata'] = ArduinoDevicev2templatedevice.constructFromObject(data['device_metadata']);
+            }
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
             if (data.hasOwnProperty('organization_id')) {
                 obj['organization_id'] = ApiClient.convertToType(data['organization_id'], 'String');
             }
-            if (data.hasOwnProperty('properties')) {
-                obj['properties'] = ApiClient.convertToType(data['properties'], [ArduinoTemplateproperty]);
+            if (data.hasOwnProperty('sketch_template')) {
+                obj['sketch_template'] = ApiClient.convertToType(data['sketch_template'], 'String');
             }
             if (data.hasOwnProperty('tags')) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], [Tag]);
             }
             if (data.hasOwnProperty('timezone')) {
                 obj['timezone'] = ApiClient.convertToType(data['timezone'], 'String');
+            }
+            if (data.hasOwnProperty('variables')) {
+                obj['variables'] = ApiClient.convertToType(data['variables'], [ArduinoTemplateproperty]);
             }
             if (data.hasOwnProperty('webhook_uri')) {
                 obj['webhook_uri'] = ApiClient.convertToType(data['webhook_uri'], 'String');
@@ -88,6 +98,14 @@ class ArduinoThingtemplate {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
+        // validate the optional field `device_metadata`
+        if (data['device_metadata']) { // data not null
+          ArduinoDevicev2templatedevice.validateJSON(data['device_metadata']);
+        }
+        // ensure the json data is a string
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        }
         // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
             throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
@@ -96,15 +114,9 @@ class ArduinoThingtemplate {
         if (data['organization_id'] && !(typeof data['organization_id'] === 'string' || data['organization_id'] instanceof String)) {
             throw new Error("Expected the field `organization_id` to be a primitive type in the JSON string but got " + data['organization_id']);
         }
-        if (data['properties']) { // data not null
-            // ensure the json data is an array
-            if (!Array.isArray(data['properties'])) {
-                throw new Error("Expected the field `properties` to be an array in the JSON data but got " + data['properties']);
-            }
-            // validate the optional field `properties` (array)
-            for (const item of data['properties']) {
-                ArduinoTemplateproperty.validateJSON(item);
-            };
+        // ensure the json data is a string
+        if (data['sketch_template'] && !(typeof data['sketch_template'] === 'string' || data['sketch_template'] instanceof String)) {
+            throw new Error("Expected the field `sketch_template` to be a primitive type in the JSON string but got " + data['sketch_template']);
         }
         if (data['tags']) { // data not null
             // ensure the json data is an array
@@ -120,6 +132,16 @@ class ArduinoThingtemplate {
         if (data['timezone'] && !(typeof data['timezone'] === 'string' || data['timezone'] instanceof String)) {
             throw new Error("Expected the field `timezone` to be a primitive type in the JSON string but got " + data['timezone']);
         }
+        if (data['variables']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['variables'])) {
+                throw new Error("Expected the field `variables` to be an array in the JSON data but got " + data['variables']);
+            }
+            // validate the optional field `variables` (array)
+            for (const item of data['variables']) {
+                ArduinoTemplateproperty.validateJSON(item);
+            };
+        }
         // ensure the json data is a string
         if (data['webhook_uri'] && !(typeof data['webhook_uri'] === 'string' || data['webhook_uri'] instanceof String)) {
             throw new Error("Expected the field `webhook_uri` to be a primitive type in the JSON string but got " + data['webhook_uri']);
@@ -134,6 +156,17 @@ class ArduinoThingtemplate {
 ArduinoThingtemplate.RequiredProperties = ["name", "timezone"];
 
 /**
+ * @member {module:model/ArduinoDevicev2templatedevice} device_metadata
+ */
+ArduinoThingtemplate.prototype['device_metadata'] = undefined;
+
+/**
+ * The friendly id of the thing
+ * @member {String} id
+ */
+ArduinoThingtemplate.prototype['id'] = undefined;
+
+/**
  * The friendly name of the thing
  * @member {String} name
  */
@@ -146,10 +179,10 @@ ArduinoThingtemplate.prototype['name'] = undefined;
 ArduinoThingtemplate.prototype['organization_id'] = undefined;
 
 /**
- * ArduinoTemplatepropertyCollection is the media type for an array of ArduinoTemplateproperty (default view)
- * @member {Array.<module:model/ArduinoTemplateproperty>} properties
+ * The ID of the template's sketch
+ * @member {String} sketch_template
  */
-ArduinoThingtemplate.prototype['properties'] = undefined;
+ArduinoThingtemplate.prototype['sketch_template'] = undefined;
 
 /**
  * Tags of the thing
@@ -162,6 +195,12 @@ ArduinoThingtemplate.prototype['tags'] = undefined;
  * @member {String} timezone
  */
 ArduinoThingtemplate.prototype['timezone'] = undefined;
+
+/**
+ * ArduinoTemplatepropertyCollection is the media type for an array of ArduinoTemplateproperty (default view)
+ * @member {Array.<module:model/ArduinoTemplateproperty>} variables
+ */
+ArduinoThingtemplate.prototype['variables'] = undefined;
 
 /**
  * Webhook uri
