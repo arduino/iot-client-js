@@ -19,7 +19,7 @@ import ArduinoWidgetv2 from './ArduinoWidgetv2';
 /**
  * The ArduinoDashboardv2 model module.
  * @module model/ArduinoDashboardv2
- * @version 2.0.4
+ * @version 2.0.5
  */
 class ArduinoDashboardv2 {
     /**
@@ -57,6 +57,9 @@ class ArduinoDashboardv2 {
         if (data) {
             obj = obj || new ArduinoDashboardv2();
 
+            if (data.hasOwnProperty('cover_image')) {
+                obj['cover_image'] = ApiClient.convertToType(data['cover_image'], 'String');
+            }
             if (data.hasOwnProperty('created_by')) {
                 obj['created_by'] = ArduinoDashboardowner.constructFromObject(data['created_by']);
             }
@@ -96,6 +99,10 @@ class ArduinoDashboardv2 {
             if (!data[property]) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
+        }
+        // ensure the json data is a string
+        if (data['cover_image'] && !(typeof data['cover_image'] === 'string' || data['cover_image'] instanceof String)) {
+            throw new Error("Expected the field `cover_image` to be a primitive type in the JSON string but got " + data['cover_image']);
         }
         // validate the optional field `created_by`
         if (data['created_by']) { // data not null
@@ -145,6 +152,12 @@ class ArduinoDashboardv2 {
 }
 
 ArduinoDashboardv2.RequiredProperties = ["id", "name", "updated_at"];
+
+/**
+ * The cover image of the dashboard
+ * @member {String} cover_image
+ */
+ArduinoDashboardv2.prototype['cover_image'] = undefined;
 
 /**
  * @member {module:model/ArduinoDashboardowner} created_by

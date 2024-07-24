@@ -17,7 +17,7 @@ import BatchQueryRawResponseSeriesMediaV1 from './BatchQueryRawResponseSeriesMed
 /**
  * The ArduinoSeriesRawResponse model module.
  * @module model/ArduinoSeriesRawResponse
- * @version 2.0.4
+ * @version 2.0.5
  */
 class ArduinoSeriesRawResponse {
     /**

@@ -20,7 +20,7 @@ import Template from '../model/Template';
 /**
 * Templates service.
 * @module api/TemplatesApi
-* @version 2.0.4
+* @version 2.0.5
 */
 export default class TemplatesApi {
 

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Devicev2 model module.
  * @module model/Devicev2
- * @version 2.0.4
+ * @version 2.0.5
  */
 class Devicev2 {
     /**

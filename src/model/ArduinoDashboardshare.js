@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoDashboardshare model module.
  * @module model/ArduinoDashboardshare
- * @version 2.0.4
+ * @version 2.0.5
  */
 class ArduinoDashboardshare {
     /**
