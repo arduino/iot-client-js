@@ -18,7 +18,7 @@ import ArduinoCredentialsv1 from '../model/ArduinoCredentialsv1';
 /**
 * NetworkCredentialsV1 service.
 * @module api/NetworkCredentialsV1Api
-* @version 2.0.4
+* @version 2.0.5
 */
 export default class NetworkCredentialsV1Api {
 

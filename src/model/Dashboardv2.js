@@ -17,7 +17,7 @@ import Widget from './Widget';
 /**
  * The Dashboardv2 model module.
  * @module model/Dashboardv2
- * @version 2.0.4
+ * @version 2.0.5
  */
 class Dashboardv2 {
     /**
@@ -49,6 +49,9 @@ class Dashboardv2 {
         if (data) {
             obj = obj || new Dashboardv2();
 
+            if (data.hasOwnProperty('cover_image')) {
+                obj['cover_image'] = ApiClient.convertToType(data['cover_image'], 'String');
+            }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
@@ -65,6 +68,10 @@ class Dashboardv2 {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>Dashboardv2</code>.
      */
     static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['cover_image'] && !(typeof data['cover_image'] === 'string' || data['cover_image'] instanceof String)) {
+            throw new Error("Expected the field `cover_image` to be a primitive type in the JSON string but got " + data['cover_image']);
+        }
         // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
             throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
@@ -87,6 +94,12 @@ class Dashboardv2 {
 }
 
 
+
+/**
+ * The cover image of the dashboard
+ * @member {String} cover_image
+ */
+Dashboardv2.prototype['cover_image'] = undefined;
 
 /**
  * The friendly name of the dashboard

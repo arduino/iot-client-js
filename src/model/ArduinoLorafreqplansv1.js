@@ -17,7 +17,7 @@ import ArduinoLorafreqplanv1 from './ArduinoLorafreqplanv1';
 /**
  * The ArduinoLorafreqplansv1 model module.
  * @module model/ArduinoLorafreqplansv1
- * @version 2.0.4
+ * @version 2.0.5
  */
 class ArduinoLorafreqplansv1 {
     /**

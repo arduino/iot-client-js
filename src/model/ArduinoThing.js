@@ -17,7 +17,7 @@ import ArduinoProperty from './ArduinoProperty';
 /**
  * The ArduinoThing model module.
  * @module model/ArduinoThing
- * @version 2.0.4
+ * @version 2.0.5
  */
 class ArduinoThing {
     /**

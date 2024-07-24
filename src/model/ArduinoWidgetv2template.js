@@ -17,7 +17,7 @@ import ArduinoTemplatevariable from './ArduinoTemplatevariable';
 /**
  * The ArduinoWidgetv2template model module.
  * @module model/ArduinoWidgetv2template
- * @version 2.0.4
+ * @version 2.0.5
  */
 class ArduinoWidgetv2template {
     /**

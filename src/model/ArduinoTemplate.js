@@ -17,7 +17,7 @@ import ArduinoThingresult from './ArduinoThingresult';
 /**
  * The ArduinoTemplate model module.
  * @module model/ArduinoTemplate
- * @version 2.0.4
+ * @version 2.0.5
  */
 class ArduinoTemplate {
     /**

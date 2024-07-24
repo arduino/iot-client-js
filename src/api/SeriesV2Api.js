@@ -27,7 +27,7 @@ import HistoricDataRequest from '../model/HistoricDataRequest';
 /**
 * SeriesV2 service.
 * @module api/SeriesV2Api
-* @version 2.0.4
+* @version 2.0.5
 */
 export default class SeriesV2Api {
 
@@ -48,9 +48,12 @@ export default class SeriesV2Api {
      * batch_query series_v2
      * Returns the batch of time-series aggregated samples
      * @param {module:model/BatchQueryRequestsMediaV1} batchQueryRequestsMediaV1 
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoSeriesBatch} and HTTP response
      */
-    seriesV2BatchQueryWithHttpInfo(batchQueryRequestsMediaV1) {
+    seriesV2BatchQueryWithHttpInfo(batchQueryRequestsMediaV1, opts) {
+      opts = opts || {};
       let postBody = batchQueryRequestsMediaV1;
       // verify the required parameter 'batchQueryRequestsMediaV1' is set
       if (batchQueryRequestsMediaV1 === undefined || batchQueryRequestsMediaV1 === null) {
@@ -62,6 +65,7 @@ export default class SeriesV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -81,10 +85,12 @@ export default class SeriesV2Api {
      * batch_query series_v2
      * Returns the batch of time-series aggregated samples
      * @param {module:model/BatchQueryRequestsMediaV1} batchQueryRequestsMediaV1 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoSeriesBatch}
      */
-    seriesV2BatchQuery(batchQueryRequestsMediaV1) {
-      return this.seriesV2BatchQueryWithHttpInfo(batchQueryRequestsMediaV1)
+    seriesV2BatchQuery(batchQueryRequestsMediaV1, opts) {
+      return this.seriesV2BatchQueryWithHttpInfo(batchQueryRequestsMediaV1, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -95,9 +101,12 @@ export default class SeriesV2Api {
      * batch_query_raw series_v2
      * Returns the batch of time-series raw samples
      * @param {module:model/BatchQueryRawRequestsMediaV1} batchQueryRawRequestsMediaV1 
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoSeriesRawBatch} and HTTP response
      */
-    seriesV2BatchQueryRawWithHttpInfo(batchQueryRawRequestsMediaV1) {
+    seriesV2BatchQueryRawWithHttpInfo(batchQueryRawRequestsMediaV1, opts) {
+      opts = opts || {};
       let postBody = batchQueryRawRequestsMediaV1;
       // verify the required parameter 'batchQueryRawRequestsMediaV1' is set
       if (batchQueryRawRequestsMediaV1 === undefined || batchQueryRawRequestsMediaV1 === null) {
@@ -109,6 +118,7 @@ export default class SeriesV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -128,10 +138,12 @@ export default class SeriesV2Api {
      * batch_query_raw series_v2
      * Returns the batch of time-series raw samples
      * @param {module:model/BatchQueryRawRequestsMediaV1} batchQueryRawRequestsMediaV1 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoSeriesRawBatch}
      */
-    seriesV2BatchQueryRaw(batchQueryRawRequestsMediaV1) {
-      return this.seriesV2BatchQueryRawWithHttpInfo(batchQueryRawRequestsMediaV1)
+    seriesV2BatchQueryRaw(batchQueryRawRequestsMediaV1, opts) {
+      return this.seriesV2BatchQueryRawWithHttpInfo(batchQueryRawRequestsMediaV1, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -142,9 +154,12 @@ export default class SeriesV2Api {
      * batch_query_raw_last_value series_v2
      * Returns the batch of time-series data raw
      * @param {module:model/BatchLastValueRequestsMediaV1} batchLastValueRequestsMediaV1 
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoSeriesRawBatchLastvalue} and HTTP response
      */
-    seriesV2BatchQueryRawLastValueWithHttpInfo(batchLastValueRequestsMediaV1) {
+    seriesV2BatchQueryRawLastValueWithHttpInfo(batchLastValueRequestsMediaV1, opts) {
+      opts = opts || {};
       let postBody = batchLastValueRequestsMediaV1;
       // verify the required parameter 'batchLastValueRequestsMediaV1' is set
       if (batchLastValueRequestsMediaV1 === undefined || batchLastValueRequestsMediaV1 === null) {
@@ -156,6 +171,7 @@ export default class SeriesV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -175,10 +191,12 @@ export default class SeriesV2Api {
      * batch_query_raw_last_value series_v2
      * Returns the batch of time-series data raw
      * @param {module:model/BatchLastValueRequestsMediaV1} batchLastValueRequestsMediaV1 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoSeriesRawBatchLastvalue}
      */
-    seriesV2BatchQueryRawLastValue(batchLastValueRequestsMediaV1) {
-      return this.seriesV2BatchQueryRawLastValueWithHttpInfo(batchLastValueRequestsMediaV1)
+    seriesV2BatchQueryRawLastValue(batchLastValueRequestsMediaV1, opts) {
+      return this.seriesV2BatchQueryRawLastValueWithHttpInfo(batchLastValueRequestsMediaV1, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -189,9 +207,12 @@ export default class SeriesV2Api {
      * batch_query_sampling series_v2
      * Returns a batch of time-series sampled samples. To be used for types that does not support mathematic aggregation. Types supported: strings, complex types.
      * @param {module:model/BatchQuerySampledRequestsMediaV1} batchQuerySampledRequestsMediaV1 
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoSeriesBatchSampled} and HTTP response
      */
-    seriesV2BatchQuerySamplingWithHttpInfo(batchQuerySampledRequestsMediaV1) {
+    seriesV2BatchQuerySamplingWithHttpInfo(batchQuerySampledRequestsMediaV1, opts) {
+      opts = opts || {};
       let postBody = batchQuerySampledRequestsMediaV1;
       // verify the required parameter 'batchQuerySampledRequestsMediaV1' is set
       if (batchQuerySampledRequestsMediaV1 === undefined || batchQuerySampledRequestsMediaV1 === null) {
@@ -203,6 +224,7 @@ export default class SeriesV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -222,10 +244,12 @@ export default class SeriesV2Api {
      * batch_query_sampling series_v2
      * Returns a batch of time-series sampled samples. To be used for types that does not support mathematic aggregation. Types supported: strings, complex types.
      * @param {module:model/BatchQuerySampledRequestsMediaV1} batchQuerySampledRequestsMediaV1 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoSeriesBatchSampled}
      */
-    seriesV2BatchQuerySampling(batchQuerySampledRequestsMediaV1) {
-      return this.seriesV2BatchQuerySamplingWithHttpInfo(batchQuerySampledRequestsMediaV1)
+    seriesV2BatchQuerySampling(batchQuerySampledRequestsMediaV1, opts) {
+      return this.seriesV2BatchQuerySamplingWithHttpInfo(batchQuerySampledRequestsMediaV1, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -236,9 +260,12 @@ export default class SeriesV2Api {
      * historic_data series_v2
      * Request sending of historical data of properties by email
      * @param {module:model/HistoricDataRequest} historicDataRequest 
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    seriesV2HistoricDataWithHttpInfo(historicDataRequest) {
+    seriesV2HistoricDataWithHttpInfo(historicDataRequest, opts) {
+      opts = opts || {};
       let postBody = historicDataRequest;
       // verify the required parameter 'historicDataRequest' is set
       if (historicDataRequest === undefined || historicDataRequest === null) {
@@ -250,6 +277,7 @@ export default class SeriesV2Api {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -269,10 +297,12 @@ export default class SeriesV2Api {
      * historic_data series_v2
      * Request sending of historical data of properties by email
      * @param {module:model/HistoricDataRequest} historicDataRequest 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    seriesV2HistoricData(historicDataRequest) {
-      return this.seriesV2HistoricDataWithHttpInfo(historicDataRequest)
+    seriesV2HistoricData(historicDataRequest, opts) {
+      return this.seriesV2HistoricDataWithHttpInfo(historicDataRequest, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
