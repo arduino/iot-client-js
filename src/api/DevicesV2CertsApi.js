@@ -21,7 +21,7 @@ import Error from '../model/Error';
 /**
 * DevicesV2Certs service.
 * @module api/DevicesV2CertsApi
-* @version 2.0.5
+* @version 2.0.6
 */
 export default class DevicesV2CertsApi {
 

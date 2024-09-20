@@ -16,13 +16,13 @@ import ApiClient from '../ApiClient';
 /**
  * The BatchQueryRawRequestMediaV1 model module.
  * @module model/BatchQueryRawRequestMediaV1
- * @version 2.0.5
+ * @version 2.0.6
  */
 class BatchQueryRawRequestMediaV1 {
     /**
      * Constructs a new <code>BatchQueryRawRequestMediaV1</code>.
      * @alias module:model/BatchQueryRawRequestMediaV1
-     * @param q {String} Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5)
+     * @param q {String} Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5 or thing.95717675-4786-4ffc-afcc-799777755391)
      */
     constructor(q) { 
         
@@ -104,13 +104,13 @@ BatchQueryRawRequestMediaV1.RequiredProperties = ["q"];
 BatchQueryRawRequestMediaV1.prototype['from'] = undefined;
 
 /**
- * Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5)
+ * Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5 or thing.95717675-4786-4ffc-afcc-799777755391)
  * @member {String} q
  */
 BatchQueryRawRequestMediaV1.prototype['q'] = undefined;
 
 /**
- * Max of values
+ * Maximum number of values returned, if any (default/limit: 1000, 10000 in case of thing query)
  * @member {Number} series_limit
  */
 BatchQueryRawRequestMediaV1.prototype['series_limit'] = undefined;

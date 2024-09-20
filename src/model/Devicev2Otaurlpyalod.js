@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Devicev2Otaurlpyalod model module.
  * @module model/Devicev2Otaurlpyalod
- * @version 2.0.5
+ * @version 2.0.6
  */
 class Devicev2Otaurlpyalod {
     /**

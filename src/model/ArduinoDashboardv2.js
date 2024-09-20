@@ -19,7 +19,7 @@ import ArduinoWidgetv2 from './ArduinoWidgetv2';
 /**
  * The ArduinoDashboardv2 model module.
  * @module model/ArduinoDashboardv2
- * @version 2.0.5
+ * @version 2.0.6
  */
 class ArduinoDashboardv2 {
     /**

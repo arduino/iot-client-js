@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Devicev2 model module.
  * @module model/Devicev2
- * @version 2.0.5
+ * @version 2.0.6
  */
 class Devicev2 {
     /**
@@ -251,28 +251,10 @@ Devicev2['TypeEnum'] = {
     "mkrgsm1400": "mkrgsm1400",
 
     /**
-     * value: "mkrwan1310"
-     * @const
-     */
-    "mkrwan1310": "mkrwan1310",
-
-    /**
-     * value: "mkrwan1300"
-     * @const
-     */
-    "mkrwan1300": "mkrwan1300",
-
-    /**
      * value: "mkrnb1500"
      * @const
      */
     "mkrnb1500": "mkrnb1500",
-
-    /**
-     * value: "lora-device"
-     * @const
-     */
-    "lora-device": "lora-device",
 
     /**
      * value: "login_and_secretkey_wifi"

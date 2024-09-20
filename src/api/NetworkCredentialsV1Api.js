@@ -14,11 +14,12 @@
 
 import ApiClient from "../ApiClient";
 import ArduinoCredentialsv1 from '../model/ArduinoCredentialsv1';
+import Error from '../model/Error';
 
 /**
 * NetworkCredentialsV1 service.
 * @module api/NetworkCredentialsV1Api
-* @version 2.0.5
+* @version 2.0.6
 */
 export default class NetworkCredentialsV1Api {
 
@@ -64,7 +65,7 @@ export default class NetworkCredentialsV1Api {
 
       let authNames = [];
       let contentTypes = [];
-      let accepts = ['application/vnd.arduino.credentialsv1+json; type=collection'];
+      let accepts = ['application/vnd.arduino.credentialsv1+json; type=collection', 'application/vnd.goa.error+json'];
       let returnType = [ArduinoCredentialsv1];
       return this.apiClient.callApi(
         '/v1/network_credentials/{type}', 'GET',
@@ -114,7 +115,7 @@ export default class NetworkCredentialsV1Api {
 
       let authNames = [];
       let contentTypes = [];
-      let accepts = [];
+      let accepts = ['application/json', 'application/vnd.goa.error+json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/v1/network_credentials/{type}/connections', 'GET',

@@ -16,14 +16,14 @@ import ApiClient from '../ApiClient';
 /**
  * The BatchQueryRequestMediaV1 model module.
  * @module model/BatchQueryRequestMediaV1
- * @version 2.0.5
+ * @version 2.0.6
  */
 class BatchQueryRequestMediaV1 {
     /**
      * Constructs a new <code>BatchQueryRequestMediaV1</code>.
      * @alias module:model/BatchQueryRequestMediaV1
      * @param from {Date} From timestamp
-     * @param q {String} Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5)
+     * @param q {String} Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5 or thing.95717675-4786-4ffc-afcc-799777755391)
      * @param to {Date} To timestamp
      */
     constructor(from, q, to) { 
@@ -123,13 +123,13 @@ BatchQueryRequestMediaV1.prototype['from'] = undefined;
 BatchQueryRequestMediaV1.prototype['interval'] = undefined;
 
 /**
- * Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5)
+ * Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5 or thing.95717675-4786-4ffc-afcc-799777755391)
  * @member {String} q
  */
 BatchQueryRequestMediaV1.prototype['q'] = undefined;
 
 /**
- * Maximum number of values returned after data aggregation, if any (default: 300, limit: 1000)
+ * Maximum number of values returned after data aggregation, if any (default: 300, limit: 1000 - 10000 in case of thing query)
  * @member {Number} series_limit
  */
 BatchQueryRequestMediaV1.prototype['series_limit'] = undefined;

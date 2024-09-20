@@ -13,19 +13,19 @@
 
 
 import ApiClient from "../ApiClient";
-import ArduinoLorafreqplansv1 from '../model/ArduinoLorafreqplansv1';
+import ArduinoPropertytype from '../model/ArduinoPropertytype';
 import Error from '../model/Error';
 
 /**
-* LoraFreqPlanV1 service.
-* @module api/LoraFreqPlanV1Api
+* PropertyTypesV1 service.
+* @module api/PropertyTypesV1Api
 * @version 2.0.6
 */
-export default class LoraFreqPlanV1Api {
+export default class PropertyTypesV1Api {
 
     /**
-    * Constructs a new LoraFreqPlanV1Api. 
-    * @alias module:api/LoraFreqPlanV1Api
+    * Constructs a new PropertyTypesV1Api. 
+    * @alias module:api/PropertyTypesV1Api
     * @class
     * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
     * default to {@link module:ApiClient#instance} if unspecified.
@@ -37,11 +37,11 @@ export default class LoraFreqPlanV1Api {
 
 
     /**
-     * list lora_freq_plan_v1
-     * List the lora frequency plans supported
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoLorafreqplansv1} and HTTP response
+     * listTypes property_types_v1
+     * Returns the list of available property types
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoPropertytype>} and HTTP response
      */
-    loraFreqPlanV1ListWithHttpInfo() {
+    propertyTypesV1ListTypesWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -53,24 +53,24 @@ export default class LoraFreqPlanV1Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/vnd.arduino.lorafreqplansv1+json', 'application/vnd.goa.error+json'];
-      let returnType = ArduinoLorafreqplansv1;
+      let accepts = ['application/vnd.arduino.propertytype+json; type=collection', 'application/vnd.goa.error+json'];
+      let returnType = [ArduinoPropertytype];
       return this.apiClient.callApi(
-        '/v1/lora-freq-plans/', 'GET',
+        '/v1/property_types', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * list lora_freq_plan_v1
-     * List the lora frequency plans supported
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoLorafreqplansv1}
+     * listTypes property_types_v1
+     * Returns the list of available property types
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoPropertytype>}
      */
-    loraFreqPlanV1List() {
-      return this.loraFreqPlanV1ListWithHttpInfo()
+    propertyTypesV1ListTypes() {
+      return this.propertyTypesV1ListTypesWithHttpInfo()
         .then(function(response_and_data) {
           return response_and_data.data;
         });

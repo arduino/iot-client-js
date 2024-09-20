@@ -40,6 +40,7 @@ import ArduinoLoradevicev1 from './model/ArduinoLoradevicev1';
 import ArduinoLorafreqplansv1 from './model/ArduinoLorafreqplansv1';
 import ArduinoLorafreqplanv1 from './model/ArduinoLorafreqplanv1';
 import ArduinoProperty from './model/ArduinoProperty';
+import ArduinoPropertytype from './model/ArduinoPropertytype';
 import ArduinoSeriesBatch from './model/ArduinoSeriesBatch';
 import ArduinoSeriesBatchSampled from './model/ArduinoSeriesBatchSampled';
 import ArduinoSeriesRawBatch from './model/ArduinoSeriesRawBatch';
@@ -109,6 +110,7 @@ import LoraDevicesV1Api from './api/LoraDevicesV1Api';
 import LoraFreqPlanV1Api from './api/LoraFreqPlanV1Api';
 import NetworkCredentialsV1Api from './api/NetworkCredentialsV1Api';
 import PropertiesV2Api from './api/PropertiesV2Api';
+import PropertyTypesV1Api from './api/PropertyTypesV1Api';
 import SeriesV2Api from './api/SeriesV2Api';
 import TemplatesApi from './api/TemplatesApi';
 import ThingsV2Api from './api/ThingsV2Api';
@@ -144,7 +146,7 @@ import ThingsV2TagsApi from './api/ThingsV2TagsApi';
 * </pre>
 * </p>
 * @module index
-* @version 2.0.5
+* @version 2.0.6
 */
 export {
     /**
@@ -314,6 +316,12 @@ export {
      * @property {module:model/ArduinoProperty}
      */
     ArduinoProperty,
+
+    /**
+     * The ArduinoPropertytype model constructor.
+     * @property {module:model/ArduinoPropertytype}
+     */
+    ArduinoPropertytype,
 
     /**
      * The ArduinoSeriesBatch model constructor.
@@ -728,6 +736,12 @@ export {
     * @property {module:api/PropertiesV2Api}
     */
     PropertiesV2Api,
+
+    /**
+    * The PropertyTypesV1Api service constructor.
+    * @property {module:api/PropertyTypesV1Api}
+    */
+    PropertyTypesV1Api,
 
     /**
     * The SeriesV2Api service constructor.

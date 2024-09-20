@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoDevicev2templatedevice model module.
  * @module model/ArduinoDevicev2templatedevice
- * @version 2.0.5
+ * @version 2.0.6
  */
 class ArduinoDevicev2templatedevice {
     /**

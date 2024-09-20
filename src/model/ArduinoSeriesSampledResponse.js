@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoSeriesSampledResponse model module.
  * @module model/ArduinoSeriesSampledResponse
- * @version 2.0.5
+ * @version 2.0.6
  */
 class ArduinoSeriesSampledResponse {
     /**
@@ -78,6 +78,15 @@ class ArduinoSeriesSampledResponse {
             if (data.hasOwnProperty('message')) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
+            if (data.hasOwnProperty('property_id')) {
+                obj['property_id'] = ApiClient.convertToType(data['property_id'], 'String');
+            }
+            if (data.hasOwnProperty('property_name')) {
+                obj['property_name'] = ApiClient.convertToType(data['property_name'], 'String');
+            }
+            if (data.hasOwnProperty('property_type')) {
+                obj['property_type'] = ApiClient.convertToType(data['property_type'], 'String');
+            }
             if (data.hasOwnProperty('query')) {
                 obj['query'] = ApiClient.convertToType(data['query'], 'String');
             }
@@ -89,6 +98,9 @@ class ArduinoSeriesSampledResponse {
             }
             if (data.hasOwnProperty('status')) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
+            }
+            if (data.hasOwnProperty('thing_id')) {
+                obj['thing_id'] = ApiClient.convertToType(data['thing_id'], 'String');
             }
             if (data.hasOwnProperty('times')) {
                 obj['times'] = ApiClient.convertToType(data['times'], ['Date']);
@@ -120,12 +132,28 @@ class ArduinoSeriesSampledResponse {
             throw new Error("Expected the field `message` to be a primitive type in the JSON string but got " + data['message']);
         }
         // ensure the json data is a string
+        if (data['property_id'] && !(typeof data['property_id'] === 'string' || data['property_id'] instanceof String)) {
+            throw new Error("Expected the field `property_id` to be a primitive type in the JSON string but got " + data['property_id']);
+        }
+        // ensure the json data is a string
+        if (data['property_name'] && !(typeof data['property_name'] === 'string' || data['property_name'] instanceof String)) {
+            throw new Error("Expected the field `property_name` to be a primitive type in the JSON string but got " + data['property_name']);
+        }
+        // ensure the json data is a string
+        if (data['property_type'] && !(typeof data['property_type'] === 'string' || data['property_type'] instanceof String)) {
+            throw new Error("Expected the field `property_type` to be a primitive type in the JSON string but got " + data['property_type']);
+        }
+        // ensure the json data is a string
         if (data['query'] && !(typeof data['query'] === 'string' || data['query'] instanceof String)) {
             throw new Error("Expected the field `query` to be a primitive type in the JSON string but got " + data['query']);
         }
         // ensure the json data is a string
         if (data['status'] && !(typeof data['status'] === 'string' || data['status'] instanceof String)) {
             throw new Error("Expected the field `status` to be a primitive type in the JSON string but got " + data['status']);
+        }
+        // ensure the json data is a string
+        if (data['thing_id'] && !(typeof data['thing_id'] === 'string' || data['thing_id'] instanceof String)) {
+            throw new Error("Expected the field `thing_id` to be a primitive type in the JSON string but got " + data['thing_id']);
         }
         // ensure the json data is an array
         if (!Array.isArray(data['times'])) {
@@ -170,6 +198,24 @@ ArduinoSeriesSampledResponse.prototype['interval'] = undefined;
 ArduinoSeriesSampledResponse.prototype['message'] = '';
 
 /**
+ * Property id
+ * @member {String} property_id
+ */
+ArduinoSeriesSampledResponse.prototype['property_id'] = undefined;
+
+/**
+ * Property name
+ * @member {String} property_name
+ */
+ArduinoSeriesSampledResponse.prototype['property_name'] = undefined;
+
+/**
+ * Property type
+ * @member {String} property_type
+ */
+ArduinoSeriesSampledResponse.prototype['property_type'] = undefined;
+
+/**
  * Query of for the data
  * @member {String} query
  */
@@ -192,6 +238,12 @@ ArduinoSeriesSampledResponse.prototype['series_limit'] = undefined;
  * @member {String} status
  */
 ArduinoSeriesSampledResponse.prototype['status'] = undefined;
+
+/**
+ * Thing id
+ * @member {String} thing_id
+ */
+ArduinoSeriesSampledResponse.prototype['thing_id'] = undefined;
 
 /**
  * Timestamp in RFC3339

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoLorafreqplanv1 model module.
  * @module model/ArduinoLorafreqplanv1
- * @version 2.0.5
+ * @version 2.0.6
  */
 class ArduinoLorafreqplanv1 {
     /**

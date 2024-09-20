@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoVariableslinks model module.
  * @module model/ArduinoVariableslinks
- * @version 2.0.5
+ * @version 2.0.6
  */
 class ArduinoVariableslinks {
     /**

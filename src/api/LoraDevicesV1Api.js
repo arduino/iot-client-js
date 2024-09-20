@@ -19,7 +19,7 @@ import CreateLoraDevicesV1Payload from '../model/CreateLoraDevicesV1Payload';
 /**
 * LoraDevicesV1 service.
 * @module api/LoraDevicesV1Api
-* @version 2.0.5
+* @version 2.0.6
 */
 export default class LoraDevicesV1Api {
 

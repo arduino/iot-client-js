@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Template model module.
  * @module model/Template
- * @version 2.0.5
+ * @version 2.0.6
  */
 class Template {
     /**
