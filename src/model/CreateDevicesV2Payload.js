@@ -1,6 +1,6 @@
 /**
  * Arduino IoT Cloud API
- *  Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
+ * Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
  *
  * The version of the OpenAPI document: 2.0
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateDevicesV2Payload model module.
  * @module model/CreateDevicesV2Payload
- * @version 2.0.5
+ * @version 2.0.6
  */
 class CreateDevicesV2Payload {
     /**
@@ -259,28 +259,10 @@ CreateDevicesV2Payload['TypeEnum'] = {
     "mkrgsm1400": "mkrgsm1400",
 
     /**
-     * value: "mkrwan1310"
-     * @const
-     */
-    "mkrwan1310": "mkrwan1310",
-
-    /**
-     * value: "mkrwan1300"
-     * @const
-     */
-    "mkrwan1300": "mkrwan1300",
-
-    /**
      * value: "mkrnb1500"
      * @const
      */
     "mkrnb1500": "mkrnb1500",
-
-    /**
-     * value: "lora-device"
-     * @const
-     */
-    "lora-device": "lora-device",
 
     /**
      * value: "login_and_secretkey_wifi"
