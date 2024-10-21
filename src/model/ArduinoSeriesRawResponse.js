@@ -1,6 +1,6 @@
 /**
  * Arduino IoT Cloud API
- *  Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
+ * Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
  *
  * The version of the OpenAPI document: 2.0
  * 
@@ -17,7 +17,7 @@ import BatchQueryRawResponseSeriesMediaV1 from './BatchQueryRawResponseSeriesMed
 /**
  * The ArduinoSeriesRawResponse model module.
  * @module model/ArduinoSeriesRawResponse
- * @version 2.0.5
+ * @version 2.0.6
  */
 class ArduinoSeriesRawResponse {
     /**
@@ -48,6 +48,7 @@ class ArduinoSeriesRawResponse {
     static initialize(obj, countValues, fromDate, query, respVersion, series, sort, status, times, toDate, values) { 
         obj['count_values'] = countValues;
         obj['from_date'] = fromDate;
+        obj['message'] = '';
         obj['query'] = query;
         obj['resp_version'] = respVersion;
         obj['series'] = series;
@@ -78,6 +79,15 @@ class ArduinoSeriesRawResponse {
             if (data.hasOwnProperty('message')) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
+            if (data.hasOwnProperty('property_id')) {
+                obj['property_id'] = ApiClient.convertToType(data['property_id'], 'String');
+            }
+            if (data.hasOwnProperty('property_name')) {
+                obj['property_name'] = ApiClient.convertToType(data['property_name'], 'String');
+            }
+            if (data.hasOwnProperty('property_type')) {
+                obj['property_type'] = ApiClient.convertToType(data['property_type'], 'String');
+            }
             if (data.hasOwnProperty('query')) {
                 obj['query'] = ApiClient.convertToType(data['query'], 'String');
             }
@@ -95,6 +105,9 @@ class ArduinoSeriesRawResponse {
             }
             if (data.hasOwnProperty('status')) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
+            }
+            if (data.hasOwnProperty('thing_id')) {
+                obj['thing_id'] = ApiClient.convertToType(data['thing_id'], 'String');
             }
             if (data.hasOwnProperty('times')) {
                 obj['times'] = ApiClient.convertToType(data['times'], ['Date']);
@@ -117,13 +130,25 @@ class ArduinoSeriesRawResponse {
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
         for (const property of ArduinoSeriesRawResponse.RequiredProperties) {
-            if (!data[property]) {
+            if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
         // ensure the json data is a string
         if (data['message'] && !(typeof data['message'] === 'string' || data['message'] instanceof String)) {
             throw new Error("Expected the field `message` to be a primitive type in the JSON string but got " + data['message']);
+        }
+        // ensure the json data is a string
+        if (data['property_id'] && !(typeof data['property_id'] === 'string' || data['property_id'] instanceof String)) {
+            throw new Error("Expected the field `property_id` to be a primitive type in the JSON string but got " + data['property_id']);
+        }
+        // ensure the json data is a string
+        if (data['property_name'] && !(typeof data['property_name'] === 'string' || data['property_name'] instanceof String)) {
+            throw new Error("Expected the field `property_name` to be a primitive type in the JSON string but got " + data['property_name']);
+        }
+        // ensure the json data is a string
+        if (data['property_type'] && !(typeof data['property_type'] === 'string' || data['property_type'] instanceof String)) {
+            throw new Error("Expected the field `property_type` to be a primitive type in the JSON string but got " + data['property_type']);
         }
         // ensure the json data is a string
         if (data['query'] && !(typeof data['query'] === 'string' || data['query'] instanceof String)) {
@@ -140,6 +165,10 @@ class ArduinoSeriesRawResponse {
         // ensure the json data is a string
         if (data['status'] && !(typeof data['status'] === 'string' || data['status'] instanceof String)) {
             throw new Error("Expected the field `status` to be a primitive type in the JSON string but got " + data['status']);
+        }
+        // ensure the json data is a string
+        if (data['thing_id'] && !(typeof data['thing_id'] === 'string' || data['thing_id'] instanceof String)) {
+            throw new Error("Expected the field `thing_id` to be a primitive type in the JSON string but got " + data['thing_id']);
         }
         // ensure the json data is an array
         if (!Array.isArray(data['times'])) {
@@ -178,6 +207,24 @@ ArduinoSeriesRawResponse.prototype['from_date'] = undefined;
 ArduinoSeriesRawResponse.prototype['message'] = '';
 
 /**
+ * Property id
+ * @member {String} property_id
+ */
+ArduinoSeriesRawResponse.prototype['property_id'] = undefined;
+
+/**
+ * Property name
+ * @member {String} property_name
+ */
+ArduinoSeriesRawResponse.prototype['property_name'] = undefined;
+
+/**
+ * Property type
+ * @member {String} property_type
+ */
+ArduinoSeriesRawResponse.prototype['property_type'] = undefined;
+
+/**
  * Query of for the data
  * @member {String} query
  */
@@ -211,6 +258,12 @@ ArduinoSeriesRawResponse.prototype['sort'] = undefined;
  * @member {String} status
  */
 ArduinoSeriesRawResponse.prototype['status'] = undefined;
+
+/**
+ * Thing id
+ * @member {String} thing_id
+ */
+ArduinoSeriesRawResponse.prototype['thing_id'] = undefined;
 
 /**
  * Timestamp in RFC3339

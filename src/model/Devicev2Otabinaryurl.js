@@ -1,6 +1,6 @@
 /**
  * Arduino IoT Cloud API
- *  Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
+ * Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
  *
  * The version of the OpenAPI document: 2.0
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Devicev2Otabinaryurl model module.
  * @module model/Devicev2Otabinaryurl
- * @version 2.0.5
+ * @version 2.0.6
  */
 class Devicev2Otabinaryurl {
     /**
@@ -35,7 +35,9 @@ class Devicev2Otabinaryurl {
      * Only for internal use.
      */
     static initialize(obj, binaryKey) { 
+        obj['async'] = true;
         obj['binary_key'] = binaryKey;
+        obj['expire_in_mins'] = 10;
     }
 
     /**
@@ -70,7 +72,7 @@ class Devicev2Otabinaryurl {
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
         for (const property of Devicev2Otabinaryurl.RequiredProperties) {
-            if (!data[property]) {
+            if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }

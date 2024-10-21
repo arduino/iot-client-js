@@ -1,6 +1,6 @@
 /**
  * Arduino IoT Cloud API
- *  Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
+ * Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
  *
  * The version of the OpenAPI document: 2.0
  * 
@@ -16,13 +16,13 @@ import ApiClient from '../ApiClient';
 /**
  * The BatchQueryRawRequestMediaV1 model module.
  * @module model/BatchQueryRawRequestMediaV1
- * @version 2.0.5
+ * @version 2.0.6
  */
 class BatchQueryRawRequestMediaV1 {
     /**
      * Constructs a new <code>BatchQueryRawRequestMediaV1</code>.
      * @alias module:model/BatchQueryRawRequestMediaV1
-     * @param q {String} Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5)
+     * @param q {String} Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5 or thing.95717675-4786-4ffc-afcc-799777755391)
      */
     constructor(q) { 
         
@@ -36,6 +36,7 @@ class BatchQueryRawRequestMediaV1 {
      */
     static initialize(obj, q) { 
         obj['q'] = q;
+        obj['sort'] = 'DESC';
     }
 
     /**
@@ -76,7 +77,7 @@ class BatchQueryRawRequestMediaV1 {
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
         for (const property of BatchQueryRawRequestMediaV1.RequiredProperties) {
-            if (!data[property]) {
+            if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
@@ -104,13 +105,13 @@ BatchQueryRawRequestMediaV1.RequiredProperties = ["q"];
 BatchQueryRawRequestMediaV1.prototype['from'] = undefined;
 
 /**
- * Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5)
+ * Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5 or thing.95717675-4786-4ffc-afcc-799777755391)
  * @member {String} q
  */
 BatchQueryRawRequestMediaV1.prototype['q'] = undefined;
 
 /**
- * Max of values
+ * Maximum number of values returned, if any (default/limit: 1000, 10000 in case of thing query)
  * @member {Number} series_limit
  */
 BatchQueryRawRequestMediaV1.prototype['series_limit'] = undefined;
