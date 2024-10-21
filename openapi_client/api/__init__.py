@@ -1,0 +1,19 @@
+# flake8: noqa
+
+# import apis into api package
+from openapi_client.api.dashboards_v2_api import DashboardsV2Api
+from openapi_client.api.devices_v2_api import DevicesV2Api
+from openapi_client.api.devices_v2_certs_api import DevicesV2CertsApi
+from openapi_client.api.devices_v2_ota_api import DevicesV2OtaApi
+from openapi_client.api.devices_v2_pass_api import DevicesV2PassApi
+from openapi_client.api.devices_v2_tags_api import DevicesV2TagsApi
+from openapi_client.api.lora_devices_v1_api import LoraDevicesV1Api
+from openapi_client.api.lora_freq_plan_v1_api import LoraFreqPlanV1Api
+from openapi_client.api.network_credentials_v1_api import NetworkCredentialsV1Api
+from openapi_client.api.properties_v2_api import PropertiesV2Api
+from openapi_client.api.property_types_v1_api import PropertyTypesV1Api
+from openapi_client.api.series_v2_api import SeriesV2Api
+from openapi_client.api.templates_api import TemplatesApi
+from openapi_client.api.things_v2_api import ThingsV2Api
+from openapi_client.api.things_v2_tags_api import ThingsV2TagsApi
+
