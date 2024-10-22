@@ -1,6 +1,6 @@
 /**
  * Arduino IoT Cloud API
- *  Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
+ * Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
  *
  * The version of the OpenAPI document: 2.0
  * 
@@ -26,7 +26,7 @@ import PropertiesValues from '../model/PropertiesValues';
 /**
 * DevicesV2 service.
 * @module api/DevicesV2Api
-* @version 2.0.5
+* @version 3.0.0
 */
 export default class DevicesV2Api {
 
@@ -74,7 +74,7 @@ export default class DevicesV2Api {
       let accepts = ['application/vnd.arduino.devicev2+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2;
       return this.apiClient.callApi(
-        '/v2/devices', 'PUT',
+        '/iot/v2/devices', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -128,7 +128,7 @@ export default class DevicesV2Api {
       let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/v2/devices/{id}', 'DELETE',
+        '/iot/v2/devices/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -186,7 +186,7 @@ export default class DevicesV2Api {
       let accepts = ['application/vnd.arduino.devicev2.event.properties+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2EventProperties;
       return this.apiClient.callApi(
-        '/v2/devices/{id}/events', 'GET',
+        '/iot/v2/devices/{id}/events', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -244,7 +244,7 @@ export default class DevicesV2Api {
       let accepts = ['application/vnd.arduino.devicev2properties+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2properties;
       return this.apiClient.callApi(
-        '/v2/devices/{id}/properties', 'GET',
+        '/iot/v2/devices/{id}/properties', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -303,7 +303,7 @@ export default class DevicesV2Api {
       let accepts = ['application/vnd.arduino.devicev2.status.events+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2StatusEvents;
       return this.apiClient.callApi(
-        '/v2/devices/{id}/status', 'GET',
+        '/iot/v2/devices/{id}/status', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -359,7 +359,7 @@ export default class DevicesV2Api {
       let accepts = ['application/vnd.arduino.devicev2+json; type=collection', 'application/vnd.goa.error+json'];
       let returnType = [ArduinoDevicev2];
       return this.apiClient.callApi(
-        '/v2/devices', 'GET',
+        '/iot/v2/devices', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -415,7 +415,7 @@ export default class DevicesV2Api {
       let accepts = ['application/vnd.arduino.devicev2+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2;
       return this.apiClient.callApi(
-        '/v2/devices/{id}', 'GET',
+        '/iot/v2/devices/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -479,7 +479,7 @@ export default class DevicesV2Api {
       let accepts = ['application/vnd.arduino.devicev2propertyvalues+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2propertyvalues;
       return this.apiClient.callApi(
-        '/v2/devices/{id}/properties/{pid}', 'GET',
+        '/iot/v2/devices/{id}/properties/{pid}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -541,7 +541,7 @@ export default class DevicesV2Api {
       let accepts = ['application/vnd.arduino.devicev2+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2;
       return this.apiClient.callApi(
-        '/v2/devices/{id}', 'POST',
+        '/iot/v2/devices/{id}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -601,7 +601,7 @@ export default class DevicesV2Api {
       let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/v2/devices/{id}/properties', 'PUT',
+        '/iot/v2/devices/{id}/properties', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
