@@ -1,6 +1,6 @@
 /**
  * Arduino IoT Cloud API
- *  Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
+ * Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
  *
  * The version of the OpenAPI document: 2.0
  * 
@@ -16,14 +16,14 @@ import ApiClient from '../ApiClient';
 /**
  * The BatchQueryRequestMediaV1 model module.
  * @module model/BatchQueryRequestMediaV1
- * @version 2.0.5
+ * @version 3.0.0
  */
 class BatchQueryRequestMediaV1 {
     /**
      * Constructs a new <code>BatchQueryRequestMediaV1</code>.
      * @alias module:model/BatchQueryRequestMediaV1
      * @param from {Date} From timestamp
-     * @param q {String} Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5)
+     * @param q {String} Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5 or thing.95717675-4786-4ffc-afcc-799777755391)
      * @param to {Date} To timestamp
      */
     constructor(from, q, to) { 
@@ -83,7 +83,7 @@ class BatchQueryRequestMediaV1 {
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
         for (const property of BatchQueryRequestMediaV1.RequiredProperties) {
-            if (!data[property]) {
+            if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
@@ -123,13 +123,13 @@ BatchQueryRequestMediaV1.prototype['from'] = undefined;
 BatchQueryRequestMediaV1.prototype['interval'] = undefined;
 
 /**
- * Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5)
+ * Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5 or thing.95717675-4786-4ffc-afcc-799777755391)
  * @member {String} q
  */
 BatchQueryRequestMediaV1.prototype['q'] = undefined;
 
 /**
- * Maximum number of values returned after data aggregation, if any (default: 300, limit: 1000)
+ * Maximum number of values returned after data aggregation, if any (default: 300, limit: 1000 - 10000 in case of thing query)
  * @member {Number} series_limit
  */
 BatchQueryRequestMediaV1.prototype['series_limit'] = undefined;
