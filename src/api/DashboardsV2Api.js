@@ -1,6 +1,6 @@
 /**
  * Arduino IoT Cloud API
- *  Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
+ * Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
  *
  * The version of the OpenAPI document: 2.0
  * 
@@ -27,7 +27,7 @@ import Widgetlink from '../model/Widgetlink';
 /**
 * DashboardsV2 service.
 * @module api/DashboardsV2Api
-* @version 2.0.5
+* @version 3.0.0
 */
 export default class DashboardsV2Api {
 
@@ -81,7 +81,7 @@ export default class DashboardsV2Api {
       let accepts = ['application/vnd.arduino.dashboardv2+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDashboardv2;
       return this.apiClient.callApi(
-        '/v2/dashboards/{id}/clone', 'PUT',
+        '/iot/v2/dashboards/{id}/clone', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -135,7 +135,7 @@ export default class DashboardsV2Api {
       let accepts = ['application/vnd.arduino.dashboardv2+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDashboardv2;
       return this.apiClient.callApi(
-        '/v2/dashboards', 'POST',
+        '/iot/v2/dashboards', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -189,7 +189,7 @@ export default class DashboardsV2Api {
       let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/v2/dashboards/{id}', 'DELETE',
+        '/iot/v2/dashboards/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -249,7 +249,7 @@ export default class DashboardsV2Api {
       let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/v2/dashboards/{id}/shares/{user_id}', 'DELETE',
+        '/iot/v2/dashboards/{id}/shares/{user_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -315,7 +315,7 @@ export default class DashboardsV2Api {
       let accepts = ['application/vnd.arduino.variableslinks+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoVariableslinks;
       return this.apiClient.callApi(
-        '/v2/dashboards/{id}/widgets/{widgetId}/variables', 'PUT',
+        '/iot/v2/dashboards/{id}/widgets/{widgetId}/variables', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -369,7 +369,7 @@ export default class DashboardsV2Api {
       let accepts = ['application/vnd.arduino.dashboardv2+json; type=collection', 'application/vnd.goa.error+json'];
       let returnType = [ArduinoDashboardv2];
       return this.apiClient.callApi(
-        '/v2/dashboards', 'GET',
+        '/iot/v2/dashboards', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -424,7 +424,7 @@ export default class DashboardsV2Api {
       let accepts = ['application/vnd.arduino.dashboardshare+json; type=collection', 'application/vnd.goa.error+json'];
       let returnType = [ArduinoDashboardshare];
       return this.apiClient.callApi(
-        '/v2/dashboards/{id}/shares', 'GET',
+        '/iot/v2/dashboards/{id}/shares', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -483,7 +483,7 @@ export default class DashboardsV2Api {
       let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/v2/dashboards/{id}/share_request', 'PUT',
+        '/iot/v2/dashboards/{id}/share_request', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -543,7 +543,7 @@ export default class DashboardsV2Api {
       let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/v2/dashboards/{id}/shares', 'PUT',
+        '/iot/v2/dashboards/{id}/shares', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -598,7 +598,7 @@ export default class DashboardsV2Api {
       let accepts = ['application/vnd.arduino.dashboardv2+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDashboardv2;
       return this.apiClient.callApi(
-        '/v2/dashboards/{id}', 'GET',
+        '/iot/v2/dashboards/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -652,7 +652,7 @@ export default class DashboardsV2Api {
       let accepts = ['application/vnd.arduino.dashboardv2template+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDashboardv2template;
       return this.apiClient.callApi(
-        '/v2/dashboards/{id}/template', 'GET',
+        '/iot/v2/dashboards/{id}/template', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -711,7 +711,7 @@ export default class DashboardsV2Api {
       let accepts = ['application/vnd.arduino.dashboardv2+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDashboardv2;
       return this.apiClient.callApi(
-        '/v2/dashboards/{id}', 'PUT',
+        '/iot/v2/dashboards/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );

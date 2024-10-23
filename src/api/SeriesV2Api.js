@@ -1,6 +1,6 @@
 /**
  * Arduino IoT Cloud API
- *  Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
+ * Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
  *
  * The version of the OpenAPI document: 2.0
  * 
@@ -27,7 +27,7 @@ import HistoricDataRequest from '../model/HistoricDataRequest';
 /**
 * SeriesV2 service.
 * @module api/SeriesV2Api
-* @version 2.0.5
+* @version 3.0.0
 */
 export default class SeriesV2Api {
 
@@ -75,7 +75,7 @@ export default class SeriesV2Api {
       let accepts = ['application/vnd.arduino.series.batch+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoSeriesBatch;
       return this.apiClient.callApi(
-        '/v2/series/batch_query', 'POST',
+        '/iot/v2/series/batch_query', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -128,7 +128,7 @@ export default class SeriesV2Api {
       let accepts = ['application/vnd.arduino.series.raw.batch+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoSeriesRawBatch;
       return this.apiClient.callApi(
-        '/v2/series/batch_query_raw', 'POST',
+        '/iot/v2/series/batch_query_raw', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -181,7 +181,7 @@ export default class SeriesV2Api {
       let accepts = ['application/vnd.arduino.series.raw.batch.lastvalue+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoSeriesRawBatchLastvalue;
       return this.apiClient.callApi(
-        '/v2/series/batch_query_raw/lastvalue', 'POST',
+        '/iot/v2/series/batch_query_raw/lastvalue', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -234,7 +234,7 @@ export default class SeriesV2Api {
       let accepts = ['application/vnd.arduino.series.batch.sampled+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoSeriesBatchSampled;
       return this.apiClient.callApi(
-        '/v2/series/batch_query_sampling', 'POST',
+        '/iot/v2/series/batch_query_sampling', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -287,7 +287,7 @@ export default class SeriesV2Api {
       let accepts = ['application/vnd.goa.error+json'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/v2/series/historic_data', 'POST',
+        '/iot/v2/series/historic_data', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
