@@ -49,7 +49,12 @@ var client = ArduinoIotClient.ApiClient.instance;
 var oauth2 = client.authentications['oauth2'];
 oauth2.accessToken = await getToken();
     
-var api = new ArduinoIotClient.DevicesV2Api(client)    
+var api = new ArduinoIotClient.DevicesV2Api(client)
+/* if required, organization_id can be configured as follow and the, pass opts var to function.
+let opts = {
+  'xOrganization': "<org_id>"
+};
+*/
 api.devicesV2List().then(devices => {
     console.log(devices);
 }, error => {
@@ -77,6 +82,7 @@ var options = {
         client_id: 'YOUR_CLIENT_ID',
         client_secret: 'YOUR_CLIENT_SECRET',
         audience: 'https://api2.arduino.cc/iot'
+        // If required, specify organization identifier adding "organization_id: '<org_id>'" in form.
     }
 };
 

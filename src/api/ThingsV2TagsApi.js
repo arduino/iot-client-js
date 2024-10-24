@@ -1,6 +1,6 @@
 /**
  * Arduino IoT Cloud API
- *  Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
+ * Provides a set of endpoints to manage Arduino IoT Cloud **Devices**, **Things**, **Properties** and **Timeseries**. This API can be called just with any HTTP Client, or using one of these clients:  * [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)  * [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)  * [Golang Module](https://github.com/arduino/iot-client-go)
  *
  * The version of the OpenAPI document: 2.0
  * 
@@ -20,7 +20,7 @@ import Tag from '../model/Tag';
 /**
 * ThingsV2Tags service.
 * @module api/ThingsV2TagsApi
-* @version 2.0.5
+* @version 3.0.0
 */
 export default class ThingsV2TagsApi {
 
@@ -71,7 +71,7 @@ export default class ThingsV2TagsApi {
       let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/v2/things/{id}/tags/{key}', 'DELETE',
+        '/iot/v2/things/{id}/tags/{key}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -120,7 +120,7 @@ export default class ThingsV2TagsApi {
       let accepts = ['application/vnd.arduino.tags+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoTags;
       return this.apiClient.callApi(
-        '/v2/things/{id}/tags', 'GET',
+        '/iot/v2/things/{id}/tags', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -173,7 +173,7 @@ export default class ThingsV2TagsApi {
       let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/v2/things/{id}/tags', 'PUT',
+        '/iot/v2/things/{id}/tags', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
