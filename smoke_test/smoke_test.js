@@ -43,3 +43,44 @@ describe('Devices List', function(){
         });        
    });
 });
+
+describe('Thing List', function(){
+    it('thing list return 200 OK', function(done) {        
+         getToken().then(function(token) {
+             var client = IotApi.ApiClient.instance;
+             // Configure OAuth2 access token for authorization: oauth2
+             var oauth2 = client.authentications['oauth2'];
+             oauth2.accessToken = token;
+             
+             var api = new IotApi.ThingsV2Api(client)
+             api.thingsV2List().then(function() {              
+                 done();
+             }, function(error) {
+                 done(error);
+             });            
+         }, function(error) {
+             done(error)
+         });        
+    });
+ });
+
+ describe('Dashboard List', function(){
+    it('dashboard list return 200 OK', function(done) {        
+         getToken().then(function(token) {
+             var client = IotApi.ApiClient.instance;
+             // Configure OAuth2 access token for authorization: oauth2
+             var oauth2 = client.authentications['oauth2'];
+             oauth2.accessToken = token;
+             
+             var api = new IotApi.DashboardsV2Api(client)
+             api.dashboardsV2List().then(function() {              
+                 done();
+             }, function(error) {
+                 done(error);
+             });            
+         }, function(error) {
+             done(error)
+         });        
+    });
+ });
+ 
