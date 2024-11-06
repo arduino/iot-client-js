@@ -169,7 +169,7 @@ export default class DevicesV2TagsApi {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(

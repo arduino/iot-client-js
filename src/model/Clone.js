@@ -22,6 +22,7 @@ import Override from './Override';
 class Clone {
     /**
      * Constructs a new <code>Clone</code>.
+     * Add overrides used when performing a clone of a dashboard
      * @alias module:model/Clone
      */
     constructor() { 

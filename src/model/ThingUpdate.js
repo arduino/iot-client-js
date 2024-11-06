@@ -36,6 +36,7 @@ class ThingUpdate {
      * Only for internal use.
      */
     static initialize(obj) { 
+        obj['soft_deleted'] = false;
     }
 
     /**
@@ -63,6 +64,9 @@ class ThingUpdate {
             }
             if (data.hasOwnProperty('properties')) {
                 obj['properties'] = ApiClient.convertToType(data['properties'], [Property]);
+            }
+            if (data.hasOwnProperty('soft_deleted')) {
+                obj['soft_deleted'] = ApiClient.convertToType(data['soft_deleted'], 'Boolean');
             }
             if (data.hasOwnProperty('timezone')) {
                 obj['timezone'] = ApiClient.convertToType(data['timezone'], 'String');
@@ -155,6 +159,13 @@ ThingUpdate.prototype['name'] = undefined;
  * @member {Array.<module:model/Property>} properties
  */
 ThingUpdate.prototype['properties'] = undefined;
+
+/**
+ * If false, restore the thing from the soft deletion
+ * @member {Boolean} soft_deleted
+ * @default false
+ */
+ThingUpdate.prototype['soft_deleted'] = false;
 
 /**
  * A time zone name. Check /v2/timezones for a list of valid names.
