@@ -21,6 +21,10 @@ Show required network credentials depending on device type
 
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = ArduinoIotClient.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new ArduinoIotClient.NetworkCredentialsV1Api();
 let type = "type_example"; // String | Device type
@@ -49,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -69,6 +73,10 @@ Show available connection types depending on device type
 
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = ArduinoIotClient.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new ArduinoIotClient.NetworkCredentialsV1Api();
 let type = "type_example"; // String | Device type
@@ -93,7 +101,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
