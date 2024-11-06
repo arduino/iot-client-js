@@ -21,9 +21,9 @@ Returns the list of available property types
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oauth2
+// Configure Bearer access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
+oauth2.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new ArduinoIotClient.PropertyTypesV1Api();
 apiInstance.propertyTypesV1ListTypes().then((data) => {

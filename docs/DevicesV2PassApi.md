@@ -24,9 +24,9 @@ Check if the password matches.
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oauth2
+// Configure Bearer access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
+oauth2.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new ArduinoIotClient.DevicesV2PassApi();
 let id = "id_example"; // String | The id of the device
@@ -57,7 +57,7 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/vnd.goa.error+json, text/plain
 
 
@@ -74,9 +74,9 @@ Removes the password for the device.
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oauth2
+// Configure Bearer access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
+oauth2.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new ArduinoIotClient.DevicesV2PassApi();
 let id = "id_example"; // String | The id of the device
@@ -122,9 +122,9 @@ Returns whether the password for this device is set or not. It doesn&#39;t retur
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oauth2
+// Configure Bearer access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
+oauth2.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new ArduinoIotClient.DevicesV2PassApi();
 let id = "id_example"; // String | The id of the device
@@ -174,9 +174,9 @@ Sets the password for the device. It can never be read back.
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oauth2
+// Configure Bearer access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
+oauth2.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new ArduinoIotClient.DevicesV2PassApi();
 let id = "id_example"; // String | The id of the device
@@ -207,6 +207,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/vnd.arduino.devicev2.pass+json, application/vnd.goa.error+json
 

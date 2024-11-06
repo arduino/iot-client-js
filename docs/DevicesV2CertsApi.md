@@ -25,9 +25,9 @@ Creates a new cert associated to a device. The csr is signed and saved in databa
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oauth2
+// Configure Bearer access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
+oauth2.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new ArduinoIotClient.DevicesV2CertsApi();
 let id = "id_example"; // String | The id of the device
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/vnd.arduino.devicev2.cert+json, application/vnd.goa.error+json
 
 
@@ -75,9 +75,9 @@ Removes a cert associated to a device
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oauth2
+// Configure Bearer access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
+oauth2.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new ArduinoIotClient.DevicesV2CertsApi();
 let cid = "cid_example"; // String | The id of the cert
@@ -125,9 +125,9 @@ Returns the list of certs associated to the device
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oauth2
+// Configure Bearer access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
+oauth2.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new ArduinoIotClient.DevicesV2CertsApi();
 let id = "id_example"; // String | The id of the device
@@ -173,9 +173,9 @@ Returns the cert requested by the user
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oauth2
+// Configure Bearer access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
+oauth2.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new ArduinoIotClient.DevicesV2CertsApi();
 let cid = "cid_example"; // String | The id of the cert
@@ -223,9 +223,9 @@ Updates a cert associated to a device. The csr is signed and saved in database. 
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oauth2
+// Configure Bearer access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
+oauth2.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new ArduinoIotClient.DevicesV2CertsApi();
 let cid = "cid_example"; // String | The id of the cert
@@ -258,6 +258,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/vnd.arduino.devicev2.cert+json, application/vnd.goa.error+json
 

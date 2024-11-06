@@ -25,14 +25,14 @@ Returns the batch of time-series aggregated samples
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oauth2
+// Configure Bearer access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
+oauth2.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new ArduinoIotClient.SeriesV2Api();
 let batchQueryRequestsMediaV1 = new ArduinoIotClient.BatchQueryRequestsMediaV1(); // BatchQueryRequestsMediaV1 | 
 let opts = {
-  'xOrganization': "xOrganization_example" // String | 
+  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
 };
 apiInstance.seriesV2BatchQuery(batchQueryRequestsMediaV1, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -48,7 +48,7 @@ apiInstance.seriesV2BatchQuery(batchQueryRequestsMediaV1, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **batchQueryRequestsMediaV1** | [**BatchQueryRequestsMediaV1**](BatchQueryRequestsMediaV1.md)|  | 
- **xOrganization** | **String**|  | [optional] 
+ **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/vnd.arduino.series.batch+json, application/vnd.goa.error+json
 
 
@@ -77,14 +77,14 @@ Returns the batch of time-series raw samples
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oauth2
+// Configure Bearer access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
+oauth2.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new ArduinoIotClient.SeriesV2Api();
 let batchQueryRawRequestsMediaV1 = new ArduinoIotClient.BatchQueryRawRequestsMediaV1(); // BatchQueryRawRequestsMediaV1 | 
 let opts = {
-  'xOrganization': "xOrganization_example" // String | 
+  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
 };
 apiInstance.seriesV2BatchQueryRaw(batchQueryRawRequestsMediaV1, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -100,7 +100,7 @@ apiInstance.seriesV2BatchQueryRaw(batchQueryRawRequestsMediaV1, opts).then((data
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **batchQueryRawRequestsMediaV1** | [**BatchQueryRawRequestsMediaV1**](BatchQueryRawRequestsMediaV1.md)|  | 
- **xOrganization** | **String**|  | [optional] 
+ **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/vnd.arduino.series.raw.batch+json, application/vnd.goa.error+json
 
 
@@ -129,14 +129,14 @@ Returns the batch of time-series data raw
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oauth2
+// Configure Bearer access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
+oauth2.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new ArduinoIotClient.SeriesV2Api();
 let batchLastValueRequestsMediaV1 = new ArduinoIotClient.BatchLastValueRequestsMediaV1(); // BatchLastValueRequestsMediaV1 | 
 let opts = {
-  'xOrganization': "xOrganization_example" // String | 
+  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
 };
 apiInstance.seriesV2BatchQueryRawLastValue(batchLastValueRequestsMediaV1, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -152,7 +152,7 @@ apiInstance.seriesV2BatchQueryRawLastValue(batchLastValueRequestsMediaV1, opts).
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **batchLastValueRequestsMediaV1** | [**BatchLastValueRequestsMediaV1**](BatchLastValueRequestsMediaV1.md)|  | 
- **xOrganization** | **String**|  | [optional] 
+ **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/vnd.arduino.series.raw.batch.lastvalue+json, application/vnd.goa.error+json
 
 
@@ -181,14 +181,14 @@ Returns a batch of time-series sampled samples. To be used for types that does n
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oauth2
+// Configure Bearer access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
+oauth2.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new ArduinoIotClient.SeriesV2Api();
 let batchQuerySampledRequestsMediaV1 = new ArduinoIotClient.BatchQuerySampledRequestsMediaV1(); // BatchQuerySampledRequestsMediaV1 | 
 let opts = {
-  'xOrganization': "xOrganization_example" // String | 
+  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
 };
 apiInstance.seriesV2BatchQuerySampling(batchQuerySampledRequestsMediaV1, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -204,7 +204,7 @@ apiInstance.seriesV2BatchQuerySampling(batchQuerySampledRequestsMediaV1, opts).t
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **batchQuerySampledRequestsMediaV1** | [**BatchQuerySampledRequestsMediaV1**](BatchQuerySampledRequestsMediaV1.md)|  | 
- **xOrganization** | **String**|  | [optional] 
+ **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/vnd.arduino.series.batch.sampled+json, application/vnd.goa.error+json
 
 
@@ -233,14 +233,14 @@ Request sending of historical data of properties by email
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oauth2
+// Configure Bearer access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
+oauth2.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new ArduinoIotClient.SeriesV2Api();
 let historicDataRequest = new ArduinoIotClient.HistoricDataRequest(); // HistoricDataRequest | 
 let opts = {
-  'xOrganization': "xOrganization_example" // String | 
+  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
 };
 apiInstance.seriesV2HistoricData(historicDataRequest, opts).then(() => {
   console.log('API called successfully.');
@@ -256,7 +256,7 @@ apiInstance.seriesV2HistoricData(historicDataRequest, opts).then(() => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **historicDataRequest** | [**HistoricDataRequest**](HistoricDataRequest.md)|  | 
- **xOrganization** | **String**|  | [optional] 
+ **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -268,6 +268,6 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/vnd.goa.error+json
 

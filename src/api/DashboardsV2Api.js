@@ -48,9 +48,9 @@ export default class DashboardsV2Api {
      * clone dashboards_v2
      * Clone an existing dashboard
      * @param {String} id The id of the dashboard
-     * @param {module:model/Clone} clone 
+     * @param {module:model/Clone} clone Add overrides used when performing a clone of a dashboard
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDashboardv2} and HTTP response
      */
     dashboardsV2CloneWithHttpInfo(id, clone, opts) {
@@ -77,7 +77,7 @@ export default class DashboardsV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/vnd.arduino.dashboardv2+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDashboardv2;
       return this.apiClient.callApi(
@@ -91,9 +91,9 @@ export default class DashboardsV2Api {
      * clone dashboards_v2
      * Clone an existing dashboard
      * @param {String} id The id of the dashboard
-     * @param {module:model/Clone} clone 
+     * @param {module:model/Clone} clone Add overrides used when performing a clone of a dashboard
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDashboardv2}
      */
     dashboardsV2Clone(id, clone, opts) {
@@ -107,9 +107,9 @@ export default class DashboardsV2Api {
     /**
      * create dashboards_v2
      * Create a new dashboard
-     * @param {module:model/Dashboardv2} dashboardv2 DashboardV2Payload describes a dashboard
+     * @param {module:model/Dashboardv2} dashboardv2 Describes a dashboard
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDashboardv2} and HTTP response
      */
     dashboardsV2CreateWithHttpInfo(dashboardv2, opts) {
@@ -131,7 +131,7 @@ export default class DashboardsV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/vnd.arduino.dashboardv2+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDashboardv2;
       return this.apiClient.callApi(
@@ -144,9 +144,9 @@ export default class DashboardsV2Api {
     /**
      * create dashboards_v2
      * Create a new dashboard
-     * @param {module:model/Dashboardv2} dashboardv2 DashboardV2Payload describes a dashboard
+     * @param {module:model/Dashboardv2} dashboardv2 Describes a dashboard
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDashboardv2}
      */
     dashboardsV2Create(dashboardv2, opts) {
@@ -162,7 +162,8 @@ export default class DashboardsV2Api {
      * Delete a dashboard
      * @param {String} id The id of the dashboard
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] 
+     * @param {Boolean} [force = false)] If true, hard delete the thing
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     dashboardsV2DeleteWithHttpInfo(id, opts) {
@@ -177,6 +178,7 @@ export default class DashboardsV2Api {
         'id': id
       };
       let queryParams = {
+        'force': opts['force']
       };
       let headerParams = {
         'X-Organization': opts['xOrganization']
@@ -200,7 +202,8 @@ export default class DashboardsV2Api {
      * Delete a dashboard
      * @param {String} id The id of the dashboard
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {Boolean} opts.force If true, hard delete the thing (default to false)
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
     dashboardsV2Delete(id, opts) {
@@ -217,7 +220,7 @@ export default class DashboardsV2Api {
      * @param {String} id The id of the dashboard
      * @param {String} userId The id of the user
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     dashboardsV2DeleteShareWithHttpInfo(id, userId, opts) {
@@ -261,7 +264,7 @@ export default class DashboardsV2Api {
      * @param {String} id The id of the dashboard
      * @param {String} userId The id of the user
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
     dashboardsV2DeleteShare(id, userId, opts) {
@@ -279,7 +282,7 @@ export default class DashboardsV2Api {
      * @param {String} widgetId The id of the widget
      * @param {module:model/Widgetlink} widgetlink 
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoVariableslinks} and HTTP response
      */
     dashboardsV2LinkWithHttpInfo(id, widgetId, widgetlink, opts) {
@@ -311,7 +314,7 @@ export default class DashboardsV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/vnd.arduino.variableslinks+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoVariableslinks;
       return this.apiClient.callApi(
@@ -328,7 +331,7 @@ export default class DashboardsV2Api {
      * @param {String} widgetId The id of the widget
      * @param {module:model/Widgetlink} widgetlink 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoVariableslinks}
      */
     dashboardsV2Link(id, widgetId, widgetlink, opts) {
@@ -343,9 +346,9 @@ export default class DashboardsV2Api {
      * list dashboards_v2
      * Returns the list of dashboards
      * @param {Object} opts Optional parameters
-     * @param {String} [name] The name of the dashboard
-     * @param {String} [userId] The user_id of the dashboard's owner
-     * @param {String} [xOrganization] 
+     * @param {String} [name] Filter by name of the dashboard. It support like matching.
+     * @param {String} [userId] Filter by user_id of the dashboard's owner
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoDashboardv2>} and HTTP response
      */
     dashboardsV2ListWithHttpInfo(opts) {
@@ -379,9 +382,9 @@ export default class DashboardsV2Api {
      * list dashboards_v2
      * Returns the list of dashboards
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name The name of the dashboard
-     * @param {String} opts.userId The user_id of the dashboard's owner
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.name Filter by name of the dashboard. It support like matching.
+     * @param {String} opts.userId Filter by user_id of the dashboard's owner
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoDashboardv2>}
      */
     dashboardsV2List(opts) {
@@ -397,7 +400,7 @@ export default class DashboardsV2Api {
      * List of users the dashboard has been shared with
      * @param {String} id The id of the dashboard
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoDashboardshare>} and HTTP response
      */
     dashboardsV2ListSharesWithHttpInfo(id, opts) {
@@ -435,11 +438,71 @@ export default class DashboardsV2Api {
      * List of users the dashboard has been shared with
      * @param {String} id The id of the dashboard
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoDashboardshare>}
      */
     dashboardsV2ListShares(id, opts) {
       return this.dashboardsV2ListSharesWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * patch dashboards_v2
+     * Updates an existing dashboard field without overwriting the existing data
+     * @param {String} id The id of the dashboard
+     * @param {module:model/Dashboardv2} dashboardv2 Describes a dashboard
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] Organization space identifer (optional)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDashboardv2} and HTTP response
+     */
+    dashboardsV2PatchWithHttpInfo(id, dashboardv2, opts) {
+      opts = opts || {};
+      let postBody = dashboardv2;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling dashboardsV2Patch");
+      }
+      // verify the required parameter 'dashboardv2' is set
+      if (dashboardv2 === undefined || dashboardv2 === null) {
+        throw new Error("Missing the required parameter 'dashboardv2' when calling dashboardsV2Patch");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+        'X-Organization': opts['xOrganization']
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oauth2'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/vnd.arduino.dashboardv2+json', 'application/vnd.goa.error+json'];
+      let returnType = ArduinoDashboardv2;
+      return this.apiClient.callApi(
+        '/iot/v2/dashboards/{id}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * patch dashboards_v2
+     * Updates an existing dashboard field without overwriting the existing data
+     * @param {String} id The id of the dashboard
+     * @param {module:model/Dashboardv2} dashboardv2 Describes a dashboard
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization Organization space identifer (optional)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDashboardv2}
+     */
+    dashboardsV2Patch(id, dashboardv2, opts) {
+      return this.dashboardsV2PatchWithHttpInfo(id, dashboardv2, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -452,7 +515,7 @@ export default class DashboardsV2Api {
      * @param {String} id The id of the dashboard
      * @param {module:model/Sharerequest} sharerequest 
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     dashboardsV2RequestAccessWithHttpInfo(id, sharerequest, opts) {
@@ -479,7 +542,7 @@ export default class DashboardsV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
@@ -495,7 +558,7 @@ export default class DashboardsV2Api {
      * @param {String} id The id of the dashboard
      * @param {module:model/Sharerequest} sharerequest 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
     dashboardsV2RequestAccess(id, sharerequest, opts) {
@@ -512,7 +575,7 @@ export default class DashboardsV2Api {
      * @param {String} id The id of the dashboard
      * @param {module:model/Dashboardshare} dashboardshare 
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     dashboardsV2ShareWithHttpInfo(id, dashboardshare, opts) {
@@ -539,7 +602,7 @@ export default class DashboardsV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
@@ -555,7 +618,7 @@ export default class DashboardsV2Api {
      * @param {String} id The id of the dashboard
      * @param {module:model/Dashboardshare} dashboardshare 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
     dashboardsV2Share(id, dashboardshare, opts) {
@@ -568,10 +631,10 @@ export default class DashboardsV2Api {
 
     /**
      * show dashboards_v2
-     * Show a dashboard
+     * Show a dashboard by id
      * @param {String} id The id of the dashboard
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDashboardv2} and HTTP response
      */
     dashboardsV2ShowWithHttpInfo(id, opts) {
@@ -606,10 +669,10 @@ export default class DashboardsV2Api {
 
     /**
      * show dashboards_v2
-     * Show a dashboard
+     * Show a dashboard by id
      * @param {String} id The id of the dashboard
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDashboardv2}
      */
     dashboardsV2Show(id, opts) {
@@ -625,7 +688,7 @@ export default class DashboardsV2Api {
      * Get a template of the dashboard
      * @param {String} id The id of the dashboard
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDashboardv2template} and HTTP response
      */
     dashboardsV2TemplateWithHttpInfo(id, opts) {
@@ -663,7 +726,7 @@ export default class DashboardsV2Api {
      * Get a template of the dashboard
      * @param {String} id The id of the dashboard
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDashboardv2template}
      */
     dashboardsV2Template(id, opts) {
@@ -678,9 +741,9 @@ export default class DashboardsV2Api {
      * update dashboards_v2
      * Updates an existing dashboard
      * @param {String} id The id of the dashboard
-     * @param {module:model/Dashboardv2} dashboardv2 DashboardV2Payload describes a dashboard
+     * @param {module:model/Dashboardv2} dashboardv2 Describes a dashboard
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDashboardv2} and HTTP response
      */
     dashboardsV2UpdateWithHttpInfo(id, dashboardv2, opts) {
@@ -707,7 +770,7 @@ export default class DashboardsV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/vnd.arduino.dashboardv2+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDashboardv2;
       return this.apiClient.callApi(
@@ -721,9 +784,9 @@ export default class DashboardsV2Api {
      * update dashboards_v2
      * Updates an existing dashboard
      * @param {String} id The id of the dashboard
-     * @param {module:model/Dashboardv2} dashboardv2 DashboardV2Payload describes a dashboard
+     * @param {module:model/Dashboardv2} dashboardv2 Describes a dashboard
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDashboardv2}
      */
     dashboardsV2Update(id, dashboardv2, opts) {

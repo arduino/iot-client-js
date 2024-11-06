@@ -53,7 +53,7 @@ export default class LoraFreqPlanV1Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = [];
       let accepts = ['application/vnd.arduino.lorafreqplansv1+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoLorafreqplansv1;
