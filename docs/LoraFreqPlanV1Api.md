@@ -20,6 +20,10 @@ List the lora frequency plans supported
 
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = ArduinoIotClient.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new ArduinoIotClient.LoraFreqPlanV1Api();
 apiInstance.loraFreqPlanV1List().then((data) => {
@@ -40,7 +44,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 

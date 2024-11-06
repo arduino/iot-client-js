@@ -36,6 +36,7 @@ class CreateDevicesV2Payload {
      * Only for internal use.
      */
     static initialize(obj, type) { 
+        obj['soft_deleted'] = false;
         obj['type'] = type;
     }
 
@@ -61,6 +62,9 @@ class CreateDevicesV2Payload {
             }
             if (data.hasOwnProperty('serial')) {
                 obj['serial'] = ApiClient.convertToType(data['serial'], 'String');
+            }
+            if (data.hasOwnProperty('soft_deleted')) {
+                obj['soft_deleted'] = ApiClient.convertToType(data['soft_deleted'], 'Boolean');
             }
             if (data.hasOwnProperty('type')) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
@@ -147,6 +151,13 @@ CreateDevicesV2Payload.prototype['name'] = undefined;
  * @member {String} serial
  */
 CreateDevicesV2Payload.prototype['serial'] = undefined;
+
+/**
+ * If false, restore the thing from the soft deletion
+ * @member {Boolean} soft_deleted
+ * @default false
+ */
+CreateDevicesV2Payload.prototype['soft_deleted'] = false;
 
 /**
  * The type of the device

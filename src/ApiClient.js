@@ -46,7 +46,7 @@ class ApiClient {
          * @type {Array.<String>}
          */
         this.authentications = {
-            'oauth2': {type: 'oauth2'}
+            'oauth2': {type: 'bearer'} // JWT
         }
 
         /**

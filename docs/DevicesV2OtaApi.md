@@ -23,9 +23,9 @@ Send a binary url to a device
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oauth2
+// Configure Bearer (JWT) access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
+oauth2.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new ArduinoIotClient.DevicesV2OtaApi();
 let id = "id_example"; // String | The id of the device
@@ -56,7 +56,7 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/vnd.goa.error+json, text/plain
 
 
@@ -73,9 +73,9 @@ Upload a binary and send it to a device
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oauth2
+// Configure Bearer (JWT) access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
+oauth2.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new ArduinoIotClient.DevicesV2OtaApi();
 let id = "id_example"; // String | The id of the device
@@ -129,9 +129,9 @@ Generate a url for downloading a binary
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
 let defaultClient = ArduinoIotClient.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oauth2
+// Configure Bearer (JWT) access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
+oauth2.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new ArduinoIotClient.DevicesV2OtaApi();
 let id = "id_example"; // String | The id of the device
@@ -162,6 +162,6 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/vnd.goa.error+json, text/plain
 
