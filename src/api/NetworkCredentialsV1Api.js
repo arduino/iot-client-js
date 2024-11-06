@@ -63,7 +63,7 @@ export default class NetworkCredentialsV1Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = [];
       let accepts = ['application/vnd.arduino.credentialsv1+json; type=collection', 'application/vnd.goa.error+json'];
       let returnType = [ArduinoCredentialsv1];
@@ -113,7 +113,7 @@ export default class NetworkCredentialsV1Api {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['oauth2'];
       let contentTypes = [];
       let accepts = ['application/json', 'application/vnd.goa.error+json'];
       let returnType = null;

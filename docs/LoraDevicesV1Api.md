@@ -20,11 +20,15 @@ Create a new lora device. Its info are saved on our database, and on the lora pr
 
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = ArduinoIotClient.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new ArduinoIotClient.LoraDevicesV1Api();
 let createLoraDevicesV1Payload = new ArduinoIotClient.CreateLoraDevicesV1Payload(); // CreateLoraDevicesV1Payload | 
 let opts = {
-  'xOrganization': "xOrganization_example" // String | 
+  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
 };
 apiInstance.loraDevicesV1Create(createLoraDevicesV1Payload, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -40,7 +44,7 @@ apiInstance.loraDevicesV1Create(createLoraDevicesV1Payload, opts).then((data) =>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createLoraDevicesV1Payload** | [**CreateLoraDevicesV1Payload**](CreateLoraDevicesV1Payload.md)|  | 
- **xOrganization** | **String**|  | [optional] 
+ **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -48,10 +52,10 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/vnd.arduino.loradevicev1+json
 

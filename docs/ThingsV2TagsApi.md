@@ -154,6 +154,6 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/vnd.goa.error+json, text/plain
 

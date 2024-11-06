@@ -67,7 +67,7 @@ export default class DevicesV2PassApi {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/vnd.goa.error+json', 'text/plain'];
       let returnType = null;
       return this.apiClient.callApi(
@@ -223,7 +223,7 @@ export default class DevicesV2PassApi {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/vnd.arduino.devicev2.pass+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2Pass;
       return this.apiClient.callApi(

@@ -48,7 +48,7 @@ export default class ThingsV2Api {
      * @param {String} id The id of the thing
      * @param {module:model/ThingClone} thingClone Payload to clone a new thing from an existing one
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
     thingsV2CloneWithHttpInfo(id, thingClone, opts) {
@@ -75,7 +75,7 @@ export default class ThingsV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/vnd.arduino.thing+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoThing;
       return this.apiClient.callApi(
@@ -91,7 +91,7 @@ export default class ThingsV2Api {
      * @param {String} id The id of the thing
      * @param {module:model/ThingClone} thingClone Payload to clone a new thing from an existing one
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
     thingsV2Clone(id, thingClone, opts) {
@@ -108,7 +108,7 @@ export default class ThingsV2Api {
      * @param {module:model/ThingCreate} thingCreate Payload to create a new thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} [force = false)] If true, detach device from the other thing, and attach to this thing
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
     thingsV2CreateWithHttpInfo(thingCreate, opts) {
@@ -131,7 +131,7 @@ export default class ThingsV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/vnd.arduino.thing+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoThing;
       return this.apiClient.callApi(
@@ -147,7 +147,7 @@ export default class ThingsV2Api {
      * @param {module:model/ThingCreate} thingCreate Payload to create a new thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing (default to false)
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
     thingsV2Create(thingCreate, opts) {
@@ -164,7 +164,7 @@ export default class ThingsV2Api {
      * @param {String} id The id of the thing
      * @param {module:model/ThingSketch} thingSketch ThingSketchPayload describes a sketch of a thing
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
     thingsV2CreateSketchWithHttpInfo(id, thingSketch, opts) {
@@ -191,7 +191,7 @@ export default class ThingsV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/vnd.arduino.thing+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoThing;
       return this.apiClient.callApi(
@@ -207,7 +207,7 @@ export default class ThingsV2Api {
      * @param {String} id The id of the thing
      * @param {module:model/ThingSketch} thingSketch ThingSketchPayload describes a sketch of a thing
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
     thingsV2CreateSketch(id, thingSketch, opts) {
@@ -224,7 +224,7 @@ export default class ThingsV2Api {
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} [force = false)] If true, hard delete the thing
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     thingsV2DeleteWithHttpInfo(id, opts) {
@@ -264,7 +264,7 @@ export default class ThingsV2Api {
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, hard delete the thing (default to false)
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
     thingsV2Delete(id, opts) {
@@ -279,7 +279,7 @@ export default class ThingsV2Api {
      * deleteSketch things_v2
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
     thingsV2DeleteSketchWithHttpInfo(id, opts) {
@@ -316,7 +316,7 @@ export default class ThingsV2Api {
      * deleteSketch things_v2
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
     thingsV2DeleteSketch(id, opts) {
@@ -337,7 +337,7 @@ export default class ThingsV2Api {
      * @param {Boolean} [showDeleted = false)] If true, shows the soft deleted things
      * @param {Boolean} [showProperties = false)] If true, returns things with their properties, and last values
      * @param {Array.<String>} [tags] Filter by tags
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoThing>} and HTTP response
      */
     thingsV2ListWithHttpInfo(opts) {
@@ -381,7 +381,7 @@ export default class ThingsV2Api {
      * @param {Boolean} opts.showDeleted If true, shows the soft deleted things (default to false)
      * @param {Boolean} opts.showProperties If true, returns things with their properties, and last values (default to false)
      * @param {Array.<String>} opts.tags Filter by tags
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoThing>}
      */
     thingsV2List(opts) {
@@ -398,7 +398,7 @@ export default class ThingsV2Api {
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} [showDeleted = false)] If true, shows the soft deleted thing
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
     thingsV2ShowWithHttpInfo(id, opts) {
@@ -438,7 +438,7 @@ export default class ThingsV2Api {
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.showDeleted If true, shows the soft deleted thing (default to false)
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
     thingsV2Show(id, opts) {
@@ -454,7 +454,7 @@ export default class ThingsV2Api {
      * Extract template from the given thing
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThingtemplate} and HTTP response
      */
     thingsV2TemplateWithHttpInfo(id, opts) {
@@ -492,7 +492,7 @@ export default class ThingsV2Api {
      * Extract template from the given thing
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThingtemplate}
      */
     thingsV2Template(id, opts) {
@@ -510,7 +510,7 @@ export default class ThingsV2Api {
      * @param {module:model/ThingUpdate} thingUpdate Payload to update an existing thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} [force = false)] If true, detach device from the other thing, and attach to this thing
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
     thingsV2UpdateWithHttpInfo(id, thingUpdate, opts) {
@@ -538,7 +538,7 @@ export default class ThingsV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/vnd.arduino.thing+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoThing;
       return this.apiClient.callApi(
@@ -555,7 +555,7 @@ export default class ThingsV2Api {
      * @param {module:model/ThingUpdate} thingUpdate Payload to update an existing thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, detach device from the other thing, and attach to this thing (default to false)
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
     thingsV2Update(id, thingUpdate, opts) {
@@ -572,7 +572,7 @@ export default class ThingsV2Api {
      * @param {String} id The id of the thing
      * @param {String} sketchId The id of the sketch
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @param {module:model/UpdateSketch} [updateSketch] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoThing} and HTTP response
      */
@@ -601,7 +601,7 @@ export default class ThingsV2Api {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/vnd.arduino.thing+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoThing;
       return this.apiClient.callApi(
@@ -617,7 +617,7 @@ export default class ThingsV2Api {
      * @param {String} id The id of the thing
      * @param {String} sketchId The id of the sketch
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @param {module:model/UpdateSketch} opts.updateSketch 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoThing}
      */
