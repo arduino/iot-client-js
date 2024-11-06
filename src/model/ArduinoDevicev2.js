@@ -71,6 +71,9 @@ class ArduinoDevicev2 {
             if (data.hasOwnProperty('created_at')) {
                 obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
             }
+            if (data.hasOwnProperty('deleted_at')) {
+                obj['deleted_at'] = ApiClient.convertToType(data['deleted_at'], 'Date');
+            }
             if (data.hasOwnProperty('device_status')) {
                 obj['device_status'] = ApiClient.convertToType(data['device_status'], 'String');
             }
@@ -127,6 +130,9 @@ class ArduinoDevicev2 {
             }
             if (data.hasOwnProperty('type')) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
+            }
+            if (data.hasOwnProperty('updated_at')) {
+                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
             }
             if (data.hasOwnProperty('user_id')) {
                 obj['user_id'] = ApiClient.convertToType(data['user_id'], 'String');
@@ -255,6 +261,12 @@ ArduinoDevicev2.prototype['connection_type'] = undefined;
 ArduinoDevicev2.prototype['created_at'] = undefined;
 
 /**
+ * Deletion date of the trigger
+ * @member {Date} deleted_at
+ */
+ArduinoDevicev2.prototype['deleted_at'] = undefined;
+
+/**
  * The connection status of the device
  * @member {module:model/ArduinoDevicev2.DeviceStatusEnum} device_status
  */
@@ -366,6 +378,12 @@ ArduinoDevicev2.prototype['thing'] = undefined;
  * @member {String} type
  */
 ArduinoDevicev2.prototype['type'] = undefined;
+
+/**
+ * Update date of the trigger
+ * @member {Date} updated_at
+ */
+ArduinoDevicev2.prototype['updated_at'] = undefined;
 
 /**
  * The id of the user

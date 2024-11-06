@@ -67,7 +67,7 @@ export default class DevicesV2CertsApi {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/vnd.arduino.devicev2.cert+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2Cert;
       return this.apiClient.callApi(
@@ -285,7 +285,7 @@ export default class DevicesV2CertsApi {
       };
 
       let authNames = ['oauth2'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/vnd.arduino.devicev2.cert+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoDevicev2Cert;
       return this.apiClient.callApi(

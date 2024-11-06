@@ -22,7 +22,7 @@ import Widget from './Widget';
 class Dashboardv2 {
     /**
      * Constructs a new <code>Dashboardv2</code>.
-     * DashboardV2Payload describes a dashboard
+     * Describes a dashboard
      * @alias module:model/Dashboardv2
      */
     constructor() { 
@@ -36,6 +36,7 @@ class Dashboardv2 {
      * Only for internal use.
      */
     static initialize(obj) { 
+        obj['soft_deleted'] = false;
     }
 
     /**
@@ -54,6 +55,9 @@ class Dashboardv2 {
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('soft_deleted')) {
+                obj['soft_deleted'] = ApiClient.convertToType(data['soft_deleted'], 'Boolean');
             }
             if (data.hasOwnProperty('widgets')) {
                 obj['widgets'] = ApiClient.convertToType(data['widgets'], [Widget]);
@@ -106,6 +110,13 @@ Dashboardv2.prototype['cover_image'] = undefined;
  * @member {String} name
  */
 Dashboardv2.prototype['name'] = undefined;
+
+/**
+ * If false, restore the thing from the soft deletion
+ * @member {Boolean} soft_deleted
+ * @default false
+ */
+Dashboardv2.prototype['soft_deleted'] = false;
 
 /**
  * Widgets attached to this dashboard
