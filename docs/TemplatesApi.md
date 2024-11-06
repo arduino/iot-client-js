@@ -20,11 +20,15 @@ Apply an existing cloud template and generate all the needed resources
 
 ```javascript
 import ArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = ArduinoIotClient.ApiClient.instance;
+// Configure Bearer access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new ArduinoIotClient.TemplatesApi();
 let template = new ArduinoIotClient.Template(); // Template | TemplatePayload describes the needed attribute to apply a template
 let opts = {
-  'xOrganization': "xOrganization_example" // String | 
+  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
 };
 apiInstance.templatesApply(template, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -40,7 +44,7 @@ apiInstance.templatesApply(template, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **template** | [**Template**](Template.md)| TemplatePayload describes the needed attribute to apply a template | 
- **xOrganization** | **String**|  | [optional] 
+ **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -48,10 +52,10 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/vnd.arduino.template+json, application/vnd.goa.error+json
 

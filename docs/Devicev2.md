@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **fqbn** | **String** | The fully qualified board name | [optional] 
 **name** | **String** | The friendly name of the device | [optional] 
 **serial** | **String** | The serial uuid of the device | [optional] 
+**softDeleted** | **Boolean** | If false, restore the thing from the soft deletion | [optional] [default to false]
 **type** | **String** | The type of the device | [optional] 
 **userId** | **String** | The user_id associated to the device. If absent it will be inferred from the authentication header | [optional] 
 **wifiFwVersion** | **String** | The version of the NINA/WIFI101 firmware running on the device | [optional] 
