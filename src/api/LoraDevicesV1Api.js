@@ -41,7 +41,7 @@ export default class LoraDevicesV1Api {
      * Create a new lora device. Its info are saved on our database, and on the lora provider network. Creates a device_v2 automatically
      * @param {module:model/CreateLoraDevicesV1Payload} createLoraDevicesV1Payload 
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoLoradevicev1} and HTTP response
      */
     loraDevicesV1CreateWithHttpInfo(createLoraDevicesV1Payload, opts) {
@@ -62,8 +62,8 @@ export default class LoraDevicesV1Api {
       let formParams = {
       };
 
-      let authNames = [];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let authNames = ['oauth2'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/vnd.arduino.loradevicev1+json'];
       let returnType = ArduinoLoradevicev1;
       return this.apiClient.callApi(
@@ -78,7 +78,7 @@ export default class LoraDevicesV1Api {
      * Create a new lora device. Its info are saved on our database, and on the lora provider network. Creates a device_v2 automatically
      * @param {module:model/CreateLoraDevicesV1Payload} createLoraDevicesV1Payload 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoLoradevicev1}
      */
     loraDevicesV1Create(createLoraDevicesV1Payload, opts) {

@@ -13,6 +13,8 @@
 
 
 import ApiClient from './ApiClient';
+import ArduinoAction from './model/ArduinoAction';
+import ArduinoActionTemplate from './model/ArduinoActionTemplate';
 import ArduinoCompressedv2 from './model/ArduinoCompressedv2';
 import ArduinoCredentialsv1 from './model/ArduinoCredentialsv1';
 import ArduinoDashboardowner from './model/ArduinoDashboardowner';
@@ -35,6 +37,10 @@ import ArduinoDevicev2propertyvalueValueStatistics from './model/ArduinoDevicev2
 import ArduinoDevicev2propertyvalues from './model/ArduinoDevicev2propertyvalues';
 import ArduinoDevicev2propertyvaluesLastEvaluatedKey from './model/ArduinoDevicev2propertyvaluesLastEvaluatedKey';
 import ArduinoDevicev2templatedevice from './model/ArduinoDevicev2templatedevice';
+import ArduinoLinkedDevice from './model/ArduinoLinkedDevice';
+import ArduinoLinkedDeviceTemplate from './model/ArduinoLinkedDeviceTemplate';
+import ArduinoLinkedProperty from './model/ArduinoLinkedProperty';
+import ArduinoLinkedPropertyTemplate from './model/ArduinoLinkedPropertyTemplate';
 import ArduinoLinkedvariable from './model/ArduinoLinkedvariable';
 import ArduinoLoradevicev1 from './model/ArduinoLoradevicev1';
 import ArduinoLorafreqplansv1 from './model/ArduinoLorafreqplansv1';
@@ -58,6 +64,9 @@ import ArduinoThingresult from './model/ArduinoThingresult';
 import ArduinoThingtemplate from './model/ArduinoThingtemplate';
 import ArduinoTimeseriesmedia from './model/ArduinoTimeseriesmedia';
 import ArduinoTimezone from './model/ArduinoTimezone';
+import ArduinoTrigger from './model/ArduinoTrigger';
+import ArduinoTriggerTemplate from './model/ArduinoTriggerTemplate';
+import ArduinoTriggerWithLinkedEntities from './model/ArduinoTriggerWithLinkedEntities';
 import ArduinoVariableslinks from './model/ArduinoVariableslinks';
 import ArduinoWidgetv2 from './model/ArduinoWidgetv2';
 import ArduinoWidgetv2template from './model/ArduinoWidgetv2template';
@@ -70,18 +79,24 @@ import BatchQueryRequestMediaV1 from './model/BatchQueryRequestMediaV1';
 import BatchQueryRequestsMediaV1 from './model/BatchQueryRequestsMediaV1';
 import BatchQuerySampledRequestMediaV1 from './model/BatchQuerySampledRequestMediaV1';
 import BatchQuerySampledRequestsMediaV1 from './model/BatchQuerySampledRequestsMediaV1';
+import BodyExpression from './model/BodyExpression';
 import CheckDevicesV2PassPayload from './model/CheckDevicesV2PassPayload';
 import Clone from './model/Clone';
+import CreateAction from './model/CreateAction';
 import CreateDevicesV2CertsPayload from './model/CreateDevicesV2CertsPayload';
 import CreateDevicesV2Payload from './model/CreateDevicesV2Payload';
 import CreateLoraDevicesV1Payload from './model/CreateLoraDevicesV1Payload';
 import Dashboardshare from './model/Dashboardshare';
 import Dashboardv2 from './model/Dashboardv2';
+import DeviceStatusSource from './model/DeviceStatusSource';
+import DeviceStatusSourceWithLinkedDevices from './model/DeviceStatusSourceWithLinkedDevices';
 import Devicev2 from './model/Devicev2';
 import Devicev2Cert from './model/Devicev2Cert';
 import Devicev2Otabinaryurl from './model/Devicev2Otabinaryurl';
 import Devicev2Otaurlpyalod from './model/Devicev2Otaurlpyalod';
 import Devicev2Pass from './model/Devicev2Pass';
+import EmailAction from './model/EmailAction';
+import EmailDeliveryOpts from './model/EmailDeliveryOpts';
 import Error from './model/Error';
 import HistoricDataRequest from './model/HistoricDataRequest';
 import Override from './model/Override';
@@ -89,6 +104,8 @@ import PropertiesValue from './model/PropertiesValue';
 import PropertiesValues from './model/PropertiesValues';
 import Property from './model/Property';
 import PropertyValue from './model/PropertyValue';
+import PushAction from './model/PushAction';
+import PushDeliveryOpts from './model/PushDeliveryOpts';
 import Sharerequest from './model/Sharerequest';
 import Tag from './model/Tag';
 import Template from './model/Template';
@@ -97,7 +114,12 @@ import ThingCreate from './model/ThingCreate';
 import ThingSketch from './model/ThingSketch';
 import ThingUpdate from './model/ThingUpdate';
 import TimeseriesDataPoint from './model/TimeseriesDataPoint';
+import TitleExpression from './model/TitleExpression';
+import Trigger from './model/Trigger';
+import UpdateAction from './model/UpdateAction';
 import UpdateSketch from './model/UpdateSketch';
+import UserRecipient from './model/UserRecipient';
+import Variable from './model/Variable';
 import Widget from './model/Widget';
 import Widgetlink from './model/Widgetlink';
 import DashboardsV2Api from './api/DashboardsV2Api';
@@ -115,6 +137,7 @@ import SeriesV2Api from './api/SeriesV2Api';
 import TemplatesApi from './api/TemplatesApi';
 import ThingsV2Api from './api/ThingsV2Api';
 import ThingsV2TagsApi from './api/ThingsV2TagsApi';
+import TriggersV1Api from './api/TriggersV1Api';
 
 
 /**
@@ -154,6 +177,18 @@ export {
      * @property {module:ApiClient}
      */
     ApiClient,
+
+    /**
+     * The ArduinoAction model constructor.
+     * @property {module:model/ArduinoAction}
+     */
+    ArduinoAction,
+
+    /**
+     * The ArduinoActionTemplate model constructor.
+     * @property {module:model/ArduinoActionTemplate}
+     */
+    ArduinoActionTemplate,
 
     /**
      * The ArduinoCompressedv2 model constructor.
@@ -286,6 +321,30 @@ export {
      * @property {module:model/ArduinoDevicev2templatedevice}
      */
     ArduinoDevicev2templatedevice,
+
+    /**
+     * The ArduinoLinkedDevice model constructor.
+     * @property {module:model/ArduinoLinkedDevice}
+     */
+    ArduinoLinkedDevice,
+
+    /**
+     * The ArduinoLinkedDeviceTemplate model constructor.
+     * @property {module:model/ArduinoLinkedDeviceTemplate}
+     */
+    ArduinoLinkedDeviceTemplate,
+
+    /**
+     * The ArduinoLinkedProperty model constructor.
+     * @property {module:model/ArduinoLinkedProperty}
+     */
+    ArduinoLinkedProperty,
+
+    /**
+     * The ArduinoLinkedPropertyTemplate model constructor.
+     * @property {module:model/ArduinoLinkedPropertyTemplate}
+     */
+    ArduinoLinkedPropertyTemplate,
 
     /**
      * The ArduinoLinkedvariable model constructor.
@@ -426,6 +485,24 @@ export {
     ArduinoTimezone,
 
     /**
+     * The ArduinoTrigger model constructor.
+     * @property {module:model/ArduinoTrigger}
+     */
+    ArduinoTrigger,
+
+    /**
+     * The ArduinoTriggerTemplate model constructor.
+     * @property {module:model/ArduinoTriggerTemplate}
+     */
+    ArduinoTriggerTemplate,
+
+    /**
+     * The ArduinoTriggerWithLinkedEntities model constructor.
+     * @property {module:model/ArduinoTriggerWithLinkedEntities}
+     */
+    ArduinoTriggerWithLinkedEntities,
+
+    /**
      * The ArduinoVariableslinks model constructor.
      * @property {module:model/ArduinoVariableslinks}
      */
@@ -498,6 +575,12 @@ export {
     BatchQuerySampledRequestsMediaV1,
 
     /**
+     * The BodyExpression model constructor.
+     * @property {module:model/BodyExpression}
+     */
+    BodyExpression,
+
+    /**
      * The CheckDevicesV2PassPayload model constructor.
      * @property {module:model/CheckDevicesV2PassPayload}
      */
@@ -508,6 +591,12 @@ export {
      * @property {module:model/Clone}
      */
     Clone,
+
+    /**
+     * The CreateAction model constructor.
+     * @property {module:model/CreateAction}
+     */
+    CreateAction,
 
     /**
      * The CreateDevicesV2CertsPayload model constructor.
@@ -540,6 +629,18 @@ export {
     Dashboardv2,
 
     /**
+     * The DeviceStatusSource model constructor.
+     * @property {module:model/DeviceStatusSource}
+     */
+    DeviceStatusSource,
+
+    /**
+     * The DeviceStatusSourceWithLinkedDevices model constructor.
+     * @property {module:model/DeviceStatusSourceWithLinkedDevices}
+     */
+    DeviceStatusSourceWithLinkedDevices,
+
+    /**
      * The Devicev2 model constructor.
      * @property {module:model/Devicev2}
      */
@@ -568,6 +669,18 @@ export {
      * @property {module:model/Devicev2Pass}
      */
     Devicev2Pass,
+
+    /**
+     * The EmailAction model constructor.
+     * @property {module:model/EmailAction}
+     */
+    EmailAction,
+
+    /**
+     * The EmailDeliveryOpts model constructor.
+     * @property {module:model/EmailDeliveryOpts}
+     */
+    EmailDeliveryOpts,
 
     /**
      * The Error model constructor.
@@ -610,6 +723,18 @@ export {
      * @property {module:model/PropertyValue}
      */
     PropertyValue,
+
+    /**
+     * The PushAction model constructor.
+     * @property {module:model/PushAction}
+     */
+    PushAction,
+
+    /**
+     * The PushDeliveryOpts model constructor.
+     * @property {module:model/PushDeliveryOpts}
+     */
+    PushDeliveryOpts,
 
     /**
      * The Sharerequest model constructor.
@@ -660,10 +785,40 @@ export {
     TimeseriesDataPoint,
 
     /**
+     * The TitleExpression model constructor.
+     * @property {module:model/TitleExpression}
+     */
+    TitleExpression,
+
+    /**
+     * The Trigger model constructor.
+     * @property {module:model/Trigger}
+     */
+    Trigger,
+
+    /**
+     * The UpdateAction model constructor.
+     * @property {module:model/UpdateAction}
+     */
+    UpdateAction,
+
+    /**
      * The UpdateSketch model constructor.
      * @property {module:model/UpdateSketch}
      */
     UpdateSketch,
+
+    /**
+     * The UserRecipient model constructor.
+     * @property {module:model/UserRecipient}
+     */
+    UserRecipient,
+
+    /**
+     * The Variable model constructor.
+     * @property {module:model/Variable}
+     */
+    Variable,
 
     /**
      * The Widget model constructor.
@@ -765,5 +920,11 @@ export {
     * The ThingsV2TagsApi service constructor.
     * @property {module:api/ThingsV2TagsApi}
     */
-    ThingsV2TagsApi
+    ThingsV2TagsApi,
+
+    /**
+    * The TriggersV1Api service constructor.
+    * @property {module:api/TriggersV1Api}
+    */
+    TriggersV1Api
 };

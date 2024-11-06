@@ -42,7 +42,7 @@ export default class TemplatesApi {
      * Apply an existing cloud template and generate all the needed resources
      * @param {module:model/Template} template TemplatePayload describes the needed attribute to apply a template
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] 
+     * @param {String} [xOrganization] Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoTemplate} and HTTP response
      */
     templatesApplyWithHttpInfo(template, opts) {
@@ -63,8 +63,8 @@ export default class TemplatesApi {
       let formParams = {
       };
 
-      let authNames = [];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
+      let authNames = ['oauth2'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/vnd.arduino.template+json', 'application/vnd.goa.error+json'];
       let returnType = ArduinoTemplate;
       return this.apiClient.callApi(
@@ -79,7 +79,7 @@ export default class TemplatesApi {
      * Apply an existing cloud template and generate all the needed resources
      * @param {module:model/Template} template TemplatePayload describes the needed attribute to apply a template
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization 
+     * @param {String} opts.xOrganization Organization space identifer (optional)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoTemplate}
      */
     templatesApply(template, opts) {
