@@ -19,7 +19,7 @@ import Error from '../model/Error';
 /**
 * PropertyTypesV1 service.
 * @module api/PropertyTypesV1Api
-* @version 3.0.0
+* @version 3.1.0
 */
 export default class PropertyTypesV1Api {
 

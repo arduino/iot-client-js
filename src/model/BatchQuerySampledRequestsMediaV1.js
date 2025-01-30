@@ -17,7 +17,7 @@ import BatchQuerySampledRequestMediaV1 from './BatchQuerySampledRequestMediaV1';
 /**
  * The BatchQuerySampledRequestsMediaV1 model module.
  * @module model/BatchQuerySampledRequestsMediaV1
- * @version 3.0.0
+ * @version 3.1.0
  */
 class BatchQuerySampledRequestsMediaV1 {
     /**

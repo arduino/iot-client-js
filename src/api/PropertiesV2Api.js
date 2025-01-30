@@ -22,7 +22,7 @@ import PropertyValue from '../model/PropertyValue';
 /**
 * PropertiesV2 service.
 * @module api/PropertiesV2Api
-* @version 3.0.0
+* @version 3.1.0
 */
 export default class PropertiesV2Api {
 
@@ -45,7 +45,7 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {module:model/Property} property PropertyPayload describes a property of a thing. No field is mandatory
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] Organization space identifer (optional)
+     * @param {String} [xOrganization] The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoProperty} and HTTP response
      */
     propertiesV2CreateWithHttpInfo(id, property, opts) {
@@ -88,7 +88,7 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {module:model/Property} property PropertyPayload describes a property of a thing. No field is mandatory
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization Organization space identifer (optional)
+     * @param {String} opts.xOrganization The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoProperty}
      */
     propertiesV2Create(id, property, opts) {
@@ -106,7 +106,7 @@ export default class PropertiesV2Api {
      * @param {String} pid The id of the property
      * @param {Object} opts Optional parameters
      * @param {Boolean} [force = false)] If true, hard delete the property
-     * @param {String} [xOrganization] Organization space identifer (optional)
+     * @param {String} [xOrganization] The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     propertiesV2DeleteWithHttpInfo(id, pid, opts) {
@@ -152,7 +152,7 @@ export default class PropertiesV2Api {
      * @param {String} pid The id of the property
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.force If true, hard delete the property (default to false)
-     * @param {String} opts.xOrganization Organization space identifer (optional)
+     * @param {String} opts.xOrganization The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
     propertiesV2Delete(id, pid, opts) {
@@ -169,7 +169,7 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} [showDeleted = false)] If true, shows the soft deleted properties
-     * @param {String} [xOrganization] Organization space identifer (optional)
+     * @param {String} [xOrganization] The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoProperty>} and HTTP response
      */
     propertiesV2ListWithHttpInfo(id, opts) {
@@ -209,7 +209,7 @@ export default class PropertiesV2Api {
      * @param {String} id The id of the thing
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
-     * @param {String} opts.xOrganization Organization space identifer (optional)
+     * @param {String} opts.xOrganization The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoProperty>}
      */
     propertiesV2List(id, opts) {
@@ -227,7 +227,7 @@ export default class PropertiesV2Api {
      * @param {String} pid The id of the property
      * @param {module:model/PropertyValue} propertyValue PropertyValuePayload describes a property value
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] Organization space identifer (optional)
+     * @param {String} [xOrganization] The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     propertiesV2PublishWithHttpInfo(id, pid, propertyValue, opts) {
@@ -276,7 +276,7 @@ export default class PropertiesV2Api {
      * @param {String} pid The id of the property
      * @param {module:model/PropertyValue} propertyValue PropertyValuePayload describes a property value
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization Organization space identifer (optional)
+     * @param {String} opts.xOrganization The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
     propertiesV2Publish(id, pid, propertyValue, opts) {
@@ -294,7 +294,7 @@ export default class PropertiesV2Api {
      * @param {String} pid The id of the property
      * @param {Object} opts Optional parameters
      * @param {Boolean} [showDeleted = false)] If true, shows the soft deleted properties
-     * @param {String} [xOrganization] Organization space identifer (optional)
+     * @param {String} [xOrganization] The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoProperty} and HTTP response
      */
     propertiesV2ShowWithHttpInfo(id, pid, opts) {
@@ -340,7 +340,7 @@ export default class PropertiesV2Api {
      * @param {String} pid The id of the property
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.showDeleted If true, shows the soft deleted properties (default to false)
-     * @param {String} opts.xOrganization Organization space identifer (optional)
+     * @param {String} opts.xOrganization The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoProperty}
      */
     propertiesV2Show(id, pid, opts) {
@@ -362,7 +362,7 @@ export default class PropertiesV2Api {
      * @param {String} [from] Get data with a timestamp >= to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
      * @param {Number} [interval] Binning interval in seconds (defaut: the smallest possible value compatibly with the limit of 1000 data points in the response)
      * @param {String} [to] Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
-     * @param {String} [xOrganization] Organization space identifer (optional)
+     * @param {String} [xOrganization] The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoTimeseriesmedia} and HTTP response
      */
     propertiesV2TimeseriesWithHttpInfo(id, pid, opts) {
@@ -416,7 +416,7 @@ export default class PropertiesV2Api {
      * @param {String} opts.from Get data with a timestamp >= to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
      * @param {Number} opts.interval Binning interval in seconds (defaut: the smallest possible value compatibly with the limit of 1000 data points in the response)
      * @param {String} opts.to Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
-     * @param {String} opts.xOrganization Organization space identifer (optional)
+     * @param {String} opts.xOrganization The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoTimeseriesmedia}
      */
     propertiesV2Timeseries(id, pid, opts) {
@@ -434,7 +434,7 @@ export default class PropertiesV2Api {
      * @param {String} pid The id of the property
      * @param {module:model/Property} property PropertyPayload describes a property of a thing. No field is mandatory
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] Organization space identifer (optional)
+     * @param {String} [xOrganization] The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoProperty} and HTTP response
      */
     propertiesV2UpdateWithHttpInfo(id, pid, property, opts) {
@@ -483,7 +483,7 @@ export default class PropertiesV2Api {
      * @param {String} pid The id of the property
      * @param {module:model/Property} property PropertyPayload describes a property of a thing. No field is mandatory
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization Organization space identifer (optional)
+     * @param {String} opts.xOrganization The id of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoProperty}
      */
     propertiesV2Update(id, pid, property, opts) {

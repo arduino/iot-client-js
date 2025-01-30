@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoCredentialsv1 model module.
  * @module model/ArduinoCredentialsv1
- * @version 3.0.0
+ * @version 3.1.0
  */
 class ArduinoCredentialsv1 {
     /**

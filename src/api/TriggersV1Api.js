@@ -25,7 +25,7 @@ import UpdateAction from '../model/UpdateAction';
 /**
 * TriggersV1 service.
 * @module api/TriggersV1Api
-* @version 3.0.0
+* @version 3.1.0
 */
 export default class TriggersV1Api {
 

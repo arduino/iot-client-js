@@ -19,7 +19,7 @@ import TitleExpression from './TitleExpression';
 /**
  * The EmailAction model module.
  * @module model/EmailAction
- * @version 3.0.0
+ * @version 3.1.0
  */
 class EmailAction {
     /**
