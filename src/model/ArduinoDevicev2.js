@@ -19,7 +19,7 @@ import ArduinoThing from './ArduinoThing';
 /**
  * The ArduinoDevicev2 model module.
  * @module model/ArduinoDevicev2
- * @version 3.0.0
+ * @version 3.1.0
  */
 class ArduinoDevicev2 {
     /**
@@ -65,6 +65,9 @@ class ArduinoDevicev2 {
         if (data) {
             obj = obj || new ArduinoDevicev2();
 
+            if (data.hasOwnProperty('ble_mac')) {
+                obj['ble_mac'] = ApiClient.convertToType(data['ble_mac'], 'String');
+            }
             if (data.hasOwnProperty('connection_type')) {
                 obj['connection_type'] = ApiClient.convertToType(data['connection_type'], 'String');
             }
@@ -89,6 +92,9 @@ class ArduinoDevicev2 {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            if (data.hasOwnProperty('issuer_ca')) {
+                obj['issuer_ca'] = ApiClient.convertToType(data['issuer_ca'], 'String');
+            }
             if (data.hasOwnProperty('label')) {
                 obj['label'] = ApiClient.convertToType(data['label'], 'String');
             }
@@ -97,6 +103,9 @@ class ArduinoDevicev2 {
             }
             if (data.hasOwnProperty('latest_wifi_fw_version')) {
                 obj['latest_wifi_fw_version'] = ApiClient.convertToType(data['latest_wifi_fw_version'], 'String');
+            }
+            if (data.hasOwnProperty('lib_version')) {
+                obj['lib_version'] = ApiClient.convertToType(data['lib_version'], 'String');
             }
             if (data.hasOwnProperty('metadata')) {
                 obj['metadata'] = ApiClient.convertToType(data['metadata'], {'String': Object});
@@ -131,6 +140,9 @@ class ArduinoDevicev2 {
             if (data.hasOwnProperty('type')) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
+            if (data.hasOwnProperty('unique_hardware_id')) {
+                obj['unique_hardware_id'] = ApiClient.convertToType(data['unique_hardware_id'], 'String');
+            }
             if (data.hasOwnProperty('updated_at')) {
                 obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
             }
@@ -158,6 +170,10 @@ class ArduinoDevicev2 {
             if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
+        }
+        // ensure the json data is a string
+        if (data['ble_mac'] && !(typeof data['ble_mac'] === 'string' || data['ble_mac'] instanceof String)) {
+            throw new Error("Expected the field `ble_mac` to be a primitive type in the JSON string but got " + data['ble_mac']);
         }
         // ensure the json data is a string
         if (data['connection_type'] && !(typeof data['connection_type'] === 'string' || data['connection_type'] instanceof String)) {
@@ -190,12 +206,20 @@ class ArduinoDevicev2 {
             throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
         }
         // ensure the json data is a string
+        if (data['issuer_ca'] && !(typeof data['issuer_ca'] === 'string' || data['issuer_ca'] instanceof String)) {
+            throw new Error("Expected the field `issuer_ca` to be a primitive type in the JSON string but got " + data['issuer_ca']);
+        }
+        // ensure the json data is a string
         if (data['label'] && !(typeof data['label'] === 'string' || data['label'] instanceof String)) {
             throw new Error("Expected the field `label` to be a primitive type in the JSON string but got " + data['label']);
         }
         // ensure the json data is a string
         if (data['latest_wifi_fw_version'] && !(typeof data['latest_wifi_fw_version'] === 'string' || data['latest_wifi_fw_version'] instanceof String)) {
             throw new Error("Expected the field `latest_wifi_fw_version` to be a primitive type in the JSON string but got " + data['latest_wifi_fw_version']);
+        }
+        // ensure the json data is a string
+        if (data['lib_version'] && !(typeof data['lib_version'] === 'string' || data['lib_version'] instanceof String)) {
+            throw new Error("Expected the field `lib_version` to be a primitive type in the JSON string but got " + data['lib_version']);
         }
         // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
@@ -220,6 +244,10 @@ class ArduinoDevicev2 {
         // ensure the json data is a string
         if (data['type'] && !(typeof data['type'] === 'string' || data['type'] instanceof String)) {
             throw new Error("Expected the field `type` to be a primitive type in the JSON string but got " + data['type']);
+        }
+        // ensure the json data is a string
+        if (data['unique_hardware_id'] && !(typeof data['unique_hardware_id'] === 'string' || data['unique_hardware_id'] instanceof String)) {
+            throw new Error("Expected the field `unique_hardware_id` to be a primitive type in the JSON string but got " + data['unique_hardware_id']);
         }
         // ensure the json data is a string
         if (data['user_id'] && !(typeof data['user_id'] === 'string' || data['user_id'] instanceof String)) {
@@ -247,6 +275,11 @@ class ArduinoDevicev2 {
 }
 
 ArduinoDevicev2.RequiredProperties = ["href", "id", "label", "name", "serial", "type", "user_id"];
+
+/**
+ * @member {String} ble_mac
+ */
+ArduinoDevicev2.prototype['ble_mac'] = undefined;
 
 /**
  * The type of the connections selected by the user when multiple connections are available
@@ -297,6 +330,11 @@ ArduinoDevicev2.prototype['href'] = undefined;
 ArduinoDevicev2.prototype['id'] = undefined;
 
 /**
+ * @member {String} issuer_ca
+ */
+ArduinoDevicev2.prototype['issuer_ca'] = undefined;
+
+/**
  * The label of the device
  * @member {String} label
  */
@@ -313,6 +351,11 @@ ArduinoDevicev2.prototype['last_activity_at'] = undefined;
  * @member {String} latest_wifi_fw_version
  */
 ArduinoDevicev2.prototype['latest_wifi_fw_version'] = undefined;
+
+/**
+ * @member {String} lib_version
+ */
+ArduinoDevicev2.prototype['lib_version'] = undefined;
 
 /**
  * The metadata of the device
@@ -378,6 +421,12 @@ ArduinoDevicev2.prototype['thing'] = undefined;
  * @member {String} type
  */
 ArduinoDevicev2.prototype['type'] = undefined;
+
+/**
+ * The unique hardware id of the device
+ * @member {String} unique_hardware_id
+ */
+ArduinoDevicev2.prototype['unique_hardware_id'] = undefined;
 
 /**
  * Update date of the trigger

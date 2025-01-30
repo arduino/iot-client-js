@@ -27,7 +27,7 @@ import HistoricDataRequest from '../model/HistoricDataRequest';
 /**
 * SeriesV2 service.
 * @module api/SeriesV2Api
-* @version 3.0.0
+* @version 3.1.0
 */
 export default class SeriesV2Api {
 
@@ -49,7 +49,7 @@ export default class SeriesV2Api {
      * Returns the batch of time-series aggregated samples
      * @param {module:model/BatchQueryRequestsMediaV1} batchQueryRequestsMediaV1 
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] Organization space identifer (optional)
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoSeriesBatch} and HTTP response
      */
     seriesV2BatchQueryWithHttpInfo(batchQueryRequestsMediaV1, opts) {
@@ -86,7 +86,7 @@ export default class SeriesV2Api {
      * Returns the batch of time-series aggregated samples
      * @param {module:model/BatchQueryRequestsMediaV1} batchQueryRequestsMediaV1 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization Organization space identifer (optional)
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoSeriesBatch}
      */
     seriesV2BatchQuery(batchQueryRequestsMediaV1, opts) {
@@ -102,7 +102,7 @@ export default class SeriesV2Api {
      * Returns the batch of time-series raw samples
      * @param {module:model/BatchQueryRawRequestsMediaV1} batchQueryRawRequestsMediaV1 
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] Organization space identifer (optional)
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoSeriesRawBatch} and HTTP response
      */
     seriesV2BatchQueryRawWithHttpInfo(batchQueryRawRequestsMediaV1, opts) {
@@ -139,7 +139,7 @@ export default class SeriesV2Api {
      * Returns the batch of time-series raw samples
      * @param {module:model/BatchQueryRawRequestsMediaV1} batchQueryRawRequestsMediaV1 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization Organization space identifer (optional)
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoSeriesRawBatch}
      */
     seriesV2BatchQueryRaw(batchQueryRawRequestsMediaV1, opts) {
@@ -155,7 +155,7 @@ export default class SeriesV2Api {
      * Returns the batch of time-series data raw
      * @param {module:model/BatchLastValueRequestsMediaV1} batchLastValueRequestsMediaV1 
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] Organization space identifer (optional)
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoSeriesRawBatchLastvalue} and HTTP response
      */
     seriesV2BatchQueryRawLastValueWithHttpInfo(batchLastValueRequestsMediaV1, opts) {
@@ -192,7 +192,7 @@ export default class SeriesV2Api {
      * Returns the batch of time-series data raw
      * @param {module:model/BatchLastValueRequestsMediaV1} batchLastValueRequestsMediaV1 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization Organization space identifer (optional)
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoSeriesRawBatchLastvalue}
      */
     seriesV2BatchQueryRawLastValue(batchLastValueRequestsMediaV1, opts) {
@@ -208,7 +208,7 @@ export default class SeriesV2Api {
      * Returns a batch of time-series sampled samples. To be used for types that does not support mathematic aggregation. Types supported: strings, complex types.
      * @param {module:model/BatchQuerySampledRequestsMediaV1} batchQuerySampledRequestsMediaV1 
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] Organization space identifer (optional)
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoSeriesBatchSampled} and HTTP response
      */
     seriesV2BatchQuerySamplingWithHttpInfo(batchQuerySampledRequestsMediaV1, opts) {
@@ -245,7 +245,7 @@ export default class SeriesV2Api {
      * Returns a batch of time-series sampled samples. To be used for types that does not support mathematic aggregation. Types supported: strings, complex types.
      * @param {module:model/BatchQuerySampledRequestsMediaV1} batchQuerySampledRequestsMediaV1 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization Organization space identifer (optional)
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoSeriesBatchSampled}
      */
     seriesV2BatchQuerySampling(batchQuerySampledRequestsMediaV1, opts) {
@@ -261,7 +261,7 @@ export default class SeriesV2Api {
      * Request sending of historical data of properties by email
      * @param {module:model/HistoricDataRequest} historicDataRequest 
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] Organization space identifer (optional)
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     seriesV2HistoricDataWithHttpInfo(historicDataRequest, opts) {
@@ -298,7 +298,7 @@ export default class SeriesV2Api {
      * Request sending of historical data of properties by email
      * @param {module:model/HistoricDataRequest} historicDataRequest 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization Organization space identifer (optional)
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
     seriesV2HistoricData(historicDataRequest, opts) {

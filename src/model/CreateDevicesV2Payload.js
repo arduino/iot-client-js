@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateDevicesV2Payload model module.
  * @module model/CreateDevicesV2Payload
- * @version 3.0.0
+ * @version 3.1.0
  */
 class CreateDevicesV2Payload {
     /**
@@ -51,6 +51,9 @@ class CreateDevicesV2Payload {
         if (data) {
             obj = obj || new CreateDevicesV2Payload();
 
+            if (data.hasOwnProperty('ble_mac')) {
+                obj['ble_mac'] = ApiClient.convertToType(data['ble_mac'], 'String');
+            }
             if (data.hasOwnProperty('connection_type')) {
                 obj['connection_type'] = ApiClient.convertToType(data['connection_type'], 'String');
             }
@@ -68,6 +71,9 @@ class CreateDevicesV2Payload {
             }
             if (data.hasOwnProperty('type')) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
+            }
+            if (data.hasOwnProperty('unique_hardware_id')) {
+                obj['unique_hardware_id'] = ApiClient.convertToType(data['unique_hardware_id'], 'String');
             }
             if (data.hasOwnProperty('user_id')) {
                 obj['user_id'] = ApiClient.convertToType(data['user_id'], 'String');
@@ -92,6 +98,10 @@ class CreateDevicesV2Payload {
             }
         }
         // ensure the json data is a string
+        if (data['ble_mac'] && !(typeof data['ble_mac'] === 'string' || data['ble_mac'] instanceof String)) {
+            throw new Error("Expected the field `ble_mac` to be a primitive type in the JSON string but got " + data['ble_mac']);
+        }
+        // ensure the json data is a string
         if (data['connection_type'] && !(typeof data['connection_type'] === 'string' || data['connection_type'] instanceof String)) {
             throw new Error("Expected the field `connection_type` to be a primitive type in the JSON string but got " + data['connection_type']);
         }
@@ -112,6 +122,10 @@ class CreateDevicesV2Payload {
             throw new Error("Expected the field `type` to be a primitive type in the JSON string but got " + data['type']);
         }
         // ensure the json data is a string
+        if (data['unique_hardware_id'] && !(typeof data['unique_hardware_id'] === 'string' || data['unique_hardware_id'] instanceof String)) {
+            throw new Error("Expected the field `unique_hardware_id` to be a primitive type in the JSON string but got " + data['unique_hardware_id']);
+        }
+        // ensure the json data is a string
         if (data['user_id'] && !(typeof data['user_id'] === 'string' || data['user_id'] instanceof String)) {
             throw new Error("Expected the field `user_id` to be a primitive type in the JSON string but got " + data['user_id']);
         }
@@ -127,6 +141,11 @@ class CreateDevicesV2Payload {
 }
 
 CreateDevicesV2Payload.RequiredProperties = ["type"];
+
+/**
+ * @member {String} ble_mac
+ */
+CreateDevicesV2Payload.prototype['ble_mac'] = undefined;
 
 /**
  * The type of the connections selected by the user when multiple connections are available
@@ -164,6 +183,11 @@ CreateDevicesV2Payload.prototype['soft_deleted'] = false;
  * @member {module:model/CreateDevicesV2Payload.TypeEnum} type
  */
 CreateDevicesV2Payload.prototype['type'] = undefined;
+
+/**
+ * @member {String} unique_hardware_id
+ */
+CreateDevicesV2Payload.prototype['unique_hardware_id'] = undefined;
 
 /**
  * The user_id associated to the device. If absent it will be inferred from the authentication header

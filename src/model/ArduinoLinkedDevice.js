@@ -17,7 +17,7 @@ import ArduinoDevicev2 from './ArduinoDevicev2';
 /**
  * The ArduinoLinkedDevice model module.
  * @module model/ArduinoLinkedDevice
- * @version 3.0.0
+ * @version 3.1.0
  */
 class ArduinoLinkedDevice {
     /**

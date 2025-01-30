@@ -18,7 +18,7 @@ import PushAction from './PushAction';
 /**
  * The ArduinoAction model module.
  * @module model/ArduinoAction
- * @version 3.0.0
+ * @version 3.1.0
  */
 class ArduinoAction {
     /**

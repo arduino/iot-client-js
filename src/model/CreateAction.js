@@ -18,7 +18,7 @@ import PushAction from './PushAction';
 /**
  * The CreateAction model module.
  * @module model/CreateAction
- * @version 3.0.0
+ * @version 3.1.0
  */
 class CreateAction {
     /**

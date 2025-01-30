@@ -17,12 +17,11 @@ import Override from './Override';
 /**
  * The Clone model module.
  * @module model/Clone
- * @version 3.0.0
+ * @version 3.1.0
  */
 class Clone {
     /**
      * Constructs a new <code>Clone</code>.
-     * Add overrides used when performing a clone of a dashboard
      * @alias module:model/Clone
      */
     constructor() { 

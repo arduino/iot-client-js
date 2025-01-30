@@ -28,7 +28,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new ArduinoIotClient.TemplatesApi();
 let template = new ArduinoIotClient.Template(); // Template | TemplatePayload describes the needed attribute to apply a template
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.templatesApply(template, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -44,7 +44,7 @@ apiInstance.templatesApply(template, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **template** | [**Template**](Template.md)| TemplatePayload describes the needed attribute to apply a template | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 

@@ -20,7 +20,7 @@ import Tag from '../model/Tag';
 /**
 * DevicesV2Tags service.
 * @module api/DevicesV2TagsApi
-* @version 3.0.0
+* @version 3.1.0
 */
 export default class DevicesV2TagsApi {
 

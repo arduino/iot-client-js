@@ -15,6 +15,7 @@
 import ApiClient from './ApiClient';
 import ArduinoAction from './model/ArduinoAction';
 import ArduinoActionTemplate from './model/ArduinoActionTemplate';
+import ArduinoArduinoconnectionsV1 from './model/ArduinoArduinoconnectionsV1';
 import ArduinoCompressedv2 from './model/ArduinoCompressedv2';
 import ArduinoCredentialsv1 from './model/ArduinoCredentialsv1';
 import ArduinoDashboardowner from './model/ArduinoDashboardowner';
@@ -83,6 +84,7 @@ import BodyExpression from './model/BodyExpression';
 import CheckDevicesV2PassPayload from './model/CheckDevicesV2PassPayload';
 import Clone from './model/Clone';
 import CreateAction from './model/CreateAction';
+import CreateClaimedDevicesV2Payload from './model/CreateClaimedDevicesV2Payload';
 import CreateDevicesV2CertsPayload from './model/CreateDevicesV2CertsPayload';
 import CreateDevicesV2Payload from './model/CreateDevicesV2Payload';
 import CreateLoraDevicesV1Payload from './model/CreateLoraDevicesV1Payload';
@@ -119,6 +121,7 @@ import Trigger from './model/Trigger';
 import UpdateAction from './model/UpdateAction';
 import UpdateSketch from './model/UpdateSketch';
 import UserRecipient from './model/UserRecipient';
+import Usershare from './model/Usershare';
 import Variable from './model/Variable';
 import Widget from './model/Widget';
 import Widgetlink from './model/Widgetlink';
@@ -169,7 +172,7 @@ import TriggersV1Api from './api/TriggersV1Api';
 * </pre>
 * </p>
 * @module index
-* @version 3.0.0
+* @version 3.1.0
 */
 export {
     /**
@@ -189,6 +192,12 @@ export {
      * @property {module:model/ArduinoActionTemplate}
      */
     ArduinoActionTemplate,
+
+    /**
+     * The ArduinoArduinoconnectionsV1 model constructor.
+     * @property {module:model/ArduinoArduinoconnectionsV1}
+     */
+    ArduinoArduinoconnectionsV1,
 
     /**
      * The ArduinoCompressedv2 model constructor.
@@ -599,6 +608,12 @@ export {
     CreateAction,
 
     /**
+     * The CreateClaimedDevicesV2Payload model constructor.
+     * @property {module:model/CreateClaimedDevicesV2Payload}
+     */
+    CreateClaimedDevicesV2Payload,
+
+    /**
      * The CreateDevicesV2CertsPayload model constructor.
      * @property {module:model/CreateDevicesV2CertsPayload}
      */
@@ -813,6 +828,12 @@ export {
      * @property {module:model/UserRecipient}
      */
     UserRecipient,
+
+    /**
+     * The Usershare model constructor.
+     * @property {module:model/Usershare}
+     */
+    Usershare,
 
     /**
      * The Variable model constructor.
