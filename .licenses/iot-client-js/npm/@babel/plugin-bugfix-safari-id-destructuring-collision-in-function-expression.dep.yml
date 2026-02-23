@@ -1,0 +1,9 @@
+---
+name: "@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression"
+version:
+type: npm
+summary:
+homepage:
+license: none
+licenses: []
+notices: []
