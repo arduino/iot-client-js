@@ -1,9 +1,0 @@
----
-name: "@babel/plugin-bugfix-firefox-class-in-computed-class-key"
-version:
-type: npm
-summary:
-homepage:
-license: none
-licenses: []
-notices: []

@@ -4,7 +4,7 @@ version: 1.5.302
 type: npm
 summary: Provides a list of electron-to-chromium version mappings
 homepage:
-license: other
+license: isc
 licenses:
 - sources: LICENSE
   text: |

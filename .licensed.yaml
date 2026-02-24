@@ -1,6 +1,10 @@
 sources:
   npm: true
 
+ignored:
+  npm:
+    - fsevents
+
 allowed:
   - mit
   - apache-2.0
@@ -22,6 +26,9 @@ allowed:
   - gpl-3.0-only
   - gpl-3.0-or-later
   - lgpl-3.0-linking-exception
+  - blueoak-1.0.0
+  - isc
+  - cc-by-4.0
 
 apps:
   - source_path: ./

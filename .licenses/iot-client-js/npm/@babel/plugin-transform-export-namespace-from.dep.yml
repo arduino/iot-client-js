@@ -1,9 +1,0 @@
----
-name: "@babel/plugin-transform-export-namespace-from"
-version:
-type: npm
-summary:
-homepage:
-license: none
-licenses: []
-notices: []

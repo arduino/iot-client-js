@@ -1,9 +1,0 @@
----
-name: "@babel/plugin-transform-new-target"
-version:
-type: npm
-summary:
-homepage:
-license: none
-licenses: []
-notices: []

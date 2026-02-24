@@ -1,9 +1,0 @@
----
-name: "@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining"
-version:
-type: npm
-summary:
-homepage:
-license: none
-licenses: []
-notices: []

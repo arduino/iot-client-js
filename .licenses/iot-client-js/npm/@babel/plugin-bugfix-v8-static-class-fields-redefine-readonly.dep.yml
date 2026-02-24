@@ -1,9 +1,0 @@
----
-name: "@babel/plugin-bugfix-v8-static-class-fields-redefine-readonly"
-version:
-type: npm
-summary:
-homepage:
-license: none
-licenses: []
-notices: []

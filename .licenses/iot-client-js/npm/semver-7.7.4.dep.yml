@@ -1,8 +1,8 @@
 ---
-name: lru-cache
-version: 5.1.1
+name: semver
+version: 7.7.4
 type: npm
-summary: A cache object that deletes the least-recently-used items.
+summary: The semantic version parser used by npm.
 homepage:
 license: isc
 licenses:

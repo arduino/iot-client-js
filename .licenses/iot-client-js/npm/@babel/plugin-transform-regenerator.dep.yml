@@ -1,9 +1,0 @@
----
-name: "@babel/plugin-transform-regenerator"
-version:
-type: npm
-summary:
-homepage:
-license: none
-licenses: []
-notices: []

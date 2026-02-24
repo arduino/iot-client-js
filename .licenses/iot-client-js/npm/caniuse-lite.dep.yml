@@ -1,8 +1,8 @@
 ---
 name: caniuse-lite
-version:
+version: 1.0.30001774
 type: npm
-summary:
+summary: A smaller version of caniuse-db, with only the essentials!
 homepage:
 license: cc-by-4.0
 licenses:

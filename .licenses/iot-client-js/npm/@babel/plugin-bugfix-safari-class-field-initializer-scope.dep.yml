@@ -1,9 +1,0 @@
----
-name: "@babel/plugin-bugfix-safari-class-field-initializer-scope"
-version:
-type: npm
-summary:
-homepage:
-license: none
-licenses: []
-notices: []
