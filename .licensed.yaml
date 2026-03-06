@@ -1,10 +1,6 @@
 sources:
   npm: true
 
-ignored:
-  npm:
-    - fsevents
-
 allowed:
   - mit
   - apache-2.0
