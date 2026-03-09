@@ -1,6 +1,10 @@
 sources:
   npm: true
 
+ignored:
+  npm:
+    - fsevents # optional dependency, only for MacOS
+
 allowed:
   - mit
   - apache-2.0
