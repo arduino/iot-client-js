@@ -3,7 +3,8 @@ sources:
 
 ignored:
   npm:
-    - fsevents # optional dependency, only for MacOS
+    # Optional dependency, only for macOS. The license is indicated here: https://github.com/fsevents/fsevents/blob/master/LICENSE.
+    - fsevents
 
 allowed:
   - mit
