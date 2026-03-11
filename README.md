@@ -110,3 +110,21 @@ You can generate Arduino IoT Cloud Client Credentials in the `ARDUINO API` secti
 ### Step 3
 
 ![IoT Cloud Site](https://github.com/arduino/iot-client-js/blob/master/img/selection_3.png?raw=true)
+
+## How to update the license of the dependencies
+The license of the dependencies can be updated by running the following commands:
+
+- Create a virtual environment and install the dependencies:
+
+```sh
+npm install
+```
+
+- Install the licensed tool: https://github.com/licensee/licensed?tab=readme-ov-file#installation
+
+- Run the licensed tool to update the licenses files:
+
+```sh
+    licensed cache
+    licensed status
+```
