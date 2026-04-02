@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoCredentialsv1 model module.
  * @module model/ArduinoCredentialsv1
- * @version 3.0.0
+ * @version 3.1.1
  */
 class ArduinoCredentialsv1 {
     /**
@@ -24,13 +24,14 @@ class ArduinoCredentialsv1 {
      * ArduinoCredentialsv1 media type (default view)
      * @alias module:model/ArduinoCredentialsv1
      * @param friendlyName {String} Friendly name
+     * @param maxLength {Number} Max length of the field expressed in bytes
      * @param required {Boolean} Tell if the parameter is required or not
      * @param secretName {String} The secret parameter name
      * @param sensitive {Boolean} Tell if the field is sensitive
      */
-    constructor(friendlyName, required, secretName, sensitive) { 
+    constructor(friendlyName, maxLength, required, secretName, sensitive) { 
         
-        ArduinoCredentialsv1.initialize(this, friendlyName, required, secretName, sensitive);
+        ArduinoCredentialsv1.initialize(this, friendlyName, maxLength, required, secretName, sensitive);
     }
 
     /**
@@ -38,8 +39,9 @@ class ArduinoCredentialsv1 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, friendlyName, required, secretName, sensitive) { 
+    static initialize(obj, friendlyName, maxLength, required, secretName, sensitive) { 
         obj['friendly_name'] = friendlyName;
+        obj['max_length'] = maxLength;
         obj['required'] = required;
         obj['secret_name'] = secretName;
         obj['sensitive'] = sensitive;
@@ -58,6 +60,9 @@ class ArduinoCredentialsv1 {
 
             if (data.hasOwnProperty('friendly_name')) {
                 obj['friendly_name'] = ApiClient.convertToType(data['friendly_name'], 'String');
+            }
+            if (data.hasOwnProperty('max_length')) {
+                obj['max_length'] = ApiClient.convertToType(data['max_length'], 'Number');
             }
             if (data.hasOwnProperty('required')) {
                 obj['required'] = ApiClient.convertToType(data['required'], 'Boolean');
@@ -99,13 +104,19 @@ class ArduinoCredentialsv1 {
 
 }
 
-ArduinoCredentialsv1.RequiredProperties = ["friendly_name", "required", "secret_name", "sensitive"];
+ArduinoCredentialsv1.RequiredProperties = ["friendly_name", "max_length", "required", "secret_name", "sensitive"];
 
 /**
  * Friendly name
  * @member {String} friendly_name
  */
 ArduinoCredentialsv1.prototype['friendly_name'] = undefined;
+
+/**
+ * Max length of the field expressed in bytes
+ * @member {Number} max_length
+ */
+ArduinoCredentialsv1.prototype['max_length'] = undefined;
 
 /**
  * Tell if the parameter is required or not

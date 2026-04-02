@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **properties** | [**[ArduinoProperty]**](ArduinoProperty.md) | ArduinoPropertyCollection is the media type for an array of ArduinoProperty (default view) | [optional] 
 **propertiesCount** | **Number** | The number of properties of the thing | [optional] 
 **sketchId** | **String** | The id of the attached sketch | [optional] 
+**sourceTemplate** | **String** | The id of the template used to create the thing | [optional] 
 **tags** | **{String: Object}** | Tags of the thing | [optional] 
 **timezone** | **String** | Time zone of the thing | 
 **updatedAt** | **Date** | Update date of the thing | [optional] 

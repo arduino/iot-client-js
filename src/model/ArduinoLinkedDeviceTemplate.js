@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoLinkedDeviceTemplate model module.
  * @module model/ArduinoLinkedDeviceTemplate
- * @version 3.0.0
+ * @version 3.1.1
  */
 class ArduinoLinkedDeviceTemplate {
     /**

@@ -20,7 +20,7 @@ import Tag from '../model/Tag';
 /**
 * DevicesV2Tags service.
 * @module api/DevicesV2TagsApi
-* @version 3.0.0
+* @version 3.1.1
 */
 export default class DevicesV2TagsApi {
 
@@ -42,9 +42,12 @@ export default class DevicesV2TagsApi {
      * Delete a tag associated to the device given its key.
      * @param {String} id The id of the device
      * @param {String} key The key of the tag
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    devicesV2TagsDeleteWithHttpInfo(id, key) {
+    devicesV2TagsDeleteWithHttpInfo(id, key, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -62,6 +65,7 @@ export default class DevicesV2TagsApi {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -82,10 +86,12 @@ export default class DevicesV2TagsApi {
      * Delete a tag associated to the device given its key.
      * @param {String} id The id of the device
      * @param {String} key The key of the tag
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    devicesV2TagsDelete(id, key) {
-      return this.devicesV2TagsDeleteWithHttpInfo(id, key)
+    devicesV2TagsDelete(id, key, opts) {
+      return this.devicesV2TagsDeleteWithHttpInfo(id, key, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -96,9 +102,12 @@ export default class DevicesV2TagsApi {
      * list devices_v2_tags
      * List tags associated to the device.
      * @param {String} id The id of the device
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoTags} and HTTP response
      */
-    devicesV2TagsListWithHttpInfo(id) {
+    devicesV2TagsListWithHttpInfo(id, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -111,6 +120,7 @@ export default class DevicesV2TagsApi {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -130,10 +140,12 @@ export default class DevicesV2TagsApi {
      * list devices_v2_tags
      * List tags associated to the device.
      * @param {String} id The id of the device
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoTags}
      */
-    devicesV2TagsList(id) {
-      return this.devicesV2TagsListWithHttpInfo(id)
+    devicesV2TagsList(id, opts) {
+      return this.devicesV2TagsListWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -145,9 +157,12 @@ export default class DevicesV2TagsApi {
      * Creates or updates a tag associated to the device.
      * @param {String} id The id of the device
      * @param {module:model/Tag} tag 
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    devicesV2TagsUpsertWithHttpInfo(id, tag) {
+    devicesV2TagsUpsertWithHttpInfo(id, tag, opts) {
+      opts = opts || {};
       let postBody = tag;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -164,6 +179,7 @@ export default class DevicesV2TagsApi {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -184,10 +200,12 @@ export default class DevicesV2TagsApi {
      * Creates or updates a tag associated to the device.
      * @param {String} id The id of the device
      * @param {module:model/Tag} tag 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    devicesV2TagsUpsert(id, tag) {
-      return this.devicesV2TagsUpsertWithHttpInfo(id, tag)
+    devicesV2TagsUpsert(id, tag, opts) {
+      return this.devicesV2TagsUpsertWithHttpInfo(id, tag, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

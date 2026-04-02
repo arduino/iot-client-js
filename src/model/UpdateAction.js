@@ -18,7 +18,7 @@ import PushAction from './PushAction';
 /**
  * The UpdateAction model module.
  * @module model/UpdateAction
- * @version 3.0.0
+ * @version 3.1.1
  */
 class UpdateAction {
     /**

@@ -17,12 +17,12 @@ import Widget from './Widget';
 /**
  * The Dashboardv2 model module.
  * @module model/Dashboardv2
- * @version 3.0.0
+ * @version 3.1.1
  */
 class Dashboardv2 {
     /**
      * Constructs a new <code>Dashboardv2</code>.
-     * Describes a dashboard
+     * DashboardV2Payload describes a dashboard
      * @alias module:model/Dashboardv2
      */
     constructor() { 

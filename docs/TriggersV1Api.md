@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**actionsV1Delete**](TriggersV1Api.md#actionsV1Delete) | **DELETE** /iot/v1/actions/{id} | delete actions_v1
 [**actionsV1List**](TriggersV1Api.md#actionsV1List) | **GET** /iot/v1/actions | list actions_v1
 [**actionsV1Show**](TriggersV1Api.md#actionsV1Show) | **GET** /iot/v1/actions/{id} | show actions_v1
+[**actionsV1Unsubscribe**](TriggersV1Api.md#actionsV1Unsubscribe) | **PUT** /iot/v1/actions/{id}/unsubscribe | Unsubscribe actions_v1
 [**actionsV1Update**](TriggersV1Api.md#actionsV1Update) | **PUT** /iot/v1/actions/{id} | update actions_v1
 [**triggersV1Create**](TriggersV1Api.md#triggersV1Create) | **PUT** /iot/v1/triggers | create triggers_v1
 [**triggersV1Delete**](TriggersV1Api.md#triggersV1Delete) | **DELETE** /iot/v1/triggers/{id} | delete triggers_v1
@@ -15,6 +16,7 @@ Method | HTTP request | Description
 [**triggersV1Patch**](TriggersV1Api.md#triggersV1Patch) | **PATCH** /iot/v1/triggers/{id} | patch triggers_v1
 [**triggersV1Show**](TriggersV1Api.md#triggersV1Show) | **GET** /iot/v1/triggers/{id} | show triggers_v1
 [**triggersV1Template**](TriggersV1Api.md#triggersV1Template) | **GET** /iot/v1/triggers/{id}/template | template triggers_v1
+[**triggersV1Unsubscribe**](TriggersV1Api.md#triggersV1Unsubscribe) | **POST** /iot/v1/triggers/{id}/unsubscribe | unsubscribe triggers_v1
 [**triggersV1Update**](TriggersV1Api.md#triggersV1Update) | **POST** /iot/v1/triggers/{id} | update triggers_v1
 
 
@@ -222,6 +224,60 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/vnd.arduino.action+json, application/vnd.goa.error+json
+
+
+## actionsV1Unsubscribe
+
+> ArduinoAction actionsV1Unsubscribe(id, recipientsList, opts)
+
+Unsubscribe actions_v1
+
+Remove selected recipients from the action
+
+### Example
+
+```javascript
+import ArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = ArduinoIotClient.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new ArduinoIotClient.TriggersV1Api();
+let id = "id_example"; // String | The id of the action
+let recipientsList = new ArduinoIotClient.RecipientsList(); // RecipientsList | 
+let opts = {
+  'xOrganization': "xOrganization_example" // String | 
+};
+apiInstance.actionsV1Unsubscribe(id, recipientsList, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| The id of the action | 
+ **recipientsList** | [**RecipientsList**](RecipientsList.md)|  | 
+ **xOrganization** | **String**|  | [optional] 
+
+### Return type
+
+[**ArduinoAction**](ArduinoAction.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/vnd.arduino.action+json, application/vnd.goa.error+json
 
 
@@ -599,6 +655,60 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/vnd.arduino.trigger_template+json, application/vnd.goa.error+json
+
+
+## triggersV1Unsubscribe
+
+> triggersV1Unsubscribe(id, recipientsList, opts)
+
+unsubscribe triggers_v1
+
+Unsubscribe the list of users from all the actions of the trigger
+
+### Example
+
+```javascript
+import ArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = ArduinoIotClient.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new ArduinoIotClient.TriggersV1Api();
+let id = "id_example"; // String | The id of the trigger
+let recipientsList = new ArduinoIotClient.RecipientsList(); // RecipientsList | 
+let opts = {
+  'xOrganization': "xOrganization_example" // String | 
+};
+apiInstance.triggersV1Unsubscribe(id, recipientsList, opts).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| The id of the trigger | 
+ **recipientsList** | [**RecipientsList**](RecipientsList.md)|  | 
+ **xOrganization** | **String**|  | [optional] 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/vnd.goa.error+json, text/plain
 
 
 ## triggersV1Update

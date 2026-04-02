@@ -17,7 +17,7 @@ import ArduinoProperty from './ArduinoProperty';
 /**
  * The ArduinoThing model module.
  * @module model/ArduinoThing
- * @version 3.0.0
+ * @version 3.1.1
  */
 class ArduinoThing {
     /**
@@ -100,6 +100,9 @@ class ArduinoThing {
             }
             if (data.hasOwnProperty('sketch_id')) {
                 obj['sketch_id'] = ApiClient.convertToType(data['sketch_id'], 'String');
+            }
+            if (data.hasOwnProperty('source_template')) {
+                obj['source_template'] = ApiClient.convertToType(data['source_template'], 'String');
             }
             if (data.hasOwnProperty('tags')) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], {'String': Object});
@@ -184,6 +187,10 @@ class ArduinoThing {
         // ensure the json data is a string
         if (data['sketch_id'] && !(typeof data['sketch_id'] === 'string' || data['sketch_id'] instanceof String)) {
             throw new Error("Expected the field `sketch_id` to be a primitive type in the JSON string but got " + data['sketch_id']);
+        }
+        // ensure the json data is a string
+        if (data['source_template'] && !(typeof data['source_template'] === 'string' || data['source_template'] instanceof String)) {
+            throw new Error("Expected the field `source_template` to be a primitive type in the JSON string but got " + data['source_template']);
         }
         // ensure the json data is a string
         if (data['timezone'] && !(typeof data['timezone'] === 'string' || data['timezone'] instanceof String)) {
@@ -289,6 +296,12 @@ ArduinoThing.prototype['properties_count'] = undefined;
  * @member {String} sketch_id
  */
 ArduinoThing.prototype['sketch_id'] = undefined;
+
+/**
+ * The id of the template used to create the thing
+ * @member {String} source_template
+ */
+ArduinoThing.prototype['source_template'] = undefined;
 
 /**
  * Tags of the thing

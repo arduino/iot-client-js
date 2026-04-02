@@ -17,7 +17,7 @@ import Variable from './Variable';
 /**
  * The TitleExpression model module.
  * @module model/TitleExpression
- * @version 3.0.0
+ * @version 3.1.1
  */
 class TitleExpression {
     /**

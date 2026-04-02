@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**propertiesV2Delete**](PropertiesV2Api.md#propertiesV2Delete) | **DELETE** /iot/v2/things/{id}/properties/{pid} | delete properties_v2
 [**propertiesV2List**](PropertiesV2Api.md#propertiesV2List) | **GET** /iot/v2/things/{id}/properties | list properties_v2
 [**propertiesV2Publish**](PropertiesV2Api.md#propertiesV2Publish) | **PUT** /iot/v2/things/{id}/properties/{pid}/publish | publish properties_v2
+[**propertiesV2PublishBatch**](PropertiesV2Api.md#propertiesV2PublishBatch) | **PUT** /iot/v2/things/{id}/properties/{pid}/publish_batch | publishBatch properties_v2
+[**propertiesV2PublishMulti**](PropertiesV2Api.md#propertiesV2PublishMulti) | **PUT** /iot/v2/things/{id}/publish | publishMulti properties_v2
 [**propertiesV2Show**](PropertiesV2Api.md#propertiesV2Show) | **GET** /iot/v2/things/{id}/properties/{pid} | show properties_v2
 [**propertiesV2Timeseries**](PropertiesV2Api.md#propertiesV2Timeseries) | **GET** /iot/v2/things/{id}/properties/{pid}/timeseries | timeseries properties_v2
 [**propertiesV2Update**](PropertiesV2Api.md#propertiesV2Update) | **POST** /iot/v2/things/{id}/properties/{pid} | update properties_v2
@@ -35,7 +37,7 @@ let apiInstance = new ArduinoIotClient.PropertiesV2Api();
 let id = "id_example"; // String | The id of the thing
 let property = new ArduinoIotClient.Property(); // Property | PropertyPayload describes a property of a thing. No field is mandatory
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | The id of the organization
 };
 apiInstance.propertiesV2Create(id, property, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -52,7 +54,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the thing | 
  **property** | [**Property**](Property.md)| PropertyPayload describes a property of a thing. No field is mandatory | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**| The id of the organization | [optional] 
 
 ### Return type
 
@@ -90,7 +92,7 @@ let id = "id_example"; // String | The id of the thing
 let pid = "pid_example"; // String | The id of the property
 let opts = {
   'force': false, // Boolean | If true, hard delete the property
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | The id of the organization
 };
 apiInstance.propertiesV2Delete(id, pid, opts).then(() => {
   console.log('API called successfully.');
@@ -108,7 +110,7 @@ Name | Type | Description  | Notes
  **id** | **String**| The id of the thing | 
  **pid** | **String**| The id of the property | 
  **force** | **Boolean**| If true, hard delete the property | [optional] [default to false]
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**| The id of the organization | [optional] 
 
 ### Return type
 
@@ -145,7 +147,7 @@ let apiInstance = new ArduinoIotClient.PropertiesV2Api();
 let id = "id_example"; // String | The id of the thing
 let opts = {
   'showDeleted': false, // Boolean | If true, shows the soft deleted properties
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | The id of the organization
 };
 apiInstance.propertiesV2List(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -162,7 +164,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the thing | 
  **showDeleted** | **Boolean**| If true, shows the soft deleted properties | [optional] [default to false]
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**| The id of the organization | [optional] 
 
 ### Return type
 
@@ -200,7 +202,7 @@ let id = "id_example"; // String | The id of the thing
 let pid = "pid_example"; // String | The id of the property
 let propertyValue = new ArduinoIotClient.PropertyValue(); // PropertyValue | PropertyValuePayload describes a property value
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | The id of the organization
 };
 apiInstance.propertiesV2Publish(id, pid, propertyValue, opts).then(() => {
   console.log('API called successfully.');
@@ -218,7 +220,117 @@ Name | Type | Description  | Notes
  **id** | **String**| The id of the thing | 
  **pid** | **String**| The id of the property | 
  **propertyValue** | [**PropertyValue**](PropertyValue.md)| PropertyValuePayload describes a property value | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**| The id of the organization | [optional] 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/vnd.goa.error+json, text/plain
+
+
+## propertiesV2PublishBatch
+
+> propertiesV2PublishBatch(id, pid, propertyTimedValue, opts)
+
+publishBatch properties_v2
+
+Publish a property&#39;s array of values to MQTT
+
+### Example
+
+```javascript
+import ArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = ArduinoIotClient.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new ArduinoIotClient.PropertiesV2Api();
+let id = "id_example"; // String | The id of the thing
+let pid = "pid_example"; // String | The id of the property
+let propertyTimedValue = [new ArduinoIotClient.PropertyTimedValue()]; // [PropertyTimedValue] | 
+let opts = {
+  'xOrganization': "xOrganization_example" // String | The id of the organization
+};
+apiInstance.propertiesV2PublishBatch(id, pid, propertyTimedValue, opts).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| The id of the thing | 
+ **pid** | **String**| The id of the property | 
+ **propertyTimedValue** | [**[PropertyTimedValue]**](PropertyTimedValue.md)|  | 
+ **xOrganization** | **String**| The id of the organization | [optional] 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/vnd.goa.error+json, text/plain
+
+
+## propertiesV2PublishMulti
+
+> propertiesV2PublishMulti(id, propertyValues, opts)
+
+publishMulti properties_v2
+
+Publish property values to MQTT
+
+### Example
+
+```javascript
+import ArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = ArduinoIotClient.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new ArduinoIotClient.PropertiesV2Api();
+let id = "id_example"; // String | The id of the thing
+let propertyValues = new ArduinoIotClient.PropertyValues(); // PropertyValues | 
+let opts = {
+  'xOrganization': "xOrganization_example" // String | The id of the organization
+};
+apiInstance.propertiesV2PublishMulti(id, propertyValues, opts).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| The id of the thing | 
+ **propertyValues** | [**PropertyValues**](PropertyValues.md)|  | 
+ **xOrganization** | **String**| The id of the organization | [optional] 
 
 ### Return type
 
@@ -256,7 +368,7 @@ let id = "id_example"; // String | The id of the thing
 let pid = "pid_example"; // String | The id of the property
 let opts = {
   'showDeleted': false, // Boolean | If true, shows the soft deleted properties
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | The id of the organization
 };
 apiInstance.propertiesV2Show(id, pid, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -274,7 +386,7 @@ Name | Type | Description  | Notes
  **id** | **String**| The id of the thing | 
  **pid** | **String**| The id of the property | 
  **showDeleted** | **Boolean**| If true, shows the soft deleted properties | [optional] [default to false]
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**| The id of the organization | [optional] 
 
 ### Return type
 
@@ -316,7 +428,7 @@ let opts = {
   'from': "from_example", // String | Get data with a timestamp >= to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
   'interval': 56, // Number | Binning interval in seconds (defaut: the smallest possible value compatibly with the limit of 1000 data points in the response)
   'to': "to_example", // String | Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | The id of the organization
 };
 apiInstance.propertiesV2Timeseries(id, pid, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -338,7 +450,7 @@ Name | Type | Description  | Notes
  **from** | **String**| Get data with a timestamp &gt;&#x3D; to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z) | [optional] 
  **interval** | **Number**| Binning interval in seconds (defaut: the smallest possible value compatibly with the limit of 1000 data points in the response) | [optional] 
  **to** | **String**| Get data with a timestamp &lt; to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z) | [optional] 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**| The id of the organization | [optional] 
 
 ### Return type
 
@@ -376,7 +488,7 @@ let id = "id_example"; // String | The id of the thing
 let pid = "pid_example"; // String | The id of the property
 let property = new ArduinoIotClient.Property(); // Property | PropertyPayload describes a property of a thing. No field is mandatory
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | The id of the organization
 };
 apiInstance.propertiesV2Update(id, pid, property, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -394,7 +506,7 @@ Name | Type | Description  | Notes
  **id** | **String**| The id of the thing | 
  **pid** | **String**| The id of the property | 
  **property** | [**Property**](Property.md)| PropertyPayload describes a property of a thing. No field is mandatory | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**| The id of the organization | [optional] 
 
 ### Return type
 
