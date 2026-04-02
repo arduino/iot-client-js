@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoDashboardowner model module.
  * @module model/ArduinoDashboardowner
- * @version 3.0.0
+ * @version 3.1.2
  */
 class ArduinoDashboardowner {
     /**

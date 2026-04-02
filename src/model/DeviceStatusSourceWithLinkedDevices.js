@@ -17,7 +17,7 @@ import ArduinoLinkedDevice from './ArduinoLinkedDevice';
 /**
  * The DeviceStatusSourceWithLinkedDevices model module.
  * @module model/DeviceStatusSourceWithLinkedDevices
- * @version 3.0.0
+ * @version 3.1.2
  */
 class DeviceStatusSourceWithLinkedDevices {
     /**

@@ -19,7 +19,7 @@ import TitleExpression from './TitleExpression';
 /**
  * The PushAction model module.
  * @module model/PushAction
- * @version 3.0.0
+ * @version 3.1.2
  */
 class PushAction {
     /**

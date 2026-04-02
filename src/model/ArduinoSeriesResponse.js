@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoSeriesResponse model module.
  * @module model/ArduinoSeriesResponse
- * @version 3.0.0
+ * @version 3.1.2
  */
 class ArduinoSeriesResponse {
     /**

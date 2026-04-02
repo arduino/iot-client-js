@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## devicesV2TagsDelete
 
-> devicesV2TagsDelete(id, key)
+> devicesV2TagsDelete(id, key, opts)
 
 delete devices_v2_tags
 
@@ -30,7 +30,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new ArduinoIotClient.DevicesV2TagsApi();
 let id = "id_example"; // String | The id of the device
 let key = "key_example"; // String | The key of the tag
-apiInstance.devicesV2TagsDelete(id, key).then(() => {
+let opts = {
+  'xOrganization': "xOrganization_example" // String | 
+};
+apiInstance.devicesV2TagsDelete(id, key, opts).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -45,6 +48,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the device | 
  **key** | **String**| The key of the tag | 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -62,7 +66,7 @@ null (empty response body)
 
 ## devicesV2TagsList
 
-> ArduinoTags devicesV2TagsList(id)
+> ArduinoTags devicesV2TagsList(id, opts)
 
 list devices_v2_tags
 
@@ -79,7 +83,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new ArduinoIotClient.DevicesV2TagsApi();
 let id = "id_example"; // String | The id of the device
-apiInstance.devicesV2TagsList(id).then((data) => {
+let opts = {
+  'xOrganization': "xOrganization_example" // String | 
+};
+apiInstance.devicesV2TagsList(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -93,6 +100,7 @@ apiInstance.devicesV2TagsList(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the device | 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -110,7 +118,7 @@ Name | Type | Description  | Notes
 
 ## devicesV2TagsUpsert
 
-> devicesV2TagsUpsert(id, tag)
+> devicesV2TagsUpsert(id, tag, opts)
 
 upsert devices_v2_tags
 
@@ -128,7 +136,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new ArduinoIotClient.DevicesV2TagsApi();
 let id = "id_example"; // String | The id of the device
 let tag = new ArduinoIotClient.Tag(); // Tag | 
-apiInstance.devicesV2TagsUpsert(id, tag).then(() => {
+let opts = {
+  'xOrganization': "xOrganization_example" // String | 
+};
+apiInstance.devicesV2TagsUpsert(id, tag, opts).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -143,6 +154,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the device | 
  **tag** | [**Tag**](Tag.md)|  | 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 

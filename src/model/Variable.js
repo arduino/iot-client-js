@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Variable model module.
  * @module model/Variable
- * @version 3.0.0
+ * @version 3.1.2
  */
 class Variable {
     /**

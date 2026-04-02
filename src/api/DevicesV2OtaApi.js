@@ -21,7 +21,7 @@ import Error from '../model/Error';
 /**
 * DevicesV2Ota service.
 * @module api/DevicesV2OtaApi
-* @version 3.0.0
+* @version 3.1.2
 */
 export default class DevicesV2OtaApi {
 
@@ -43,9 +43,12 @@ export default class DevicesV2OtaApi {
      * Send a binary url to a device
      * @param {String} id The id of the device
      * @param {module:model/Devicev2Otabinaryurl} devicev2Otabinaryurl 
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    devicesV2OtaSendWithHttpInfo(id, devicev2Otabinaryurl) {
+    devicesV2OtaSendWithHttpInfo(id, devicev2Otabinaryurl, opts) {
+      opts = opts || {};
       let postBody = devicev2Otabinaryurl;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -62,6 +65,7 @@ export default class DevicesV2OtaApi {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -82,10 +86,12 @@ export default class DevicesV2OtaApi {
      * Send a binary url to a device
      * @param {String} id The id of the device
      * @param {module:model/Devicev2Otabinaryurl} devicev2Otabinaryurl 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    devicesV2OtaSend(id, devicev2Otabinaryurl) {
-      return this.devicesV2OtaSendWithHttpInfo(id, devicev2Otabinaryurl)
+    devicesV2OtaSend(id, devicev2Otabinaryurl, opts) {
+      return this.devicesV2OtaSendWithHttpInfo(id, devicev2Otabinaryurl, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -98,6 +104,7 @@ export default class DevicesV2OtaApi {
      * @param {String} id The id of the device
      * @param {File} otaFile OTA file
      * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
      * @param {Boolean} [async = true)] If false, wait for the full OTA process, until it gets a result from the device
      * @param {Number} [expireInMins = 10)] Binary expire time in minutes, default 10 mins
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2Otaupload} and HTTP response
@@ -120,6 +127,7 @@ export default class DevicesV2OtaApi {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
         'async': opts['async'],
@@ -144,6 +152,7 @@ export default class DevicesV2OtaApi {
      * @param {String} id The id of the device
      * @param {File} otaFile OTA file
      * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @param {Boolean} opts.async If false, wait for the full OTA process, until it gets a result from the device (default to true)
      * @param {Number} opts.expireInMins Binary expire time in minutes, default 10 mins (default to 10)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2Otaupload}
@@ -161,9 +170,12 @@ export default class DevicesV2OtaApi {
      * Generate a url for downloading a binary
      * @param {String} id The id of the device
      * @param {module:model/Devicev2Otaurlpyalod} devicev2Otaurlpyalod 
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    devicesV2OtaUrlWithHttpInfo(id, devicev2Otaurlpyalod) {
+    devicesV2OtaUrlWithHttpInfo(id, devicev2Otaurlpyalod, opts) {
+      opts = opts || {};
       let postBody = devicev2Otaurlpyalod;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -180,6 +192,7 @@ export default class DevicesV2OtaApi {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -200,10 +213,12 @@ export default class DevicesV2OtaApi {
      * Generate a url for downloading a binary
      * @param {String} id The id of the device
      * @param {module:model/Devicev2Otaurlpyalod} devicev2Otaurlpyalod 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    devicesV2OtaUrl(id, devicev2Otaurlpyalod) {
-      return this.devicesV2OtaUrlWithHttpInfo(id, devicev2Otaurlpyalod)
+    devicesV2OtaUrl(id, devicev2Otaurlpyalod, opts) {
+      return this.devicesV2OtaUrlWithHttpInfo(id, devicev2Otaurlpyalod, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

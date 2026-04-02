@@ -5,11 +5,13 @@ All URIs are relative to *https://api2.arduino.cc*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**devicesV2Create**](DevicesV2Api.md#devicesV2Create) | **PUT** /iot/v2/devices | create devices_v2
+[**devicesV2CreateClaimed**](DevicesV2Api.md#devicesV2CreateClaimed) | **PUT** /iot/v2/devices/claim | createClaimed devices_v2
 [**devicesV2Delete**](DevicesV2Api.md#devicesV2Delete) | **DELETE** /iot/v2/devices/{id} | delete devices_v2
 [**devicesV2GetEvents**](DevicesV2Api.md#devicesV2GetEvents) | **GET** /iot/v2/devices/{id}/events | getEvents devices_v2
 [**devicesV2GetProperties**](DevicesV2Api.md#devicesV2GetProperties) | **GET** /iot/v2/devices/{id}/properties | getProperties devices_v2
 [**devicesV2GetStatusEvents**](DevicesV2Api.md#devicesV2GetStatusEvents) | **GET** /iot/v2/devices/{id}/status | GetStatusEvents devices_v2
 [**devicesV2List**](DevicesV2Api.md#devicesV2List) | **GET** /iot/v2/devices | list devices_v2
+[**devicesV2RemoveHardwareID**](DevicesV2Api.md#devicesV2RemoveHardwareID) | **POST** /iot/v2/devices/{id}/remove-uhwid | removeHardwareID devices_v2
 [**devicesV2Show**](DevicesV2Api.md#devicesV2Show) | **GET** /iot/v2/devices/{id} | show devices_v2
 [**devicesV2Timeseries**](DevicesV2Api.md#devicesV2Timeseries) | **GET** /iot/v2/devices/{id}/properties/{pid} | timeseries devices_v2
 [**devicesV2Update**](DevicesV2Api.md#devicesV2Update) | **POST** /iot/v2/devices/{id} | update devices_v2
@@ -37,7 +39,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new ArduinoIotClient.DevicesV2Api();
 let createDevicesV2Payload = new ArduinoIotClient.CreateDevicesV2Payload(); // CreateDevicesV2Payload | DeviceV2 describes a device.
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.devicesV2Create(createDevicesV2Payload, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -53,7 +55,59 @@ apiInstance.devicesV2Create(createDevicesV2Payload, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createDevicesV2Payload** | [**CreateDevicesV2Payload**](CreateDevicesV2Payload.md)| DeviceV2 describes a device. | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
+
+### Return type
+
+[**ArduinoDevicev2**](ArduinoDevicev2.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/vnd.arduino.devicev2+json, application/vnd.goa.error+json
+
+
+## devicesV2CreateClaimed
+
+> ArduinoDevicev2 devicesV2CreateClaimed(createClaimedDevicesV2Payload, opts)
+
+createClaimed devices_v2
+
+Creates a new device associated to the user.
+
+### Example
+
+```javascript
+import ArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = ArduinoIotClient.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new ArduinoIotClient.DevicesV2Api();
+let createClaimedDevicesV2Payload = new ArduinoIotClient.CreateClaimedDevicesV2Payload(); // CreateClaimedDevicesV2Payload | DeviceV2 describes a device.
+let opts = {
+  'xOrganization': "xOrganization_example" // String | 
+};
+apiInstance.devicesV2CreateClaimed(createClaimedDevicesV2Payload, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createClaimedDevicesV2Payload** | [**CreateClaimedDevicesV2Payload**](CreateClaimedDevicesV2Payload.md)| DeviceV2 describes a device. | 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -90,7 +144,7 @@ let apiInstance = new ArduinoIotClient.DevicesV2Api();
 let id = "id_example"; // String | The id of the device
 let opts = {
   'force': false, // Boolean | If true, hard delete the device
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.devicesV2Delete(id, opts).then(() => {
   console.log('API called successfully.');
@@ -107,7 +161,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the device | 
  **force** | **Boolean**| If true, hard delete the device | [optional] [default to false]
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -145,7 +199,7 @@ let id = "id_example"; // String | The id of the device
 let opts = {
   'limit': 56, // Number | The number of events to select
   'start': "start_example", // String | The time at which to start selecting events
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.devicesV2GetEvents(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -163,7 +217,7 @@ Name | Type | Description  | Notes
  **id** | **String**| The id of the device | 
  **limit** | **Number**| The number of events to select | [optional] 
  **start** | **String**| The time at which to start selecting events | [optional] 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -200,7 +254,7 @@ let apiInstance = new ArduinoIotClient.DevicesV2Api();
 let id = "id_example"; // String | The id of the device
 let opts = {
   'showDeleted': false, // Boolean | If true, shows the soft deleted properties
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.devicesV2GetProperties(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -217,7 +271,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the device | 
  **showDeleted** | **Boolean**| If true, shows the soft deleted properties | [optional] [default to false]
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -255,7 +309,7 @@ let id = "id_example"; // String | The id of the device
 let opts = {
   'limit': 30, // Number | The number of events to select
   'start': "start_example", // String | The time at which to start selecting events
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.devicesV2GetStatusEvents(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -273,7 +327,7 @@ Name | Type | Description  | Notes
  **id** | **String**| The id of the device | 
  **limit** | **Number**| The number of events to select | [optional] [default to 30]
  **start** | **String**| The time at which to start selecting events | [optional] 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -312,7 +366,8 @@ let opts = {
   'serial': "serial_example", // String | Filter by device serial number
   'showDeleted': false, // Boolean | If true, shows the soft deleted devices
   'tags': ["null"], // [String] | Filter by tags
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'uniqueHardwareId': "uniqueHardwareId_example", // String | Filter by device unique hardware id
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.devicesV2List(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -331,7 +386,8 @@ Name | Type | Description  | Notes
  **serial** | **String**| Filter by device serial number | [optional] 
  **showDeleted** | **Boolean**| If true, shows the soft deleted devices | [optional] [default to false]
  **tags** | [**[String]**](String.md)| Filter by tags | [optional] 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **uniqueHardwareId** | **String**| Filter by device unique hardware id | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -345,6 +401,58 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/vnd.arduino.devicev2+json; type=collection, application/vnd.goa.error+json
+
+
+## devicesV2RemoveHardwareID
+
+> ArduinoDevicev2 devicesV2RemoveHardwareID(id, opts)
+
+removeHardwareID devices_v2
+
+Removes the unique hardware id from the device
+
+### Example
+
+```javascript
+import ArduinoIotClient from '@arduino/arduino-iot-client';
+let defaultClient = ArduinoIotClient.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new ArduinoIotClient.DevicesV2Api();
+let id = "id_example"; // String | The id of the device
+let opts = {
+  'xOrganization': "xOrganization_example" // String | 
+};
+apiInstance.devicesV2RemoveHardwareID(id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| The id of the device | 
+ **xOrganization** | **String**|  | [optional] 
+
+### Return type
+
+[**ArduinoDevicev2**](ArduinoDevicev2.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.arduino.devicev2+json, application/vnd.goa.error+json
 
 
 ## devicesV2Show
@@ -367,7 +475,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new ArduinoIotClient.DevicesV2Api();
 let id = "id_example"; // String | The id of the device
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.devicesV2Show(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -383,7 +491,7 @@ apiInstance.devicesV2Show(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the device | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -422,7 +530,7 @@ let pid = "pid_example"; // String | The id of the property
 let opts = {
   'limit': 56, // Number | The number of properties to select
   'start': "start_example", // String | The time at which to start selecting properties
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.devicesV2Timeseries(id, pid, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -441,7 +549,7 @@ Name | Type | Description  | Notes
  **pid** | **String**| The id of the property | 
  **limit** | **Number**| The number of properties to select | [optional] 
  **start** | **String**| The time at which to start selecting properties | [optional] 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -478,7 +586,7 @@ let apiInstance = new ArduinoIotClient.DevicesV2Api();
 let id = "id_example"; // String | The id of the device
 let devicev2 = new ArduinoIotClient.Devicev2(); // Devicev2 | DeviceV2 describes a device.
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.devicesV2Update(id, devicev2, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -495,7 +603,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the device | 
  **devicev2** | [**Devicev2**](Devicev2.md)| DeviceV2 describes a device. | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -532,7 +640,7 @@ let apiInstance = new ArduinoIotClient.DevicesV2Api();
 let id = "id_example"; // String | The id of the device
 let propertiesValues = new ArduinoIotClient.PropertiesValues(); // PropertiesValues | 
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.devicesV2UpdateProperties(id, propertiesValues, opts).then(() => {
   console.log('API called successfully.');
@@ -549,7 +657,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the device | 
  **propertiesValues** | [**PropertiesValues**](PropertiesValues.md)|  | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
