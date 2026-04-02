@@ -20,7 +20,7 @@ import Template from '../model/Template';
 /**
 * Templates service.
 * @module api/TemplatesApi
-* @version 3.0.0
+* @version 3.1.2
 */
 export default class TemplatesApi {
 
@@ -42,7 +42,7 @@ export default class TemplatesApi {
      * Apply an existing cloud template and generate all the needed resources
      * @param {module:model/Template} template TemplatePayload describes the needed attribute to apply a template
      * @param {Object} opts Optional parameters
-     * @param {String} [xOrganization] Organization space identifer (optional)
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoTemplate} and HTTP response
      */
     templatesApplyWithHttpInfo(template, opts) {
@@ -79,7 +79,7 @@ export default class TemplatesApi {
      * Apply an existing cloud template and generate all the needed resources
      * @param {module:model/Template} template TemplatePayload describes the needed attribute to apply a template
      * @param {Object} opts Optional parameters
-     * @param {String} opts.xOrganization Organization space identifer (optional)
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoTemplate}
      */
     templatesApply(template, opts) {

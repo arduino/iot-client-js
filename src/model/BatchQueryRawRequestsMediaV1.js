@@ -17,7 +17,7 @@ import BatchQueryRawRequestMediaV1 from './BatchQueryRawRequestMediaV1';
 /**
  * The BatchQueryRawRequestsMediaV1 model module.
  * @module model/BatchQueryRawRequestsMediaV1
- * @version 3.0.0
+ * @version 3.1.2
  */
 class BatchQueryRawRequestsMediaV1 {
     /**

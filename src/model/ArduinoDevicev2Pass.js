@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoDevicev2Pass model module.
  * @module model/ArduinoDevicev2Pass
- * @version 3.0.0
+ * @version 3.1.2
  */
 class ArduinoDevicev2Pass {
     /**

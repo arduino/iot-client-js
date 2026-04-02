@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoDevicev2Webhook model module.
  * @module model/ArduinoDevicev2Webhook
- * @version 3.0.0
+ * @version 3.1.2
  */
 class ArduinoDevicev2Webhook {
     /**

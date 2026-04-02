@@ -18,7 +18,7 @@ import DeviceStatusSource from './DeviceStatusSource';
 /**
  * The Trigger model module.
  * @module model/Trigger
- * @version 3.0.0
+ * @version 3.1.2
  */
 class Trigger {
     /**
