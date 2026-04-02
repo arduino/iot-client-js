@@ -39,9 +39,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new ArduinoIotClient.DashboardsV2Api();
 let id = "id_example"; // String | The id of the dashboard
-let clone = new ArduinoIotClient.Clone(); // Clone | Add overrides used when performing a clone of a dashboard
+let clone = new ArduinoIotClient.Clone(); // Clone | 
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.dashboardsV2Clone(id, clone, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -57,8 +57,8 @@ apiInstance.dashboardsV2Clone(id, clone, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the dashboard | 
- **clone** | [**Clone**](Clone.md)| Add overrides used when performing a clone of a dashboard | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **clone** | [**Clone**](Clone.md)|  | 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -92,9 +92,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new ArduinoIotClient.DashboardsV2Api();
-let dashboardv2 = new ArduinoIotClient.Dashboardv2(); // Dashboardv2 | Describes a dashboard
+let dashboardv2 = new ArduinoIotClient.Dashboardv2(); // Dashboardv2 | DashboardV2Payload describes a dashboard
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.dashboardsV2Create(dashboardv2, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -109,8 +109,8 @@ apiInstance.dashboardsV2Create(dashboardv2, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dashboardv2** | [**Dashboardv2**](Dashboardv2.md)| Describes a dashboard | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **dashboardv2** | [**Dashboardv2**](Dashboardv2.md)| DashboardV2Payload describes a dashboard | 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -147,7 +147,7 @@ let apiInstance = new ArduinoIotClient.DashboardsV2Api();
 let id = "id_example"; // String | The id of the dashboard
 let opts = {
   'force': false, // Boolean | If true, hard delete the thing
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.dashboardsV2Delete(id, opts).then(() => {
   console.log('API called successfully.');
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the dashboard | 
  **force** | **Boolean**| If true, hard delete the thing | [optional] [default to false]
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -201,7 +201,7 @@ let apiInstance = new ArduinoIotClient.DashboardsV2Api();
 let id = "id_example"; // String | The id of the dashboard
 let userId = "userId_example"; // String | The id of the user
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.dashboardsV2DeleteShare(id, userId, opts).then(() => {
   console.log('API called successfully.');
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the dashboard | 
  **userId** | **String**| The id of the user | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -256,7 +256,7 @@ let id = "id_example"; // String | The id of the dashboard
 let widgetId = "widgetId_example"; // String | The id of the widget
 let widgetlink = new ArduinoIotClient.Widgetlink(); // Widgetlink | 
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.dashboardsV2Link(id, widgetId, widgetlink, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
  **id** | **String**| The id of the dashboard | 
  **widgetId** | **String**| The id of the widget | 
  **widgetlink** | [**Widgetlink**](Widgetlink.md)|  | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -309,9 +309,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new ArduinoIotClient.DashboardsV2Api();
 let opts = {
-  'name': "name_example", // String | Filter by name of the dashboard. It support like matching.
-  'userId': "userId_example", // String | Filter by user_id of the dashboard's owner
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'name': "name_example", // String | The name of the dashboard
+  'thingId': "thingId_example", // String | The thing_id of the dashboard's properties
+  'userId': "userId_example", // String | The user_id of the dashboard's owner
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.dashboardsV2List(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -326,9 +327,10 @@ apiInstance.dashboardsV2List(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Filter by name of the dashboard. It support like matching. | [optional] 
- **userId** | **String**| Filter by user_id of the dashboard&#39;s owner | [optional] 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **name** | **String**| The name of the dashboard | [optional] 
+ **thingId** | **String**| The thing_id of the dashboard&#39;s properties | [optional] 
+ **userId** | **String**| The user_id of the dashboard&#39;s owner | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -364,7 +366,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new ArduinoIotClient.DashboardsV2Api();
 let id = "id_example"; // String | The id of the dashboard
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.dashboardsV2ListShares(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -380,7 +382,7 @@ apiInstance.dashboardsV2ListShares(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the dashboard | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -415,9 +417,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new ArduinoIotClient.DashboardsV2Api();
 let id = "id_example"; // String | The id of the dashboard
-let dashboardv2 = new ArduinoIotClient.Dashboardv2(); // Dashboardv2 | Describes a dashboard
+let dashboardv2 = new ArduinoIotClient.Dashboardv2(); // Dashboardv2 | DashboardV2Payload describes a dashboard
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.dashboardsV2Patch(id, dashboardv2, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -433,8 +435,8 @@ apiInstance.dashboardsV2Patch(id, dashboardv2, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the dashboard | 
- **dashboardv2** | [**Dashboardv2**](Dashboardv2.md)| Describes a dashboard | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **dashboardv2** | [**Dashboardv2**](Dashboardv2.md)| DashboardV2Payload describes a dashboard | 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -471,7 +473,7 @@ let apiInstance = new ArduinoIotClient.DashboardsV2Api();
 let id = "id_example"; // String | The id of the dashboard
 let sharerequest = new ArduinoIotClient.Sharerequest(); // Sharerequest | 
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.dashboardsV2RequestAccess(id, sharerequest, opts).then(() => {
   console.log('API called successfully.');
@@ -488,7 +490,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the dashboard | 
  **sharerequest** | [**Sharerequest**](Sharerequest.md)|  | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -525,7 +527,7 @@ let apiInstance = new ArduinoIotClient.DashboardsV2Api();
 let id = "id_example"; // String | The id of the dashboard
 let dashboardshare = new ArduinoIotClient.Dashboardshare(); // Dashboardshare | 
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.dashboardsV2Share(id, dashboardshare, opts).then(() => {
   console.log('API called successfully.');
@@ -542,7 +544,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the dashboard | 
  **dashboardshare** | [**Dashboardshare**](Dashboardshare.md)|  | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -564,7 +566,7 @@ null (empty response body)
 
 show dashboards_v2
 
-Show a dashboard by id
+Show a dashboard
 
 ### Example
 
@@ -578,7 +580,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new ArduinoIotClient.DashboardsV2Api();
 let id = "id_example"; // String | The id of the dashboard
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.dashboardsV2Show(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -594,7 +596,7 @@ apiInstance.dashboardsV2Show(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the dashboard | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -630,7 +632,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new ArduinoIotClient.DashboardsV2Api();
 let id = "id_example"; // String | The id of the dashboard
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.dashboardsV2Template(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -646,7 +648,7 @@ apiInstance.dashboardsV2Template(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the dashboard | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -681,9 +683,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new ArduinoIotClient.DashboardsV2Api();
 let id = "id_example"; // String | The id of the dashboard
-let dashboardv2 = new ArduinoIotClient.Dashboardv2(); // Dashboardv2 | Describes a dashboard
+let dashboardv2 = new ArduinoIotClient.Dashboardv2(); // Dashboardv2 | DashboardV2Payload describes a dashboard
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.dashboardsV2Update(id, dashboardv2, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -699,8 +701,8 @@ apiInstance.dashboardsV2Update(id, dashboardv2, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the dashboard | 
- **dashboardv2** | [**Dashboardv2**](Dashboardv2.md)| Describes a dashboard | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **dashboardv2** | [**Dashboardv2**](Dashboardv2.md)| DashboardV2Payload describes a dashboard | 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 

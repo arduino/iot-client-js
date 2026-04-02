@@ -12,11 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
+import Usershare from './Usershare';
 
 /**
  * The Dashboardshare model module.
  * @module model/Dashboardshare
- * @version 3.0.0
+ * @version 3.1.1
  */
 class Dashboardshare {
     /**
@@ -53,6 +54,9 @@ class Dashboardshare {
             if (data.hasOwnProperty('username')) {
                 obj['username'] = ApiClient.convertToType(data['username'], 'String');
             }
+            if (data.hasOwnProperty('users')) {
+                obj['users'] = ApiClient.convertToType(data['users'], [Usershare]);
+            }
         }
         return obj;
     }
@@ -70,6 +74,16 @@ class Dashboardshare {
         // ensure the json data is a string
         if (data['username'] && !(typeof data['username'] === 'string' || data['username'] instanceof String)) {
             throw new Error("Expected the field `username` to be a primitive type in the JSON string but got " + data['username']);
+        }
+        if (data['users']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['users'])) {
+                throw new Error("Expected the field `users` to be an array in the JSON data but got " + data['users']);
+            }
+            // validate the optional field `users` (array)
+            for (const item of data['users']) {
+                Usershare.validateJSON(item);
+            };
         }
 
         return true;
@@ -91,6 +105,12 @@ Dashboardshare.prototype['user_id'] = undefined;
  * @member {String} username
  */
 Dashboardshare.prototype['username'] = undefined;
+
+/**
+ * The list of users you want to share the dashboard with
+ * @member {Array.<module:model/Usershare>} users
+ */
+Dashboardshare.prototype['users'] = undefined;
 
 
 

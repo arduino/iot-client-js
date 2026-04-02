@@ -17,7 +17,7 @@ import Variable from './Variable';
 /**
  * The BodyExpression model module.
  * @module model/BodyExpression
- * @version 3.0.0
+ * @version 3.1.1
  */
 class BodyExpression {
     /**

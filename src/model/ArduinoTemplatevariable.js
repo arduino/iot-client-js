@@ -17,7 +17,7 @@ import ArduinoTimezone from './ArduinoTimezone';
 /**
  * The ArduinoTemplatevariable model module.
  * @module model/ArduinoTemplatevariable
- * @version 3.0.0
+ * @version 3.1.1
  */
 class ArduinoTemplatevariable {
     /**

@@ -19,7 +19,7 @@ import ArduinoLinkedPropertyTemplate from './ArduinoLinkedPropertyTemplate';
 /**
  * The ArduinoTriggerTemplate model module.
  * @module model/ArduinoTriggerTemplate
- * @version 3.0.0
+ * @version 3.1.1
  */
 class ArduinoTriggerTemplate {
     /**

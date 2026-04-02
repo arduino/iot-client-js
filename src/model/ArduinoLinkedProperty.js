@@ -17,7 +17,7 @@ import ArduinoProperty from './ArduinoProperty';
 /**
  * The ArduinoLinkedProperty model module.
  * @module model/ArduinoLinkedProperty
- * @version 3.0.0
+ * @version 3.1.1
  */
 class ArduinoLinkedProperty {
     /**

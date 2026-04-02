@@ -13,13 +13,14 @@
 
 
 import ApiClient from "../ApiClient";
+import ArduinoArduinoconnectionsV1 from '../model/ArduinoArduinoconnectionsV1';
 import ArduinoCredentialsv1 from '../model/ArduinoCredentialsv1';
 import Error from '../model/Error';
 
 /**
 * NetworkCredentialsV1 service.
 * @module api/NetworkCredentialsV1Api
-* @version 3.0.0
+* @version 3.1.1
 */
 export default class NetworkCredentialsV1Api {
 
@@ -94,7 +95,7 @@ export default class NetworkCredentialsV1Api {
      * showByDevice network_credentials_v1
      * Show available connection types depending on device type
      * @param {module:model/String} type Device type
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoArduinoconnectionsV1} and HTTP response
      */
     networkCredentialsV1ShowByDeviceWithHttpInfo(type) {
       let postBody = null;
@@ -115,8 +116,8 @@ export default class NetworkCredentialsV1Api {
 
       let authNames = ['oauth2'];
       let contentTypes = [];
-      let accepts = ['application/json', 'application/vnd.goa.error+json'];
-      let returnType = null;
+      let accepts = ['application/vnd.arduino.arduinoconnections.v1+json', 'application/vnd.goa.error+json'];
+      let returnType = ArduinoArduinoconnectionsV1;
       return this.apiClient.callApi(
         '/iot/v1/network_credentials/{type}/connections', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -128,7 +129,7 @@ export default class NetworkCredentialsV1Api {
      * showByDevice network_credentials_v1
      * Show available connection types depending on device type
      * @param {module:model/String} type Device type
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoArduinoconnectionsV1}
      */
     networkCredentialsV1ShowByDevice(type) {
       return this.networkCredentialsV1ShowByDeviceWithHttpInfo(type)

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CheckDevicesV2PassPayload model module.
  * @module model/CheckDevicesV2PassPayload
- * @version 3.0.0
+ * @version 3.1.1
  */
 class CheckDevicesV2PassPayload {
     /**

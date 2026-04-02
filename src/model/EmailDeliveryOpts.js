@@ -17,7 +17,7 @@ import UserRecipient from './UserRecipient';
 /**
  * The EmailDeliveryOpts model module.
  * @module model/EmailDeliveryOpts
- * @version 3.0.0
+ * @version 3.1.1
  */
 class EmailDeliveryOpts {
     /**

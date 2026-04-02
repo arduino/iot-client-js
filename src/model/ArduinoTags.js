@@ -17,7 +17,7 @@ import Tag from './Tag';
 /**
  * The ArduinoTags model module.
  * @module model/ArduinoTags
- * @version 3.0.0
+ * @version 3.1.1
  */
 class ArduinoTags {
     /**

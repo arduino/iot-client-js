@@ -63,7 +63,7 @@ null (empty response body)
 
 ## devicesV2PassDelete
 
-> devicesV2PassDelete(id)
+> devicesV2PassDelete(id, opts)
 
 delete devices_v2_pass
 
@@ -80,7 +80,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new ArduinoIotClient.DevicesV2PassApi();
 let id = "id_example"; // String | The id of the device
-apiInstance.devicesV2PassDelete(id).then(() => {
+let opts = {
+  'xOrganization': "xOrganization_example" // String | 
+};
+apiInstance.devicesV2PassDelete(id, opts).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -94,6 +97,7 @@ apiInstance.devicesV2PassDelete(id).then(() => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the device | 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -129,7 +133,8 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new ArduinoIotClient.DevicesV2PassApi();
 let id = "id_example"; // String | The id of the device
 let opts = {
-  'suggestedPassword': false // Boolean | If true, return a suggested password
+  'suggestedPassword': false, // Boolean | If true, return a suggested password
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.devicesV2PassGet(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -146,6 +151,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the device | 
  **suggestedPassword** | **Boolean**| If true, return a suggested password | [optional] [default to false]
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -163,7 +169,7 @@ Name | Type | Description  | Notes
 
 ## devicesV2PassSet
 
-> ArduinoDevicev2Pass devicesV2PassSet(id, devicev2Pass)
+> ArduinoDevicev2Pass devicesV2PassSet(id, devicev2Pass, opts)
 
 set devices_v2_pass
 
@@ -181,7 +187,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new ArduinoIotClient.DevicesV2PassApi();
 let id = "id_example"; // String | The id of the device
 let devicev2Pass = new ArduinoIotClient.Devicev2Pass(); // Devicev2Pass | 
-apiInstance.devicesV2PassSet(id, devicev2Pass).then((data) => {
+let opts = {
+  'xOrganization': "xOrganization_example" // String | 
+};
+apiInstance.devicesV2PassSet(id, devicev2Pass, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -196,6 +205,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the device | 
  **devicev2Pass** | [**Devicev2Pass**](Devicev2Pass.md)|  | 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 

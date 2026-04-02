@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PropertyValue model module.
  * @module model/PropertyValue
- * @version 3.0.0
+ * @version 3.1.1
  */
 class PropertyValue {
     /**
@@ -86,7 +86,7 @@ class PropertyValue {
 PropertyValue.RequiredProperties = ["value"];
 
 /**
- * The device who send the property
+ * The device that sends the property
  * @member {String} device_id
  */
 PropertyValue.prototype['device_id'] = undefined;
