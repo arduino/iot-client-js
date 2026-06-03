@@ -38,7 +38,7 @@ let apiInstance = new ArduinoIotClient.ThingsV2Api();
 let id = "id_example"; // String | The id of the thing
 let thingClone = new ArduinoIotClient.ThingClone(); // ThingClone | Payload to clone a new thing from an existing one
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.thingsV2Clone(id, thingClone, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the thing | 
  **thingClone** | [**ThingClone**](ThingClone.md)| Payload to clone a new thing from an existing one | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -92,7 +92,7 @@ let apiInstance = new ArduinoIotClient.ThingsV2Api();
 let thingCreate = new ArduinoIotClient.ThingCreate(); // ThingCreate | Payload to create a new thing
 let opts = {
   'force': false, // Boolean | If true, detach device from the other thing, and attach to this thing
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.thingsV2Create(thingCreate, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **thingCreate** | [**ThingCreate**](ThingCreate.md)| Payload to create a new thing | 
  **force** | **Boolean**| If true, detach device from the other thing, and attach to this thing | [optional] [default to false]
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -146,7 +146,7 @@ let apiInstance = new ArduinoIotClient.ThingsV2Api();
 let id = "id_example"; // String | The id of the thing
 let thingSketch = new ArduinoIotClient.ThingSketch(); // ThingSketch | ThingSketchPayload describes a sketch of a thing
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.thingsV2CreateSketch(id, thingSketch, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the thing | 
  **thingSketch** | [**ThingSketch**](ThingSketch.md)| ThingSketchPayload describes a sketch of a thing | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -200,7 +200,7 @@ let apiInstance = new ArduinoIotClient.ThingsV2Api();
 let id = "id_example"; // String | The id of the thing
 let opts = {
   'force': false, // Boolean | If true, hard delete the thing
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.thingsV2Delete(id, opts).then(() => {
   console.log('API called successfully.');
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the thing | 
  **force** | **Boolean**| If true, hard delete the thing | [optional] [default to false]
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -251,7 +251,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new ArduinoIotClient.ThingsV2Api();
 let id = "id_example"; // String | The id of the thing
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.thingsV2DeleteSketch(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -267,7 +267,7 @@ apiInstance.thingsV2DeleteSketch(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the thing | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -308,7 +308,7 @@ let opts = {
   'showDeleted': false, // Boolean | If true, shows the soft deleted things
   'showProperties': false, // Boolean | If true, returns things with their properties, and last values
   'tags': ["null"], // [String] | Filter by tags
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.thingsV2List(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -329,7 +329,7 @@ Name | Type | Description  | Notes
  **showDeleted** | **Boolean**| If true, shows the soft deleted things | [optional] [default to false]
  **showProperties** | **Boolean**| If true, returns things with their properties, and last values | [optional] [default to false]
  **tags** | [**[String]**](String.md)| Filter by tags | [optional] 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -366,7 +366,7 @@ let apiInstance = new ArduinoIotClient.ThingsV2Api();
 let id = "id_example"; // String | The id of the thing
 let opts = {
   'showDeleted': false, // Boolean | If true, shows the soft deleted thing
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.thingsV2Show(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -383,7 +383,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the thing | 
  **showDeleted** | **Boolean**| If true, shows the soft deleted thing | [optional] [default to false]
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -419,7 +419,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new ArduinoIotClient.ThingsV2Api();
 let id = "id_example"; // String | The id of the thing
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.thingsV2Template(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -435,7 +435,7 @@ apiInstance.thingsV2Template(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the thing | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -473,7 +473,7 @@ let id = "id_example"; // String | The id of the thing
 let thingUpdate = new ArduinoIotClient.ThingUpdate(); // ThingUpdate | Payload to update an existing thing
 let opts = {
   'force': false, // Boolean | If true, detach device from the other thing, and attach to this thing
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.thingsV2Update(id, thingUpdate, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -491,7 +491,7 @@ Name | Type | Description  | Notes
  **id** | **String**| The id of the thing | 
  **thingUpdate** | [**ThingUpdate**](ThingUpdate.md)| Payload to update an existing thing | 
  **force** | **Boolean**| If true, detach device from the other thing, and attach to this thing | [optional] [default to false]
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -528,7 +528,7 @@ let apiInstance = new ArduinoIotClient.ThingsV2Api();
 let id = "id_example"; // String | The id of the thing
 let sketchId = "sketchId_example"; // String | The id of the sketch
 let opts = {
-  'xOrganization': "xOrganization_example", // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example", // String | 
   'updateSketch': new ArduinoIotClient.UpdateSketch() // UpdateSketch | 
 };
 apiInstance.thingsV2UpdateSketch(id, sketchId, opts).then((data) => {
@@ -546,7 +546,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the thing | 
  **sketchId** | **String**| The id of the sketch | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
  **updateSketch** | [**UpdateSketch**](UpdateSketch.md)|  | [optional] 
 
 ### Return type
