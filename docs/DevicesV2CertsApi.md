@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## devicesV2CertsCreate
 
-> ArduinoDevicev2Cert devicesV2CertsCreate(id, createDevicesV2CertsPayload)
+> ArduinoDevicev2Cert devicesV2CertsCreate(id, createDevicesV2CertsPayload, opts)
 
 create devices_v2_certs
 
@@ -32,7 +32,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new ArduinoIotClient.DevicesV2CertsApi();
 let id = "id_example"; // String | The id of the device
 let createDevicesV2CertsPayload = new ArduinoIotClient.CreateDevicesV2CertsPayload(); // CreateDevicesV2CertsPayload | 
-apiInstance.devicesV2CertsCreate(id, createDevicesV2CertsPayload).then((data) => {
+let opts = {
+  'xOrganization': "xOrganization_example" // String | 
+};
+apiInstance.devicesV2CertsCreate(id, createDevicesV2CertsPayload, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -47,6 +50,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the device | 
  **createDevicesV2CertsPayload** | [**CreateDevicesV2CertsPayload**](CreateDevicesV2CertsPayload.md)|  | 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -64,7 +68,7 @@ Name | Type | Description  | Notes
 
 ## devicesV2CertsDelete
 
-> devicesV2CertsDelete(cid, id)
+> devicesV2CertsDelete(cid, id, opts)
 
 delete devices_v2_certs
 
@@ -82,7 +86,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new ArduinoIotClient.DevicesV2CertsApi();
 let cid = "cid_example"; // String | The id of the cert
 let id = "id_example"; // String | The id of the device
-apiInstance.devicesV2CertsDelete(cid, id).then(() => {
+let opts = {
+  'xOrganization': "xOrganization_example" // String | 
+};
+apiInstance.devicesV2CertsDelete(cid, id, opts).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -97,6 +104,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cid** | **String**| The id of the cert | 
  **id** | **String**| The id of the device | 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -114,7 +122,7 @@ null (empty response body)
 
 ## devicesV2CertsList
 
-> [ArduinoDevicev2Cert] devicesV2CertsList(id)
+> [ArduinoDevicev2Cert] devicesV2CertsList(id, opts)
 
 list devices_v2_certs
 
@@ -131,7 +139,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new ArduinoIotClient.DevicesV2CertsApi();
 let id = "id_example"; // String | The id of the device
-apiInstance.devicesV2CertsList(id).then((data) => {
+let opts = {
+  'xOrganization': "xOrganization_example" // String | 
+};
+apiInstance.devicesV2CertsList(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -145,6 +156,7 @@ apiInstance.devicesV2CertsList(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the device | 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -162,7 +174,7 @@ Name | Type | Description  | Notes
 
 ## devicesV2CertsShow
 
-> ArduinoDevicev2Cert devicesV2CertsShow(cid, id)
+> ArduinoDevicev2Cert devicesV2CertsShow(cid, id, opts)
 
 show devices_v2_certs
 
@@ -180,7 +192,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new ArduinoIotClient.DevicesV2CertsApi();
 let cid = "cid_example"; // String | The id of the cert
 let id = "id_example"; // String | The id of the device
-apiInstance.devicesV2CertsShow(cid, id).then((data) => {
+let opts = {
+  'xOrganization': "xOrganization_example" // String | 
+};
+apiInstance.devicesV2CertsShow(cid, id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -195,6 +210,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cid** | **String**| The id of the cert | 
  **id** | **String**| The id of the device | 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -212,7 +228,7 @@ Name | Type | Description  | Notes
 
 ## devicesV2CertsUpdate
 
-> ArduinoDevicev2Cert devicesV2CertsUpdate(cid, id, devicev2Cert)
+> ArduinoDevicev2Cert devicesV2CertsUpdate(cid, id, devicev2Cert, opts)
 
 update devices_v2_certs
 
@@ -231,7 +247,10 @@ let apiInstance = new ArduinoIotClient.DevicesV2CertsApi();
 let cid = "cid_example"; // String | The id of the cert
 let id = "id_example"; // String | The id of the device
 let devicev2Cert = new ArduinoIotClient.Devicev2Cert(); // Devicev2Cert | 
-apiInstance.devicesV2CertsUpdate(cid, id, devicev2Cert).then((data) => {
+let opts = {
+  'xOrganization': "xOrganization_example" // String | 
+};
+apiInstance.devicesV2CertsUpdate(cid, id, devicev2Cert, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -247,6 +266,7 @@ Name | Type | Description  | Notes
  **cid** | **String**| The id of the cert | 
  **id** | **String**| The id of the device | 
  **devicev2Cert** | [**Devicev2Cert**](Devicev2Cert.md)|  | 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 

@@ -21,7 +21,7 @@ import Error from '../model/Error';
 /**
 * DevicesV2Certs service.
 * @module api/DevicesV2CertsApi
-* @version 3.0.0
+* @version 3.1.3
 */
 export default class DevicesV2CertsApi {
 
@@ -43,9 +43,12 @@ export default class DevicesV2CertsApi {
      * Creates a new cert associated to a device. The csr is signed and saved in database. The CommonName will be replaced with the device id.
      * @param {String} id The id of the device
      * @param {module:model/CreateDevicesV2CertsPayload} createDevicesV2CertsPayload 
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2Cert} and HTTP response
      */
-    devicesV2CertsCreateWithHttpInfo(id, createDevicesV2CertsPayload) {
+    devicesV2CertsCreateWithHttpInfo(id, createDevicesV2CertsPayload, opts) {
+      opts = opts || {};
       let postBody = createDevicesV2CertsPayload;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -62,6 +65,7 @@ export default class DevicesV2CertsApi {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -82,10 +86,12 @@ export default class DevicesV2CertsApi {
      * Creates a new cert associated to a device. The csr is signed and saved in database. The CommonName will be replaced with the device id.
      * @param {String} id The id of the device
      * @param {module:model/CreateDevicesV2CertsPayload} createDevicesV2CertsPayload 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2Cert}
      */
-    devicesV2CertsCreate(id, createDevicesV2CertsPayload) {
-      return this.devicesV2CertsCreateWithHttpInfo(id, createDevicesV2CertsPayload)
+    devicesV2CertsCreate(id, createDevicesV2CertsPayload, opts) {
+      return this.devicesV2CertsCreateWithHttpInfo(id, createDevicesV2CertsPayload, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -97,9 +103,12 @@ export default class DevicesV2CertsApi {
      * Removes a cert associated to a device
      * @param {String} cid The id of the cert
      * @param {String} id The id of the device
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    devicesV2CertsDeleteWithHttpInfo(cid, id) {
+    devicesV2CertsDeleteWithHttpInfo(cid, id, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'cid' is set
       if (cid === undefined || cid === null) {
@@ -117,6 +126,7 @@ export default class DevicesV2CertsApi {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -137,10 +147,12 @@ export default class DevicesV2CertsApi {
      * Removes a cert associated to a device
      * @param {String} cid The id of the cert
      * @param {String} id The id of the device
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    devicesV2CertsDelete(cid, id) {
-      return this.devicesV2CertsDeleteWithHttpInfo(cid, id)
+    devicesV2CertsDelete(cid, id, opts) {
+      return this.devicesV2CertsDeleteWithHttpInfo(cid, id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -151,9 +163,12 @@ export default class DevicesV2CertsApi {
      * list devices_v2_certs
      * Returns the list of certs associated to the device
      * @param {String} id The id of the device
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ArduinoDevicev2Cert>} and HTTP response
      */
-    devicesV2CertsListWithHttpInfo(id) {
+    devicesV2CertsListWithHttpInfo(id, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -166,6 +181,7 @@ export default class DevicesV2CertsApi {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -185,10 +201,12 @@ export default class DevicesV2CertsApi {
      * list devices_v2_certs
      * Returns the list of certs associated to the device
      * @param {String} id The id of the device
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ArduinoDevicev2Cert>}
      */
-    devicesV2CertsList(id) {
-      return this.devicesV2CertsListWithHttpInfo(id)
+    devicesV2CertsList(id, opts) {
+      return this.devicesV2CertsListWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -200,9 +218,12 @@ export default class DevicesV2CertsApi {
      * Returns the cert requested by the user
      * @param {String} cid The id of the cert
      * @param {String} id The id of the device
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2Cert} and HTTP response
      */
-    devicesV2CertsShowWithHttpInfo(cid, id) {
+    devicesV2CertsShowWithHttpInfo(cid, id, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'cid' is set
       if (cid === undefined || cid === null) {
@@ -220,6 +241,7 @@ export default class DevicesV2CertsApi {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -240,10 +262,12 @@ export default class DevicesV2CertsApi {
      * Returns the cert requested by the user
      * @param {String} cid The id of the cert
      * @param {String} id The id of the device
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2Cert}
      */
-    devicesV2CertsShow(cid, id) {
-      return this.devicesV2CertsShowWithHttpInfo(cid, id)
+    devicesV2CertsShow(cid, id, opts) {
+      return this.devicesV2CertsShowWithHttpInfo(cid, id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -256,9 +280,12 @@ export default class DevicesV2CertsApi {
      * @param {String} cid The id of the cert
      * @param {String} id The id of the device
      * @param {module:model/Devicev2Cert} devicev2Cert 
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2Cert} and HTTP response
      */
-    devicesV2CertsUpdateWithHttpInfo(cid, id, devicev2Cert) {
+    devicesV2CertsUpdateWithHttpInfo(cid, id, devicev2Cert, opts) {
+      opts = opts || {};
       let postBody = devicev2Cert;
       // verify the required parameter 'cid' is set
       if (cid === undefined || cid === null) {
@@ -280,6 +307,7 @@ export default class DevicesV2CertsApi {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -301,10 +329,12 @@ export default class DevicesV2CertsApi {
      * @param {String} cid The id of the cert
      * @param {String} id The id of the device
      * @param {module:model/Devicev2Cert} devicev2Cert 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2Cert}
      */
-    devicesV2CertsUpdate(cid, id, devicev2Cert) {
-      return this.devicesV2CertsUpdateWithHttpInfo(cid, id, devicev2Cert)
+    devicesV2CertsUpdate(cid, id, devicev2Cert, opts) {
+      return this.devicesV2CertsUpdateWithHttpInfo(cid, id, devicev2Cert, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

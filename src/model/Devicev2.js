@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Devicev2 model module.
  * @module model/Devicev2
- * @version 3.0.0
+ * @version 3.1.3
  */
 class Devicev2 {
     /**
@@ -49,11 +49,17 @@ class Devicev2 {
         if (data) {
             obj = obj || new Devicev2();
 
+            if (data.hasOwnProperty('ble_mac')) {
+                obj['ble_mac'] = ApiClient.convertToType(data['ble_mac'], 'String');
+            }
             if (data.hasOwnProperty('connection_type')) {
                 obj['connection_type'] = ApiClient.convertToType(data['connection_type'], 'String');
             }
             if (data.hasOwnProperty('fqbn')) {
                 obj['fqbn'] = ApiClient.convertToType(data['fqbn'], 'String');
+            }
+            if (data.hasOwnProperty('locked')) {
+                obj['locked'] = ApiClient.convertToType(data['locked'], 'Boolean');
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
@@ -66,6 +72,9 @@ class Devicev2 {
             }
             if (data.hasOwnProperty('type')) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
+            }
+            if (data.hasOwnProperty('unique_hardware_id')) {
+                obj['unique_hardware_id'] = ApiClient.convertToType(data['unique_hardware_id'], 'String');
             }
             if (data.hasOwnProperty('user_id')) {
                 obj['user_id'] = ApiClient.convertToType(data['user_id'], 'String');
@@ -83,6 +92,10 @@ class Devicev2 {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>Devicev2</code>.
      */
     static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['ble_mac'] && !(typeof data['ble_mac'] === 'string' || data['ble_mac'] instanceof String)) {
+            throw new Error("Expected the field `ble_mac` to be a primitive type in the JSON string but got " + data['ble_mac']);
+        }
         // ensure the json data is a string
         if (data['connection_type'] && !(typeof data['connection_type'] === 'string' || data['connection_type'] instanceof String)) {
             throw new Error("Expected the field `connection_type` to be a primitive type in the JSON string but got " + data['connection_type']);
@@ -104,6 +117,10 @@ class Devicev2 {
             throw new Error("Expected the field `type` to be a primitive type in the JSON string but got " + data['type']);
         }
         // ensure the json data is a string
+        if (data['unique_hardware_id'] && !(typeof data['unique_hardware_id'] === 'string' || data['unique_hardware_id'] instanceof String)) {
+            throw new Error("Expected the field `unique_hardware_id` to be a primitive type in the JSON string but got " + data['unique_hardware_id']);
+        }
+        // ensure the json data is a string
         if (data['user_id'] && !(typeof data['user_id'] === 'string' || data['user_id'] instanceof String)) {
             throw new Error("Expected the field `user_id` to be a primitive type in the JSON string but got " + data['user_id']);
         }
@@ -121,6 +138,11 @@ class Devicev2 {
 
 
 /**
+ * @member {String} ble_mac
+ */
+Devicev2.prototype['ble_mac'] = undefined;
+
+/**
  * The type of the connections selected by the user when multiple connections are available
  * @member {module:model/Devicev2.ConnectionTypeEnum} connection_type
  */
@@ -131,6 +153,12 @@ Devicev2.prototype['connection_type'] = undefined;
  * @member {String} fqbn
  */
 Devicev2.prototype['fqbn'] = undefined;
+
+/**
+ * True if the device is locked and can't be claimed by another user
+ * @member {Boolean} locked
+ */
+Devicev2.prototype['locked'] = undefined;
 
 /**
  * The friendly name of the device
@@ -156,6 +184,11 @@ Devicev2.prototype['soft_deleted'] = false;
  * @member {module:model/Devicev2.TypeEnum} type
  */
 Devicev2.prototype['type'] = undefined;
+
+/**
+ * @member {String} unique_hardware_id
+ */
+Devicev2.prototype['unique_hardware_id'] = undefined;
 
 /**
  * The user_id associated to the device. If absent it will be inferred from the authentication header
@@ -337,7 +370,13 @@ Devicev2['TypeEnum'] = {
      * value: "nano_nora"
      * @const
      */
-    "nano_nora": "nano_nora"
+    "nano_nora": "nano_nora",
+
+    /**
+     * value: "unoq"
+     * @const
+     */
+    "unoq": "unoq"
 };
 
 

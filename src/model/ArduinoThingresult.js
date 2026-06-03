@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoThingresult model module.
  * @module model/ArduinoThingresult
- * @version 3.0.0
+ * @version 3.1.3
  */
 class ArduinoThingresult {
     /**

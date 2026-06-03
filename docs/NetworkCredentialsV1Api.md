@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ## networkCredentialsV1ShowByDevice
 
-> networkCredentialsV1ShowByDevice(type)
+> ArduinoArduinoconnectionsV1 networkCredentialsV1ShowByDevice(type)
 
 showByDevice network_credentials_v1
 
@@ -80,8 +80,8 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new ArduinoIotClient.NetworkCredentialsV1Api();
 let type = "type_example"; // String | Device type
-apiInstance.networkCredentialsV1ShowByDevice(type).then(() => {
-  console.log('API called successfully.');
+apiInstance.networkCredentialsV1ShowByDevice(type).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**ArduinoArduinoconnectionsV1**](ArduinoArduinoconnectionsV1.md)
 
 ### Authorization
 
@@ -106,5 +106,5 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, application/vnd.goa.error+json
+- **Accept**: application/vnd.arduino.arduinoconnections.v1+json, application/vnd.goa.error+json
 
