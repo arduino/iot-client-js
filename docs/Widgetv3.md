@@ -1,0 +1,22 @@
+# ArduinoIotClient.Widgetv3
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**height** | **Number** | Widget current height for desktop | 
+**heightMobile** | **Number** | Widget current height for mobile | [optional] 
+**id** | **String** | The UUID of the widget, set by client | 
+**name** | **String** | The name of the widget | [optional] 
+**options** | **{String: Object}** | Widget options | 
+**pageId** | **String** | The ID of the page the widget belongs to, \&quot;0\&quot; if it&#39;s in the main page | [optional] 
+**type** | **String** | The type of the widget | 
+**variables** | **[String]** |  | [optional] 
+**width** | **Number** | Widget current width for desktop | 
+**widthMobile** | **Number** | Widget current width for mobile | [optional] 
+**x** | **Number** | Widget x position for desktop | 
+**xMobile** | **Number** | Widget x position for mobile | [optional] 
+**y** | **Number** | Widget y position for desktop | 
+**yMobile** | **Number** | Widget y position for mobile | [optional] 
+
+

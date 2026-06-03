@@ -19,13 +19,14 @@ import ArduinoTriggerTemplate from '../model/ArduinoTriggerTemplate';
 import ArduinoTriggerWithLinkedEntities from '../model/ArduinoTriggerWithLinkedEntities';
 import CreateAction from '../model/CreateAction';
 import Error from '../model/Error';
+import RecipientsList from '../model/RecipientsList';
 import Trigger from '../model/Trigger';
 import UpdateAction from '../model/UpdateAction';
 
 /**
 * TriggersV1 service.
 * @module api/TriggersV1Api
-* @version 3.0.0
+* @version 3.1.3
 */
 export default class TriggersV1Api {
 
@@ -244,6 +245,66 @@ export default class TriggersV1Api {
      */
     actionsV1Show(id, opts) {
       return this.actionsV1ShowWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Unsubscribe actions_v1
+     * Remove selected recipients from the action
+     * @param {String} id The id of the action
+     * @param {module:model/RecipientsList} recipientsList 
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoAction} and HTTP response
+     */
+    actionsV1UnsubscribeWithHttpInfo(id, recipientsList, opts) {
+      opts = opts || {};
+      let postBody = recipientsList;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling actionsV1Unsubscribe");
+      }
+      // verify the required parameter 'recipientsList' is set
+      if (recipientsList === undefined || recipientsList === null) {
+        throw new Error("Missing the required parameter 'recipientsList' when calling actionsV1Unsubscribe");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+        'X-Organization': opts['xOrganization']
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oauth2'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/vnd.arduino.action+json', 'application/vnd.goa.error+json'];
+      let returnType = ArduinoAction;
+      return this.apiClient.callApi(
+        '/iot/v1/actions/{id}/unsubscribe', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Unsubscribe actions_v1
+     * Remove selected recipients from the action
+     * @param {String} id The id of the action
+     * @param {module:model/RecipientsList} recipientsList 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoAction}
+     */
+    actionsV1Unsubscribe(id, recipientsList, opts) {
+      return this.actionsV1UnsubscribeWithHttpInfo(id, recipientsList, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -641,6 +702,66 @@ export default class TriggersV1Api {
      */
     triggersV1Template(id, opts) {
       return this.triggersV1TemplateWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * unsubscribe triggers_v1
+     * Unsubscribe the list of users from all the actions of the trigger
+     * @param {String} id The id of the trigger
+     * @param {module:model/RecipientsList} recipientsList 
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    triggersV1UnsubscribeWithHttpInfo(id, recipientsList, opts) {
+      opts = opts || {};
+      let postBody = recipientsList;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling triggersV1Unsubscribe");
+      }
+      // verify the required parameter 'recipientsList' is set
+      if (recipientsList === undefined || recipientsList === null) {
+        throw new Error("Missing the required parameter 'recipientsList' when calling triggersV1Unsubscribe");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+        'X-Organization': opts['xOrganization']
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oauth2'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/vnd.goa.error+json', 'text/plain'];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/iot/v1/triggers/{id}/unsubscribe', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * unsubscribe triggers_v1
+     * Unsubscribe the list of users from all the actions of the trigger
+     * @param {String} id The id of the trigger
+     * @param {module:model/RecipientsList} recipientsList 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    triggersV1Unsubscribe(id, recipientsList, opts) {
+      return this.triggersV1UnsubscribeWithHttpInfo(id, recipientsList, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoDevicev2Otaupload model module.
  * @module model/ArduinoDevicev2Otaupload
- * @version 3.0.0
+ * @version 3.1.3
  */
 class ArduinoDevicev2Otaupload {
     /**

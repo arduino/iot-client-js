@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ArduinoPropertytype model module.
  * @module model/ArduinoPropertytype
- * @version 3.0.0
+ * @version 3.1.3
  */
 class ArduinoPropertytype {
     /**
@@ -27,7 +27,7 @@ class ArduinoPropertytype {
      * @param deprecated {Boolean} Tell if this type is deprecated
      * @param name {String} The friendly name of the property type
      * @param rw {Boolean} Tell if the type allow a R/W permission
-     * @param type {String} The api reference of this type
+     * @param type {module:model/ArduinoPropertytype.TypeEnum} The api reference of this type
      */
     constructor(declaration, deprecated, name, rw, type) { 
         
@@ -195,7 +195,7 @@ ArduinoPropertytype.prototype['tags'] = undefined;
 
 /**
  * The api reference of this type
- * @member {String} type
+ * @member {module:model/ArduinoPropertytype.TypeEnum} type
  */
 ArduinoPropertytype.prototype['type'] = undefined;
 
@@ -207,6 +207,639 @@ ArduinoPropertytype.prototype['units'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>type</code> property.
+ * @enum {String}
+ * @readonly
+ */
+ArduinoPropertytype['TypeEnum'] = {
+
+    /**
+     * value: "ENERGY"
+     * @const
+     */
+    "ENERGY": "ENERGY",
+
+    /**
+     * value: "FORCE"
+     * @const
+     */
+    "FORCE": "FORCE",
+
+    /**
+     * value: "TEMPERATURE"
+     * @const
+     */
+    "TEMPERATURE": "TEMPERATURE",
+
+    /**
+     * value: "POWER"
+     * @const
+     */
+    "POWER": "POWER",
+
+    /**
+     * value: "ELECTRIC_CURRENT"
+     * @const
+     */
+    "ELECTRIC_CURRENT": "ELECTRIC_CURRENT",
+
+    /**
+     * value: "ELECTRIC_POTENTIAL"
+     * @const
+     */
+    "ELECTRIC_POTENTIAL": "ELECTRIC_POTENTIAL",
+
+    /**
+     * value: "ELECTRICAL_RESISTANCE"
+     * @const
+     */
+    "ELECTRICAL_RESISTANCE": "ELECTRICAL_RESISTANCE",
+
+    /**
+     * value: "CAPACITANCE"
+     * @const
+     */
+    "CAPACITANCE": "CAPACITANCE",
+
+    /**
+     * value: "TIME"
+     * @const
+     */
+    "TIME": "TIME",
+
+    /**
+     * value: "FREQUENCY"
+     * @const
+     */
+    "FREQUENCY": "FREQUENCY",
+
+    /**
+     * value: "DATA_RATE"
+     * @const
+     */
+    "DATA_RATE": "DATA_RATE",
+
+    /**
+     * value: "HEART_BEATS"
+     * @const
+     */
+    "HEART_BEATS": "HEART_BEATS",
+
+    /**
+     * value: "COUNT"
+     * @const
+     */
+    "COUNT": "COUNT",
+
+    /**
+     * value: "ACCELERATION"
+     * @const
+     */
+    "ACCELERATION": "ACCELERATION",
+
+    /**
+     * value: "AREA"
+     * @const
+     */
+    "AREA": "AREA",
+
+    /**
+     * value: "LENGTH"
+     * @const
+     */
+    "LENGTH": "LENGTH",
+
+    /**
+     * value: "VELOCITY"
+     * @const
+     */
+    "VELOCITY": "VELOCITY",
+
+    /**
+     * value: "LOCATION"
+     * @const
+     */
+    "LOCATION": "LOCATION",
+
+    /**
+     * value: "MASS"
+     * @const
+     */
+    "MASS": "MASS",
+
+    /**
+     * value: "VOLUME"
+     * @const
+     */
+    "VOLUME": "VOLUME",
+
+    /**
+     * value: "FLOW_RATE"
+     * @const
+     */
+    "FLOW_RATE": "FLOW_RATE",
+
+    /**
+     * value: "ANGLE"
+     * @const
+     */
+    "ANGLE": "ANGLE",
+
+    /**
+     * value: "ILLUMINANCE"
+     * @const
+     */
+    "ILLUMINANCE": "ILLUMINANCE",
+
+    /**
+     * value: "LUMINOUS_FLUX"
+     * @const
+     */
+    "LUMINOUS_FLUX": "LUMINOUS_FLUX",
+
+    /**
+     * value: "LUMINANCE"
+     * @const
+     */
+    "LUMINANCE": "LUMINANCE",
+
+    /**
+     * value: "LUMINOUS_INTENSITY"
+     * @const
+     */
+    "LUMINOUS_INTENSITY": "LUMINOUS_INTENSITY",
+
+    /**
+     * value: "COLOR_HSB"
+     * @const
+     */
+    "COLOR_HSB": "COLOR_HSB",
+
+    /**
+     * value: "LOGARITHMIC_QUANTITY"
+     * @const
+     */
+    "LOGARITHMIC_QUANTITY": "LOGARITHMIC_QUANTITY",
+
+    /**
+     * value: "PRESSURE"
+     * @const
+     */
+    "PRESSURE": "PRESSURE",
+
+    /**
+     * value: "INFORMATION_CONTENT"
+     * @const
+     */
+    "INFORMATION_CONTENT": "INFORMATION_CONTENT",
+
+    /**
+     * value: "PERCENTAGE"
+     * @const
+     */
+    "PERCENTAGE": "PERCENTAGE",
+
+    /**
+     * value: "PERCENTAGE_RELATIVE_HUMIDITY"
+     * @const
+     */
+    "PERCENTAGE_RELATIVE_HUMIDITY": "PERCENTAGE_RELATIVE_HUMIDITY",
+
+    /**
+     * value: "GENERIC_COMPLEX_PROPERTY"
+     * @const
+     */
+    "GENERIC_COMPLEX_PROPERTY": "GENERIC_COMPLEX_PROPERTY",
+
+    /**
+     * value: "HOME_LIGHT"
+     * @const
+     */
+    "HOME_LIGHT": "HOME_LIGHT",
+
+    /**
+     * value: "HOME_DIMMED_LIGHT"
+     * @const
+     */
+    "HOME_DIMMED_LIGHT": "HOME_DIMMED_LIGHT",
+
+    /**
+     * value: "HOME_COLORED_LIGHT"
+     * @const
+     */
+    "HOME_COLORED_LIGHT": "HOME_COLORED_LIGHT",
+
+    /**
+     * value: "HOME_CONTACT_SENSOR"
+     * @const
+     */
+    "HOME_CONTACT_SENSOR": "HOME_CONTACT_SENSOR",
+
+    /**
+     * value: "HOME_SMART_PLUG"
+     * @const
+     */
+    "HOME_SMART_PLUG": "HOME_SMART_PLUG",
+
+    /**
+     * value: "HOME_SWITCH"
+     * @const
+     */
+    "HOME_SWITCH": "HOME_SWITCH",
+
+    /**
+     * value: "HOME_MOTION_SENSOR"
+     * @const
+     */
+    "HOME_MOTION_SENSOR": "HOME_MOTION_SENSOR",
+
+    /**
+     * value: "HOME_TEMPERATURE_C"
+     * @const
+     */
+    "HOME_TEMPERATURE_C": "HOME_TEMPERATURE_C",
+
+    /**
+     * value: "HOME_TEMPERATURE_F"
+     * @const
+     */
+    "HOME_TEMPERATURE_F": "HOME_TEMPERATURE_F",
+
+    /**
+     * value: "HOME_TELEVISION"
+     * @const
+     */
+    "HOME_TELEVISION": "HOME_TELEVISION",
+
+    /**
+     * value: "SCHEDULE"
+     * @const
+     */
+    "SCHEDULE": "SCHEDULE",
+
+    /**
+     * value: "CHARSTRING"
+     * @const
+     */
+    "CHARSTRING": "CHARSTRING",
+
+    /**
+     * value: "FLOAT"
+     * @const
+     */
+    "FLOAT": "FLOAT",
+
+    /**
+     * value: "INT"
+     * @const
+     */
+    "INT": "INT",
+
+    /**
+     * value: "STATUS"
+     * @const
+     */
+    "STATUS": "STATUS",
+
+    /**
+     * value: "AMPERE"
+     * @const
+     */
+    "AMPERE": "AMPERE",
+
+    /**
+     * value: "BECQUEREL"
+     * @const
+     */
+    "BECQUEREL": "BECQUEREL",
+
+    /**
+     * value: "BEL"
+     * @const
+     */
+    "BEL": "BEL",
+
+    /**
+     * value: "BIT"
+     * @const
+     */
+    "BIT": "BIT",
+
+    /**
+     * value: "BIT_PER_SECOND"
+     * @const
+     */
+    "BIT_PER_SECOND": "BIT_PER_SECOND",
+
+    /**
+     * value: "CANDELA"
+     * @const
+     */
+    "CANDELA": "CANDELA",
+
+    /**
+     * value: "CANDELA_PER_SQUARE_METER"
+     * @const
+     */
+    "CANDELA_PER_SQUARE_METER": "CANDELA_PER_SQUARE_METER",
+
+    /**
+     * value: "COULOMB"
+     * @const
+     */
+    "COULOMB": "COULOMB",
+
+    /**
+     * value: "CUBIC_METER"
+     * @const
+     */
+    "CUBIC_METER": "CUBIC_METER",
+
+    /**
+     * value: "CUBIC_METER_PER_SECOND"
+     * @const
+     */
+    "CUBIC_METER_PER_SECOND": "CUBIC_METER_PER_SECOND",
+
+    /**
+     * value: "DECIBEL"
+     * @const
+     */
+    "DECIBEL": "DECIBEL",
+
+    /**
+     * value: "DECIBEL_1W"
+     * @const
+     */
+    "DECIBEL_1W": "DECIBEL_1W",
+
+    /**
+     * value: "DEGREES_LATITUDE"
+     * @const
+     */
+    "DEGREES_LATITUDE": "DEGREES_LATITUDE",
+
+    /**
+     * value: "DEGREES_LONGITUDE"
+     * @const
+     */
+    "DEGREES_LONGITUDE": "DEGREES_LONGITUDE",
+
+    /**
+     * value: "EVENT_RATE_MINUTE"
+     * @const
+     */
+    "EVENT_RATE_MINUTE": "EVENT_RATE_MINUTE",
+
+    /**
+     * value: "EVENT_RATE_SECOND"
+     * @const
+     */
+    "EVENT_RATE_SECOND": "EVENT_RATE_SECOND",
+
+    /**
+     * value: "FARAD"
+     * @const
+     */
+    "FARAD": "FARAD",
+
+    /**
+     * value: "GRAM"
+     * @const
+     */
+    "GRAM": "GRAM",
+
+    /**
+     * value: "GRAY"
+     * @const
+     */
+    "GRAY": "GRAY",
+
+    /**
+     * value: "HEART_RATE"
+     * @const
+     */
+    "HEART_RATE": "HEART_RATE",
+
+    /**
+     * value: "HENRY"
+     * @const
+     */
+    "HENRY": "HENRY",
+
+    /**
+     * value: "HERTZ"
+     * @const
+     */
+    "HERTZ": "HERTZ",
+
+    /**
+     * value: "JOULE"
+     * @const
+     */
+    "JOULE": "JOULE",
+
+    /**
+     * value: "KATAL"
+     * @const
+     */
+    "KATAL": "KATAL",
+
+    /**
+     * value: "KELVIN"
+     * @const
+     */
+    "KELVIN": "KELVIN",
+
+    /**
+     * value: "KILOGRAM"
+     * @const
+     */
+    "KILOGRAM": "KILOGRAM",
+
+    /**
+     * value: "LENGHT_C"
+     * @const
+     */
+    "LENGHT_C": "LENGHT_C",
+
+    /**
+     * value: "LENGHT_I"
+     * @const
+     */
+    "LENGHT_I": "LENGHT_I",
+
+    /**
+     * value: "LENGHT_M"
+     * @const
+     */
+    "LENGHT_M": "LENGHT_M",
+
+    /**
+     * value: "LITER"
+     * @const
+     */
+    "LITER": "LITER",
+
+    /**
+     * value: "LITER_PER_SECOND"
+     * @const
+     */
+    "LITER_PER_SECOND": "LITER_PER_SECOND",
+
+    /**
+     * value: "LUMEN"
+     * @const
+     */
+    "LUMEN": "LUMEN",
+
+    /**
+     * value: "LUX"
+     * @const
+     */
+    "LUX": "LUX",
+
+    /**
+     * value: "METER_PER_SECOND"
+     * @const
+     */
+    "METER_PER_SECOND": "METER_PER_SECOND",
+
+    /**
+     * value: "METER_PER_SQUARE_SECOND"
+     * @const
+     */
+    "METER_PER_SQUARE_SECOND": "METER_PER_SQUARE_SECOND",
+
+    /**
+     * value: "MOLE"
+     * @const
+     */
+    "MOLE": "MOLE",
+
+    /**
+     * value: "NEWTON"
+     * @const
+     */
+    "NEWTON": "NEWTON",
+
+    /**
+     * value: "OHM"
+     * @const
+     */
+    "OHM": "OHM",
+
+    /**
+     * value: "PASCAL"
+     * @const
+     */
+    "PASCAL": "PASCAL",
+
+    /**
+     * value: "PERCENTAGE_BATTERY_LEVEL"
+     * @const
+     */
+    "PERCENTAGE_BATTERY_LEVEL": "PERCENTAGE_BATTERY_LEVEL",
+
+    /**
+     * value: "PH_VALUE"
+     * @const
+     */
+    "PH_VALUE": "PH_VALUE",
+
+    /**
+     * value: "RADIAN"
+     * @const
+     */
+    "RADIAN": "RADIAN",
+
+    /**
+     * value: "RATIO_DIV"
+     * @const
+     */
+    "RATIO_DIV": "RATIO_DIV",
+
+    /**
+     * value: "SECONDS_BATTERY_LEVEL"
+     * @const
+     */
+    "SECONDS_BATTERY_LEVEL": "SECONDS_BATTERY_LEVEL",
+
+    /**
+     * value: "SIEMENS"
+     * @const
+     */
+    "SIEMENS": "SIEMENS",
+
+    /**
+     * value: "SIEMENS_PER_METER"
+     * @const
+     */
+    "SIEMENS_PER_METER": "SIEMENS_PER_METER",
+
+    /**
+     * value: "SIEVERT"
+     * @const
+     */
+    "SIEVERT": "SIEVERT",
+
+    /**
+     * value: "SQUARE_METER"
+     * @const
+     */
+    "SQUARE_METER": "SQUARE_METER",
+
+    /**
+     * value: "STERADIAN"
+     * @const
+     */
+    "STERADIAN": "STERADIAN",
+
+    /**
+     * value: "TEMPERATURE_C"
+     * @const
+     */
+    "TEMPERATURE_C": "TEMPERATURE_C",
+
+    /**
+     * value: "TEMPERATURE_F"
+     * @const
+     */
+    "TEMPERATURE_F": "TEMPERATURE_F",
+
+    /**
+     * value: "TESLA"
+     * @const
+     */
+    "TESLA": "TESLA",
+
+    /**
+     * value: "VOLT"
+     * @const
+     */
+    "VOLT": "VOLT",
+
+    /**
+     * value: "WATT"
+     * @const
+     */
+    "WATT": "WATT",
+
+    /**
+     * value: "WATT_PER_SQUARE_METER"
+     * @const
+     */
+    "WATT_PER_SQUARE_METER": "WATT_PER_SQUARE_METER",
+
+    /**
+     * value: "WEBER"
+     * @const
+     */
+    "WEBER": "WEBER"
+};
 
 
 

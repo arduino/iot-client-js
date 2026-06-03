@@ -21,7 +21,7 @@ import Error from '../model/Error';
 /**
 * DevicesV2Pass service.
 * @module api/DevicesV2PassApi
-* @version 3.0.0
+* @version 3.1.3
 */
 export default class DevicesV2PassApi {
 
@@ -96,9 +96,12 @@ export default class DevicesV2PassApi {
      * delete devices_v2_pass
      * Removes the password for the device.
      * @param {String} id The id of the device
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    devicesV2PassDeleteWithHttpInfo(id) {
+    devicesV2PassDeleteWithHttpInfo(id, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -111,6 +114,7 @@ export default class DevicesV2PassApi {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -130,10 +134,12 @@ export default class DevicesV2PassApi {
      * delete devices_v2_pass
      * Removes the password for the device.
      * @param {String} id The id of the device
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    devicesV2PassDelete(id) {
-      return this.devicesV2PassDeleteWithHttpInfo(id)
+    devicesV2PassDelete(id, opts) {
+      return this.devicesV2PassDeleteWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -146,6 +152,7 @@ export default class DevicesV2PassApi {
      * @param {String} id The id of the device
      * @param {Object} opts Optional parameters
      * @param {Boolean} [suggestedPassword = false)] If true, return a suggested password
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2Pass} and HTTP response
      */
     devicesV2PassGetWithHttpInfo(id, opts) {
@@ -163,6 +170,7 @@ export default class DevicesV2PassApi {
         'suggested_password': opts['suggestedPassword']
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -184,6 +192,7 @@ export default class DevicesV2PassApi {
      * @param {String} id The id of the device
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.suggestedPassword If true, return a suggested password (default to false)
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2Pass}
      */
     devicesV2PassGet(id, opts) {
@@ -199,9 +208,12 @@ export default class DevicesV2PassApi {
      * Sets the password for the device. It can never be read back.
      * @param {String} id The id of the device
      * @param {module:model/Devicev2Pass} devicev2Pass 
+     * @param {Object} opts Optional parameters
+     * @param {String} [xOrganization] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ArduinoDevicev2Pass} and HTTP response
      */
-    devicesV2PassSetWithHttpInfo(id, devicev2Pass) {
+    devicesV2PassSetWithHttpInfo(id, devicev2Pass, opts) {
+      opts = opts || {};
       let postBody = devicev2Pass;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -218,6 +230,7 @@ export default class DevicesV2PassApi {
       let queryParams = {
       };
       let headerParams = {
+        'X-Organization': opts['xOrganization']
       };
       let formParams = {
       };
@@ -238,10 +251,12 @@ export default class DevicesV2PassApi {
      * Sets the password for the device. It can never be read back.
      * @param {String} id The id of the device
      * @param {module:model/Devicev2Pass} devicev2Pass 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ArduinoDevicev2Pass}
      */
-    devicesV2PassSet(id, devicev2Pass) {
-      return this.devicesV2PassSetWithHttpInfo(id, devicev2Pass)
+    devicesV2PassSet(id, devicev2Pass, opts) {
+      return this.devicesV2PassSetWithHttpInfo(id, devicev2Pass, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

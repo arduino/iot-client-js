@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## devicesV2OtaSend
 
-> devicesV2OtaSend(id, devicev2Otabinaryurl)
+> devicesV2OtaSend(id, devicev2Otabinaryurl, opts)
 
 send devices_v2_ota
 
@@ -30,7 +30,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new ArduinoIotClient.DevicesV2OtaApi();
 let id = "id_example"; // String | The id of the device
 let devicev2Otabinaryurl = new ArduinoIotClient.Devicev2Otabinaryurl(); // Devicev2Otabinaryurl | 
-apiInstance.devicesV2OtaSend(id, devicev2Otabinaryurl).then(() => {
+let opts = {
+  'xOrganization': "xOrganization_example" // String | 
+};
+apiInstance.devicesV2OtaSend(id, devicev2Otabinaryurl, opts).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -45,6 +48,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the device | 
  **devicev2Otabinaryurl** | [**Devicev2Otabinaryurl**](Devicev2Otabinaryurl.md)|  | 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 
@@ -81,6 +85,7 @@ let apiInstance = new ArduinoIotClient.DevicesV2OtaApi();
 let id = "id_example"; // String | The id of the device
 let otaFile = "/path/to/file"; // File | OTA file
 let opts = {
+  'xOrganization': "xOrganization_example", // String | 
   'async': true, // Boolean | If false, wait for the full OTA process, until it gets a result from the device
   'expireInMins': 10 // Number | Binary expire time in minutes, default 10 mins
 };
@@ -99,6 +104,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the device | 
  **otaFile** | **File**| OTA file | 
+ **xOrganization** | **String**|  | [optional] 
  **async** | **Boolean**| If false, wait for the full OTA process, until it gets a result from the device | [optional] [default to true]
  **expireInMins** | **Number**| Binary expire time in minutes, default 10 mins | [optional] [default to 10]
 
@@ -118,7 +124,7 @@ Name | Type | Description  | Notes
 
 ## devicesV2OtaUrl
 
-> devicesV2OtaUrl(id, devicev2Otaurlpyalod)
+> devicesV2OtaUrl(id, devicev2Otaurlpyalod, opts)
 
 url devices_v2_ota
 
@@ -136,7 +142,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new ArduinoIotClient.DevicesV2OtaApi();
 let id = "id_example"; // String | The id of the device
 let devicev2Otaurlpyalod = new ArduinoIotClient.Devicev2Otaurlpyalod(); // Devicev2Otaurlpyalod | 
-apiInstance.devicesV2OtaUrl(id, devicev2Otaurlpyalod).then(() => {
+let opts = {
+  'xOrganization': "xOrganization_example" // String | 
+};
+apiInstance.devicesV2OtaUrl(id, devicev2Otaurlpyalod, opts).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -151,6 +160,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the device | 
  **devicev2Otaurlpyalod** | [**Devicev2Otaurlpyalod**](Devicev2Otaurlpyalod.md)|  | 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 

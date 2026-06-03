@@ -18,7 +18,7 @@ import DeviceStatusSource from './DeviceStatusSource';
 /**
  * The ArduinoTrigger model module.
  * @module model/ArduinoTrigger
- * @version 3.0.0
+ * @version 3.1.3
  */
 class ArduinoTrigger {
     /**

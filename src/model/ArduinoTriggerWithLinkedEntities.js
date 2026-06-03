@@ -19,7 +19,7 @@ import DeviceStatusSourceWithLinkedDevices from './DeviceStatusSourceWithLinkedD
 /**
  * The ArduinoTriggerWithLinkedEntities model module.
  * @module model/ArduinoTriggerWithLinkedEntities
- * @version 3.0.0
+ * @version 3.1.3
  */
 class ArduinoTriggerWithLinkedEntities {
     /**
