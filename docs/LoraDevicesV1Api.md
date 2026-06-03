@@ -28,7 +28,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new ArduinoIotClient.LoraDevicesV1Api();
 let createLoraDevicesV1Payload = new ArduinoIotClient.CreateLoraDevicesV1Payload(); // CreateLoraDevicesV1Payload | 
 let opts = {
-  'xOrganization': "xOrganization_example" // String | Organization space identifer (optional)
+  'xOrganization': "xOrganization_example" // String | 
 };
 apiInstance.loraDevicesV1Create(createLoraDevicesV1Payload, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -44,7 +44,7 @@ apiInstance.loraDevicesV1Create(createLoraDevicesV1Payload, opts).then((data) =>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createLoraDevicesV1Payload** | [**CreateLoraDevicesV1Payload**](CreateLoraDevicesV1Payload.md)|  | 
- **xOrganization** | **String**| Organization space identifer (optional) | [optional] 
+ **xOrganization** | **String**|  | [optional] 
 
 ### Return type
 

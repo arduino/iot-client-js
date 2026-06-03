@@ -17,7 +17,7 @@ import UserRecipient from './UserRecipient';
 /**
  * The PushDeliveryOpts model module.
  * @module model/PushDeliveryOpts
- * @version 3.0.0
+ * @version 3.1.3
  */
 class PushDeliveryOpts {
     /**
